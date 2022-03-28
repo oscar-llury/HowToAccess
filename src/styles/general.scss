@@ -1,0 +1,82 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --header-height: 64px;
+  --banner-height: 0px;
+  --vh100-offset: calc(var(--header-height) + var(--banner-height));
+}
+
+$theme-colors-p: (
+  "oscar": rgb(230, 29, 213),
+);
+
+// Merge the maps
+$utilities-text: map-merge($utilities-text, $theme-colors-p);
+$utilities-text-colors: map-loop(
+  $utilities-text,
+  rgba-css-var,
+  "$key",
+  "text"
+) !default;
+// scss-docs-end utilities-text-colors
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/*******HEADER*******/
+.bg-light {
+  background-color: $gray-200 !important;
+}
+.app-nav-header {
+  height: --header-height;
+}
+.app-nav-header {
+  .nav-item {
+    padding: 1em;
+    text-decoration: none;
+  }
+}
+
+/*******LOGIN*******/
+.app-login {
+  height: calc(100vh - var(--vh100-offset));
+  //font-size: calc(10px + 2vmin);
+  color: white;
+}
+.app-login-logo {
+  height: 50px;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
