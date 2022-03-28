@@ -1,0 +1,27 @@
+on:
+  push:
+    branches:
+      - development
+name: 🚀 Deploy dev
+jobs:
+  build:
+    name: 🌐 Deploy Back
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: ls -l
+
+      - name: 🎉 Deploy
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: ftp.casaloca.es
+          username: ${{ secrets.ftp_username }}
+          password: ${{ secrets.ftp_password }}
+          local-dir: ./back/
+          server-dir: /tfg_dev/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/vendor/**
