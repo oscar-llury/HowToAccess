@@ -1,3 +1,4 @@
+import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 //NavDropdown
@@ -10,7 +11,10 @@ import { Link } from "react-router-dom";
 
 import logo from "../img/logo.svg";
 
-function Header() {
+function Header(props) {
+  const isLoggedIn = props.username;
+  console.dir(isLoggedIn);
+
   return (
     <header>
       <Navbar
@@ -48,9 +52,15 @@ function Header() {
               </Link>
             </Nav>
             <Nav>
-              <Link to="/iniciar-sesion" className="nav-item">
-                Iniciar sesión
-              </Link>
+              {isLoggedIn ? (
+                <Link to="#" className="nav-item">
+                  {isLoggedIn}
+                </Link>
+              ) : (
+                <Link to="/iniciar-sesion" className="nav-item">
+                  Iniciar sesión
+                </Link>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>

@@ -34,7 +34,7 @@ code {
   background-color: $gray-200 !important;
 }
 .app-nav-header {
-  height: --header-height;
+  height: var(--header-height);
 }
 .app-nav-header {
   .nav-item {
