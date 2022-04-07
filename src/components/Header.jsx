@@ -1,19 +1,14 @@
 import React from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
-//NavDropdown
-//import Link from "next/link";
-//import Contexto_usuario from '../lib/usuario';
-//import Router from "next/router";
+import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
+
+import HandleLogout from "../lib/logout";
 
 //import Cookies from "js-cookie";
-//import { useContext } from "react";
 
 import logo from "../img/logo.svg";
 
-function Header({ username }) {
-  //console.dir(username);
-
+function Header({ username, setToken, setUsername }) {
   return (
     <header>
       <Navbar
@@ -52,9 +47,28 @@ function Header({ username }) {
             </Nav>
             <Nav>
               {username ? (
-                <Link to="#" className="nav-item">
-                  {username}
-                </Link>
+                <NavDropdown
+                  title={`Hola ${username}`}
+                  id="collasible-nav-dropdown"
+                >
+                  <Link to="/proyectos" className="nav-item">
+                    Mis Proyectos
+                  </Link>
+                  <NavDropdown.Divider />
+                  <Link to="#" className="nav-item">
+                    Simulación interactiva
+                  </Link>
+                  <NavDropdown.Divider />
+                  <Link
+                    to="/"
+                    className="nav-item"
+                    onClick={(e) => {
+                      HandleLogout(setToken, setUsername);
+                    }}
+                  >
+                    Cerrar sesión
+                  </Link>
+                </NavDropdown>
               ) : (
                 <Link to="/iniciar-sesion" className="nav-item">
                   Iniciar sesión
@@ -69,13 +83,3 @@ function Header({ username }) {
 }
 
 export default Header;
-
-/*
-<NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-<NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-<NavDropdown.Divider />
-<NavDropdown.Item href="#action/3.4">
-    Separated link
-</NavDropdown.Item>
-</NavDropdown>
-*/

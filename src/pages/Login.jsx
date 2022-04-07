@@ -1,45 +1,15 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-//import ReactDOM from "react-dom";
 import { Button, Container, Row, Col, Form } from "react-bootstrap";
-import axios from "axios";
-import logo from "../img/logo.svg";
 
-async function HandleLogin(data, setToken, setUsername) {
-  /*const headers = {
-    "Content-Type": "application/json",
-    Authorization: "JWT fefege...",
-  };*/
-  const headers = {
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-  };
-  return (
-    axios
-      //.headers({ "Access-Control-Allow-Origin": "*" })
-      .post("http://localhost/tfg/back/login.php", data, headers)
-      .then((data) => {
-        //console.log(data);
-        const dataR = data.data;
-        setUsername(dataR.username);
-        setToken(dataR.token);
-        return true;
-        //window.location = "/";
-        //navigate("/");
-        //return JSON.stringify(data.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-  );
-}
+import HandleLogin from "../lib/login";
+import logo from "../img/logo.svg";
 
 export default function Login({ setToken, setUsername }) {
   //states
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   //functions
   const handleSubmit = async (e) => {

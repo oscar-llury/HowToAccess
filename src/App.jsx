@@ -12,22 +12,22 @@ import Proyectos from "./pages/Proyectos";
 function App() {
   //states
   const [token, setToken] = useState(); //usar con redux
-  const [username, setUsername] = useState();
-  /*
-  if(!token) {
-    return <Login setToken={setToken} />
-  }
-*/
+  const [username, setUsername] = useState(); //usar con redux
 
   return (
     <div className="App">
-      <Header username={username} />
+      <Header
+        username={username}
+        setToken={setToken}
+        setUsername={setUsername}
+      />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
           path="/iniciar-sesion"
           element={<Login setToken={setToken} setUsername={setUsername} />}
         />
+        <Route path="/proyectos" element={<Proyectos />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

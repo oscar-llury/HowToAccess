@@ -35,11 +35,16 @@ code {
 }
 .app-nav-header {
   height: var(--header-height);
-}
-.app-nav-header {
   .nav-item {
     padding: 1em;
     text-decoration: none;
+  }
+  .dropdown-toggle::after {
+    margin-left: 0.5em;
+  }
+  .dropdown-menu[data-bs-popper] {
+    //left: -50%;
+    width: max-content;
   }
 }
 
@@ -47,12 +52,17 @@ code {
 .app-login {
   height: calc(100vh - var(--vh100-offset));
   //font-size: calc(10px + 2vmin);
-  color: white;
-}
-.app-login-logo {
-  height: 50px;
+  color: rgb(0, 0, 0);
+
+  .app-login-logo {
+    height: 50px;
+  }
+  form {
+    text-align: left;
+  }
 }
 
+/*******OLD REACT*******/
 .App {
   text-align: center;
 }
