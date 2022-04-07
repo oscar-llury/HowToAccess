@@ -11,9 +11,8 @@ import { Link } from "react-router-dom";
 
 import logo from "../img/logo.svg";
 
-function Header(props) {
-  const isLoggedIn = props.username;
-  console.dir(isLoggedIn);
+function Header({ username }) {
+  //console.dir(username);
 
   return (
     <header>
@@ -52,9 +51,9 @@ function Header(props) {
               </Link>
             </Nav>
             <Nav>
-              {isLoggedIn ? (
+              {username ? (
                 <Link to="#" className="nav-item">
-                  {isLoggedIn}
+                  {username}
                 </Link>
               ) : (
                 <Link to="/iniciar-sesion" className="nav-item">
