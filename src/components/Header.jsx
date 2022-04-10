@@ -1,14 +1,13 @@
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import HandleLogout from "../lib/logout";
-
-//import Cookies from "js-cookie";
-
+import { useAuth } from "../lib/auth";
 import logo from "../img/logo.svg";
 
-function Header({ username, setToken, setUsername }) {
+function Header({ username }) {
+  let auth = useAuth();
+
   return (
     <header>
       <Navbar
@@ -59,13 +58,7 @@ function Header({ username, setToken, setUsername }) {
                     Simulación interactiva
                   </Link>
                   <NavDropdown.Divider />
-                  <Link
-                    to="/"
-                    className="nav-item"
-                    onClick={(e) => {
-                      HandleLogout(setToken, setUsername);
-                    }}
-                  >
+                  <Link to="/" className="nav-item" onClick={auth.signin()}>
                     Cerrar sesión
                   </Link>
                 </NavDropdown>
