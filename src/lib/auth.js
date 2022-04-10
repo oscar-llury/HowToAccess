@@ -27,7 +27,7 @@ export function AuthProvider({ children }) {
     return (
       axios
         //.headers({ "Access-Control-Allow-Origin": "*" })
-        .post("http://localhost/tfg/back/login.php", data, headers)
+        .post(`${process.env.REACT_APP_BACK_URL}login.php`, data, headers)
         .then((data) => {
           const dataR = data.data;
           //setUsername(dataR.username);
