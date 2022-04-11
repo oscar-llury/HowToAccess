@@ -1,5 +1,5 @@
 //router
-import React, { useState } from "react";
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 //components
 import Header from "./components/Header";
@@ -12,14 +12,10 @@ import Proyectos from "./pages/Proyectos";
 import { AuthProvider, RequireAuth } from "./lib/auth";
 
 export default function App() {
-  //states
-  //const [token, setToken] = useState(); //usar con redux
-  const [username, setUsername] = useState(); //usar con redux
-
   return (
     <div className="App">
-      <Header username={username} />
       <AuthProvider>
+        <Header />
         <Routes>
           <Route index element={<Home />} />
           <Route path="/iniciar-sesion" element={<Login />} />

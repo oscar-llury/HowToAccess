@@ -1,14 +1,18 @@
 import axios from "axios";
 import React from "react";
 import { Navigate, useLocation } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 //import Cookies from "js-cookie";
 
 const AuthContext = React.createContext();
 
 export function AuthProvider({ children }) {
-  const [token, setToken] = React.useState();
+  const token = useSelector((state) => state.token);
+  const dispatch = useDispatch();
 
-  const signin = async (formData, callback) => {
+  const login = async (formData, callback) => {
+    console.log("login");
+
     let username = formData.get("username");
     let password = formData.get("password");
     let data = {
@@ -30,8 +34,8 @@ export function AuthProvider({ children }) {
         .post(`${process.env.REACT_APP_BACK_URL}login.php`, data, headers)
         .then((data) => {
           const dataR = data.data;
-          //setUsername(dataR.username);
-          setToken(dataR.token);
+          dispatch({ type: "LOGIN_TOKEN", data: dataR.token });
+          dispatch({ type: "LOGIN_USERNAME", data: dataR.username });
           callback(true);
         })
         .catch((err) => {
@@ -41,12 +45,14 @@ export function AuthProvider({ children }) {
     );
   };
 
-  const signout = (callback) => {
-    setToken();
+  const logout = (user, callback) => {
+    console.log("logout");
+    dispatch({ type: "LOGOUT_TOKEN" });
+    dispatch({ type: "LOGOUT_USERNAME" });
     callback(true);
   };
 
-  const value = { token, signin, signout };
+  const value = { token, login, logout };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

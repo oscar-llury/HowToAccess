@@ -1,12 +1,28 @@
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import { useAuth } from "../lib/auth";
 import logo from "../img/logo.svg";
 
-function Header({ username }) {
+export default function Header() {
+  let navigate = useNavigate();
   let auth = useAuth();
+  const username = useSelector((state) => state.username);
+
+  console.log(username);
+
+  async function handleLogout(event) {
+    event.preventDefault();
+
+    await auth.logout(null, (status) => {
+      if (status) {
+        console.log("ok");
+        navigate("/");
+      }
+    });
+  }
 
   return (
     <header>
@@ -58,7 +74,7 @@ function Header({ username }) {
                     Simulación interactiva
                   </Link>
                   <NavDropdown.Divider />
-                  <Link to="/" className="nav-item" onClick={auth.signin()}>
+                  <Link to="/" className="nav-item" onClick={handleLogout}>
                     Cerrar sesión
                   </Link>
                 </NavDropdown>
@@ -74,5 +90,3 @@ function Header({ username }) {
     </header>
   );
 }
-
-export default Header;
