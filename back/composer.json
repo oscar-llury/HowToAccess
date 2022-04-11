@@ -1,0 +1,19 @@
+{
+    "name": "oscar/back",
+    "description": "PHP back",
+    "authors": [
+        {
+            "name": "Óscar Rivas",
+            "email": "oscar.rivas.99@gmail.com"
+        }
+    ],
+    "require": {
+        "firebase/php-jwt": "^6.1",
+        "nette/database": "^3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "back\\db\\":"db/"
+        }
+    }
+}

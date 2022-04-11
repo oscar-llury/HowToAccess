@@ -1,7 +1,17 @@
 <?php
 
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
+include_once('./global.php');
+
+use back\db\DataBase;
+
+$db =  new DataBase();
+
+$email = isset($_REQUEST["user"]) ? $_REQUEST["user"] : "";
+$contrasena = isset($_REQUEST["passw"]) ? $_REQUEST["passw"] : "";
+
+$contrasena = hash('sha256', $contrasena);
+
+var_dump($contrasena);
 
 $foo = new stdClass();
 $foo->token = 'TOKEN';
