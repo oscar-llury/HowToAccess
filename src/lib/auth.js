@@ -13,39 +13,43 @@ export function AuthProvider({ children }) {
   const login = async (formData, callback) => {
     console.log("login");
 
-    let username = formData.get("username");
-    let password = formData.get("password");
-    let data = {
-      user: username,
-      passw: password,
-    };
-    /*const headers = {
-    "Content-Type": "application/json",
-    Authorization: "JWT fefege...",
-  };*/
-    const headers = {
+    /*
+    fetch(`${process.env.REACT_APP_BACK_URL}login.php`, {
+      method: "POST",
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
+        //"Content-Type": "application/x-www-form-urlencoded",
       },
+      body: formData,
+    })
+      .then((res) => console.log(res))
+      .catch((err) => {
+        console.log(err);
+        callback(false);
+      });
+    */
+
+    const headers = {
+      headers: {},
     };
-    return (
-      axios
-        //.headers({ "Access-Control-Allow-Origin": "*" })
-        .post(`${process.env.REACT_APP_BACK_URL}login.php`, data, headers)
-        .then((data) => {
-          const dataR = data.data;
-          dispatch({ type: "LOGIN_TOKEN", data: dataR.token });
-          dispatch({ type: "LOGIN_USERNAME", data: dataR.username });
-          callback(true);
-        })
-        .catch((err) => {
-          console.log(err);
-          callback(false);
-        })
-    );
+    return axios
+      .post(`${process.env.REACT_APP_BACK_URL}login.php`, formData, headers)
+      .then((data) => {
+        const dataR = data.data.data;
+        console.dir(dataR);
+        dispatch({ type: "LOGIN_TOKEN", data: dataR.token });
+        dispatch({ type: "LOGIN_USERNAME", data: dataR.username });
+        callback(true);
+      })
+      .catch((err) => {
+        console.log(err);
+        callback(false);
+      })
+      .finally((e) => {
+        console.log("always");
+      });
   };
 
-  const logout = (user, callback) => {
+  const logout = (callback) => {
     console.log("logout");
     dispatch({ type: "LOGOUT_TOKEN" });
     dispatch({ type: "LOGOUT_USERNAME" });

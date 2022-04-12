@@ -11,7 +11,7 @@ alter table `tfg`.`usr_suscripcion` AUTO_INCREMENT=1;
 alter table `tfg`.`usr_usuario` AUTO_INCREMENT=1;
 
 -- usuario
-INSERT INTO `tfg`.`usr_usuario` (`nombre`, `apellidos`, `email`, `contrasena`) VALUES ('admin', 'web', 'oscar.rivas.99@gmail.com', 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855');
+INSERT INTO `tfg`.`usr_usuario` (`nombre`, `apellidos`, `email`, `contrasena`) VALUES ('admin', 'web', 'oscar.rivas.99@gmail.com', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918');
 
 -- tipo suscripcion
 INSERT INTO `tfg`.`usr_suscripcion` (`nombre`, `max_proyectos`) VALUES ('Básica', '5');

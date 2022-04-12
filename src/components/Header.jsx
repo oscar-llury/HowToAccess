@@ -16,7 +16,7 @@ export default function Header() {
   async function handleLogout(event) {
     event.preventDefault();
 
-    await auth.logout(null, (status) => {
+    await auth.logout((status) => {
       if (status) {
         console.log("ok");
         navigate("/");
