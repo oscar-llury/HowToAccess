@@ -29,6 +29,10 @@ code {
     monospace;
 }
 
+.text-hover:hover {
+  cursor: pointer;
+}
+
 /*******HEADER*******/
 .bg-light {
   background-color: $gray-200 !important;
