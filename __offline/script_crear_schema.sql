@@ -134,6 +134,15 @@ CREATE TABLE `tfg`.`acc_nivel_conformidad` (
   `activo` INT NULL DEFAULT 1,
   PRIMARY KEY (`id`));
 
+CREATE TABLE `tfg`.`acc_criterio_version` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(500) NOT NULL,
+  `fecha_publicacion` INT(11) NULL,
+  `fecha_created_` INT(11) NULL,
+  `fecha_updated` INT(11) NULL,
+  `activo` INT NOT NULL DEFAULT 1,
+  PRIMARY KEY (`id`));
+
 CREATE TABLE `tfg`.`acc_criterio_conformidad` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `principio_id` INT(11) NOT NULL,
@@ -141,6 +150,7 @@ CREATE TABLE `tfg`.`acc_criterio_conformidad` (
   `codigo` VARCHAR(20) NULL,
   `nombre` VARCHAR(100) NULL,
   `nivel_conformidad` INT(11) NOT NULL,
+  `version_id` INT(11) NULL,
   `fecha_created` INT(11) NULL,
   `fecha_updated` INT(11) NULL,
   `activo` INT NULL DEFAULT 1,
@@ -158,6 +168,11 @@ CREATE TABLE `tfg`.`acc_criterio_conformidad` (
   CONSTRAINT `acc_criterio_conformidad_principio_id`
     FOREIGN KEY (`principio_id`)
     REFERENCES `tfg`.`acc_principio` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+CONSTRAINT `acc_criterio_conformidad_version_id`
+    FOREIGN KEY (`version_id`)
+    REFERENCES `tfg`.`acc_criterio_version` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 /*
