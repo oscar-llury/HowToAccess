@@ -4,8 +4,8 @@
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
 
-
-include_once('./vendor/autoload.php');
+$_SERVER['DOCUMENT_ROOT'] = $_SERVER['DOCUMENT_ROOT'].'/tfg/back';
+require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
 
 const ACTIVO = 1;
 const NO_ACTIVO = '0';

@@ -52,9 +52,9 @@ CREATE TABLE `tfg`.`pro_tipo_proyecto` (
 CREATE TABLE `tfg`.`pro_proyecto` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
+  `tipo_proyecto` INT(11) NOT NULL,
   `fecha_created` INT(11) NULL,
   `fecha_updated` INT(11) NULL,
-  `tipo_proyecto` INT(11) NOT NULL,
   `activo` INT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`),
   CONSTRAINT `pro_proyecto_tipo_proyecto`

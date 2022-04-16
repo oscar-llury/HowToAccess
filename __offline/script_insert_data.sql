@@ -141,3 +141,17 @@ INSERT INTO `tfg`.`acc_criterio_conformidad` (`principio_id`, `pauta_id`, `codig
 INSERT INTO `tfg`.`acc_criterio_conformidad` (`principio_id`, `pauta_id`, `codigo`, `nombre`, `nivel_conformidad`, `version_id`) VALUES ('4', '13', '1', 'Procesamiento', '1', '1');
 INSERT INTO `tfg`.`acc_criterio_conformidad` (`principio_id`, `pauta_id`, `codigo`, `nombre`, `nivel_conformidad`, `version_id`) VALUES ('4', '13', '2', 'Nombre, función, valor', '1', '1');
 INSERT INTO `tfg`.`acc_criterio_conformidad` (`principio_id`, `pauta_id`, `codigo`, `nombre`, `nivel_conformidad`, `version_id`) VALUES ('4', '13', '3', 'Mensajes de estado', '2', '2');
+
+-- proyecto
+INSERT INTO `tfg`.`pro_proyecto` (`nombre`, `tipo_proyecto`) VALUES ('Proyecto oscar', '1');
+INSERT INTO `tfg`.`pro_proyecto` (`nombre`, `tipo_proyecto`) VALUES ('Proyecto ejemplo', '1');
+
+-- usr has proyecto
+INSERT INTO `tfg`.`usr_has_proyecto` (`id_usuario`, `id_proyecto`) VALUES ('1', '1');
+INSERT INTO `tfg`.`usr_has_proyecto` (`id_usuario`, `id_proyecto`) VALUES ('1', '2');
+
+-- pro has criterio
+INSERT INTO `tfg`.`pro_has_criterio` (`proyecto_id`, `criterio_id`) VALUES ('1', '1');
+INSERT INTO `tfg`.`pro_has_criterio` (`proyecto_id`, `criterio_id`, `completado`) VALUES ('1', '2', '1');
+INSERT INTO `tfg`.`pro_has_criterio` (`proyecto_id`, `criterio_id`) VALUES ('2', '3');
+INSERT INTO `tfg`.`pro_has_criterio` (`proyecto_id`, `criterio_id`, `completado`) VALUES ('2', '4', '1');

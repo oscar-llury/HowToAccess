@@ -19,12 +19,13 @@ export default function Proyectos() {
     };
     return axios
       .post(
-        `${process.env.REACT_APP_BACK_URL}login.php`,
+        `${process.env.REACT_APP_BACK_URL}/proyectos/listar.php`,
         "token=" + token,
         headers
       )
       .then((data) => {
         const dataR = data.data.data;
+        setProyectos(dataR);
         console.dir(dataR);
       })
       .catch((err) => {
@@ -35,25 +36,7 @@ export default function Proyectos() {
       });
   }, []);
 
-  const [proyectos, setProyectos] = useState([
-    {
-      id: 1,
-      estado: false,
-      nombre: "Nombre del proyecto 1",
-      conformidad: "A",
-      criteriosF: 15,
-      criteriosT: 20,
-    },
-    {
-      id: 2,
-      estado: true,
-      nombre:
-        "Nombre del proyecto 2 agd adgfdagads adgfdsagf adsfdsagf adsgfdsagf asfdsa",
-      conformidad: "AAA",
-      criteriosF: 20,
-      criteriosT: 20,
-    },
-  ]);
+  const [proyectos, setProyectos] = useState([]);
 
   return (
     <Container fluid className="text-black p-lg-5">

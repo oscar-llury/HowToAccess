@@ -32,7 +32,7 @@ export function AuthProvider({ children }) {
       headers: {},
     };
     return axios
-      .post(`${process.env.REACT_APP_BACK_URL}login.php`, formData, headers)
+      .post(`${process.env.REACT_APP_BACK_URL}/login.php`, formData, headers)
       .then((data) => {
         const dataR = data.data.data;
         console.dir(dataR);
