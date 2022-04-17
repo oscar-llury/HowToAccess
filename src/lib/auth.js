@@ -11,8 +11,6 @@ export function AuthProvider({ children }) {
   const dispatch = useDispatch();
 
   const login = async (formData, callback) => {
-    console.log("login");
-
     /*
     fetch(`${process.env.REACT_APP_BACK_URL}login.php`, {
       method: "POST",
@@ -32,20 +30,28 @@ export function AuthProvider({ children }) {
       headers: {},
     };
     return axios
-      .post(`${process.env.REACT_APP_BACK_URL}/login.php`, formData, headers)
+      .post(
+        `${process.env.REACT_APP_BACK_URL}/API/login/login.php`,
+        formData,
+        headers
+      )
       .then((data) => {
-        const dataR = data.data.data;
-        console.dir(dataR);
-        dispatch({ type: "LOGIN_TOKEN", data: dataR.token });
-        dispatch({ type: "LOGIN_USERNAME", data: dataR.username });
-        callback(true);
+        const dataR = data.data;
+        if (dataR.status) {
+          dispatch({ type: "LOGIN_TOKEN", data: dataR.data.token });
+          dispatch({ type: "LOGIN_USERNAME", data: dataR.data.username });
+          callback(true);
+        } else {
+          console.dir(dataR);
+          callback(false);
+        }
       })
       .catch((err) => {
         console.log(err);
         callback(false);
       })
       .finally((e) => {
-        console.log("always");
+        //console.log("always");
       });
   };
 

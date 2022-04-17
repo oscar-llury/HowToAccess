@@ -17,7 +17,9 @@ INSERT INTO `tfg`.`usr_usuario` (`nombre`, `apellidos`, `email`, `contrasena`) V
 INSERT INTO `tfg`.`usr_suscripcion` (`nombre`, `max_proyectos`) VALUES ('Básica', '5');
 
 -- tipo proyecto
-INSERT INTO `tfg`.`pro_tipo_proyecto` (`nombre`) VALUES ('Nivel de conformidad objetivo');
+INSERT INTO `tfg`.`pro_tipo_proyecto` (`nombre`) VALUES ('Nivel de conformidad objetivo A');
+INSERT INTO `tfg`.`pro_tipo_proyecto` (`nombre`) VALUES ('Nivel de conformidad objetivo AA');
+INSERT INTO `tfg`.`pro_tipo_proyecto` (`nombre`) VALUES ('Nivel de conformidad objetivo AAA');
 INSERT INTO `tfg`.`pro_tipo_proyecto` (`nombre`) VALUES ('Público objetivo');
 
 -- versiones
@@ -144,14 +146,20 @@ INSERT INTO `tfg`.`acc_criterio_conformidad` (`principio_id`, `pauta_id`, `codig
 
 -- proyecto
 INSERT INTO `tfg`.`pro_proyecto` (`nombre`, `tipo_proyecto`) VALUES ('Proyecto oscar', '1');
-INSERT INTO `tfg`.`pro_proyecto` (`nombre`, `tipo_proyecto`) VALUES ('Proyecto ejemplo', '1');
+INSERT INTO `tfg`.`pro_proyecto` (`nombre`, `tipo_proyecto`) VALUES ('Proyecto ejemplo', '2');
+INSERT INTO `tfg`.`pro_proyecto` (`nombre`, `tipo_proyecto`) VALUES ('Proyecto tres', '3');
+INSERT INTO `tfg`.`pro_proyecto` (`nombre`, `tipo_proyecto`) VALUES ('Proyecto cuatro', '4');
 
 -- usr has proyecto
 INSERT INTO `tfg`.`usr_has_proyecto` (`id_usuario`, `id_proyecto`) VALUES ('1', '1');
 INSERT INTO `tfg`.`usr_has_proyecto` (`id_usuario`, `id_proyecto`) VALUES ('1', '2');
+INSERT INTO `tfg`.`usr_has_proyecto` (`id_usuario`, `id_proyecto`) VALUES ('1', '3');
+INSERT INTO `tfg`.`usr_has_proyecto` (`id_usuario`, `id_proyecto`) VALUES ('1', '4');
 
 -- pro has criterio
 INSERT INTO `tfg`.`pro_has_criterio` (`proyecto_id`, `criterio_id`) VALUES ('1', '1');
 INSERT INTO `tfg`.`pro_has_criterio` (`proyecto_id`, `criterio_id`, `completado`) VALUES ('1', '2', '1');
 INSERT INTO `tfg`.`pro_has_criterio` (`proyecto_id`, `criterio_id`) VALUES ('2', '3');
 INSERT INTO `tfg`.`pro_has_criterio` (`proyecto_id`, `criterio_id`, `completado`) VALUES ('2', '4', '1');
+INSERT INTO `tfg`.`pro_has_criterio` (`proyecto_id`, `criterio_id`) VALUES ('3', '5');
+INSERT INTO `tfg`.`pro_has_criterio` (`proyecto_id`, `criterio_id`) VALUES ('4', '6');

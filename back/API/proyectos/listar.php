@@ -1,6 +1,6 @@
 <?php
 
-require_once('../global.php');
+require_once('../../global.php');
 
 use back\db\DataBase;
 
@@ -56,9 +56,9 @@ if ($proyectosUsr) {
             $sumTotalCrF = 0;
 
             $id = $prj->id;
-            $objData->id = cifrarId($prj->id);
+            $objData->id = cifrarBA64($prj->id);
             $objData->nombre = $prj->nombre;
-            $objData->conformidad = $prj->tipo_proyecto==1 ? 'A' : 'AA';
+            $objData->conformidad = $prj->tipo_proyecto;
         }
         
         if($prj->completado == 1){

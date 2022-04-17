@@ -1,6 +1,6 @@
 <?php
 
-include_once('./global.php');
+include_once('../../global.php');
 
 use back\db\DataBase;
 
@@ -37,7 +37,7 @@ if ($usuario) {
         $objData->username = $usuario->nombre;
 
         //TODO GENERACION DEL TOKEN JWT
-        $objData->token = 'TOKEN';
+        $objData->token = generateToken($usuario->id);
 
         $objRespuesta->data = $objData;
     } else {

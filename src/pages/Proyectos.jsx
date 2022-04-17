@@ -19,20 +19,23 @@ export default function Proyectos() {
     };
     return axios
       .post(
-        `${process.env.REACT_APP_BACK_URL}/proyectos/listar.php`,
+        `${process.env.REACT_APP_BACK_URL}/API/proyectos/listar.php`,
         "token=" + token,
         headers
       )
       .then((data) => {
-        const dataR = data.data.data;
-        setProyectos(dataR);
-        console.dir(dataR);
+        const dataR = data.data;
+        if (dataR.status) {
+          setProyectos(dataR.data);
+        } else {
+          console.dir(dataR);
+        }
       })
       .catch((err) => {
         console.log(err);
       })
       .finally((e) => {
-        console.log("always");
+        //console.log("always");
       });
   }, []);
 

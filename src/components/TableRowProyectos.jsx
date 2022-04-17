@@ -7,6 +7,23 @@ async function handleDownload(e) {
   console.dir(e.target.id);
 }
 
+function renderConformidad(nivel) {
+  switch (nivel) {
+    case 1:
+      return <span title="Conformidad de nivel A">A</span>;
+    case 2:
+      return <span title="Conformidad de nivel AA">AA</span>;
+    case 3:
+      return <span title="Conformidad de nivel AAA">AAA</span>;
+    case 4:
+      return (
+        <i className="bi bi-person-check-fill" title="Público objetivo"></i>
+      );
+    default:
+      return <span></span>;
+  }
+}
+
 export default function TableRowProyectos({ proyecto }) {
   const navigate = useNavigate();
 
@@ -16,7 +33,7 @@ export default function TableRowProyectos({ proyecto }) {
         {proyecto.estado ? (
           <i className="bi bi-check-circle" title="Proyecto completado"></i>
         ) : (
-          <i className="bi bi-x-lg" title="Proyecto en curso"></i>
+          <i className="bi bi-three-dots" title="Proyecto en curso"></i>
         )}
       </td>
       <td
@@ -38,7 +55,7 @@ export default function TableRowProyectos({ proyecto }) {
             border: "1px solid black",
           }}
         >
-          <span>{proyecto.conformidad}</span>
+          {renderConformidad(proyecto.conformidad)}
         </Container>
       </td>
       <td>

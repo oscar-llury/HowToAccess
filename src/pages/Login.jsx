@@ -11,6 +11,7 @@ export default function Login() {
   let location = useLocation();
   let auth = useAuth();
   const [validated, setValidated] = useState(false);
+  const [errors, setErrors] = useState({});
   const [showPass, setShowPass] = useState(false);
   let from = location.state?.from?.pathname || "/";
 
@@ -20,12 +21,12 @@ export default function Login() {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    event.stopPropagation();
     const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.stopPropagation();
-    } else {
-      setValidated(true);
 
+    if (form.checkValidity() === true) {
+      setValidated(true);
+      setErrors({});
       let formData = new FormData(form);
 
       await auth.login(formData, (status) => {
@@ -37,9 +38,18 @@ export default function Login() {
         // user experience.
         if (status) {
           navigate(from, { replace: true });
+        } else {
+          setValidated(false);
+          let errors = {};
+          errors.username = true;
+          errors.password = true;
+          errors.msg = "Comprueba que tus datos son correctos.";
+          setErrors(errors);
         }
       });
+    } else {
     }
+    //form.classList.add("was-validated");
   }
 
   return (
@@ -59,12 +69,8 @@ export default function Login() {
                 placeholder="name@example.com"
                 autoComplete="username"
                 required
-                //onChange={(e) => setUserName(e.target.value)}
+                isInvalid={!!errors.username}
               />
-              <Form.Control.Feedback type="invalid">
-                Invalido
-              </Form.Control.Feedback>
-              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
             </Form.Group>
             <Form.Group className="mb-3" controlId="password">
               <Form.Label>Contraseña</Form.Label>
@@ -75,19 +81,17 @@ export default function Login() {
                   placeholder="Contraseña"
                   autoComplete="current-password"
                   required
-                  //onChange={(e) => setPassword(e.target.value)}
+                  isInvalid={!!errors.password}
                 />
                 <InputGroup.Text onClick={showPassHandler}>
                   <i className={showPass ? "bi bi-eye-slash" : "bi bi-eye"}></i>
                 </InputGroup.Text>
-                <Form.Control.Feedback type="invalid">
-                  Please choose a username.
-                </Form.Control.Feedback>
               </InputGroup>
             </Form.Group>
             <Form.Group className="mb-3" controlId="remember">
               <Form.Check type="checkbox" label="Recordarme" />
             </Form.Group>
+            {errors.msg && <p className="text-danger">{errors.msg}</p>}
             <Button variant="primary" type="submit" className="w-100">
               Iniciar sesión
             </Button>
