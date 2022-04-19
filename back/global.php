@@ -4,7 +4,9 @@
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
 
-$_SERVER['DOCUMENT_ROOT'] = $_SERVER['DOCUMENT_ROOT'].'/tfg/back';
+if($_SERVER['SERVER_NAME'] == 'localhost'){
+    $_SERVER['DOCUMENT_ROOT'] = $_SERVER['DOCUMENT_ROOT'].'/tfg/back';
+}
 
 require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
 

@@ -24,7 +24,7 @@ class DataBase
 
         $connection = new Connection(sprintf('%s:dbname=%s;host=%s', $ini['DBConn'], $ini['DBName'], $ini['DBServ']), $ini['DBUser'], $ini['DBPass']);
 
-        $cacheDir = $_SERVER['DOCUMENT_ROOT'] . '../nette-cache';
+        $cacheDir = $_SERVER['DOCUMENT_ROOT'] . '../../nette-cache';
 
         if (is_dir($cacheDir)) {
             $cache = new FileStorage($cacheDir);
