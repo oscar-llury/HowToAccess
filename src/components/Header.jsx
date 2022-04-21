@@ -1,16 +1,29 @@
-import { Container, Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
-//NavDropdown
-//import Link from "next/link";
-//import Contexto_usuario from '../lib/usuario';
-//import Router from "next/router";
+import React from "react";
+import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { useNavigate, Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-//import Cookies from "js-cookie";
-//import { useContext } from "react";
-
+import { useAuth } from "../lib/auth";
 import logo from "../img/logo.svg";
 
-function Header() {
+export default function Header() {
+  let navigate = useNavigate();
+  let auth = useAuth();
+  const username = useSelector((state) => state.username);
+
+  console.log(username);
+
+  async function handleLogout(event) {
+    event.preventDefault();
+
+    await auth.logout((status) => {
+      if (status) {
+        console.log("ok");
+        navigate("/");
+      }
+    });
+  }
+
   return (
     <header>
       <Navbar
@@ -48,9 +61,28 @@ function Header() {
               </Link>
             </Nav>
             <Nav>
-              <Link to="/iniciar-sesion" className="nav-item">
-                Iniciar sesión
-              </Link>
+              {username ? (
+                <NavDropdown
+                  title={`Hola ${username}`}
+                  id="collasible-nav-dropdown"
+                >
+                  <Link to="/proyectos" className="nav-item">
+                    Mis Proyectos
+                  </Link>
+                  <NavDropdown.Divider />
+                  <Link to="#" className="nav-item">
+                    Simulación interactiva
+                  </Link>
+                  <NavDropdown.Divider />
+                  <Link to="/" className="nav-item" onClick={handleLogout}>
+                    Cerrar sesión
+                  </Link>
+                </NavDropdown>
+              ) : (
+                <Link to="/iniciar-sesion" className="nav-item">
+                  Iniciar sesión
+                </Link>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -58,15 +90,3 @@ function Header() {
     </header>
   );
 }
-
-export default Header;
-
-/*
-<NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-<NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-<NavDropdown.Divider />
-<NavDropdown.Item href="#action/3.4">
-    Separated link
-</NavDropdown.Item>
-</NavDropdown>
-*/
