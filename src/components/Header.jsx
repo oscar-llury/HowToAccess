@@ -11,8 +11,6 @@ export default function Header() {
   let auth = useAuth();
   const username = useSelector((state) => state.username);
 
-  console.log(username);
-
   async function handleLogout(event) {
     event.preventDefault();
 

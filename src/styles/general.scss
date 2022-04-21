@@ -66,6 +66,13 @@ code {
   }
 }
 
+/*******HOME*******/
+.app-home {
+  img {
+    height: calc(100vh - var(--vh100-offset));
+  }
+}
+
 /*******OLD REACT*******/
 .App {
   text-align: center;
