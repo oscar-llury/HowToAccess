@@ -3,13 +3,13 @@ import { Carousel } from "react-bootstrap";
 
 export default function Carrousel({ slides }) {
   return (
-    <Carousel className="app-home">
+    <Carousel variant="dark">
       {slides.map((slide, index) => (
-        <Carousel.Item key={index}>
+        <Carousel.Item key={index} interval={100000}>
           <img className="d-block w-100" src={slide.img} alt={slide.img_alt} />
-          <Carousel.Caption>
-            <p>{slide.title}</p>
-            <p>{slide.desc}</p>
+          <Carousel.Caption className="text-black">
+            <p className="title">{slide.title}</p>
+            <p className="description">{slide.desc}</p>
           </Carousel.Caption>
         </Carousel.Item>
       ))}

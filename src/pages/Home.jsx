@@ -8,6 +8,7 @@ import Spacer from "../components/Spacer";
 import slide1 from "../img/home_slide1.png";
 import slide2 from "../img/home_slide2.png";
 import slide3 from "../img/home_slide3.png";
+import barrera_accesibilidad from "../img/barrera_accesibilidad.png";
 import logo from "../img/logo.svg";
 
 const Home = () => {
@@ -33,9 +34,9 @@ const Home = () => {
   ];
 
   return (
-    <>
+    <div className="app-home ">
       <Carrousel slides={slides} />
-      <Container fluid className="text-black p-5">
+      <Container fluid className="text-black p-5 app-home-section1">
         <Row className="justify-content-center align-items-center">
           <Col lg="6" md="6" xs="12">
             <Container className="text-center mb-4">
@@ -58,15 +59,11 @@ const Home = () => {
         </Row>
       </Container>
       <Spacer space={[2, 0]} />
-      <Container
-        fluid
-        className="text-black p-5"
-        style={{ backgroundColor: "#ffffff" }}
-      >
+      <Container fluid className="text-black px-5 app-home-section2">
         <Row className="justify-content-center align-items-center">
-          <Col lg="6" md="6" xs="12">
-            <Container className="mb-4">
-              <img className="w-100" src={slide3} alt="" />
+          <Col lg="6" md="6" xs="12" className="px-5">
+            <Container className="mb-4 px-5">
+              <img className="w-100 px-5" src={barrera_accesibilidad} alt="" />
             </Container>
           </Col>
           <Col lg="6" md="6" xs="12">
@@ -104,7 +101,7 @@ const Home = () => {
           </Col>
         </Row>
       </Container>
-    </>
+    </div>
   );
 };
 

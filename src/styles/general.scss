@@ -56,7 +56,7 @@ code {
 .app-login {
   height: calc(100vh - var(--vh100-offset));
   //font-size: calc(10px + 2vmin);
-  color: rgb(0, 0, 0);
+  color: $dark;
 
   .app-login-logo {
     height: 50px;
@@ -68,8 +68,34 @@ code {
 
 /*******HOME*******/
 .app-home {
-  img {
-    height: calc(100vh - var(--vh100-offset));
+  .app-home-carrousel {
+    img {
+      height: calc(100vh - var(--vh100-offset));
+      overflow: hidden;
+      object-fit: cover;
+    }
+    .title {
+      font-size: xx-large;
+      font-weight: 700;
+    }
+    .description {
+      font-size: larger;
+      font-weight: 500;
+    }
+  }
+  .carousel,
+  .app-home-section1,
+  .spacer {
+    background-color: rgb(240, 240, 245);
+  }
+  .spacer-path {
+    fill: $body-bg;
+  }
+  .app-home-section2 {
+    img {
+      max-height: 500px;
+      object-fit: contain;
+    }
   }
 }
 

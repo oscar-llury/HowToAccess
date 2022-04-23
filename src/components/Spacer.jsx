@@ -4,8 +4,8 @@ import Wave from "../img/wave-1.svg";
 export default function Spacer({ space }) {
   return (
     <div
-      className=""
-      style={{ marginTop: space[0] + "%", marginBottom: space[1] + "%" }}
+      className="spacer"
+      style={{ paddingTop: space[0] + "%", paddingBottom: space[1] + "%" }}
     >
       {/*
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1921 150">
@@ -41,6 +41,7 @@ export default function Spacer({ space }) {
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="none"
+        className="spacer-svg"
       >
         <defs></defs>
         <g
@@ -53,7 +54,8 @@ export default function Spacer({ space }) {
           <path
             d="M0,0.0577405639 C117.504588,18.44359 269.602477,22.1720696 456.293666,11.2431795 C562.076057,5.05068514 730.784198,0.911127653 885.297232,3.27366179 C1157.17617,7.43074321 1386.98062,21.3276838 1440,38.3891927 L1440,46.9388979 L0,46.9388979 L0,0.0577405639 Z"
             id="Path-9"
-            fill="#FFFFFF"
+            //fill="#FFFFFF"
+            className="spacer-path"
           ></path>
         </g>
       </svg>
