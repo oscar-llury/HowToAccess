@@ -1,3 +1,42 @@
+@font-face {
+  font-family: "Inter";
+  src: url("Inter-VariableFont_slnt_wght.ttf") format("woff2-variations");
+  font-weight: 125 950;
+  font-stretch: 75% 125%;
+  font-style: oblique 0deg 20deg;
+}
+
+h2 {
+  font-family: "Inter", sans-serif;
+}
+
+@supports (font-variation-settings: "wdth" 450) {
+  h2 {
+    font-family: "Inter", sans-serif;
+  }
+}
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(70, 70, 70) transparent;
+}
+
+/* Works on Chrome, Edge, and Safari */
+body::-webkit-scrollbar {
+  width: 10px; /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent; /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(70, 70, 70); /* color of the scroll thumb */
+  border-radius: 0px; /* roundness of the scroll thumb */
+  border: 0; /* creates padding around scroll thumb */
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -7,7 +46,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
   --header-height: 64px;
   --banner-height: 0px;
-  --vh100-offset: calc(var(--header-height) + var(--banner-height));
+  --footer-height: 110px;
+  --vh100-offset-header: calc(var(--header-height));
+  --vh100-offset: calc(
+    var(--header-height) + var(--banner-height) + var(--footer-height)
+  );
+}
+@media (min-width: 992px) {
+  .container {
+    --bs-gutter-x: 0.25rem !important;
+  }
 }
 
 $theme-colors-p: (
@@ -29,16 +77,27 @@ code {
     monospace;
 }
 
+/*******GENERAL CLASSES*******/
 .text-hover:hover {
   cursor: pointer;
 }
-
-/*******HEADER*******/
+.left-0 {
+  left: 0;
+}
 .bg-light {
   background-color: $gray-200 !important;
 }
+
+/*******HEADER*******/
 .app-nav-header {
-  height: var(--header-height);
+  //height: var(--header-height);
+  .container-header {
+    width: 100%;
+    z-index: 100;
+  }
+  .navbar-collapse {
+    width: 100%;
+  }
   .nav-item {
     padding: 1em;
     text-decoration: none;
@@ -68,14 +127,14 @@ code {
 
 /*******HOME*******/
 .app-home {
-  .app-home-carrousel {
+  .carousel {
     img {
-      height: calc(100vh - var(--vh100-offset));
+      height: calc(100vh - var(--vh100-offset-header));
       overflow: hidden;
       object-fit: cover;
     }
     .title {
-      font-size: xx-large;
+      font-size: 2em;
       font-weight: 700;
     }
     .description {
@@ -83,40 +142,28 @@ code {
       font-weight: 500;
     }
   }
-  .carousel,
-  .app-home-section1,
-  .spacer {
-    background-color: rgb(240, 240, 245);
+  .bg-soft {
+    background-color: rgb(219, 219, 219);
   }
   .spacer-path {
     fill: $body-bg;
   }
+  .app-home-section1 {
+    //padding: 3rem;
+  }
   .app-home-section2 {
     img {
-      max-height: 500px;
-      object-fit: contain;
+      //max-height: 500px;
+      //object-fit: contain;
     }
   }
 }
 
 /*******OLD REACT*******/
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
