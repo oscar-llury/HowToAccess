@@ -150,11 +150,39 @@ code {
   }
   .app-home-section1 {
     //padding: 3rem;
+    .keyboard-container {
+      padding: 2em;
+      @media (max-width: 992px) {
+        .grid-daltonismo {
+          padding: 3em;
+        }
+      }
+    }
+    .bolder {
+      font-weight: 700;
+    }
+    .highlighted {
+      color: #3399cc;
+      font-weight: 350;
+    }
   }
   .app-home-section2 {
+    margin-bottom: 2em;
     img {
       //max-height: 500px;
       //object-fit: contain;
+    }
+  }
+  .app-home-section3 {
+    margin-bottom: 2em;
+    .grid-daltonismo {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    @media (min-width: 992px) {
+      .grid-daltonismo {
+        padding: 4em;
+      }
     }
   }
 }

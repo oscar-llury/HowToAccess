@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { useNavigate, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -12,17 +12,7 @@ export default function Header() {
   let navigate = useNavigate();
   let auth = useAuth();
   const username = useSelector((state) => state.username);
-
-  async function handleLogout(event) {
-    event.preventDefault();
-
-    await auth.logout((status) => {
-      if (status) {
-        console.log("ok");
-        navigate("/");
-      }
-    });
-  }
+  const [navDropped, setNavDropped] = useState(false);
 
   useEffect(() => {
     const navLinks = document.querySelectorAll(".nav-item");
@@ -34,6 +24,21 @@ export default function Header() {
       });
     });
   }, []);
+
+  async function handleLogout(event) {
+    event.preventDefault();
+
+    await auth.logout((status) => {
+      if (status) {
+        navigate("/");
+      }
+    });
+  }
+
+  function handleNavDrop() {
+    setNavDropped(!navDropped);
+  }
+
   return (
     <header>
       <Navbar
@@ -58,8 +63,14 @@ export default function Header() {
             aria-controls="responsive-navbar-nav"
             data-toggle="dropdown"
             data-bs-target="#responsive-navbar-nav"
-            onSelect={function () {}}
-          />
+            onClick={handleNavDrop}
+          >
+            {navDropped ? (
+              <i className="bi bi-x-lg"></i>
+            ) : (
+              <i className="bi bi-list"></i>
+            )}
+          </Navbar.Toggle>
           <Navbar.Collapse className="collapse" id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Link to="/" className="nav-item" title="Inicio">
