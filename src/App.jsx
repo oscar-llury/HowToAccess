@@ -3,6 +3,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 //components
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 //pages
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -39,6 +40,7 @@ export default function App() {
           />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Footer />
       </AuthProvider>
     </div>
   );

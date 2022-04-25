@@ -1,4 +1,4 @@
-$body-bg: #dddddd;
+$body-bg: rgb(250, 250, 250);
 $body-color: rgb(20, 20, 20);
 
 $primary: #012345;
@@ -10,8 +10,11 @@ $dark: #000;
 $danger: tomato;
 $light: #5aaf49;
 
-$font-family-sans-serif:      system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
-$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto,
+  "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+  "Liberation Mono", "Courier New", monospace !default;
 /*
 $headings-color:              null !default;
 $headings-font-family:        null !default;
@@ -22,4 +25,3 @@ $link-hover-color
 $input-bg
 $form-label-color
 */
-
