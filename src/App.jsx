@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 //pages
 import Home from "./pages/Home";
+import NormasAccesibilidadWeb from "./pages/NormasAccesibilidadWeb";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import Proyectos from "./pages/Proyectos";
@@ -21,6 +22,10 @@ export default function App() {
         <Header />
         <Routes>
           <Route index element={<Home />} />
+          <Route
+            path="/normas-de-accesibilidad-web"
+            element={<NormasAccesibilidadWeb />}
+          />
           <Route path="/iniciar-sesion" element={<Login />} />
           <Route
             path="/proyectos"

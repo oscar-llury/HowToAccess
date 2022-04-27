@@ -79,7 +79,11 @@ export default function Header() {
               <Link to="#" className="nav-item" title="Sobre accesibilidad web">
                 Sobre accesibilidad web
               </Link>
-              <Link to="#" className="nav-item" title="Normas de accesibilidad">
+              <Link
+                to="/normas-de-accesibilidad-web"
+                className="nav-item"
+                title="Normas de accesibilidad"
+              >
                 Normas de accesibilidad
               </Link>
               <Link to="#" className="nav-item" title="Tips web">
