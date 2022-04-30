@@ -231,7 +231,11 @@ const Home = () => {
                 accesibilidad web.
               </p>
             </Container>
-            <Button variant="primary" className="w-auto" href="">
+            <Button
+              variant="primary"
+              className="w-auto"
+              href="/normas-de-accesibilidad-web"
+            >
               Descubrir más <i className="bi bi-arrow-right"></i>
             </Button>
           </Col>

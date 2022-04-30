@@ -1,21 +1,41 @@
-@font-face {
-  font-family: "Inter";
-  src: url("Inter-VariableFont_slnt_wght.ttf") format("woff2-variations");
-  font-weight: 125 950;
-  font-stretch: 75% 125%;
-  font-style: oblique 0deg 20deg;
-}
-
+/*******GENERAL STYLES*******/
 * {
-  font-family: "Inter", sans-serif;
+  font-family: "Helvetica Neue", sans-serif;
+  color: $text-color;
+  accent-color: $primary;
 }
-
 @supports (font-variation-settings: "wdth" 450) {
   * {
     font-family: "Inter", sans-serif;
   }
 }
 
+a {
+  color: $text-color;
+}
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --header-height: 64px;
+  --banner-height: 0px;
+  --footer-height: 110px;
+  --vh100-offset-header: calc(var(--header-height));
+  --vh100-offset: calc(
+    var(--header-height) + var(--banner-height) + var(--footer-height)
+  );
+}
+@media (min-width: 992px) {
+  .container {
+    --bs-gutter-x: 0.25rem !important;
+  }
+}
+
+code {
+  font-family: $font-family-monospace;
+}
+
+/*******SCROLL BAR*******/
 /* Works on Firefox */
 * {
   scrollbar-width: thin;
@@ -36,45 +56,15 @@ body::-webkit-scrollbar-thumb {
   border-radius: 0px; /* roundness of the scroll thumb */
   border: 0; /* creates padding around scroll thumb */
 }
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  --header-height: 64px;
-  --banner-height: 0px;
-  --footer-height: 110px;
-  --vh100-offset-header: calc(var(--header-height));
-  --vh100-offset: calc(
-    var(--header-height) + var(--banner-height) + var(--footer-height)
-  );
-}
-@media (min-width: 992px) {
-  .container {
-    --bs-gutter-x: 0.25rem !important;
-  }
+::-moz-selection {
+  /* Code for Firefox */
+  color: inherit;
+  background: $primary;
 }
 
-$theme-colors-p: (
-  "oscar": rgb(230, 29, 213),
-);
-
-// Merge the maps
-$utilities-text: map-merge($utilities-text, $theme-colors-p);
-$utilities-text-colors: map-loop(
-  $utilities-text,
-  rgba-css-var,
-  "$key",
-  "text"
-) !default;
-// scss-docs-end utilities-text-colors
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+::selection {
+  color: inherit;
+  background: $primary;
 }
 
 /*******GENERAL CLASSES*******/
@@ -86,6 +76,14 @@ code {
 }
 .bg-light {
   background-color: $gray-200 !important;
+}
+.btn-primary,
+.btn-primary:hover {
+  color: $text-light;
+  font-weight: 600;
+  .bi {
+    color: $text-light;
+  }
 }
 
 /*******HEADER*******/
@@ -222,7 +220,7 @@ code {
     }
   }
   .main-container {
-    padding: 0 10em;
+    padding: 0 8em;
 
     .section-1 {
       position: relative;
@@ -231,17 +229,15 @@ code {
       flex-direction: row;
       justify-content: center;
       align-items: center;
-
-      margin-top: 50px;
-      margin-bottom: 50px;
-
+      margin-top: 10%;
+      margin-bottom: 10%;
       padding: 50px 0;
 
       .bg {
         background: linear-gradient(
           90deg,
-          rgba(250, 250, 252, 0.24) 24.19%,
-          #eaebf3 70.44%
+          transparent 24.19%,
+          #1d9bf024 70.44%
         );
         border-radius: 0 50px 50px 0;
         height: 100%;
@@ -297,27 +293,105 @@ code {
           text-align: center;
         }
       }
+      .container-tabs {
+        margin-top: 20px;
+        position: relative;
+        padding: 0;
+        .prev {
+          left: -10%;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          z-index: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 10%;
+          padding: 0;
+          color: #fff;
+          text-align: center;
+          background: none;
+          border: 0;
+          opacity: 0.5;
+          transition: opacity 0.15s ease;
+          .bi {
+            font-size: 1.5em;
+          }
+        }
+        .next {
+          right: -10%;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          z-index: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 10%;
+          padding: 0;
+          color: #fff;
+          text-align: center;
+          background: none;
+          border: 0;
+          opacity: 0.5;
+          transition: opacity 0.15s ease;
+          .bi {
+            font-size: 1.5em;
+          }
+        }
+      }
       .tablist,
       .tab-content {
         //background-color: rgb(240, 241, 246);
       }
       .tablist {
         margin-top: 20px;
-
+        border: 1px solid $primary-light;
+        border-radius: 20px;
+        //background-color: $primary-light;
+        width: 80%;
+        margin: auto;
+        @media (max-width: 992px) {
+          width: 100%;
+        }
         .nav-item {
           width: 25%;
+
+          button {
+            height: 100%;
+            border: 0 !important;
+          }
+          button:focus,
+          button:hover,
+          button:focus-visible,
+          button:active {
+            border: 0 !important;
+            outline: -webkit-focus-ring-color auto 0px;
+          }
+
+          .active {
+            border-radius: 20px;
+            background-color: $primary;
+            -webkit-transition: background-color 0.5s linear;
+            -ms-transition: background-color 0.5s linear;
+            transition: background-color 0.5s linear;
+          }
+        }
+        @media (max-width: 576px) {
+          border-radius: 10px;
+          .nav-item .active {
+            border-radius: 10px;
+          }
         }
         button {
           padding: 5px 0;
           margin: auto;
           width: 100%;
-          color: $body-color;
+          color: $text-color;
           font-weight: 500;
-          font-size: 1.2em;
-          //background-color: #fafafa;
-          //border-color: #dee2e6 #dee2e6 #fafafa;
+          font-size: 1em;
           @media (max-width: 576px) {
-            font-weight: 600;
+            font-weight: 500;
             font-size: 0.9em;
           }
         }
@@ -332,6 +406,7 @@ code {
           padding: 2em 0;
           h3 {
             font-weight: 700;
+            font-size: 1.5em;
           }
         }
         @media (max-width: 576px) {
@@ -342,7 +417,7 @@ code {
       }
     }
     @media (max-width: 1400px) {
-      padding: 0 8em;
+      padding: 0 6em;
     }
     @media (max-width: 1200px) {
       padding: 0 4em;
@@ -354,6 +429,10 @@ code {
       padding: 0 3em;
       .section-1 .bg {
         margin-right: -100px;
+      }
+      .section-2 .container-tabs .prev,
+      .section-2 .container-tabs .next {
+        display: none;
       }
     }
     @media (max-width: 576px) {
@@ -379,4 +458,107 @@ code {
   to {
     transform: rotate(360deg);
   }
+}
+
+@keyframes anillo {
+  from {
+    transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+  }
+}
+@keyframes ojo {
+  from {
+    transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+  }
+}
+/*
+@-webkit-keyframes anillo {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+*/
+
+#centro {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+#anillo {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  transform-origin: 258px 258px;
+  animation-name: anillo;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  /*
+  -webkit-transform-origin: 258px 258px;
+  -webkit-animation-name: anillo;
+  -webkit-animation-duration: 60s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;*/
+}
+
+#ojo {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+
+  transform-origin: 258px 258px;
+  animation-name: ojo;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+#oido {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+
+  transform-origin: 258px 258px;
+  animation-name: ojo;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+#mano {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+
+  transform-origin: 258px 258px;
+  animation-name: ojo;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+#cerebro {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+
+  transform-origin: 258px 258px;
+  animation-name: ojo;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
