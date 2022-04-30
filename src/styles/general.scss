@@ -98,7 +98,12 @@ body::-webkit-scrollbar-thumb {
   }
   .nav-item {
     padding: 1em;
+    font-weight: 450;
     text-decoration: none;
+  }
+  .active {
+    color: $primary;
+    border-bottom: 3px solid $primary;
   }
   .dropdown-toggle::after {
     margin-left: 0.5em;
@@ -116,7 +121,7 @@ body::-webkit-scrollbar-thumb {
     height: calc(100svh - var(--vh100-offset));
   }
   //font-size: calc(10px + 2vmin);
-  color: $dark;
+  //color: $dark;
 
   .app-login-logo {
     height: 50px;

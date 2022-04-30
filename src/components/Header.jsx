@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import { Collapse } from "bootstrap";
@@ -11,6 +11,8 @@ import logo from "../img/logo/logotipo.svg";
 export default function Header() {
   let navigate = useNavigate();
   let auth = useAuth();
+  const location = useLocation();
+  const locationUrl = location.pathname;
   const username = useSelector((state) => state.username);
   const [navDropped, setNavDropped] = useState(false);
 
@@ -46,7 +48,7 @@ export default function Header() {
         expand="lg"
         bg="light"
         variant="light"
-        className="app-nav-header"
+        className="app-nav-header p-0"
       >
         <Container fluid="sm" className="bg-light container-header">
           <Navbar.Brand href="/" title="Inicio">
@@ -73,20 +75,34 @@ export default function Header() {
           </Navbar.Toggle>
           <Navbar.Collapse className="collapse" id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Link to="/" className="nav-item" title="Inicio">
+              <Link
+                to="/"
+                className={`nav-item ${locationUrl == "/" ? "active" : ""}`}
+                title="Inicio"
+              >
                 Inicio
               </Link>
-              <Link to="#" className="nav-item" title="Sobre accesibilidad web">
+              <Link
+                to="#"
+                className={`nav-item ${locationUrl == "" ? "active" : ""}`}
+                title="Sobre accesibilidad web"
+              >
                 Sobre accesibilidad web
               </Link>
               <Link
                 to="/normas-de-accesibilidad-web"
-                className="nav-item"
+                className={`nav-item ${
+                  locationUrl == "/normas-de-accesibilidad-web" ? "active" : ""
+                }`}
                 title="Normas de accesibilidad"
               >
                 Normas de accesibilidad
               </Link>
-              <Link to="#" className="nav-item" title="Tips web">
+              <Link
+                to="#"
+                className={`nav-item ${locationUrl == "" ? "active" : ""}`}
+                title="Tips web"
+              >
                 Tips web
               </Link>
             </Nav>
@@ -124,7 +140,9 @@ export default function Header() {
               ) : (
                 <Link
                   to="/iniciar-sesion"
-                  className="nav-item"
+                  className={`nav-item ${
+                    locationUrl == "/iniciar-sesion" ? "active" : ""
+                  }`}
                   title="Iniciar sesión"
                 >
                   Iniciar sesión
