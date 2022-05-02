@@ -15,7 +15,7 @@ export default function Header() {
   const locationUrl = location.pathname;
   const username = useSelector((state) => state.username);
   const [navDropped, setNavDropped] = useState(false);
-
+  /*
   useEffect(() => {
     const navLinks = document.querySelectorAll(".nav-item");
     const menuToggle = document.getElementById("responsive-navbar-nav");
@@ -26,7 +26,7 @@ export default function Header() {
       });
     });
   }, []);
-
+*/
   async function handleLogout(event) {
     event.preventDefault();
 

@@ -68,7 +68,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 /*******GENERAL CLASSES*******/
-.text-hover:hover {
+.text-hover:hover,
+.cursor-pointer {
   cursor: pointer;
 }
 .left-0 {
@@ -100,6 +101,9 @@ body::-webkit-scrollbar-thumb {
     padding: 1em;
     font-weight: 450;
     text-decoration: none;
+  }
+  .nav-link {
+    padding: 0;
   }
   .active {
     color: $primary;
@@ -171,7 +175,7 @@ body::-webkit-scrollbar-thumb {
       font-weight: 700;
     }
     .highlighted {
-      color: #3399cc;
+      color: $primary;
       font-weight: 350;
     }
   }
@@ -446,6 +450,47 @@ body::-webkit-scrollbar-thumb {
         margin-right: -20px;
       }
     }
+  }
+}
+
+/*******NUEVO PROYECTO*******/
+.app-nuevo-proyecto {
+  .steps-nav {
+    margin-bottom: 5%;
+    .first,
+    .second,
+    .third {
+    }
+    .dots {
+      border: 2px solid primary;
+      border-radius: 50%;
+      padding: 10px 15px;
+      background-color: $primary-light;
+    }
+    .dots i {
+      color: $white;
+    }
+    .dots:hover {
+      cursor: pointer;
+      background-color: $primary-light;
+      -webkit-transition: background-color 0.25s linear;
+      -ms-transition: background-color 0.25s linear;
+      transition: background-color 0.25s linear;
+    }
+
+    .dots.completed {
+      background-color: $primary-light;
+    }
+    .dots.active {
+      background-color: $primary;
+    }
+    .dots.disabled {
+      cursor: not-allowed;
+      background-color: $gray-600;
+    }
+  }
+  .form-proyecto {
+    padding: 0 3em;
   }
 }
 
