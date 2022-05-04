@@ -82,6 +82,7 @@ if ($allCriterios) {
         $objCriterio = new stdClass();
         $objCriterio->code = $objPrincipio->code.'.'.$record->cod_pauta.'.'.$record->cod_criterio;
         $objCriterio->name = $record->nombre_criterio;
+        $objCriterio->level = 'AAA';
         array_push($objPauta->criterios ,$objCriterio);
     }
     array_push($objPrincipio->pautas ,$objPauta);

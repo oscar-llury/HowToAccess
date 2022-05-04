@@ -458,36 +458,85 @@ body::-webkit-scrollbar-thumb {
   padding-top: 20px;
   .steps-nav {
     margin-bottom: 5%;
-    .first,
-    .second,
-    .third {
-    }
-    .dots {
-      border: 2px solid primary;
-      border-radius: 50%;
-      padding: 10px 15px;
-      background-color: $primary-light;
-    }
-    .dots i {
-      color: $white;
-    }
-    .dots:hover {
+
+    .dots,
+    .dots:after,
+    .dots::before {
       cursor: pointer;
-      background-color: $primary-light;
-      -webkit-transition: background-color 0.25s linear;
-      -ms-transition: background-color 0.25s linear;
-      transition: background-color 0.25s linear;
+    }
+    .disabled,
+    .disabled:after,
+    .disabled::before {
+      cursor: not-allowed;
     }
 
-    .dots.completed {
-      background-color: $primary-light;
+    ol {
+      margin: 0;
+      padding: 0;
+      list-style: none;
     }
-    .dots.active {
-      background-color: $primary;
+    .steps {
+      width: 100%;
+      display: table;
+      text-align: center;
+      max-width: 980px;
+      margin: 10px auto;
     }
-    .dots.disabled {
-      cursor: not-allowed;
-      background-color: $gray-600;
+    .steps li {
+      display: table-cell;
+      padding: 10px 0 25px;
+      position: relative;
+      border-bottom: 4px solid silver;
+      font-weight: bold;
+      width: 1%;
+    }
+    .steps li:after {
+      content: "\039f";
+      position: absolute;
+      bottom: -16px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 26px;
+      height: 26px;
+      line-height: 26px;
+      background: silver;
+      color: #fff;
+      border-radius: 50%;
+      z-index: 2;
+      font-size: 1rem;
+      text-align: center;
+    }
+    .steps li:first-child:before,
+    .steps li:last-child:before,
+    .steps li.active:before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      bottom: -4px;
+      left: 0;
+      height: 4px;
+      background: transparent;
+      width: 50%;
+    }
+    .steps li:last-child:before {
+      left: 0;
+      //right: 0;
+      //width: 100%;
+    }
+    .steps li.active:before {
+      background: $primary;
+    }
+    .steps li.completed {
+      border-color: $primary;
+    }
+    .steps li.completed:after,
+    .steps li.active:after {
+      content: "\2713";
+      background: $primary;
+    }
+    .steps li.active:after {
+      background: $dark;
     }
   }
   .form-proyecto {
@@ -515,24 +564,26 @@ body::-webkit-scrollbar-thumb {
     }
     .guidelines-list {
       list-style: none;
+      padding: 0;
       > li {
         border: 2px solid black;
         margin-bottom: 20px;
         border-radius: 20px;
       }
-      > ul {
-        //padding: 10px;
-      }
       h4 {
         padding: 10px;
         border-bottom: 2px solid black;
+        margin-bottom: 0;
       }
     }
     .criteria-list {
       list-style: none;
       padding: 0;
       li {
-        padding: 0 2em;
+        padding: 0.5em 2em;
+        p {
+          font-size: 0.8em;
+        }
       }
     }
   }
