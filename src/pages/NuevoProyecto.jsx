@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import axios from "axios";
 import { Col, Container, Form, Row, InputGroup, Button } from "react-bootstrap";
 
 export default function NuevoProyecto() {
@@ -72,7 +73,32 @@ export default function NuevoProyecto() {
   }, [tipoCriterios]);
 
   function loadCriteria(callback) {
-    callback([1, 2, 3]);
+    const headers = {
+      headers: {},
+    };
+    const formData = new FormData();
+    return axios
+      .post(
+        `${process.env.REACT_APP_BACK_URL}/API/accesibilidad/listarCriterios.php`,
+        formData,
+        headers
+      )
+      .then((data) => {
+        const dataR = data.data;
+        if (dataR.status) {
+          callback(dataR.data);
+        } else {
+          console.dir(dataR);
+          callback(false);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        callback(false);
+      })
+      .finally((e) => {
+        //console.log("always");
+      });
   }
 
   async function handleSubmitSt1(e) {
@@ -80,9 +106,12 @@ export default function NuevoProyecto() {
     setActive(2, 1);
     setTotalComplete(1);
     await loadCriteria((criteria) => {
-      setConformanceCriteria(criteria);
+      if (criteria) {
+        setConformanceCriteria([...criteria]);
+      }
     });
   }
+
   function handleSubmitSt2(e) {
     e.preventDefault();
     setActive(3, 2, 1);
@@ -102,11 +131,16 @@ export default function NuevoProyecto() {
   function changeProyectType(e) {
     setTipoCriterios(Number(e.target.value));
   }
+
   function changeConformanceLevel(e) {
     setConformance(Number(e.target.value));
   }
+
   return (
-    <Container fluid="sm" className="text-black p-lg-5 app-nuevo-proyecto">
+    <Container
+      fluid="sm"
+      className="text-black p-lg-5 p-md-3 p-sm-2 app-nuevo-proyecto"
+    >
       <Row id="steps-nav" className="steps-nav">
         <Col>
           <Container className="w-75 d-flex">
@@ -136,6 +170,9 @@ export default function NuevoProyecto() {
       </Row>
       <Form validated={validated} onSubmit={handleSubmitSt1}>
         <Row id="step-1" className="form-proyecto step-1">
+          <Col xs="12" className="text-center mb-3">
+            <h2>Datos del proyecto</h2>
+          </Col>
           <Col md="6" xs="12">
             <Form.Group className="mb-3" controlId="proyect_name">
               <Form.Label>Nombre del proyecto</Form.Label>
@@ -192,11 +229,56 @@ export default function NuevoProyecto() {
         </Row>
       </Form>
       <Row id="step-2" className="form-proyecto step-2 d-none">
+        <Col xs="12" className="text-center mb-3">
+          <h2>Selección de criterios</h2>
+        </Col>
         <Form onSubmit={handleSubmitSt2}>
           <Col xs="12">
-            {conformanceCriteria.map((criteria, index) => (
-              <li key={index}>{criteria}</li>
-            ))}
+            <ul className="principles-list">
+              {conformanceCriteria.map((principle, index) => (
+                <li key={index}>
+                  <h3>
+                    <span>{principle.code}</span>- {principle.name}
+                  </h3>
+                  <ul className="guidelines-list">
+                    {principle.pautas.map((guidelines, indx) => (
+                      <li key={indx}>
+                        <h4>
+                          <span>{guidelines.code}</span>- {guidelines.name}
+                        </h4>
+                        <ul className="criteria-list">
+                          {guidelines.criterios.map((criteria, ind) => (
+                            <li key={ind}>
+                              <Form.Group
+                                className="mb-3 d-inline-block"
+                                controlId={`criteria_${criteria.code}`}
+                              >
+                                <Form.Check
+                                  name={`proyect_criteria_${criteria.code}`}
+                                  id={`criteria_${criteria.code}`}
+                                  type="checkbox"
+                                  defaultChecked={true}
+                                  value={criteria.code}
+                                  label={
+                                    <h5>
+                                      <span>{criteria.code}</span>-{" "}
+                                      {criteria.name}
+                                    </h5>
+                                  }
+                                />
+                              </Form.Group>
+                              <p className="d-inline-block float-end">
+                                Nivel AAA
+                              </p>
+                            </li>
+                          ))}
+                        </ul>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+            </ul>
           </Col>
           <Col xs="12" className="d-flex justify-content-between">
             <Button
@@ -214,10 +296,58 @@ export default function NuevoProyecto() {
         </Form>
       </Row>
       <Row id="step-3" className="form-proyecto step-3 d-none">
-        <Col xs="12">
-          {conformanceCriteria.map((criteria, index) => (
-            <li key={index}>{criteria}</li>
-          ))}
+        <Col xs="12" className="text-center mb-3">
+          <h2>Resumen de datos del proyecto</h2>
+        </Col>
+
+        <Col md="6" xs="12" className="project-data">
+          <p className="field">Nombre del proyecto:</p>
+          <p className="value">{nombre}</p>
+          <p className="field">
+            Método de selección de criterios de conformidad:{" "}
+          </p>
+          <p className="value">
+            {tipoCriterios == 1
+              ? "En base a un nivel de conformidad"
+              : "En base a un público objetivo"}
+          </p>
+          <p className="field">Nivel de conformidad:</p>
+          <p className="value">
+            {conformance == 1
+              ? "Nivel A"
+              : conformance == 2
+              ? "Nivel AA"
+              : "Nivel AAA"}
+          </p>
+        </Col>
+        <Col md="6" xs="12" className="principles">
+          <ul>
+            {conformanceCriteria.map((principle, index) => (
+              <li key={index}>
+                <h3>
+                  <span>{principle.code}</span>- {principle.name}
+                </h3>
+                <ul>
+                  {principle.pautas.map((guidelines, indx) => (
+                    <li key={indx}>
+                      <h4>
+                        <span>{guidelines.code}</span>- {guidelines.name}
+                      </h4>
+                      <ul>
+                        {guidelines.criterios.map((criteria, ind) => (
+                          <li key={ind}>
+                            <h5>
+                              <span>{criteria.code}</span>- {criteria.name}
+                            </h5>
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
         </Col>
         <Col xs="12" className="d-flex justify-content-between">
           <Button
@@ -273,7 +403,7 @@ export default function NuevoProyecto() {
         />
         <p>
           Ten en cuenta que los criterios agrupados en un nivel también se
-          encuentran en el siguiente nivel.
+          encuentran incluidos en el siguiente nivel.
         </p>
       </Form.Group>
     );

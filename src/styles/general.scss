@@ -455,6 +455,7 @@ body::-webkit-scrollbar-thumb {
 
 /*******NUEVO PROYECTO*******/
 .app-nuevo-proyecto {
+  padding-top: 20px;
   .steps-nav {
     margin-bottom: 5%;
     .first,
@@ -491,6 +492,91 @@ body::-webkit-scrollbar-thumb {
   }
   .form-proyecto {
     padding: 0 3em;
+    h2 {
+      font-size: 1.5em;
+      font-weight: 600;
+    }
+    h3 {
+      font-size: 1.2em;
+      font-weight: 700;
+    }
+    h4 {
+      font-size: 1em;
+      font-weight: 600;
+    }
+    h5 {
+      font-size: 0.8em;
+    }
+  }
+  .step-2 {
+    .principles-list {
+      list-style: none;
+      padding: 0 4em;
+    }
+    .guidelines-list {
+      list-style: none;
+      > li {
+        border: 2px solid black;
+        margin-bottom: 20px;
+        border-radius: 20px;
+      }
+      > ul {
+        //padding: 10px;
+      }
+      h4 {
+        padding: 10px;
+        border-bottom: 2px solid black;
+      }
+    }
+    .criteria-list {
+      list-style: none;
+      padding: 0;
+      li {
+        padding: 0 2em;
+      }
+    }
+  }
+  .step-3 {
+    .project-data {
+      .field {
+        margin-bottom: 5px;
+      }
+      .value {
+        font-weight: 700;
+        margin-left: 20px;
+        margin-bottom: 30px;
+      }
+    }
+  }
+  @media (max-width: 1200px) {
+    .form-proyecto {
+      padding: 0 2em;
+    }
+    .step-2 {
+      .principles-list {
+        padding: 0 2em;
+      }
+    }
+  }
+  @media (max-width: 992px) {
+    .form-proyecto {
+      padding: 0 2em;
+    }
+    .step-2 {
+      .principles-list {
+        padding: 0 1em;
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    .form-proyecto {
+      padding: 0;
+    }
+    .step-2 {
+      .principles-list {
+        padding: 0;
+      }
+    }
   }
 }
 

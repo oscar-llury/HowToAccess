@@ -43,11 +43,33 @@ if ($allCriterios) {
         //var_dump($prj);
         //var_dump($prj);
         //echo '<br><br>';
-        
+        if($record->cod_pauta != $idPauta){
+            //cambiamos de pauta, guardar la anterior
+            if($idPauta > 0){
+                //no es la primera iteracion
+                array_push($objPrincipio->pautas ,$objPauta);
+            }
+            
+            $objPauta = new StdClass();
+            if($idPauta == 0){
+                //primera pauta de todas
+                $objPauta->code = '1.'.$record->cod_pauta;
+            }else if($record->cod_principio != $idPrincipio){
+                //primera pauta de nuevo principio
+                $objPauta->code = $record->cod_principio.'.'.$record->cod_pauta;
+            }
+            else{
+                $objPauta->code = $objPrincipio->code.'.'.$record->cod_pauta;
+            }
+            $idPauta = $record->cod_pauta;
+            $objPauta->name = $record->nombre_pauta;
+            $objPauta->criterios = array();
+        }
         if($record->cod_principio != $idPrincipio){
             //cambiamos de principio
             if($idPrincipio > 0){
                 //no es la primera iteracion
+                
                 array_push($objRespuesta->data ,$objPrincipio);
             }
             $objPrincipio = new StdClass();
@@ -56,18 +78,7 @@ if ($allCriterios) {
             $objPrincipio->name = $record->nombre_principio;
             $objPrincipio->pautas = array();
         }
-        if($record->cod_pauta != $idPauta){
-            //cambiamos de pauta
-            if($idPauta > 0){
-                //no es la primera iteracion
-                array_push($objPrincipio->pautas ,$objPauta);
-            }
-            $objPauta = new StdClass();
-            $idPauta = $record->cod_pauta;
-            $objPauta->code = $objPrincipio->code.'.'.$record->cod_pauta;
-            $objPauta->name = $record->nombre_pauta;
-            $objPauta->criterios = array();
-        }
+        
         $objCriterio = new stdClass();
         $objCriterio->code = $objPrincipio->code.'.'.$record->cod_pauta.'.'.$record->cod_criterio;
         $objCriterio->name = $record->nombre_criterio;
