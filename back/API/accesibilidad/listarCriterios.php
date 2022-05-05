@@ -8,8 +8,8 @@ $db =  new DataBase();
 $contextDB = $db->context;
 $objRespuesta = new StdClass();
 
-$email = isset($_POST["username"]) ? $_POST["username"] : "";
-$idUsuario = 1;
+$conformanceLevel = isset($_POST["conformanceLevel"]) ? $_POST["conformanceLevel"] : "";
+//$idUsuario = 1;
 /*
 if(empty($email)){
     $objRespuesta->status = 0;
@@ -21,11 +21,20 @@ if(empty($email)){
 
 $query = 'SELECT  acc_principio.codigo as cod_principio, acc_principio.nombre as nombre_principio, 
 acc_pauta.codigo as cod_pauta, acc_pauta.nombre as nombre_pauta, 
-acc_criterio_conformidad.codigo as cod_criterio, acc_criterio_conformidad.nombre as nombre_criterio
+acc_criterio_conformidad.codigo as cod_criterio, acc_criterio_conformidad.nombre as nombre_criterio,
+acc_criterio_conformidad.nivel_conformidad as nivel_conformidad_id, acc_nivel_conformidad.codigo as nivel_conformidad_code
 FROM acc_criterio_conformidad 
 INNER JOIN acc_principio ON acc_criterio_conformidad.principio_id = acc_principio.id AND acc_principio.activo=1
 INNER JOIN acc_pauta ON acc_criterio_conformidad.pauta_id = acc_pauta.id AND acc_pauta.activo=1
+INNER JOIN acc_nivel_conformidad ON acc_criterio_conformidad.nivel_conformidad = acc_nivel_conformidad.id AND acc_nivel_conformidad.activo=1
 where acc_criterio_conformidad.activo=1';
+if($conformanceLevel){
+    $query .= ' and acc_criterio_conformidad.nivel_conformidad IN(1';
+    for ($i = 2; ($i <= $conformanceLevel) && ($conformanceLevel >1) && ($conformanceLevel <=3); $i++){
+        $query.= ','.$i;
+    }
+    $query .= ')';
+}
 
 $allCriterios = $contextDB->query($query)->fetchAll();
 
@@ -82,7 +91,8 @@ if ($allCriterios) {
         $objCriterio = new stdClass();
         $objCriterio->code = $objPrincipio->code.'.'.$record->cod_pauta.'.'.$record->cod_criterio;
         $objCriterio->name = $record->nombre_criterio;
-        $objCriterio->level = 'AAA';
+        $objCriterio->level_code = $record->nivel_conformidad_id;
+        $objCriterio->level_name = $record->nivel_conformidad_code;
         array_push($objPauta->criterios ,$objCriterio);
     }
     array_push($objPrincipio->pautas ,$objPauta);

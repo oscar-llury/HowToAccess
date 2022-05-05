@@ -8,7 +8,7 @@ export default function NuevoProyecto() {
 
   const [nombre, setNombre] = useState("");
   const [tipoCriterios, setTipoCriterios] = useState(0);
-  const [conformance, setConformance] = useState(0);
+  const [conformanceLevel, setConformanceLevel] = useState(0);
   const [foo, setFoo] = useState(
     <p>Selecciona primero un método de selección de criterios de conformidad</p>
   );
@@ -77,6 +77,7 @@ export default function NuevoProyecto() {
       headers: {},
     };
     const formData = new FormData();
+    formData.append("conformanceLevel", conformanceLevel);
     return axios
       .post(
         `${process.env.REACT_APP_BACK_URL}/API/accesibilidad/listarCriterios.php`,
@@ -105,6 +106,8 @@ export default function NuevoProyecto() {
     e.preventDefault();
     setActive(2, 1);
     setTotalComplete(1);
+    setConformanceCriteria([]);
+    document.getElementById("step-2-spinner").classList.remove("d-none");
     await loadCriteria((criteria) => {
       if (criteria) {
         setConformanceCriteria([...criteria]);
@@ -133,7 +136,7 @@ export default function NuevoProyecto() {
   }
 
   function changeConformanceLevel(e) {
-    setConformance(Number(e.target.value));
+    setConformanceLevel(Number(e.target.value));
   }
 
   return (
@@ -219,7 +222,12 @@ export default function NuevoProyecto() {
             <Container className="text-center mb-3">
               A continuación se listan los Criterios de Conformidad que deberán
               satisfacerse para cumplir con un Nivel de Conformidad{" "}
-              {conformance == 1 ? " A" : conformance == 2 ? "AA" : "AAA"}.
+              {conformanceLevel == 1
+                ? " A"
+                : conformanceLevel == 2
+                ? "AA"
+                : "AAA"}
+              .
             </Container>
             <Container id="step-2-spinner" className="text-center">
               <Spinner animation="border" role="status">
@@ -241,7 +249,7 @@ export default function NuevoProyecto() {
                         <ul className="criteria-list">
                           {guidelines.criterios.map((criteria, ind) => (
                             <li key={ind}>
-                              <Row className="align-items-center">
+                              <Row>
                                 <Col xs="6" md="8">
                                   <h5 className="m-0">
                                     <span>{criteria.code}</span>-{" "}
@@ -249,7 +257,9 @@ export default function NuevoProyecto() {
                                   </h5>
                                 </Col>
                                 <Col xs="4" md="3" className="text-end">
-                                  <p className="m-0">Nivel {criteria.level}</p>
+                                  <p className="m-0">
+                                    Nivel {criteria.level_name}
+                                  </p>
                                 </Col>
                                 <Col xs="2" md="1" className="text-end">
                                   <Button
@@ -306,9 +316,9 @@ export default function NuevoProyecto() {
           </p>
           <p className="field">Nivel de conformidad:</p>
           <p className="value">
-            {conformance == 1
+            {conformanceLevel == 1
               ? "Nivel A"
-              : conformance == 2
+              : conformanceLevel == 2
               ? "Nivel AA"
               : "Nivel AAA"}
           </p>
@@ -332,7 +342,7 @@ export default function NuevoProyecto() {
                           <li key={ind}>
                             <h5>
                               <span>{criteria.code}</span>- {criteria.name}{" "}
-                              (Nivel {criteria.level})
+                              (Nivel {criteria.level_name})
                             </h5>
                           </li>
                         ))}
