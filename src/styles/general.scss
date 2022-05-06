@@ -185,6 +185,33 @@ body::-webkit-scrollbar-thumb {
       //max-height: 500px;
       //object-fit: contain;
     }*/
+    .container-image-accesibility{
+      position: relative;
+    .tap-to-discover{
+    margin-left: -100px;
+    text-align: start;
+    color: $primary-dark;
+    font-weight: 600;
+    }
+    .tap-to-discover:after{
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDUiIGhlaWdodD0iNzUiIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAxMDUgNzUiPjxwYXRoIHN0cm9rZT0iIzMzNjhGMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0xMDMuNDk5IDEuNXMwIDY0LjcwMy0xMDAuMzQxIDY0LjcwM20wIDAgNy40NjItNy4yMjNtLTcuNDYyIDcuMjIzIDcuNDYyIDYuNSIvPjwvc3ZnPg==);
+      background-repeat: no-repeat;
+      background-size: 100%;
+      content: "";
+      height: 70px;
+      left: -20px;
+      position: absolute;
+      top: 30px;
+      transform: rotate(258deg);
+      width: 80px;
+      transform: scaleX(-1);
+    }
+    .toast-accessibility{
+      small{
+        display: none;
+      }
+    }
+  }
   }
   .app-home-section3 {
     margin-bottom: 2em;

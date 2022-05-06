@@ -9,6 +9,8 @@ import {
   Tooltip,
   Form,
   InputGroup,
+  Toast,
+  ToastContainer
 } from "react-bootstrap";
 import "animate.css";
 import { AnimationOnScroll } from "react-animation-on-scroll";
@@ -165,24 +167,32 @@ const Home = () => {
             </Container>
           </Col>
           <Col lg="6" md="5" xs="12" className="px-3 mb-3">
-            <Container className="px-3 text-center" fluid="sm">
-              <OverlayTrigger
-                trigger="click"
-                placement="bottom"
-                overlay={
-                  <Popover id={`popover-positioned-bottom`}>
-                    <Popover.Header as="p"></Popover.Header>
-                    <Popover.Body>{tooltip}</Popover.Body>
-                  </Popover>
-                }
-              >
-                <img
-                  onClick={randomTooltip}
-                  className="w-75"
-                  src={barrera_accesibilidad}
-                  alt=""
-                />
-              </OverlayTrigger>
+            <Container className="px-3 text-center container-image-accesibility" fluid="sm">
+              <div className="tap-to-discover" aria-hidden="true" data-st-delay="0.3">Clic para descubrir</div>
+              <ToastContainer  position='bottom-center' className='toast-accessibility'>
+                <Toast show={visibleTooltip} onClose={randomTooltip} bg='light' >
+                  <Toast.Header>
+                  <img
+                    src="holder.js/20x20?text=%20"
+                    className="rounded me-2"
+                    alt=""
+                  />
+                  <strong className="me-auto">Barrera de accesibilidad</strong>
+                  <small>11 mins ago</small>
+                  </Toast.Header>
+                  <Toast.Body>{tooltip}</Toast.Body>
+                </Toast>
+                
+              </ToastContainer>
+          
+
+              <img
+                onClick={randomTooltip}
+                className="w-75"
+                src={barrera_accesibilidad}
+                alt=""
+              />
+            
             </Container>
           </Col>
         </Row>

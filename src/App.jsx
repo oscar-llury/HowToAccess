@@ -15,6 +15,7 @@ import NuevoProyecto from "./pages/NuevoProyecto";
 
 //functions
 import { AuthProvider, RequireAuth } from "./lib/auth";
+import AccesibilidadWeb from "./pages/AccesibilidadWeb";
 
 export default function App() {
   return (
@@ -23,6 +24,10 @@ export default function App() {
         <Header />
         <Routes>
           <Route index element={<Home />} />
+          <Route
+            path="/accesibilidad-web"
+            element={<AccesibilidadWeb />}
+          />
           <Route
             path="/normas-de-accesibilidad-web"
             element={<NormasAccesibilidadWeb />}

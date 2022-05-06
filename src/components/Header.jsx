@@ -83,8 +83,8 @@ export default function Header() {
                 Inicio
               </Link>
               <Link
-                to="#"
-                className={`nav-item ${locationUrl == "" ? "active" : ""}`}
+                to="/accesibilidad-web"
+                className={`nav-item ${locationUrl == "/accesibilidad-web" ? "active" : ""}`}
                 title="Sobre accesibilidad web"
               >
                 Sobre accesibilidad web
