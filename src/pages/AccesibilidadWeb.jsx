@@ -6,12 +6,12 @@ import image_alts from "../img/image-alts.webp";
 import color_contrast from "../img/color-contrast.svg";
 import texto_accesible from "../img/texto-accesible.svg";
 import page_structure from "../img/page-structure.svg";
-import keyboard from "../img/keyboard.webp";
-import headers from "../img/headers.webp";
+import keyboard from "../img/keyboard-navigation.svg";
+import headers from "../img/head-heading.svg";
 import multicultural_flags from "../img/multicultural-flags.png";
 import form_usage from "../img/form-usage.png";
 import video_control from "../img/video-control.png";
-import skip_navigation_link from "../img/skip-navigation-link.png";
+import skip_navigation_link from "../img/skip-navigation-link.svg";
 
 export default function AccesibilidadWeb() {
   const [showToast, setShowToast] = useState(false);
@@ -31,7 +31,13 @@ export default function AccesibilidadWeb() {
 
   const elements = [
     { name: "Color de contraste", image: color_contrast, description: "" },
-    { name: "Texto accesible", image: texto_accesible, description: "" },
+
+    {
+      name: "Control sobre vídeos",
+      image: video_control,
+      description:
+        "Permite al usuario utilizar los controles de reproducción para los vídeos. Permite a los visitantes del sitio elegir cuándo se reproduce el contenido para evitar distracciones y reducir cualquier desencadenante que pueda causar convulsiones o eventos epilépticos.",
+    },
     {
       name: "Estructura de la página",
       image: page_structure,
@@ -51,19 +57,14 @@ export default function AccesibilidadWeb() {
       image: headers,
       description: "Proporciona títulos descriptivos para cada página.",
     },
-
+    { name: "Texto accesible", image: texto_accesible, description: "" },
     {
       name: "Omitir enlace de navegación",
       image: skip_navigation_link,
       description:
         "Permite al usuario saltar bloques de contenido que estén repetidos",
     },
-    {
-      name: "Control sobre vídeos",
-      image: video_control,
-      description:
-        "Permite al usuario utilizar los controles de reproducción para los vídeos. Permite a los visitantes del sitio elegir cuándo se reproduce el contenido para evitar distracciones y reducir cualquier desencadenante que pueda causar convulsiones o eventos epilépticos.",
-    },
+
     {
       name: "Idioma de la página",
       image: multicultural_flags,

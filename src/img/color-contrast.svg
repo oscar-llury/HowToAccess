@@ -1,26 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="110px" height="110px" viewBox="0 0 110 110" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Group 15</title>
-    <defs>
-        <linearGradient x1="50%" y1="1.83147805%" x2="50%" y2="98.0721172%" id="linearGradient-1">
-            <stop stop-color="#71F488" offset="0%"></stop>
-            <stop stop-color="#0AC726" offset="100%"></stop>
-        </linearGradient>
-    </defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="home" transform="translate(-1378.000000, -6172.000000)">
-            <g id="Group-50" transform="translate(297.000000, 5653.000000)">
-                <g id="Group-29" transform="translate(1061.500000, 519.000000)">
-                    <g id="Group-15" transform="translate(19.500000, 0.000000)">
-                        <rect id="Rectangle" fill="url(#linearGradient-1)" x="0" y="0" width="110" height="110" rx="55"></rect>
-                        <rect id="Rectangle" fill="#000000" opacity="0.0639691521" x="0" y="0" width="110" height="110" rx="55"></rect>
-                        <g id="Group-19" transform="translate(39.000000, 31.000000)">
-                            <path d="M30.3092631,23.2204273 L16.5,0 L2.4729375,23.604 C0.91575,26.048 0,28.916 0,32 C0,40.836 7.387875,48 16.5,48 C25.612125,48 33,40.836 33,32 C33,28.9616839 30.55016,23.6402034 30.5270625,23.604 L30.3092631,23.2204273 Z" id="Fill-1" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round"></path>
-                            <path d="M16.5,48 C25.612125,48 33,40.836 33,32 C33,28.9616839 30.55016,23.6402034 30.5270625,23.604 L30.3092631,23.2204273 L30.3092631,23.2204273 L16.5,0" id="Path" fill="#FFFFFF"></path>
-                        </g>
-                    </g>
-                </g>
-            </g>
-        </g>
-    </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.2.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 110 110" style="enable-background:new 0 0 110 110;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;fill:url(#Rectangle_2_);}
+	.st1{display:none;opacity:6.396915e-02;fill-rule:evenodd;clip-rule:evenodd;fill:#0099CC;enable-background:new    ;}
+	.st2{fill-rule:evenodd;clip-rule:evenodd;}
+	.st3{display:none;fill:none;stroke:#000000;stroke-width:4;stroke-linejoin:round;}
+	.st4{fill:none;stroke:#FFFFFF;stroke-width:4;stroke-linejoin:round;}
+	.st5{fill:none;stroke:#000000;stroke-width:4;stroke-linejoin:round;}
+</style>
+<g id="Page-1">
+	<g id="home" transform="translate(-1378.000000, -6172.000000)">
+		<g id="Group-50" transform="translate(297.000000, 5653.000000)">
+			<g id="Group-29" transform="translate(1061.500000, 519.000000)">
+				<g id="Group-15" transform="translate(19.500000, 0.000000)">
+					
+						<linearGradient id="Rectangle_2_" gradientUnits="userSpaceOnUse" x1="-191.7364" y1="304.218" x2="-191.7364" y2="303.2556" gradientTransform="matrix(110 0 0 -110 21146 33466)">
+						<stop  offset="0" style="stop-color:#83C2D2"/>
+						<stop  offset="1" style="stop-color:#0099CD"/>
+					</linearGradient>
+					<path id="Rectangle" class="st0" d="M55,0L55,0c30.4,0,55,24.6,55,55l0,0c0,30.4-24.6,55-55,55l0,0C24.6,110,0,85.4,0,55l0,0
+						C0,24.6,24.6,0,55,0z"/>
+					<path id="Rectangle_1_" class="st1" d="M55,0L55,0c30.4,0,55,24.6,55,55l0,0c0,30.4-24.6,55-55,55l0,0C24.6,110,0,85.4,0,55
+						l0,0C0,24.6,24.6,0,55,0z"/>
+					<g id="Group-19" transform="translate(39.000000, 31.000000)">
+						<path id="Path" class="st2" d="M16.5,48C25.6,48,33,40.8,33,32c0-3-2.4-8.4-2.5-8.4l-0.2-0.4l0,0L16.5,0"/>
+						<path id="Fill-1_1_" class="st3" d="M28.3,23.2L14.5,0l-14,23.6C-1.1,26-2,28.9-2,32c0,8.8,7.4,16,16.5,16S31,40.8,31,32
+							c0-3-2.4-8.4-2.5-8.4L28.3,23.2z"/>
+						<path class="st4" d="M14.5,0l-14,23.6C-1.1,26-2,28.9-2,32c0,8.8,7.4,16,16.5,16V0z"/>
+						<path class="st5" d="M16.6,0l14,23.6c1.6,2.4,2.5,5.3,2.5,8.4c0,8.8-7.4,16-16.5,16V0z"/>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+</g>
 </svg>
