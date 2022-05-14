@@ -62,16 +62,17 @@ if ($allCriterios) {
             $objPauta = new StdClass();
             if($idPauta == 0){
                 //primera pauta de todas
-                $objPauta->code = '1.'.$record->cod_pauta;
+                $objPauta->key = '1.'.$record->cod_pauta;
             }else if($record->cod_principio != $idPrincipio){
                 //primera pauta de nuevo principio
-                $objPauta->code = $record->cod_principio.'.'.$record->cod_pauta;
+                $objPauta->key = $record->cod_principio.'.'.$record->cod_pauta;
             }
             else{
-                $objPauta->code = $objPrincipio->code.'.'.$record->cod_pauta;
+                $objPauta->key = $objPrincipio->code.'.'.$record->cod_pauta;
             }
             $idPauta = $record->cod_pauta;
             $objPauta->name = $record->nombre_pauta;
+            $objPauta->code =  $record->cod_pauta;
             $objPauta->criterios = array();
         }
         if($record->cod_principio != $idPrincipio){
@@ -83,13 +84,15 @@ if ($allCriterios) {
             }
             $objPrincipio = new StdClass();
             $idPrincipio = $record->cod_principio;
+            $objPrincipio->key = $record->cod_principio;
             $objPrincipio->code = $record->cod_principio;
             $objPrincipio->name = $record->nombre_principio;
             $objPrincipio->pautas = array();
         }
         
         $objCriterio = new stdClass();
-        $objCriterio->code = $objPrincipio->code.'.'.$record->cod_pauta.'.'.$record->cod_criterio;
+        $objCriterio->key = $objPrincipio->code.'.'.$record->cod_pauta.'.'.$record->cod_criterio;
+        $objCriterio->code = $record->cod_criterio;
         $objCriterio->name = $record->nombre_criterio;
         $objCriterio->level_code = $record->nivel_conformidad_id;
         $objCriterio->level_name = $record->nivel_conformidad_code;

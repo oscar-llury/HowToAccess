@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Container, ToastContainer, Toast } from "react-bootstrap";
+import { Container, ToastContainer, Toast, Row, Col } from "react-bootstrap";
 import Masonry from "react-masonry-css";
+import { AnimationOnScroll } from "react-animation-on-scroll";
 
 import image_alts from "../img/image-alts.webp";
 import color_contrast from "../img/color-contrast.svg";
@@ -12,6 +13,10 @@ import multicultural_flags from "../img/multicultural-flags.png";
 import form_usage from "../img/form-usage.png";
 import video_control from "../img/video-control.png";
 import skip_navigation_link from "../img/skip-navigation-link.svg";
+import ojo from "../img/ojo.svg";
+import cabeza from "../img/cabeza.svg";
+import tap from "../img/tap.svg";
+import oido from "../img/oido.svg";
 
 export default function AccesibilidadWeb() {
   const [showToast, setShowToast] = useState(false);
@@ -24,9 +29,9 @@ export default function AccesibilidadWeb() {
 
   const breakpointColumnsObj = {
     default: 6,
-    1100: 6,
-    700: 3,
-    500: 2,
+    1200: 6,
+    992: 3,
+    576: 2,
   };
 
   const elements = [
@@ -36,46 +41,56 @@ export default function AccesibilidadWeb() {
       name: "Control sobre vídeos",
       image: video_control,
       description:
-        "Permite al usuario utilizar los controles de reproducción para los vídeos. Permite a los visitantes del sitio elegir cuándo se reproduce el contenido para evitar distracciones y reducir cualquier desencadenante que pueda causar convulsiones o eventos epilépticos.",
+        "Permite a los usuarios utilizar los controles de reproducción para los vídeos. Esto permitirá elegir cuándo se reproduce el contenido, para evitar distracciones y reducir cualquier desencadenante que pueda causar convulsiones o eventos epilépticos.",
     },
     {
       name: "Estructura de la página",
       image: page_structure,
       description:
-        "Proporciona una estructura de encabezados jerárquica y accesible para cada página, es esencial para los lectores de pantalla.",
+        "Proporciona una estructura html (section, article, title). Es esencial para los lectores de pantalla puedan interpretar el fin de cada sección de la página.",
     },
-
     {
       name: "Navegación por teclado",
       image: keyboard,
       description:
         "Permite a los usuarios la navegación por la web usando únicamente el teclado. Ayuda a los usuarios con discapacidades físicas o visuales a navegar por el contenido sin necesitar un ratón o puntero.",
     },
-    { name: "Alt en imágenes", image: image_alts, description: "" },
+    {
+      name: "Alt en imágenes",
+      image: image_alts,
+      description:
+        "Proporciona un texto alternativo a las imágenes del sitio web para mostrar en lugar de la imagen en caso de error de carga.",
+    },
     {
       name: "Encabezados de página",
       image: headers,
-      description: "Proporciona títulos descriptivos para cada página.",
+      description:
+        "Proporciona títulos descriptivos para cada página y una estructura de encabezados jerárquica y accesible.",
     },
-    { name: "Texto accesible", image: texto_accesible, description: "" },
+    {
+      name: "Texto accesible",
+      image: texto_accesible,
+      description:
+        "Proporciona herramientas para cambiar el tamaño de texto, interlineado y tipografía. Permite que usuarios con dislexia o discapacidades visuales puedan adaptar el texto a sus necesidades.",
+    },
     {
       name: "Omitir enlace de navegación",
       image: skip_navigation_link,
       description:
-        "Permite al usuario saltar bloques de contenido que estén repetidos",
+        "Permite a los usuarios saltar bloques de contenido que estén repetidos.",
     },
 
     {
       name: "Idioma de la página",
       image: multicultural_flags,
       description:
-        "Proporciona atributos de idioma para cada página. Esto es esencial para los usuarios que dependen de tecnología de asistencia como lectores de pantalla, traductores de braille y software de reconocimiento de voz",
+        "Proporciona atributos de idioma para cada página. Esto es esencial para los usuarios que dependen de tecnología de asistencia como: lectores de pantalla, traductores de braille y software de reconocimiento de voz.",
     },
     {
       name: "Etiquetas en formularios",
       image: form_usage,
       description:
-        "Crea etiquetas de formulario, atributos de obligatoriedad, y más para que los lectores de pantalla comuniquen la intención y el valor esperado en cada campo del formulario.",
+        "Crea etiquetas de formulario, atributos de obligatoriedad, y más, para que los lectores de pantalla comuniquen la intención y el valor esperado en cada campo del formulario.",
     },
   ];
 
@@ -86,10 +101,11 @@ export default function AccesibilidadWeb() {
        */
       function handleClickOutside(event) {
         if (ref.current && !ref.current.contains(event.target)) {
-          document.body.classList.remove("toast-accessibility-open");
           //window.pageYOffset = pageYOffset;
-          console.log(pageYOffset);
           setShowToast(false);
+          setTimeout(function () {
+            document.body.classList.remove("toast-accessibility-open");
+          }, 500);
         }
       }
       // Bind the event listener
@@ -104,17 +120,82 @@ export default function AccesibilidadWeb() {
   useOutsideAlerter(wrapperRef);
 
   async function openToast(info) {
-    setToastInfo(info);
-    setShowToast(true);
-    console.log(window.pageYOffset);
-    setPageYOffset(window.pageYOffset);
-    document.body.style.top = -window.pageYOffset + "px";
-    document.body.classList.add("toast-accessibility-open");
+    if (!document.body.classList.contains("toast-accessibility-open")) {
+      setToastInfo(info);
+      setShowToast(true);
+      setPageYOffset(window.pageYOffset);
+      document.body.style.top = -window.pageYOffset + "px";
+      document.body.classList.add("toast-accessibility-open");
+    }
   }
+
+  const startAnimation = () => {
+    const title = document.querySelector(".title-heading");
+    const columns = document.querySelectorAll(".column-heading");
+    const titleAnimation = "zoomInDown";
+    title.classList.add(
+      "animate__animated",
+      `animate__${titleAnimation}`,
+      "animate__slow"
+    );
+    columns.forEach((e, index) =>
+      e.classList.add(
+        "animate__animated",
+        `animate__${titleAnimation}`,
+        "animate__slow"
+      )
+    );
+  };
+
+  useEffect(() => {
+    //requestAnimationFrame(startAnimation);
+    const columns = document.querySelectorAll(".masonry-column");
+    columns[4].classList.add("flex-row");
+    columns[5].classList.add("flex-row");
+  }, []);
 
   return (
     <div className="web-accessibility">
-      <Container fluid>
+      <Container fluid className="masonry-box">
+        <Row className="heading">
+          <Col xs="12" md="4">
+            <Row className="group2">
+              <Col xs="6" className="column-heading ">
+                <div className="text-center">
+                  <img src={ojo} alt="" />
+                </div>
+              </Col>
+              <Col xs="6" className="column-heading ">
+                <div className="text-center">
+                  <img src={cabeza} alt="" />
+                </div>
+              </Col>
+            </Row>
+          </Col>
+
+          <Col md="4" className="title-heading ">
+            <div className="p-3">
+              <h1 className="text-center">
+                Elementos que mejoran la accesibilidad web
+              </h1>
+            </div>
+          </Col>
+          <Col xs="12" md="4">
+            <Row className="group2">
+              <Col xs="6" className="column-heading ">
+                <div className="text-center">
+                  <img src={tap} alt="" />
+                </div>
+              </Col>
+              <Col xs="6" className="column-heading ">
+                <div className="text-center">
+                  <img src={oido} alt="" />
+                </div>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+
         <Masonry
           breakpointCols={breakpointColumnsObj}
           className="masonry-accessibility-elements"
@@ -124,13 +205,11 @@ export default function AccesibilidadWeb() {
             <MasonryColumn key={index} info={e} openToast={openToast} />
           ))}
         </Masonry>
-
-        <div
-          aria-live="polite"
-          aria-atomic="true"
-          className="bg-dark position-relative"
-          style={{ minHeight: "240px" }}
-        ></div>
+      </Container>
+      <Container fluid="sm">
+        <Row>
+          <Col></Col>
+        </Row>
       </Container>
       <ToastContainer className="toast-accessibility " position="top-center">
         <div className={showToast ? "d-flex" : "d-none"}>
@@ -142,15 +221,10 @@ export default function AccesibilidadWeb() {
             show={showToast}
             ref={wrapperRef}
             delay={20000}
-            bg="light"
-            className="m-auto"
+            bg="white"
+            className="m-auto custom-toast"
           >
             <Toast.Header>
-              <img
-                src="holder.js/20x20?text=%20"
-                className="rounded me-2"
-                alt=""
-              />
               <strong className="me-auto">{toastInfo.name}</strong>
             </Toast.Header>
             <Toast.Body>{toastInfo.description}</Toast.Body>
@@ -167,7 +241,7 @@ function MasonryColumn({ info, openToast }) {
       onClick={() => {
         openToast(info);
       }}
-      className="cursor-pointer"
+      className="cursor-pointer mansonry-div"
     >
       <img src={info.image} alt={info.name}></img>
       <p className="info text-center">{info.name}</p>

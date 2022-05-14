@@ -129,6 +129,41 @@ export default function NuevoProyecto() {
 
   function handleCreateProyect(e) {
     e.preventDefault();
+    const headers = {
+      headers: {},
+    };
+    const formData = new FormData();
+    formData.append("name", nombre);
+    formData.append("tipoCriterios", tipoCriterios);
+    formData.append("conformanceLevel", conformanceLevel);
+
+    let criterios_list = [];
+
+    conformanceCriteria.forEach((principio, _) => {
+      principio.pautas.forEach((pauta, _) => {
+        pauta.criterios.forEach((criterio, _) => {
+          const val = {
+            principio: principio.code,
+            pauta: pauta.code,
+            criterio: criterio.code,
+          };
+          criterios_list.push(val);
+        });
+      });
+    });
+    formData.append("criterios_list", JSON.stringify(criterios_list));
+    return axios
+      .post(
+        `${process.env.REACT_APP_BACK_URL}/API/proyectos/crear.php`,
+        formData,
+        headers
+      )
+      .then((data) => {
+        const dataR = data.data;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   function changeProyectType(e) {
@@ -238,22 +273,21 @@ export default function NuevoProyecto() {
               {conformanceCriteria.map((principle, index) => (
                 <li key={index}>
                   <h3>
-                    <span>{principle.code}</span>- {principle.name}
+                    <span>{principle.key}</span>- {principle.name}
                   </h3>
                   <ul className="guidelines-list">
                     {principle.pautas.map((guidelines, indx) => (
                       <li key={indx}>
                         <h4>
-                          <span>{guidelines.code}</span>- {guidelines.name}
+                          <span>{guidelines.key}</span>- {guidelines.name}
                         </h4>
                         <ul className="criteria-list">
                           {guidelines.criterios.map((criteria, ind) => (
                             <li key={ind}>
-                              <Row>
+                              <Row className="align-items-center">
                                 <Col xs="6" md="8">
                                   <h5 className="m-0">
-                                    <span>{criteria.code}</span>-{" "}
-                                    {criteria.name}
+                                    <span>{criteria.key}</span>- {criteria.name}
                                   </h5>
                                 </Col>
                                 <Col xs="4" md="3" className="text-end">
@@ -329,19 +363,19 @@ export default function NuevoProyecto() {
             {conformanceCriteria.map((principle, index) => (
               <li key={index}>
                 <h3>
-                  <span>{principle.code}</span>- {principle.name}
+                  <span>{principle.key}</span>- {principle.name}
                 </h3>
                 <ul>
                   {principle.pautas.map((guidelines, indx) => (
                     <li key={indx}>
                       <h4>
-                        <span>{guidelines.code}</span>- {guidelines.name}
+                        <span>{guidelines.key}</span>- {guidelines.name}
                       </h4>
                       <ul>
                         {guidelines.criterios.map((criteria, ind) => (
                           <li key={ind}>
                             <h5>
-                              <span>{criteria.code}</span>- {criteria.name}{" "}
+                              <span>{criteria.key}</span>- {criteria.name}{" "}
                               (Nivel {criteria.level_name})
                             </h5>
                           </li>

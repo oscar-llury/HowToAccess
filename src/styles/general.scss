@@ -118,6 +118,22 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
+/*******CUSTOM TOAST*******/
+.custom-toast {
+  border: 0;
+  border-radius: 10px;
+  padding: 15px;
+  .toast-header {
+    padding: 10px;
+    border-bottom: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  .toast-body {
+    padding: 10px;
+  }
+}
+
 /*******LOGIN*******/
 .app-login {
   height: calc(100vh - var(--vh100-offset));
@@ -177,6 +193,7 @@ body::-webkit-scrollbar-thumb {
     .highlighted {
       color: $primary;
       font-weight: 350;
+      white-space: nowrap;
     }
   }
   .app-home-section2 {
@@ -194,7 +211,7 @@ body::-webkit-scrollbar-thumb {
         font-weight: 600;
       }
       .tap-to-discover:after {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDUiIGhlaWdodD0iNzUiIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAxMDUgNzUiPjxwYXRoIHN0cm9rZT0iIzMzNjhGMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0xMDMuNDk5IDEuNXMwIDY0LjcwMy0xMDAuMzQxIDY0LjcwM20wIDAgNy40NjItNy4yMjNtLTcuNDYyIDcuMjIzIDcuNDYyIDYuNSIvPjwvc3ZnPg==);
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDUiIGhlaWdodD0iNzUiIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAxMDUgNzUiPjxwYXRoIHN0cm9rZT0iIzE3N2FiZCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0xMDMuNDk5IDEuNXMwIDY0LjcwMy0xMDAuMzQxIDY0LjcwM20wIDAgNy40NjItNy4yMjNtLTcuNDYyIDcuMjIzIDcuNDYyIDYuNSIvPjwvc3ZnPg==);
         background-repeat: no-repeat;
         background-size: 100%;
         content: "";
@@ -207,8 +224,9 @@ body::-webkit-scrollbar-thumb {
         transform: scaleX(-1);
       }
       .toast-accessibility {
-        small {
-          display: none;
+        text-align: start;
+        .custom-toast {
+          padding: 10px;
         }
       }
     }
@@ -219,9 +237,67 @@ body::-webkit-scrollbar-thumb {
       grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
     }
-    @media (min-width: 992px) {
+  }
+  .text-container {
+    padding: 2em;
+  }
+  @media (max-width: 992px) {
+    .app-home-section2 {
+      .container-image-accesibility {
+        .tap-to-discover:after {
+          height: 50px;
+          width: 50px;
+          left: 0;
+        }
+        .tap-to-discover {
+          margin-left: -70px;
+        }
+      }
+    }
+    .app-home-section3 {
       .grid-daltonismo {
-        padding: 4em;
+        padding: 2em;
+      }
+    }
+    .text-container {
+      padding: 0;
+    }
+  }
+  @media (max-width: 768px) {
+    .app-home-section2 {
+      .container-image-accesibility {
+        .tap-to-discover {
+          text-align: end;
+          margin-left: 0;
+        }
+        .tap-to-discover:after {
+          left: auto;
+          right: 80px;
+          transform: rotate(360deg);
+        }
+      }
+    }
+    .app-home-section3 {
+      .grid-daltonismo {
+        margin-top: 25px;
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    .app-home-section1 {
+      h2 {
+        padding: 0 40px;
+      }
+    }
+    .app-home-section2 {
+      .container-image-accesibility {
+        .tap-to-discover {
+          margin-right: -20px;
+        }
+        .tap-to-discover:after {
+          right: 50px;
+        }
       }
     }
   }
@@ -229,64 +305,162 @@ body::-webkit-scrollbar-thumb {
 
 /*******ACCESIBILIDAD WEB*******/
 .web-accessibility {
-  padding-top: 20px;
-  .masonry-accessibility-elements {
-    display: -webkit-box; /* Not needed if autoprefixing */
-    display: -ms-flexbox; /* Not needed if autoprefixing */
-    display: flex;
-    //margin-left: -30px; /* gutter size offset */
-    width: auto;
+  .masonry-box {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-image: url("../img/background-points.webp");
+    .masonry-accessibility-elements {
+      display: -webkit-box; /* Not needed if autoprefixing */
+      display: -ms-flexbox; /* Not needed if autoprefixing */
+      display: flex;
+      //margin-left: -30px; /* gutter size offset */
+      width: auto;
+    }
+    .masonry-column {
+      padding: 0 10px; /* gutter size */
+      background-clip: padding-box;
+      display: flex;
+      flex-direction: column;
+      //justify-content: space-evenly;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+    .masonry-column.heading {
+      flex-direction: row;
+    }
+    /* Style your items */
+    .masonry-column > div {
+      /* change div to reference your elements you put in <Masonry> */
+      background: $white;
+      margin-bottom: 20px;
+      border-radius: 30px;
+      padding: 30px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+    .masonry-column > div.mansonry-div {
+      width: 100%;
+    }
+    .masonry-column img {
+      margin-bottom: 10px;
+      max-height: 80%;
+      max-width: 80%;
+      width: auto;
+      //max-width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+    .masonry-column p {
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+    .heading {
+      padding: 0 10px 10px;
+      h1 {
+        margin: auto;
+        width: fit-content;
+        font-size: 2rem;
+      }
+      .title-heading {
+        padding: 10px 10px;
+        --animate-duration: 1s;
+      }
+      .column-heading {
+        padding: 10px 10px;
+        --animate-duration: 2s;
+      }
+      .column-heading > div,
+      .title-heading > div {
+        height: 100%;
+        background: $white;
+        margin-bottom: 30px;
+        border-radius: 30px;
+      }
+      .group2 {
+        height: 100%;
+      }
+      .title-heading > div {
+        display: flex;
+      }
+      .column-heading img {
+        width: 30%;
+        height: 100%;
+      }
+    }
   }
-  .masonry-column {
-    padding: 0 10px; /* gutter size */
-    background-clip: padding-box;
-    display: flex;
-    flex-direction: column;
-    //justify-content: space-evenly;
-    justify-content: space-between;
+  @media (max-width: 1400px) {
+    .masonry-box {
+      .heading {
+        h1 {
+          font-size: 1.8rem;
+        }
+      }
+    }
   }
-
-  /* Style your items */
-  .masonry-column > div {
-    /* change div to reference your elements you put in <Masonry> */
-    background: $white;
-    margin-bottom: 30px;
-    width: 100%;
-    border-radius: 30px;
-    padding: 30px 20px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-  }
-  .masonry-column img {
-    margin-bottom: 10px;
-    max-height: 80%;
-    max-width: 80%;
-    width: auto;
-    //max-width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
-  .masonry-column p {
-    margin-bottom: 10px;
-    font-weight: 500;
+  @media (max-width: 1200px) {
+    .masonry-box {
+      .heading {
+        h1 {
+          font-size: 1.5rem;
+        }
+        .column-heading img {
+          width: 40%;
+          height: 100%;
+        }
+      }
+    }
   }
   @media (max-width: 992px) {
-    .masonry-column img {
-      max-height: 90%;
+    .masonry-box {
+      .masonry-column img {
+        max-height: 90%;
+      }
+      .heading {
+        h1 {
+          font-size: 1.2rem;
+        }
+        .column-heading img {
+          width: 50%;
+          height: 100%;
+        }
+      }
     }
   }
   @media (max-width: 768px) {
-    .masonry-column > div {
-      padding: 25px 15px 15px;
-      margin-bottom: 20px;
-    }
-    .masonry-column img {
-      max-height: 100%;
+    .masonry-box {
+      .masonry-column > div {
+        padding: 25px 15px 15px;
+        margin-bottom: 20px;
+      }
+      .masonry-column img {
+        max-height: 100%;
+      }
+      .heading {
+        h1 {
+          font-size: 1.3rem;
+        }
+        .column-heading img {
+          width: 40%;
+          height: 100%;
+        }
+      }
     }
   }
   @media (max-width: 576px) {
+    .masonry-box {
+      .heading {
+        h1 {
+          font-size: 1.2rem;
+        }
+        .column-heading img {
+          width: 30%;
+          height: 100%;
+        }
+      }
+    }
   }
   .toast-accessibility {
     position: fixed !important;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   Button,
   Container,
@@ -11,6 +11,7 @@ import {
   InputGroup,
   Toast,
   ToastContainer,
+  Overlay,
 } from "react-bootstrap";
 import "animate.css";
 import { AnimationOnScroll } from "react-animation-on-scroll";
@@ -38,6 +39,11 @@ const Home = () => {
   const [pointerTooltip, setPointerTooltip] = useState(0);
   const [visibleTooltip, setVisibleTooltip] = useState(false);
   const [tooltip, setTooltip] = useState();
+
+  const targetImg1 = useRef(null);
+  const targetImg2 = useRef(null);
+  const targetImg3 = useRef(null);
+  const targetImg4 = useRef(null);
 
   const slides = [
     {
@@ -88,10 +94,10 @@ const Home = () => {
     <Container fluid className="app-home p-0">
       <div className="bg-soft">
         <Carrousel slides={slides} />
-        <Container fluid="sm" className="mt-4 text-black app-home-section1">
+        <Container fluid="lg" className="mt-4 text-black app-home-section1">
           <Row className="justify-content-center align-items-center m-auto">
             <Col lg="7" md="6" xs="12">
-              <Container className="text-center mb-4">
+              <Container className="text-center mb-4 text-container">
                 <h2>
                   La <span className="bolder">Accesibilidad</span> en{" "}
                   <span className="highlighted">Páginas Web</span>
@@ -104,7 +110,15 @@ const Home = () => {
                   Texto alternativo en imágenes, colores contrastados,
                   navegación por teclado...
                 </p>
-                <Button variant="primary" className="w-auto" href="">
+                <p>
+                  Descubre los elementos más importantes de la accesibilidad web
+                  y cómo implementarlos.
+                </p>
+                <Button
+                  variant="primary"
+                  className="w-auto"
+                  href="/accesibilidad-web"
+                >
                   Ver más <i className="bi bi-arrow-right"></i>
                 </Button>
               </Container>
@@ -154,19 +168,19 @@ const Home = () => {
         </Container>
         <Spacer space={[2, 0]} />
       </div>
-      <Container fluid="sm" className="text-black app-home-section2">
+      <Container fluid="lg" className="text-black app-home-section2">
         <Row className="justify-content-center align-items-center m-auto gx-4">
-          <Col lg="6" md="7" xs="12">
-            <Container className="text-center mb-4">
+          <Col lg="7" md="6" xs="12">
+            <Container className="text-center mb-4 text-container">
               <h2>Barreras de Accesibilidad</h2>
-              <p>
+              <p className="my-3">
                 Sitios web que no estén diseñados y desarrollados teniendo en
                 cuenta los elementos de la accesibilidad web puede provocar que
                 personas con discapacidades no puedan usarlos.
               </p>
             </Container>
           </Col>
-          <Col lg="6" md="5" xs="12" className="px-3 mb-3">
+          <Col lg="5" md="6" xs="12" className="px-3 mb-3">
             <Container
               className="px-3 text-center container-image-accesibility"
               fluid="sm"
@@ -179,16 +193,16 @@ const Home = () => {
                 Clic para descubrir
               </div>
               <ToastContainer
-                position="bottom-center"
+                position="middle-center"
                 className="toast-accessibility"
               >
-                <Toast show={visibleTooltip} onClose={randomTooltip} bg="light">
+                <Toast
+                  show={visibleTooltip}
+                  onClose={randomTooltip}
+                  bg="white"
+                  className="custom-toast"
+                >
                   <Toast.Header>
-                    <img
-                      src="holder.js/20x20?text=%20"
-                      className="rounded me-2"
-                      alt=""
-                    />
                     <strong className="me-auto">
                       Barrera de accesibilidad
                     </strong>
@@ -207,57 +221,80 @@ const Home = () => {
           </Col>
         </Row>
       </Container>
-      <Container fluid="sm" className="text-black app-home-section3">
+      <Container fluid="lg" className="text-black app-home-section3">
         <Row className="justify-content-center align-items-center gx-5">
-          <Col lg="6" md="6" xs="12">
-            <Container fluid="sm" className="d-grid grid-daltonismo mb-3">
-              <OverlayTrigger
-                placement="top"
-                overlay={<Tooltip id="tooltip-top">Visión normal</Tooltip>}
+          <Col
+            lg="5"
+            md={{ order: "first", span: 6 }}
+            sm={{ order: "last", span: 12 }}
+            xs={{ order: "last", span: 12 }}
+          >
+            <Container fluid="sm" className="d-grid grid-daltonismo">
+              <img ref={targetImg1} className="w-100" src={daltonismo} alt="" />
+              <Overlay target={targetImg1.current} show={true} placement="top">
+                <Tooltip id="overlay-example">Visión normal</Tooltip>
+              </Overlay>
+              <img
+                ref={targetImg2}
+                className="w-100"
+                src={daltonismo_azul}
+                alt=""
+              />
+              <Overlay target={targetImg2.current} show={true} placement="top">
+                <Tooltip id="overlay-example">Ceguera al azul</Tooltip>
+              </Overlay>
+              <img
+                ref={targetImg3}
+                className="w-100"
+                src={daltonismo_rojo}
+                alt=""
+              />
+              <Overlay
+                target={targetImg3.current}
+                show={true}
+                placement="bottom"
               >
-                <img className="w-100" src={daltonismo} alt="" />
-              </OverlayTrigger>
-
-              <OverlayTrigger
-                placement="top"
-                overlay={<Tooltip id="tooltip-top">Ceguera al azul</Tooltip>}
+                <Tooltip id="overlay-example">Ceguera al rojo</Tooltip>
+              </Overlay>
+              <img
+                ref={targetImg4}
+                className="w-100"
+                src={daltonismo_verde}
+                alt=""
+              />
+              <Overlay
+                target={targetImg4.current}
+                show={true}
+                placement="bottom"
               >
-                <img className="w-100" src={daltonismo_azul} alt="" />
-              </OverlayTrigger>
-
-              <OverlayTrigger
-                placement="top"
-                overlay={<Tooltip id="tooltip-top">Ceguera al rojo</Tooltip>}
-              >
-                <img className="w-100" src={daltonismo_rojo} alt="" />
-              </OverlayTrigger>
-
-              <OverlayTrigger
-                placement="top"
-                overlay={<Tooltip id="tooltip-top">Ceguera al verde</Tooltip>}
-              >
-                <img className="w-100" src={daltonismo_verde} alt="" />
-              </OverlayTrigger>
+                <Tooltip id="overlay-example">Ceguera al verde</Tooltip>
+              </Overlay>
             </Container>
           </Col>
-          <Col lg="6" md="6" xs="12" className="text-center">
-            <Container className="text-center mb-4">
+          <Col
+            lg="7"
+            md={{ order: "last", span: 6 }}
+            sm={{ order: "first", span: 12 }}
+            xs={{ order: "first", span: 12 }}
+            className="text-center mb-4"
+          >
+            <Container className="text-container text-center">
               <h2>Aprendizaje práctico</h2>
-              <p>
+              <p className="my-3">
                 El daltonismo puede provocar que una persona no pueda
                 diferenciar los colores. Para evitar confusiones, se debe
                 proporcionar ayuda textual que permita distinguir los elementos
                 afectados. Descubre como aplicar las distintas normas de
                 accesibilidad web.
               </p>
+              <Button
+                variant="primary"
+                className="w-auto"
+                href="/normas-de-accesibilidad-web"
+              >
+                Descubrir más <i className="bi bi-arrow-right"></i>
+              </Button>
             </Container>
-            <Button
-              variant="primary"
-              className="w-auto"
-              href="/normas-de-accesibilidad-web"
-            >
-              Descubrir más <i className="bi bi-arrow-right"></i>
-            </Button>
           </Col>
         </Row>
       </Container>
