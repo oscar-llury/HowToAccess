@@ -17,6 +17,7 @@ import ojo from "../img/ojo.svg";
 import cabeza from "../img/cabeza.svg";
 import tap from "../img/tap.svg";
 import oido from "../img/oido.svg";
+import discapacidades from "../img/discapacidades.svg";
 
 export default function AccesibilidadWeb() {
   const [showToast, setShowToast] = useState(false);
@@ -148,7 +149,7 @@ export default function AccesibilidadWeb() {
   };
 
   useEffect(() => {
-    //requestAnimationFrame(startAnimation);
+    requestAnimationFrame(startAnimation);
     const columns = document.querySelectorAll(".masonry-column");
     columns[4].classList.add("flex-row");
     columns[5].classList.add("flex-row");
@@ -206,8 +207,43 @@ export default function AccesibilidadWeb() {
           ))}
         </Masonry>
       </Container>
-      <Container fluid="sm">
+      <Container fluid="sm" className="row1">
         <Row>
+          <Col>
+            <Container className="quote">
+              <img src={discapacidades} alt="" />
+              <blockquote cite="https://www.who.int/news-room/fact-sheets/detail/disability-and-health">
+                <span className="italic">Unicef</span> estima que hay 1000
+                millones de personas, el 15% de la población mundial, que
+                experimentan algún tipo de discapacidad, de los cuales 240
+                millones son niños.
+              </blockquote>
+            </Container>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <h2>Los beneficios de la accesibilidad web</h2>
+            <p>
+              Aproximadamente la mitad de los usuarios que llegan a una página
+              web podrían tener dificultades para navegar a traves de ella o
+              entender su información.
+            </p>
+            <p>
+              Además, personas perfectamente saludables, con excelente vista,
+              audición y mobilidad, y que pueden leer y escribir sin esfuerzo
+              también pueden encontrar problemas de uso en páginas web.
+            </p>
+            <p>
+              Realizar un diseño web que sea usable y accesible para personas
+              con discapacidad tiene beneficios para el resto de personas que no
+              presentan dichas discapacidades, es decir,{" "}
+              <strong>
+                todos nos beneficiamos de una buena accesibilidad web
+              </strong>
+              .
+            </p>
+          </Col>
           <Col></Col>
         </Row>
       </Container>

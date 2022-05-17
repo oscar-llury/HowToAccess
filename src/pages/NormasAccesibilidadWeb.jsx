@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Button,
   Container,
@@ -19,6 +19,11 @@ import perceivable from "../img/perceivable.png";
 import operable from "../img/operable.png";
 import understandable from "../img/understandable.png";
 import robust from "../img/robust.png";
+
+import eye_perceivable from "../img/eye_perceivable.png";
+import hand_operable from "../img/hand_operable.png";
+import head_understandable from "../img/head_understandable.png";
+import like_robust from "../img/like_robust.png";
 /*
 import anillo from "../img/4-Principios-anillo.png";
 import centro from "../img/4-Principios-centro.png";
@@ -30,6 +35,13 @@ import mano from "../img/4-Principios-mano.png";
 export default function NormasAccesibilidadWeb() {
   const [tab, setTab] = useState("perceivable");
   const tabs = ["perceivable", "operable", "understandable", "robust"];
+  const [heightTabsNav, setHeightTabNav] = useState(200);
+
+  useEffect(() => {
+    setHeightTabNav(
+      document.querySelector(".container-tabs .content").offsetHeight
+    );
+  }, []);
 
   function prev(e) {
     e.preventDefault();
@@ -129,6 +141,23 @@ export default function NormasAccesibilidadWeb() {
         </Row>
         <Row className="mt-5 section-2">
           <h2>Los 4 Principios de la Accesibilidad</h2>
+          <p>
+            POUR (Perceivable, Operable, Understandable, Robust): los cuatro
+            principios que describen la accesibilidad funcional.
+          </p>
+
+          <div className="grid-pour text-center">
+            <div>
+              <img src={eye_perceivable} alt="" />
+
+              <img src={hand_operable} alt="" />
+
+              <img src={head_understandable} alt="" />
+
+              <img src={like_robust} alt="" />
+            </div>
+          </div>
+
           <div className="container-tabs">
             <a
               className="prev"
@@ -136,6 +165,7 @@ export default function NormasAccesibilidadWeb() {
               tabIndex="0"
               onClick={prev}
               href="#"
+              style={{ height: heightTabsNav }}
             >
               <i className="bi bi-chevron-left"></i>
             </a>
@@ -145,6 +175,7 @@ export default function NormasAccesibilidadWeb() {
               tabIndex="0"
               onClick={next}
               href="#"
+              style={{ height: heightTabsNav }}
             >
               <i className="bi bi-chevron-right"></i>
             </a>
@@ -152,7 +183,6 @@ export default function NormasAccesibilidadWeb() {
               <Tabs
                 activeKey={tab}
                 onSelect={(k) => {
-                  console.dir(k);
                   setTab(k);
                 }}
                 id="uncontrolled-tab-example"

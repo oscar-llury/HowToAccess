@@ -70,7 +70,8 @@ const Home = () => {
 
   const tooltipsBarreras = [
     "Una persona sorda no podrá entender el contenido de un video que no tenga subtítulos.",
-    "Una persona ciega no comprenderá una imagen si esta no tiene una descripción escrita.",
+    "Una persona ciega no podrá comprender el contenido de una página si esta no está estructurada y etiquetada correctamente.",
+    "Una persona con discapacidades físicas puede encontrar problemas en la navegación de una página web.",
   ];
 
   function onImgLoad({ target: img }) {
@@ -97,22 +98,31 @@ const Home = () => {
         <Container fluid="lg" className="mt-4 text-black app-home-section1">
           <Row className="justify-content-center align-items-center m-auto">
             <Col lg="7" md="6" xs="12">
-              <Container className="text-center mb-4 text-container">
+              <Container className="mb-4 text-container">
                 <h2>
                   La <span className="bolder">Accesibilidad</span> en{" "}
                   <span className="highlighted">Páginas Web</span>
                 </h2>
+
+                <p className="my-4">
+                  En un mundo rebosante de información digital se ha convertido
+                  en un factor imprescindible retener a los visitantes de un
+                  nuestro web. Se estima que Google procesa 63.000 búsquedas por
+                  segundo.
+                </p>
                 <p>
+                  Personas que no comprendan o no puedan interactuar con la
+                  información o el funcionamiento de una página web la
+                  abandonarán rápidamente.
+                </p>
+                <p className="my-4">
                   Los sitios web deben estár diseñados y desarrollados de tal
-                  manera que personas con discapacidades puedan usarlos.
-                </p>
-                <p>
-                  Texto alternativo en imágenes, colores contrastados,
-                  navegación por teclado...
-                </p>
-                <p>
-                  Descubre los elementos más importantes de la accesibilidad web
-                  y cómo implementarlos.
+                  manera que puedan usarlos el mayor porcentaje de población
+                  posible, este es el objetivo de la Accesibilidad web. Texto
+                  alternativo en imágenes, colores contrastados y navegación por
+                  teclado... Descubre los elementos más importantes de la
+                  accesibilidad web en{" "}
+                  <span className="accent-hta">How To Access</span>.
                 </p>
                 <Button
                   variant="primary"
@@ -168,15 +178,24 @@ const Home = () => {
         </Container>
         <Spacer space={[2, 0]} />
       </div>
-      <Container fluid="lg" className="text-black app-home-section2">
-        <Row className="justify-content-center align-items-center m-auto gx-4">
+      <Container
+        fluid="lg"
+        className="text-black app-home-section2 p-container"
+      >
+        <Row className="justify-content-center align-items-center gx-4">
           <Col lg="7" md="6" xs="12">
-            <Container className="text-center mb-4 text-container">
+            <Container className="mb-4 text-container">
               <h2>Barreras de Accesibilidad</h2>
-              <p className="my-3">
-                Sitios web que no estén diseñados y desarrollados teniendo en
-                cuenta los elementos de la accesibilidad web puede provocar que
-                personas con discapacidades no puedan usarlos.
+              <p className="mt-4">
+                Personas que utilizan gafas, son daltónicas, tienen mobilidad
+                reducida en los brazos, viven en entornos ruidosos, son
+                dislexicos, o tienen mala conexion a internet, se encuentran con
+                barreras de accesibilidad diariamente.
+              </p>
+              <p className="my-4">
+                Páginas web que no contemplen los elementos de la accesibilidad
+                web pueden provocar que estas personas no puedan navegar o
+                comprender su contenido.
               </p>
             </Container>
           </Col>
@@ -221,7 +240,10 @@ const Home = () => {
           </Col>
         </Row>
       </Container>
-      <Container fluid="lg" className="text-black app-home-section3">
+      <Container
+        fluid="lg"
+        className="text-black app-home-section3 p-container"
+      >
         <Row className="justify-content-center align-items-center gx-5">
           <Col
             lg="5"
@@ -276,16 +298,22 @@ const Home = () => {
             md={{ order: "last", span: 6 }}
             sm={{ order: "first", span: 12 }}
             xs={{ order: "first", span: 12 }}
-            className="text-center mb-4"
+            className="mb-4"
           >
-            <Container className="text-container text-center">
+            <Container className="text-container">
               <h2>Aprendizaje práctico</h2>
-              <p className="my-3">
+              <p className="mt-4">
                 El daltonismo puede provocar que una persona no pueda
-                diferenciar los colores. Para evitar confusiones, se debe
+                diferenciar bien los colores. Para evitar confusiones, se debe
                 proporcionar ayuda textual que permita distinguir los elementos
-                afectados. Descubre como aplicar las distintas normas de
-                accesibilidad web.
+                afectados.
+              </p>
+              <p className="my-4">
+                Una de las mejores maneras de aprender es prácticando, por eso
+                en <span className="accent-hta">How To Access</span>{" "}
+                proporcionamos ejemplos de diseños e implementaciones que
+                cumplen con las normativas y recomendaciones de la Accesibilidad
+                web.
               </p>
               <Button
                 variant="primary"
