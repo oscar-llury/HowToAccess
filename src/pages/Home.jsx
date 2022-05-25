@@ -16,7 +16,7 @@ import {
 import "animate.css";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 
-import Carrousel from "../components/Carrousel";
+import Slides from "../components/Slides";
 import Spacer from "../components/Spacer";
 
 //images
@@ -28,11 +28,10 @@ import que_es_accesibilidad from "../img/accesibilidad-bg.png";
 import que_es_accesibilidad2 from "../img/accesibilidad-1.png";
 import que_es_accesibilidad3 from "../img/accesibilidad-2.png";
 import que_es_accesibilidad4 from "../img/accesibilidad-3.png";
-import daltonismo from "../img/confirmar-eliminación.png";
-import daltonismo_azul from "../img/confirmar-eliminación-azul.png";
-import daltonismo_rojo from "../img/confirmar-eliminación-rojo.png";
-import daltonismo_verde from "../img/confirmar-eliminación-verde.png";
-import logo from "../img/logo.svg";
+import daltonismo from "../img/confirmar-eliminación.svg";
+import daltonismo_azul from "../img/confirmar-eliminación-azul.svg";
+import daltonismo_rojo from "../img/confirmar-eliminación-rojo.svg";
+import daltonismo_verde from "../img/confirmar-eliminación-verde.svg";
 
 const Home = () => {
   const [imageAccHeight, setImageAccHeight] = useState(200);
@@ -94,7 +93,7 @@ const Home = () => {
   return (
     <Container fluid className="app-home p-0">
       <div className="bg-soft">
-        <Carrousel slides={slides} />
+        <Slides slides={slides} />
         <Container fluid="lg" className="mt-4 text-black app-home-section1">
           <Row className="justify-content-center align-items-center m-auto">
             <Col lg="7" md="6" xs="12">
@@ -232,7 +231,7 @@ const Home = () => {
 
               <img
                 onClick={randomTooltip}
-                className="w-75"
+                className="w-75 cursor-pointer"
                 src={barrera_accesibilidad}
                 alt=""
               />

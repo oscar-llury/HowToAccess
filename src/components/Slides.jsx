@@ -2,7 +2,7 @@ import React from "react";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import { Carousel } from "react-bootstrap";
 
-export default function Carrousel({ slides }) {
+export default function Slides({ slides }) {
   return (
     <Carousel variant="dark">
       {slides.map((slide, index) => (

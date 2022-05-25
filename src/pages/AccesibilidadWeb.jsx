@@ -2,22 +2,32 @@ import React, { useState, useRef, useEffect } from "react";
 import { Container, ToastContainer, Toast, Row, Col } from "react-bootstrap";
 import Masonry from "react-masonry-css";
 import { AnimationOnScroll } from "react-animation-on-scroll";
+import Carousel from "../components/Carousel";
 
-import image_alts from "../img/image-alts.webp";
-import color_contrast from "../img/color-contrast.svg";
-import texto_accesible from "../img/texto-accesible.svg";
-import page_structure from "../img/page-structure.svg";
-import keyboard from "../img/keyboard-navigation.svg";
-import headers from "../img/head-heading.svg";
-import multicultural_flags from "../img/multicultural-flags.png";
-import form_usage from "../img/form-usage.png";
-import video_control from "../img/video-control.png";
-import skip_navigation_link from "../img/skip-navigation-link.svg";
+import image_alts from "../img/accesibility-elements/image-alts.webp";
+import color_contrast from "../img/accesibility-elements/color-contrast.svg";
+import texto_accesible from "../img/accesibility-elements/texto-accesible.svg";
+import page_structure from "../img/accesibility-elements/page-structure.svg";
+import keyboard from "../img/accesibility-elements/keyboard-navigation.svg";
+import headers from "../img/accesibility-elements/head-heading.svg";
+import multicultural_flags from "../img/accesibility-elements/multicultural-flags.png";
+import form_usage from "../img/accesibility-elements/form-usage.png";
+import video_control from "../img/accesibility-elements/video-control.png";
+import skip_navigation_link from "../img/accesibility-elements/skip-navigation-link.svg";
 import ojo from "../img/ojo.svg";
 import cabeza from "../img/cabeza.svg";
 import tap from "../img/tap.svg";
 import oido from "../img/oido.svg";
 import discapacidades from "../img/discapacidades.svg";
+
+import img1 from "../img/1.png";
+import img2 from "../img/2.png";
+import img3 from "../img/3.png";
+import img4 from "../img/4.png";
+import img5 from "../img/5.png";
+import img6 from "../img/6.png";
+import img7 from "../img/7.png";
+import img8 from "../img/8.png";
 
 export default function AccesibilidadWeb() {
   const [showToast, setShowToast] = useState(false);
@@ -222,7 +232,7 @@ export default function AccesibilidadWeb() {
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col sm="12">
             <h2>Los beneficios de la accesibilidad web</h2>
             <p>
               Aproximadamente la mitad de los usuarios que llegan a una página
@@ -231,7 +241,7 @@ export default function AccesibilidadWeb() {
             </p>
             <p>
               Además, personas perfectamente saludables, con excelente vista,
-              audición y mobilidad, y que pueden leer y escribir sin esfuerzo
+              audición y mobilidad, y que pueden leer y escribir sin esfuerzo,
               también pueden encontrar problemas de uso en páginas web.
             </p>
             <p>
@@ -244,7 +254,91 @@ export default function AccesibilidadWeb() {
               .
             </p>
           </Col>
-          <Col></Col>
+          <Col sm="12" className="accesibility-carrousel">
+            <div
+              style={{
+                maxWidth: 1200,
+                marginLeft: "auto",
+                marginRight: "auto",
+                marginTop: 64,
+              }}
+            >
+              <Carousel show={4} infiniteLoop>
+                <div>
+                  <div style={{ padding: 8 }}>
+                    <img
+                      src={img1}
+                      alt="placeholder"
+                      style={{ width: "100%" }}
+                    />
+                  </div>
+                </div>
+                <div>
+                  <div style={{ padding: 8 }}>
+                    <img
+                      src={img2}
+                      alt="placeholder"
+                      style={{ width: "100%" }}
+                    />
+                  </div>
+                </div>
+                <div>
+                  <div style={{ padding: 8 }}>
+                    <img
+                      src={img3}
+                      alt="placeholder"
+                      style={{ width: "100%" }}
+                    />
+                  </div>
+                </div>
+                <div>
+                  <div style={{ padding: 8 }}>
+                    <img
+                      src={img4}
+                      alt="placeholder"
+                      style={{ width: "100%" }}
+                    />
+                  </div>
+                </div>
+                <div>
+                  <div style={{ padding: 8 }}>
+                    <img
+                      src={img5}
+                      alt="placeholder"
+                      style={{ width: "100%" }}
+                    />
+                  </div>
+                </div>
+                <div>
+                  <div style={{ padding: 8 }}>
+                    <img
+                      src={img6}
+                      alt="placeholder"
+                      style={{ width: "100%" }}
+                    />
+                  </div>
+                </div>
+                <div>
+                  <div style={{ padding: 8 }}>
+                    <img
+                      src={img7}
+                      alt="placeholder"
+                      style={{ width: "100%" }}
+                    />
+                  </div>
+                </div>
+                <div>
+                  <div style={{ padding: 8 }}>
+                    <img
+                      src={img8}
+                      alt="placeholder"
+                      style={{ width: "100%" }}
+                    />
+                  </div>
+                </div>
+              </Carousel>
+            </div>
+          </Col>
         </Row>
       </Container>
       <ToastContainer className="toast-accessibility " position="top-center">
