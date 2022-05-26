@@ -47,7 +47,8 @@ const Home = () => {
   const slides = [
     {
       title: "How To Access",
-      desc: "¡Hecho para ti desarrollador!",
+      desc:
+        "Cómo implementar la accesibilidad web. ¡Hecho para ti desarrollador!",
       img: slide1,
       img_alt: "Cómo ser accesible en páginas web. Hecho para desarrolladores.",
     },
@@ -93,7 +94,7 @@ const Home = () => {
   return (
     <Container fluid className="app-home p-0">
       <div className="bg-soft">
-        <Slides slides={slides} />
+        <Slides slides={slides} interval={10000} />
         <Container fluid="lg" className="mt-4 text-black app-home-section1">
           <Row className="justify-content-center align-items-center m-auto">
             <Col lg="7" md="6" xs="12">

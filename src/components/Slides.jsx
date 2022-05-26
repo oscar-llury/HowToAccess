@@ -2,11 +2,11 @@ import React from "react";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import { Carousel } from "react-bootstrap";
 
-export default function Slides({ slides }) {
+export default function Slides({ slides, interval }) {
   return (
     <Carousel variant="dark">
       {slides.map((slide, index) => (
-        <Carousel.Item key={index} interval={100000}>
+        <Carousel.Item key={index} interval={interval}>
           <img className="d-block w-100" src={slide.img} alt={slide.img_alt} />
           <div></div>
           <Carousel.Caption className="text-black">

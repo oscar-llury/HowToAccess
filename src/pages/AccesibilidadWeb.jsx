@@ -45,6 +45,12 @@ export default function AccesibilidadWeb() {
     576: 2,
   };
 
+  const breakpointsSlides = {
+    1200: 6,
+    992: 3,
+    576: 2,
+  };
+
   const elements = [
     { name: "Color de contraste", image: color_contrast, description: "" },
 
@@ -159,7 +165,7 @@ export default function AccesibilidadWeb() {
   };
 
   useEffect(() => {
-    requestAnimationFrame(startAnimation);
+    //requestAnimationFrame(startAnimation);
     const columns = document.querySelectorAll(".masonry-column");
     columns[4].classList.add("flex-row");
     columns[5].classList.add("flex-row");
@@ -255,93 +261,38 @@ export default function AccesibilidadWeb() {
             </p>
           </Col>
           <Col sm="12" className="accesibility-carrousel">
-            <div
-              style={{
-                maxWidth: 1200,
-                marginLeft: "auto",
-                marginRight: "auto",
-                marginTop: 64,
-              }}
-            >
-              <Carousel show={4} infiniteLoop>
-                <div>
-                  <div style={{ padding: 8 }}>
-                    <img
-                      src={img1}
-                      alt="placeholder"
-                      style={{ width: "100%" }}
-                    />
-                  </div>
+            <div>
+              <Carousel breakpoints={breakpointsSlides} infiniteLoop>
+                <div className="carrousel-item">
+                  <img src={img1} alt="placeholder" />
                 </div>
-                <div>
-                  <div style={{ padding: 8 }}>
-                    <img
-                      src={img2}
-                      alt="placeholder"
-                      style={{ width: "100%" }}
-                    />
-                  </div>
+                <div className="carrousel-item">
+                  <img src={img2} alt="placeholder" />
                 </div>
-                <div>
-                  <div style={{ padding: 8 }}>
-                    <img
-                      src={img3}
-                      alt="placeholder"
-                      style={{ width: "100%" }}
-                    />
-                  </div>
+                <div className="carrousel-item">
+                  <img src={img3} alt="placeholder" />
                 </div>
-                <div>
-                  <div style={{ padding: 8 }}>
-                    <img
-                      src={img4}
-                      alt="placeholder"
-                      style={{ width: "100%" }}
-                    />
-                  </div>
+                <div className="carrousel-item">
+                  <img src={img4} alt="placeholder" />
                 </div>
-                <div>
-                  <div style={{ padding: 8 }}>
-                    <img
-                      src={img5}
-                      alt="placeholder"
-                      style={{ width: "100%" }}
-                    />
-                  </div>
+                <div className="carrousel-item">
+                  <img src={img5} alt="placeholder" />
                 </div>
-                <div>
-                  <div style={{ padding: 8 }}>
-                    <img
-                      src={img6}
-                      alt="placeholder"
-                      style={{ width: "100%" }}
-                    />
-                  </div>
+                <div className="carrousel-item">
+                  <img src={img6} alt="placeholder" />
                 </div>
-                <div>
-                  <div style={{ padding: 8 }}>
-                    <img
-                      src={img7}
-                      alt="placeholder"
-                      style={{ width: "100%" }}
-                    />
-                  </div>
+                <div className="carrousel-item">
+                  <img src={img7} alt="placeholder" />
                 </div>
-                <div>
-                  <div style={{ padding: 8 }}>
-                    <img
-                      src={img8}
-                      alt="placeholder"
-                      style={{ width: "100%" }}
-                    />
-                  </div>
+                <div className="carrousel-item">
+                  <img src={img8} alt="placeholder" />
                 </div>
               </Carousel>
             </div>
           </Col>
         </Row>
       </Container>
-      <ToastContainer className="toast-accessibility " position="top-center">
+      <ToastContainer className="toast-accessibility" position="top-center">
         <div className={showToast ? "d-flex" : "d-none"}>
           <Toast
             onClose={() => {

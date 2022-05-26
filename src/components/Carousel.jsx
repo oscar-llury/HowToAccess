@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useLayoutEffect } from "react";
 
 /**
  * Animated Carousel
@@ -9,7 +9,37 @@ import React, { useEffect, useState } from "react";
  * } params
  * @returns <Carousel>
  */
-function Carousel({ children, show, infiniteLoop }) {
+function Carousel({ children, breakpoints, infiniteLoop }) {
+  const breakpointsArray = Object.keys(breakpoints);
+  //get the next breakpoint of screen width
+  function getGreaterPoint(goal) {
+    let found = false;
+    let i = 0;
+    let valAnt = breakpointsArray[0];
+
+    while (!found && i < breakpointsArray.length) {
+      if (breakpointsArray[i] >= goal) {
+        found = true;
+      }
+      valAnt = breakpointsArray[i];
+      i++;
+    }
+    return valAnt;
+  }
+  //number of items visibles
+  const [show, setShow] = useState(
+    breakpoints[getGreaterPoint(window.innerWidth)]
+  );
+  //change number of items vivibles when screen width changes
+  useLayoutEffect(() => {
+    function updateSize() {
+      setShow(breakpoints[getGreaterPoint(window.innerWidth)]);
+    }
+    window.addEventListener("resize", updateSize);
+    updateSize();
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+
   const [currentIndex, setCurrentIndex] = useState(infiniteLoop ? show : 0);
   const [length, setLength] = useState(children.length);
 
@@ -33,13 +63,13 @@ function Carousel({ children, show, infiniteLoop }) {
       }
     }
   }, [currentIndex, isRepeating, show, length]);
-
+  //handle move to next item
   const handleNext = () => {
     if (isRepeating || currentIndex < length - show) {
       setCurrentIndex((prevState) => prevState + 1);
     }
   };
-
+  //handle move to prev item
   const handlePrev = () => {
     if (isRepeating || currentIndex > 0) {
       setCurrentIndex((prevState) => prevState - 1);
@@ -83,7 +113,7 @@ function Carousel({ children, show, infiniteLoop }) {
       }
     }
   };
-
+  //render more elements in left side
   const renderExtraPrev = () => {
     let output = [];
     for (let index = 0; index < show; index++) {
@@ -92,7 +122,7 @@ function Carousel({ children, show, infiniteLoop }) {
     output.reverse();
     return output;
   };
-
+  //render more elements in right side
   const renderExtraNext = () => {
     let output = [];
     for (let index = 0; index < show; index++) {
@@ -101,11 +131,19 @@ function Carousel({ children, show, infiniteLoop }) {
     return output;
   };
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNext();
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="carousel-wrapper">
       {(isRepeating || currentIndex > 0) && (
         <button onClick={handlePrev} className="left-arrow">
-          <i class="bi bi-arrow-left-short"></i>
+          <i className="bi bi-arrow-left-short"></i>
         </button>
       )}
       <div
@@ -126,10 +164,9 @@ function Carousel({ children, show, infiniteLoop }) {
           {length > show && isRepeating && renderExtraNext()}
         </div>
       </div>
-
       {(isRepeating || currentIndex < length - show) && (
         <button onClick={handleNext} className="right-arrow">
-          <i class="bi bi-arrow-right-short"></i>
+          <i className="bi bi-arrow-right-short"></i>
         </button>
       )}
     </div>
