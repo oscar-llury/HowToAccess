@@ -478,14 +478,31 @@ body::-webkit-scrollbar-thumb {
         height: 100%;
       }
     }
+    .info-click {
+      font-size: 0.8em;
+      margin-left: 20px;
+    }
   }
-  .row1 {
-    .quote {
-      padding: 1em calc(10vw);
-      text-align: center;
-      font-size: 1.5em;
-      img {
+  .main-content {
+    .row1 {
+      .quote {
+        padding: 1em calc(10vw);
+        text-align: center;
+        font-size: 1.5em;
+        img {
+          margin-bottom: 20px;
+        }
+      }
+    }
+    .row2 {
+      margin: 50px 0;
+      h2 {
+        font-weight: 800;
+
         margin-bottom: 20px;
+        @media (min-width: 1200px) {
+          max-width: 80%;
+        }
       }
     }
   }
@@ -540,9 +557,11 @@ body::-webkit-scrollbar-thumb {
         }
       }
     }
-    .row1 {
-      .quote {
-        padding: 1em calc(8vw);
+    .main-content {
+      .row1 {
+        .quote {
+          padding: 1em calc(8vw);
+        }
       }
     }
   }
@@ -565,9 +584,11 @@ body::-webkit-scrollbar-thumb {
         }
       }
     }
-    .row1 {
-      .quote {
-        padding: 1em calc(6vw);
+    .main-content {
+      .row1 {
+        .quote {
+          padding: 1em calc(6vw);
+        }
       }
     }
   }
@@ -583,9 +604,11 @@ body::-webkit-scrollbar-thumb {
         }
       }
     }
-    .row1 {
-      .quote {
-        padding: 1em calc(5vw);
+    .main-content {
+      .row1 {
+        .quote {
+          padding: 1em calc(5vw);
+        }
       }
     }
   }

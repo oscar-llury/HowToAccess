@@ -20,14 +20,7 @@ import tap from "../img/tap.svg";
 import oido from "../img/oido.svg";
 import discapacidades from "../img/discapacidades.svg";
 
-import img1 from "../img/1.png";
-import img2 from "../img/2.png";
-import img3 from "../img/3.png";
-import img4 from "../img/4.png";
-import img5 from "../img/5.png";
-import img6 from "../img/6.png";
-import img7 from "../img/7.png";
-import img8 from "../img/8.png";
+import web_building from "../img/web_building.svg";
 
 export default function AccesibilidadWeb() {
   const [showToast, setShowToast] = useState(false);
@@ -40,12 +33,6 @@ export default function AccesibilidadWeb() {
 
   const breakpointColumnsObj = {
     default: 6,
-    1200: 6,
-    992: 3,
-    576: 2,
-  };
-
-  const breakpointsSlides = {
     1200: 6,
     992: 3,
     576: 2,
@@ -120,6 +107,7 @@ export default function AccesibilidadWeb() {
         if (ref.current && !ref.current.contains(event.target)) {
           //window.pageYOffset = pageYOffset;
           setShowToast(false);
+          document.body.classList.remove("cursor-pointer");
           setTimeout(function () {
             document.body.classList.remove("toast-accessibility-open");
           }, 500);
@@ -142,7 +130,7 @@ export default function AccesibilidadWeb() {
       setShowToast(true);
       setPageYOffset(window.pageYOffset);
       document.body.style.top = -window.pageYOffset + "px";
-      document.body.classList.add("toast-accessibility-open");
+      document.body.classList.add("toast-accessibility-open", "cursor-pointer");
     }
   }
 
@@ -222,9 +210,12 @@ export default function AccesibilidadWeb() {
             <MasonryColumn key={index} info={e} openToast={openToast} />
           ))}
         </Masonry>
+        <p className="info-click">
+          * Pincha en los elementos para descubrir más.
+        </p>
       </Container>
-      <Container fluid="sm" className="row1">
-        <Row>
+      <Container fluid="sm" className="main-content">
+        <Row className="row1">
           <Col>
             <Container className="quote">
               <img src={discapacidades} alt="" />
@@ -237,9 +228,14 @@ export default function AccesibilidadWeb() {
             </Container>
           </Col>
         </Row>
-        <Row>
-          <Col sm="12">
-            <h2>Los beneficios de la accesibilidad web</h2>
+        <Row className="row2 align-items-center">
+          <Col md="12" lg="6">
+            <h2>Todos nos beneficiamos de una buena accesibilidad web</h2>
+            <p>
+              Realizar un diseño web que sea usable y accesible para personas
+              con discapacidad tiene beneficios para el resto de personas que no
+              presentan dichas discapacidades.
+            </p>
             <p>
               Aproximadamente la mitad de los usuarios que llegan a una página
               web podrían tener dificultades para navegar a traves de ella o
@@ -250,45 +246,9 @@ export default function AccesibilidadWeb() {
               audición y mobilidad, y que pueden leer y escribir sin esfuerzo,
               también pueden encontrar problemas de uso en páginas web.
             </p>
-            <p>
-              Realizar un diseño web que sea usable y accesible para personas
-              con discapacidad tiene beneficios para el resto de personas que no
-              presentan dichas discapacidades, es decir,{" "}
-              <strong>
-                todos nos beneficiamos de una buena accesibilidad web
-              </strong>
-              .
-            </p>
           </Col>
-          <Col sm="12" className="accesibility-carrousel">
-            <div>
-              <Carousel breakpoints={breakpointsSlides} infiniteLoop>
-                <div className="carrousel-item">
-                  <img src={img1} alt="placeholder" />
-                </div>
-                <div className="carrousel-item">
-                  <img src={img2} alt="placeholder" />
-                </div>
-                <div className="carrousel-item">
-                  <img src={img3} alt="placeholder" />
-                </div>
-                <div className="carrousel-item">
-                  <img src={img4} alt="placeholder" />
-                </div>
-                <div className="carrousel-item">
-                  <img src={img5} alt="placeholder" />
-                </div>
-                <div className="carrousel-item">
-                  <img src={img6} alt="placeholder" />
-                </div>
-                <div className="carrousel-item">
-                  <img src={img7} alt="placeholder" />
-                </div>
-                <div className="carrousel-item">
-                  <img src={img8} alt="placeholder" />
-                </div>
-              </Carousel>
-            </div>
+          <Col md="12" lg="6">
+            <img alt="" src={web_building} className="w-100" />
           </Col>
         </Row>
       </Container>
