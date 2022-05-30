@@ -1,5 +1,5 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setCookie, getCookie } from "../lib/states/functions";
@@ -8,7 +8,8 @@ import { setCookie, getCookie } from "../lib/states/functions";
 const AuthContext = React.createContext();
 
 export function AuthProvider({ children }) {
-  const tokenR = useSelector((state) => state.token);
+  const tokenRedux = useSelector((state) => state.token);
+  let token = useState(tokenRedux);
   const dispatch = useDispatch();
   const headers = {
     headers: {},
@@ -46,39 +47,41 @@ export function AuthProvider({ children }) {
     console.log("logout");
     dispatch({ type: "LOGOUT_TOKEN" });
     dispatch({ type: "LOGOUT_USERNAME" });
+    setCookie("LOGIN_TOKEN", "", -2, true);
     callback(true);
   };
 
-  const tokenValid = async () => {
+  const tokenValid = async (token) => {
+    let formData = new FormData();
+    formData.append("token", token);
     axios
       .post(
         `${process.env.REACT_APP_BACK_URL}/API/login/checkToken.php`,
-        new FormData(),
+        formData,
         headers
       )
       .then((data) => {
         const dataR = data.data;
-        console.dir(dataR);
         if (dataR.status) {
-          return true;
+          return { valid: true, username: "" };
         } else {
-          console.dir(dataR);
+          return false;
         }
       })
       .catch((err) => {
         console.log(err);
+        return false;
       });
   };
 
-  const tokenLS = getCookie("LOGIN_TOKEN");
+  const tokenCookie = getCookie("LOGIN_TOKEN");
 
-  tokenValid();
+  const tokenV = tokenValid(tokenCookie);
 
-  let token = tokenR;
-  if (tokenLS && true) {
-    token = tokenLS;
+  if (tokenCookie && true) {
+    token = tokenCookie;
     dispatch({ type: "LOGIN_TOKEN", data: token });
-    dispatch({ type: "LOGIN_USERNAME", data: "papa" });
+    dispatch({ type: "LOGIN_USERNAME", data: "admin" });
   }
   const value = { token, login, logout };
 

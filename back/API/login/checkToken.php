@@ -9,18 +9,10 @@ $contextDB = $db->context;
 $objRespuesta = new StdClass();
 $objData = new StdClass();
 
-$token = isset($_POST["token"]) ? $_POST["token"] : "";
-
-var_dump(validateToken($token));
+$token = isset($_REQUEST["token"]) ? $_REQUEST["token"] : "";
 
 
-$objRespuesta->status = 1;
-$objRespuesta->code = 1;
-$objRespuesta->username = 'ERROR_faltan_datos';
-echo json_encode($objRespuesta);
-exit;
-
-if(empty($token) || empty($contrasena)){
+if(empty($token)){
     $objRespuesta->status = 0;
     $objRespuesta->code = 1;
     $objRespuesta->msg = 'ERROR_faltan_datos';
@@ -28,5 +20,20 @@ if(empty($token) || empty($contrasena)){
     exit();
 }
 
+$validateToken = validateToken($token);
+
+if($validateToken->status == 1){
+    $objRespuesta->status = 1;
+    $objRespuesta->data= new stdClass();
+    $objRespuesta->data->idUsuario= $validateToken->idUsuario;
+    $busquedaUsuario = $contextDB->table('usr_usuario')->where('id = ? AND activo = ?', $validateToken->idUsuario, ACTIVO);
+    $usuario = $busquedaUsuario->fetch();
+    $objRespuesta->data->username= $usuario['nombre'];
+    $objRespuesta->msg = 'OK';
+}else{
+    $objRespuesta->status = 0;
+    $objRespuesta->code = 2;
+    $objRespuesta->msg = 'ERROR_token';
+}
 
 echo json_encode($objRespuesta);
