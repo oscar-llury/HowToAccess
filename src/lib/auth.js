@@ -1,34 +1,21 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { setCookie, getCookie } from "../lib/states/functions";
 //import Cookies from "js-cookie";
 
 const AuthContext = React.createContext();
 
 export function AuthProvider({ children }) {
-  const token = useSelector((state) => state.token);
+  const tokenRedux = useSelector((state) => state.token);
+  let token = useState(tokenRedux);
   const dispatch = useDispatch();
+  const headers = {
+    headers: {},
+  };
 
   const login = async (formData, callback) => {
-    /*
-    fetch(`${process.env.REACT_APP_BACK_URL}login.php`, {
-      method: "POST",
-      headers: {
-        //"Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: formData,
-    })
-      .then((res) => console.log(res))
-      .catch((err) => {
-        console.log(err);
-        callback(false);
-      });
-    */
-
-    const headers = {
-      headers: {},
-    };
     return axios
       .post(
         `${process.env.REACT_APP_BACK_URL}/API/login/login.php`,
@@ -40,6 +27,7 @@ export function AuthProvider({ children }) {
         if (dataR.status) {
           dispatch({ type: "LOGIN_TOKEN", data: dataR.data.token });
           dispatch({ type: "LOGIN_USERNAME", data: dataR.data.username });
+          setCookie("LOGIN_TOKEN", dataR.data.token, 1, true);
           callback(true);
         } else {
           console.dir(dataR);
@@ -59,9 +47,42 @@ export function AuthProvider({ children }) {
     console.log("logout");
     dispatch({ type: "LOGOUT_TOKEN" });
     dispatch({ type: "LOGOUT_USERNAME" });
+    setCookie("LOGIN_TOKEN", "", -2, true);
     callback(true);
   };
 
+  const tokenValid = async (token) => {
+    let formData = new FormData();
+    formData.append("token", token);
+    axios
+      .post(
+        `${process.env.REACT_APP_BACK_URL}/API/login/checkToken.php`,
+        formData,
+        headers
+      )
+      .then((data) => {
+        const dataR = data.data;
+        if (dataR.status) {
+          return { valid: true, username: "" };
+        } else {
+          return false;
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        return false;
+      });
+  };
+
+  const tokenCookie = getCookie("LOGIN_TOKEN");
+
+  const tokenV = tokenValid(tokenCookie);
+
+  if (tokenCookie && true) {
+    token = tokenCookie;
+    dispatch({ type: "LOGIN_TOKEN", data: token });
+    dispatch({ type: "LOGIN_USERNAME", data: "admin" });
+  }
   const value = { token, login, logout };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

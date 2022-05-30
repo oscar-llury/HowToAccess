@@ -2,15 +2,18 @@ import React, { useState, useEffect } from "react";
 import { Button, Container, Row, Col, Table } from "react-bootstrap";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import TableRowProyectos from "../components/TableRowProyectos";
 
-function handleNewProyect(e) {
-  e.preventDefault();
-}
-
 export default function Proyectos() {
+  let navigate = useNavigate();
   const token = useSelector((state) => state.token);
+
+  function handleNewProyect(e) {
+    e.preventDefault();
+    navigate("/nuevo-proyecto");
+  }
 
   useEffect(() => {
     //run when page loaded
@@ -42,7 +45,7 @@ export default function Proyectos() {
   const [proyectos, setProyectos] = useState([]);
 
   return (
-    <Container fluid className="text-black p-lg-5">
+    <Container fluid="sm" className="text-black p-lg-5">
       <Row className="px-5 my-5">
         <Col lg="8" md="8" xs="12">
           <Container className="text-start">

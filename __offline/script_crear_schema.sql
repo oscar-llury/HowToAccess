@@ -138,7 +138,7 @@ CREATE TABLE `tfg`.`acc_criterio_version` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(500) NOT NULL,
   `fecha_publicacion` INT(11) NULL,
-  `fecha_created_` INT(11) NULL,
+  `fecha_created` INT(11) NULL,
   `fecha_updated` INT(11) NULL,
   `activo` INT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`));
@@ -200,7 +200,7 @@ CREATE TABLE `tfg`.`pro_has_criterio` (
   `proyecto_id` INT(11) NOT NULL,
   `criterio_id` INT(11) NOT NULL,
   `completado` INT NOT NULL DEFAULT 0,
-  `fecha_created_` INT(11) NULL,
+  `fecha_created` INT(11) NULL,
   `fecha_updated` INT(11) NULL,
   `activo` INT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`),

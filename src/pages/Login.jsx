@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Button, Container, Row, Col, Form, InputGroup } from "react-bootstrap";
-
 import { useNavigate, useLocation } from "react-router-dom";
 
 import { useAuth } from "../lib/auth";
-import logo from "../img/logo.svg";
+import logo from "../img/logo/isotipo.svg";
 
 export default function Login() {
   let navigate = useNavigate();

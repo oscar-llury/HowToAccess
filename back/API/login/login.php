@@ -37,7 +37,7 @@ if ($usuario) {
         $objData->username = $usuario->nombre;
 
         //TODO GENERACION DEL TOKEN JWT
-        $objData->token = generateToken($usuario->id);
+        $objData->token = generateToken($usuario->id, null, strtotime('+1 day'));
 
         $objRespuesta->data = $objData;
     } else {

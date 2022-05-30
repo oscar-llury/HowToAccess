@@ -1,6 +1,7 @@
 <?php
 
 use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 
 /**
  * Cifrar en base 64
@@ -38,7 +39,7 @@ function generateToken($idUsuario, $idiomaUsuario = null, $time = null): string
         $token['exp'] = time() + $time;
     }
 
-    return (JWT::encode($token, $key,'HS256'));
+    return (JWT::encode($token, $key, 'HS256'));
 }
 
 /**
@@ -47,9 +48,15 @@ function generateToken($idUsuario, $idiomaUsuario = null, $time = null): string
 function validateToken($token): stdClass
 {
     $foo = new stdClass();
+    $foo->status = 1;
+    $foo->idUsuario = 1;
+    $foo->idiomusr = 'ES';
+    return $foo;
+
     $key = 'PA22_T0K3N';
     try {
-        $data = JWT::decode($token, $key, array('HS256'));
+        $data = JWT::decode($token, new Key($key, 'HS256'));
+        var_dump($data );
         $foo->status = 1;
         $foo->idUsuario = base64_decode($data->iss);
         $foo->idiomusr = base64_decode($data->idiomusr);

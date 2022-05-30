@@ -6,13 +6,16 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 //pages
 import Home from "./pages/Home";
+import NormasAccesibilidadWeb from "./pages/NormasAccesibilidadWeb";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import Proyectos from "./pages/Proyectos";
 import Proyecto from "./pages/Proyecto";
+import NuevoProyecto from "./pages/NuevoProyecto";
 
 //functions
 import { AuthProvider, RequireAuth } from "./lib/auth";
+import AccesibilidadWeb from "./pages/AccesibilidadWeb";
 
 export default function App() {
   return (
@@ -21,7 +24,23 @@ export default function App() {
         <Header />
         <Routes>
           <Route index element={<Home />} />
+          <Route
+            path="/accesibilidad-web"
+            element={<AccesibilidadWeb />}
+          />
+          <Route
+            path="/normas-de-accesibilidad-web"
+            element={<NormasAccesibilidadWeb />}
+          />
           <Route path="/iniciar-sesion" element={<Login />} />
+          <Route
+            path="/nuevo-proyecto"
+            element={
+              <RequireAuth>
+                <NuevoProyecto />
+              </RequireAuth>
+            }
+          />
           <Route
             path="/proyectos"
             element={
