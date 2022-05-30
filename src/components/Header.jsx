@@ -1,16 +1,46 @@
-import { Container, Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
-//NavDropdown
-//import Link from "next/link";
-//import Contexto_usuario from '../lib/usuario';
-//import Router from "next/router";
+import React, { useState, useEffect } from "react";
+import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { useNavigate, Link, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-//import Cookies from "js-cookie";
-//import { useContext } from "react";
+import { Collapse } from "bootstrap";
 
-import logo from "../img/logo.svg";
+import { useAuth } from "../lib/auth";
+import logo from "../img/logo/logotipo.svg";
 
-function Header() {
+export default function Header() {
+  let navigate = useNavigate();
+  let auth = useAuth();
+  const location = useLocation();
+  const locationUrl = location.pathname;
+  const username = useSelector((state) => state.username);
+  const [navDropped, setNavDropped] = useState(false);
+  /*
+  useEffect(() => {
+    const navLinks = document.querySelectorAll(".nav-item");
+    const menuToggle = document.getElementById("responsive-navbar-nav");
+    const bsCollapse = new Collapse(menuToggle, { toggle: false });
+    navLinks.forEach((l) => {
+      l.addEventListener("click", () => {
+        bsCollapse.toggle();
+      });
+    });
+  }, []);
+*/
+  async function handleLogout(event) {
+    event.preventDefault();
+
+    await auth.logout((status) => {
+      if (status) {
+        navigate("/");
+      }
+    });
+  }
+
+  function handleNavDrop() {
+    setNavDropped(!navDropped);
+  }
+
   return (
     <header>
       <Navbar
@@ -18,39 +48,106 @@ function Header() {
         expand="lg"
         bg="light"
         variant="light"
-        className="app-nav-header"
+        className="app-nav-header p-0"
       >
-        <Container>
-          <Navbar.Brand href="/">
+        <Container fluid="sm" className="bg-light container-header">
+          <Navbar.Brand href="/" title="Inicio">
             <img
-              alt=""
+              alt="HowToAccess logotipo"
               src={logo}
-              width="30"
-              height="30"
+              width="auto"
+              height="50"
               className="d-inline-block align-top"
             />{" "}
-            React Bootstrap
+            <span className="d-none">HowToAccess</span>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
+          <Navbar.Toggle
+            aria-controls="responsive-navbar-nav"
+            data-toggle="dropdown"
+            data-bs-target="#responsive-navbar-nav"
+            onClick={handleNavDrop}
+          >
+            {navDropped ? (
+              <i className="bi bi-x-lg"></i>
+            ) : (
+              <i className="bi bi-list"></i>
+            )}
+          </Navbar.Toggle>
+          <Navbar.Collapse className="collapse" id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Link to="/" className="nav-item">
+              <Link
+                to="/"
+                className={`nav-item ${locationUrl == "/" ? "active" : ""}`}
+                title="Inicio"
+              >
                 Inicio
               </Link>
-              <Link to="#" className="nav-item">
+              <Link
+                to="/accesibilidad-web"
+                className={`nav-item ${locationUrl == "/accesibilidad-web" ? "active" : ""}`}
+                title="Sobre accesibilidad web"
+              >
                 Sobre accesibilidad web
               </Link>
-              <Link to="#" className="nav-item">
+              <Link
+                to="/normas-de-accesibilidad-web"
+                className={`nav-item ${
+                  locationUrl == "/normas-de-accesibilidad-web" ? "active" : ""
+                }`}
+                title="Normas de accesibilidad"
+              >
                 Normas de accesibilidad
               </Link>
-              <Link to="#" className="nav-item">
+              <Link
+                to="#"
+                className={`nav-item ${locationUrl == "" ? "active" : ""}`}
+                title="Tips web"
+              >
                 Tips web
               </Link>
             </Nav>
             <Nav>
-              <Link to="/iniciar-sesion" className="nav-item">
-                Iniciar sesión
-              </Link>
+              {username ? (
+                <NavDropdown
+                  title={`Hola ${username}`}
+                  id="collasible-nav-dropdown"
+                >
+                  <Link
+                    to="/proyectos"
+                    className="nav-item"
+                    title="Mis proyectos"
+                  >
+                    Mis Proyectos
+                  </Link>
+                  <NavDropdown.Divider />
+                  <Link
+                    to="#"
+                    className="nav-item"
+                    title="Simulación interactiva"
+                  >
+                    Simulación interactiva
+                  </Link>
+                  <NavDropdown.Divider />
+                  <Link
+                    to="/"
+                    className="nav-item"
+                    onClick={handleLogout}
+                    title="Cerrar sesión"
+                  >
+                    Cerrar sesión
+                  </Link>
+                </NavDropdown>
+              ) : (
+                <Link
+                  to="/iniciar-sesion"
+                  className={`nav-item ${
+                    locationUrl == "/iniciar-sesion" ? "active" : ""
+                  }`}
+                  title="Iniciar sesión"
+                >
+                  Iniciar sesión
+                </Link>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -58,15 +155,3 @@ function Header() {
     </header>
   );
 }
-
-export default Header;
-
-/*
-<NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-<NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-<NavDropdown.Divider />
-<NavDropdown.Item href="#action/3.4">
-    Separated link
-</NavDropdown.Item>
-</NavDropdown>
-*/

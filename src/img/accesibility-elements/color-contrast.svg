@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.2.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 110 110" style="enable-background:new 0 0 110 110;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;fill:url(#Rectangle_2_);}
+	.st1{display:none;opacity:6.396915e-02;fill-rule:evenodd;clip-rule:evenodd;fill:#0099CC;enable-background:new    ;}
+	.st2{fill-rule:evenodd;clip-rule:evenodd;}
+	.st3{display:none;fill:none;stroke:#000000;stroke-width:4;stroke-linejoin:round;}
+	.st4{fill:none;stroke:#FFFFFF;stroke-width:4;stroke-linejoin:round;}
+	.st5{fill:none;stroke:#000000;stroke-width:4;stroke-linejoin:round;}
+</style>
+<g id="Page-1">
+	<g id="home" transform="translate(-1378.000000, -6172.000000)">
+		<g id="Group-50" transform="translate(297.000000, 5653.000000)">
+			<g id="Group-29" transform="translate(1061.500000, 519.000000)">
+				<g id="Group-15" transform="translate(19.500000, 0.000000)">
+					
+						<linearGradient id="Rectangle_2_" gradientUnits="userSpaceOnUse" x1="-191.7364" y1="304.218" x2="-191.7364" y2="303.2556" gradientTransform="matrix(110 0 0 -110 21146 33466)">
+						<stop  offset="0" style="stop-color:#83C2D2"/>
+						<stop  offset="1" style="stop-color:#0099CD"/>
+					</linearGradient>
+					<path id="Rectangle" class="st0" d="M55,0L55,0c30.4,0,55,24.6,55,55l0,0c0,30.4-24.6,55-55,55l0,0C24.6,110,0,85.4,0,55l0,0
+						C0,24.6,24.6,0,55,0z"/>
+					<path id="Rectangle_1_" class="st1" d="M55,0L55,0c30.4,0,55,24.6,55,55l0,0c0,30.4-24.6,55-55,55l0,0C24.6,110,0,85.4,0,55
+						l0,0C0,24.6,24.6,0,55,0z"/>
+					<g id="Group-19" transform="translate(39.000000, 31.000000)">
+						<path id="Path" class="st2" d="M16.5,48C25.6,48,33,40.8,33,32c0-3-2.4-8.4-2.5-8.4l-0.2-0.4l0,0L16.5,0"/>
+						<path id="Fill-1_1_" class="st3" d="M28.3,23.2L14.5,0l-14,23.6C-1.1,26-2,28.9-2,32c0,8.8,7.4,16,16.5,16S31,40.8,31,32
+							c0-3-2.4-8.4-2.5-8.4L28.3,23.2z"/>
+						<path class="st4" d="M14.5,0l-14,23.6C-1.1,26-2,28.9-2,32c0,8.8,7.4,16,16.5,16V0z"/>
+						<path class="st5" d="M16.6,0l14,23.6c1.6,2.4,2.5,5.3,2.5,8.4c0,8.8-7.4,16-16.5,16V0z"/>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

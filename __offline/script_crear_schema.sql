@@ -52,9 +52,9 @@ CREATE TABLE `tfg`.`pro_tipo_proyecto` (
 CREATE TABLE `tfg`.`pro_proyecto` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
+  `tipo_proyecto` INT(11) NOT NULL,
   `fecha_created` INT(11) NULL,
   `fecha_updated` INT(11) NULL,
-  `tipo_proyecto` INT(11) NOT NULL,
   `activo` INT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`),
   CONSTRAINT `pro_proyecto_tipo_proyecto`
@@ -84,8 +84,8 @@ CREATE TABLE `tfg`.`usr_has_proyecto` (
 
 CREATE TABLE `tfg`.`acc_principio` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `codigo` VARCHAR(45),
-  `nombre` VARCHAR(45),
+  `codigo` VARCHAR(20),
+  `nombre` VARCHAR(50),
   `fecha_created` INT(11) NULL,
   `fecha_updated` INT(11) NULL,
   `activo` INT(11) NOT NULL DEFAULT 1,
@@ -93,13 +93,19 @@ CREATE TABLE `tfg`.`acc_principio` (
 
 CREATE TABLE `tfg`.`acc_pauta` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `codigo` VARCHAR(45) NULL,
-  `nombre` VARCHAR(45) NULL,
+  `principio_id` INT(11) NOT NULL,
+  `codigo` VARCHAR(20) NULL,
+  `nombre` VARCHAR(50) NULL,
   `fecha_created` INT(11) NULL,
   `fecha_updated` INT(11) NULL,
   `activo` INT NOT NULL DEFAULT 1,
-  PRIMARY KEY (`id`));
-
+  PRIMARY KEY (`id`),
+  CONSTRAINT `acc_pauta_principio_id`
+    FOREIGN KEY (`principio_id`)
+    REFERENCES `tfg`.`acc_principio` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+/*
 CREATE TABLE `tfg`.`acc_principio_has_pauta` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `principio_id` INT(11) NOT NULL,
@@ -118,21 +124,33 @@ CREATE TABLE `tfg`.`acc_principio_has_pauta` (
     REFERENCES `tfg`.`acc_pauta` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
-
+*/
 CREATE TABLE `tfg`.`acc_nivel_conformidad` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `codigo` VARCHAR(45) NULL,
-  `nombre` VARCHAR(45) NULL,
+  `codigo` VARCHAR(20) NULL,
+  `nombre` VARCHAR(100) NULL,
   `fecha_created` INT(11) NULL,
   `fecha_updated` INT(11) NULL,
   `activo` INT NULL DEFAULT 1,
   PRIMARY KEY (`id`));
 
+CREATE TABLE `tfg`.`acc_criterio_version` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(500) NOT NULL,
+  `fecha_publicacion` INT(11) NULL,
+  `fecha_created` INT(11) NULL,
+  `fecha_updated` INT(11) NULL,
+  `activo` INT NOT NULL DEFAULT 1,
+  PRIMARY KEY (`id`));
+
 CREATE TABLE `tfg`.`acc_criterio_conformidad` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `codigo` VARCHAR(45) NULL,
-  `nombre` VARCHAR(45) NULL,
+  `principio_id` INT(11) NOT NULL,
+  `pauta_id` INT(11) NOT NULL,
+  `codigo` VARCHAR(20) NULL,
+  `nombre` VARCHAR(100) NULL,
   `nivel_conformidad` INT(11) NOT NULL,
+  `version_id` INT(11) NULL,
   `fecha_created` INT(11) NULL,
   `fecha_updated` INT(11) NULL,
   `activo` INT NULL DEFAULT 1,
@@ -141,8 +159,23 @@ CREATE TABLE `tfg`.`acc_criterio_conformidad` (
     FOREIGN KEY (`nivel_conformidad`)
     REFERENCES `tfg`.`acc_nivel_conformidad` (`id`)
     ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `acc_criterio_conformidad_pauta_id`
+    FOREIGN KEY (`pauta_id`)
+    REFERENCES `tfg`.`acc_pauta` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `acc_criterio_conformidad_principio_id`
+    FOREIGN KEY (`principio_id`)
+    REFERENCES `tfg`.`acc_principio` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+CONSTRAINT `acc_criterio_conformidad_version_id`
+    FOREIGN KEY (`version_id`)
+    REFERENCES `tfg`.`acc_criterio_version` (`id`)
+    ON DELETE NO ACTION
     ON UPDATE NO ACTION);
-
+/*
 CREATE TABLE `tfg`.`acc_pauta_has_criterio` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `pauta_id` INT(11) NOT NULL,
@@ -161,13 +194,13 @@ CREATE TABLE `tfg`.`acc_pauta_has_criterio` (
     REFERENCES `tfg`.`acc_criterio_conformidad` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
-
+*/
 CREATE TABLE `tfg`.`pro_has_criterio` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `proyecto_id` INT(11) NOT NULL,
   `criterio_id` INT(11) NOT NULL,
   `completado` INT NOT NULL DEFAULT 0,
-  `fecha_created_` INT(11) NULL,
+  `fecha_created` INT(11) NULL,
   `fecha_updated` INT(11) NULL,
   `activo` INT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`),

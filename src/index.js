@@ -1,17 +1,30 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
 
+import "bootstrap-icons/font/bootstrap-icons.css";
 import "./styles/bootstrap_custom.scss";
+import "../node_modules/bootstrap/dist/js/bootstrap.js";
 
 import App from "./App";
+import allStates from "./lib/globalStates";
 
 import reportWebVitals from "./reportWebVitals";
+
+//STORE -> global state
+const store = createStore(
+  allStates,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+); //__REDUX_DEVTOOLS_EXTENSION__ for chrome redux inspection
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

@@ -1,21 +1,66 @@
 //router
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 //components
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 //pages
 import Home from "./pages/Home";
-import InicioSesion from "./pages/InicioSesion";
+import NormasAccesibilidadWeb from "./pages/NormasAccesibilidadWeb";
+import Login from "./pages/Login";
+import NotFound from "./pages/NotFound";
+import Proyectos from "./pages/Proyectos";
+import Proyecto from "./pages/Proyecto";
+import NuevoProyecto from "./pages/NuevoProyecto";
 
-function App() {
+//functions
+import { AuthProvider, RequireAuth } from "./lib/auth";
+import AccesibilidadWeb from "./pages/AccesibilidadWeb";
+
+export default function App() {
   return (
     <div className="App">
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/iniciar-sesion" element={<InicioSesion />} />
-      </Routes>
+      <AuthProvider>
+        <Header />
+        <Routes>
+          <Route index element={<Home />} />
+          <Route
+            path="/accesibilidad-web"
+            element={<AccesibilidadWeb />}
+          />
+          <Route
+            path="/normas-de-accesibilidad-web"
+            element={<NormasAccesibilidadWeb />}
+          />
+          <Route path="/iniciar-sesion" element={<Login />} />
+          <Route
+            path="/nuevo-proyecto"
+            element={
+              <RequireAuth>
+                <NuevoProyecto />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/proyectos"
+            element={
+              <RequireAuth>
+                <Proyectos />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/proyectos/:proyectoId"
+            element={
+              <RequireAuth>
+                <Proyecto />
+              </RequireAuth>
+            }
+          />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </AuthProvider>
     </div>
   );
 }
-
-export default App;
