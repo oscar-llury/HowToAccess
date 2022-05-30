@@ -95,7 +95,7 @@ const Home = () => {
   return (
     <Container fluid className="app-home p-0">
       <div className="bg-soft">
-        <Slides slides={slides} interval={100000000000} />
+        <Slides slides={slides} interval={10000} />
         <Container fluid="lg" className="mt-4 text-black app-home-section1">
           <Row className="justify-content-center align-items-center m-auto">
             <Col lg="7" md="6" xs="12">
