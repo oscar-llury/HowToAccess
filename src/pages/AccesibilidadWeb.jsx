@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import { Container, ToastContainer, Toast, Row, Col } from "react-bootstrap";
 import Masonry from "react-masonry-css";
 import { AnimationOnScroll } from "react-animation-on-scroll";
-import Carousel from "../components/Carousel";
 
 import image_alts from "../img/accesibility-elements/image-alts.webp";
 import color_contrast from "../img/accesibility-elements/color-contrast.svg";
@@ -24,7 +23,6 @@ import web_building from "../img/web_building.svg";
 
 export default function AccesibilidadWeb() {
   const [showToast, setShowToast] = useState(false);
-  const [pageYOffset, setPageYOffset] = useState(0);
   const [toastInfo, setToastInfo] = useState({
     name: "",
     image: "",
@@ -105,7 +103,6 @@ export default function AccesibilidadWeb() {
        */
       function handleClickOutside(event) {
         if (ref.current && !ref.current.contains(event.target)) {
-          //window.pageYOffset = pageYOffset;
           setShowToast(false);
           document.body.classList.remove("cursor-pointer");
           setTimeout(function () {
@@ -128,7 +125,6 @@ export default function AccesibilidadWeb() {
     if (!document.body.classList.contains("toast-accessibility-open")) {
       setToastInfo(info);
       setShowToast(true);
-      setPageYOffset(window.pageYOffset);
       document.body.style.top = -window.pageYOffset + "px";
       document.body.classList.add("toast-accessibility-open", "cursor-pointer");
     }

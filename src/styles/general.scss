@@ -24,6 +24,7 @@ body {
   --vh100-offset: calc(
     var(--header-height) + var(--banner-height) + var(--footer-height)
   );
+  width: 100%;
 }
 @media (min-width: 992px) {
   .container {
@@ -228,28 +229,27 @@ body::-webkit-scrollbar-thumb {
 /*******HOME*******/
 .app-home {
   .carousel {
+    .carousel-control-prev,
+    .carousel-control-next {
+      width: 10%;
+    }
     img {
       height: calc(100vh - var(--vh100-offset-header));
       @media (max-width: 768px) {
         height: calc(100svh - var(--vh100-offset-header));
       }
+      background-color: $body-bg;
       overflow: hidden;
       object-fit: cover;
     }
     .title {
-      font-size: 2em;
+      font-size: 5em;
       font-weight: 700;
     }
     .description {
       font-size: larger;
       font-weight: 500;
-    }
-    @media (min-width: 1200px) {
-      .carousel-caption {
-        right: auto;
-        bottom: 30%;
-        text-align: left;
-      }
+      font-size: 1.5em;
     }
   }
   .bg-soft {
@@ -322,7 +322,43 @@ body::-webkit-scrollbar-thumb {
   .text-container {
     padding: 2em;
   }
+  @media (min-width: 768px) {
+    .carousel {
+      .carousel-caption {
+        right: auto;
+        bottom: 25%;
+        text-align: left;
+        max-width: 40%;
+        left: 10%;
+      }
+    }
+  }
+  @media (max-width: 1200px) {
+    .carousel {
+      .title {
+        font-size: 4em;
+      }
+      .description {
+        font-size: 1.3em;
+      }
+      .carousel-caption {
+        max-width: 45%;
+        bottom: 30%;
+      }
+    }
+  }
   @media (max-width: 992px) {
+    .carousel {
+      .title {
+        font-size: 3em;
+      }
+      .description {
+        font-size: 1.2em;
+      }
+      .carousel-caption {
+        max-width: 50%;
+      }
+    }
     .app-home-section2 {
       .container-image-accesibility {
         .tap-to-discover:after {
@@ -345,6 +381,22 @@ body::-webkit-scrollbar-thumb {
     }
   }
   @media (max-width: 768px) {
+    .carousel {
+      .carousel-control-prev,
+      .carousel-control-next {
+        width: 5%;
+      }
+      .title {
+        font-size: 2em;
+      }
+      .description {
+        font-size: 1.2em;
+      }
+      .carousel-caption {
+        max-width: 100%;
+        bottom: 0%;
+      }
+    }
     .app-home-section2 {
       .container-image-accesibility {
         .tap-to-discover {

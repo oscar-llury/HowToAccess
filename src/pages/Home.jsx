@@ -17,8 +17,8 @@ import Spacer from "../components/Spacer";
 
 //images
 import slide1 from "../img/home_slide1.png";
-import slide2 from "../img/home_slide1.png";
-import slide3 from "../img/home_slide1.png";
+import slide2 from "../img/home-2.svg";
+import slide3 from "../img/home-3.svg";
 import barrera_accesibilidad from "../img/barrera_accesibilidad.png";
 import que_es_accesibilidad from "../img/accesibilidad-bg.png";
 import que_es_accesibilidad2 from "../img/accesibilidad-1.png";
@@ -42,15 +42,20 @@ const Home = () => {
 
   const slides = [
     {
-      title: "How To Access",
-      desc:
-        "Cómo implementar la accesibilidad web. ¡Hecho para ti desarrollador!",
+      title: "HowToAccess",
+      desc: (
+        <span>
+          Cómo implementar la accesibilidad web.
+          <br />
+          ¡Hecho para ti desarrollador!
+        </span>
+      ),
       img: slide1,
       img_alt: "Cómo ser accesible en páginas web. Hecho para desarrolladores.",
     },
     {
       title: "¿Accesibilidad web?",
-      desc: "Es un paso más que poner el atributo Alt en las imágenes",
+      desc: "Es un paso más que poner el atributo Alt en las imágenes.",
       img: slide2,
       img_alt:
         "La accesibilidad es más que poner el atributo Alt en las imágenes",
@@ -90,7 +95,7 @@ const Home = () => {
   return (
     <Container fluid className="app-home p-0">
       <div className="bg-soft">
-        <Slides slides={slides} interval={10000} />
+        <Slides slides={slides} interval={100000000000} />
         <Container fluid="lg" className="mt-4 text-black app-home-section1">
           <Row className="justify-content-center align-items-center m-auto">
             <Col lg="7" md="6" xs="12">
