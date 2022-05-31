@@ -1,11 +1,22 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Col, Container, Form, Row, Spinner, Button } from "react-bootstrap";
+import {
+  Col,
+  Container,
+  Form,
+  Row,
+  Spinner,
+  Button,
+  Modal,
+} from "react-bootstrap";
 
 export default function NuevoProyecto() {
   const [validated, setValidated] = useState(false);
-  const [errors, setErrors] = useState({});
-
+  let navigate = useNavigate();
+  const [error, setError] = useState(
+    "Por favor, revisa que los datos sean correctos e inténtalo de nuevo."
+  );
   const [nombre, setNombre] = useState("");
   const [tipoCriterios, setTipoCriterios] = useState(0);
   const [conformanceLevel, setConformanceLevel] = useState(0);
@@ -15,6 +26,11 @@ export default function NuevoProyecto() {
   const ids = [1, 2, 3];
   const [totalComplete, setTotalComplete] = useState(0);
   const [conformanceCriteria, setConformanceCriteria] = useState([]);
+  const [show, setShow] = useState(false);
+  const handleClose = (e) => {
+    setShow(false);
+    navigate("/proyectos/" + e.target.dataset.id);
+  };
 
   const addEventListenerToDot = useCallback((e) => {
     const id = Number(e.target.dataset.id);
@@ -160,6 +176,14 @@ export default function NuevoProyecto() {
       )
       .then((data) => {
         const dataR = data.data;
+        console.log(dataR);
+        if (dataR.status === 1) {
+          setShow(true);
+          document.getElementById("modal-continue").dataset.id = dataR.data.id;
+        } else {
+          //error
+          //setError();
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -388,6 +412,12 @@ export default function NuevoProyecto() {
             ))}
           </ul>
         </Col>
+        <Col xs="12">
+          <p id="bar-status" className="text-end text-danger">
+            <strong className="text-danger">Ha ocurrido un error.</strong>{" "}
+            {error}
+          </p>
+        </Col>
         <Col xs="12" className="d-flex justify-content-between">
           <Button
             variant="primary"
@@ -402,6 +432,26 @@ export default function NuevoProyecto() {
           </Button>
         </Col>
       </Row>
+      <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Proyecto creado correctamente</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          El proyecto se ha creado correctamente. A continuación serás
+          redirigido a la ficha del proyecto.
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" id="modal-continue" onClick={handleClose}>
+            Continuar
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Container>
   );
 
