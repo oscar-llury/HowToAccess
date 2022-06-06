@@ -17,17 +17,21 @@ import NuevoProyecto from "./pages/NuevoProyecto";
 import { AuthProvider, RequireAuth } from "./lib/auth";
 import AccesibilidadWeb from "./pages/AccesibilidadWeb";
 
+/* eslint-disable import/no-webpack-loader-syntax */
+import MdxDoc, {
+  frontMatter,
+} from "!babel-loader!mdx-loader!./data/principio.mdx";
+
 export default function App() {
   return (
     <div className="App">
+      <h2>{frontMatter.title}</h2>
+      <MdxDoc />
       <AuthProvider>
         <Header />
         <Routes>
           <Route index element={<Home />} />
-          <Route
-            path="/accesibilidad-web"
-            element={<AccesibilidadWeb />}
-          />
+          <Route path="/accesibilidad-web" element={<AccesibilidadWeb />} />
           <Route
             path="/normas-de-accesibilidad-web"
             element={<NormasAccesibilidadWeb />}
