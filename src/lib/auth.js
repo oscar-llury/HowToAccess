@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { setCookie, getCookie } from "../lib/states/functions";
+import { setCookie, getCookie } from "./functions";
 //import Cookies from "js-cookie";
 
 const AuthContext = React.createContext();

@@ -5,7 +5,6 @@ import {
   Row,
   Col,
   OverlayTrigger,
-  Popover,
   Tooltip,
   Tab,
   Tabs,
@@ -159,26 +158,22 @@ export default function NormasAccesibilidadWeb() {
           </div>
 
           <div className="container-tabs">
-            <a
+            <button
               className="prev"
-              role="button"
               tabIndex="0"
               onClick={prev}
-              href="#"
               style={{ height: heightTabsNav }}
             >
               <i className="bi bi-chevron-left"></i>
-            </a>
-            <a
+            </button>
+            <button
               className="next"
-              role="button"
               tabIndex="0"
               onClick={next}
-              href="#"
               style={{ height: heightTabsNav }}
             >
               <i className="bi bi-chevron-right"></i>
-            </a>
+            </button>
             <div className="content">
               <Tabs
                 activeKey={tab}

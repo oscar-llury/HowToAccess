@@ -11,12 +11,12 @@ import {
   Modal,
 } from "react-bootstrap";
 
+import modalImg from "../img/complete-form.svg";
+
 export default function NuevoProyecto() {
-  const [validated, setValidated] = useState(false);
+  //const [validated, setValidated] = useState(false);
   let navigate = useNavigate();
-  const [error, setError] = useState(
-    "Por favor, revisa que los datos sean correctos e inténtalo de nuevo."
-  );
+  const [error, setError] = useState();
   const [nombre, setNombre] = useState("");
   const [tipoCriterios, setTipoCriterios] = useState(0);
   const [conformanceLevel, setConformanceLevel] = useState(0);
@@ -27,25 +27,11 @@ export default function NuevoProyecto() {
   const [totalComplete, setTotalComplete] = useState(0);
   const [conformanceCriteria, setConformanceCriteria] = useState([]);
   const [show, setShow] = useState(false);
+
   const handleClose = (e) => {
     setShow(false);
     navigate("/proyectos/" + e.target.dataset.id);
   };
-
-  const addEventListenerToDot = useCallback((e) => {
-    const id = Number(e.target.dataset.id);
-    setActive(id);
-  }, []);
-
-  useEffect(() => {
-    let rowNav = document.getElementById("steps-nav").querySelectorAll(".dots");
-    rowNav.forEach((l) => {
-      if (!l.classList.contains("disabled")) {
-        l.removeEventListener("click", addEventListenerToDot);
-        l.addEventListener("click", addEventListenerToDot);
-      }
-    });
-  }, [totalComplete]);
 
   function setActive(active, ...completed) {
     if (completed.length > 0) {
@@ -77,6 +63,23 @@ export default function NuevoProyecto() {
     foo.classList.remove("disabled");
     foo.classList.add("active");
   }
+
+  const addEventListenerToDot = useCallback((e) => {
+    const id = Number(e.target.dataset.id);
+    setActive(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    let rowNav = document.getElementById("steps-nav").querySelectorAll(".dots");
+    rowNav.forEach((l) => {
+      if (!l.classList.contains("disabled")) {
+        l.removeEventListener("click", addEventListenerToDot);
+        l.addEventListener("click", addEventListenerToDot);
+      }
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [totalComplete]);
 
   useEffect(() => {
     Number(tipoCriterios) === 1 ? (
@@ -182,7 +185,9 @@ export default function NuevoProyecto() {
           document.getElementById("modal-continue").dataset.id = dataR.data.id;
         } else {
           //error
-          //setError();
+          setError(
+            "Por favor, revisa que los datos sean correctos e inténtalo de nuevo."
+          );
         }
       })
       .catch((err) => {
@@ -218,7 +223,7 @@ export default function NuevoProyecto() {
           </ol>
         </Col>
       </Row>
-      <Form validated={validated} onSubmit={handleSubmitSt1}>
+      <Form onSubmit={handleSubmitSt1}>
         <Row id="step-1" className="form-proyecto step-1">
           <Col xs="12" className="text-center mb-3">
             <h2>Datos del proyecto</h2>
@@ -281,9 +286,9 @@ export default function NuevoProyecto() {
             <Container className="text-center mb-3">
               A continuación se listan los Criterios de Conformidad que deberán
               satisfacerse para cumplir con un Nivel de Conformidad{" "}
-              {conformanceLevel == 1
+              {conformanceLevel === 1
                 ? " A"
-                : conformanceLevel == 2
+                : conformanceLevel === 2
                 ? "AA"
                 : "AAA"}
               .
@@ -368,15 +373,15 @@ export default function NuevoProyecto() {
             Método de selección de criterios de conformidad:{" "}
           </p>
           <p className="value">
-            {tipoCriterios == 1
+            {tipoCriterios === 1
               ? "En base a un nivel de conformidad"
               : "En base a un público objetivo"}
           </p>
           <p className="field">Nivel de conformidad:</p>
           <p className="value">
-            {conformanceLevel == 1
+            {conformanceLevel === 1
               ? "Nivel A"
-              : conformanceLevel == 2
+              : conformanceLevel === 2
               ? "Nivel AA"
               : "Nivel AAA"}
           </p>
@@ -413,7 +418,10 @@ export default function NuevoProyecto() {
           </ul>
         </Col>
         <Col xs="12">
-          <p id="bar-status" className="text-end text-danger">
+          <p
+            id="bar-status"
+            className={`text-end text-danger ${error ?? "d-none"}`}
+          >
             <strong className="text-danger">Ha ocurrido un error.</strong>{" "}
             {error}
           </p>
@@ -438,8 +446,10 @@ export default function NuevoProyecto() {
         backdrop="static"
         keyboard={false}
         centered
+        className="drop-from-top only-continue no-border text-center"
       >
-        <Modal.Header closeButton>
+        <Modal.Header className="flex-column">
+          <img src={modalImg} alt="" />
           <Modal.Title>Proyecto creado correctamente</Modal.Title>
         </Modal.Header>
         <Modal.Body>

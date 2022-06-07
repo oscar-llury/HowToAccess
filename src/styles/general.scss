@@ -17,9 +17,9 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --header-height: 64px;
+  --header-height: 60px;
   --banner-height: 0px;
-  --footer-height: 110px;
+  --footer-height: calc(24px + 5rem);
   --vh100-offset-header: calc(var(--header-height));
   --vh100-offset: calc(
     var(--header-height) + var(--banner-height) + var(--footer-height)
@@ -102,6 +102,36 @@ body::-webkit-scrollbar-thumb {
 .italic {
   font-style: italic;
 }
+
+/*******MODAL*******/
+.modal {
+  border-radius: 0.8rem;
+  padding: 1em 0;
+  &.drop-from-top .modal-content {
+    transition: opacity 0.5s;
+    animation: show 1s 0.2s backwards;
+  }
+
+  @keyframes show {
+    0% {
+      transform: translateY(-150vh);
+    }
+  }
+  &.only-continue .modal-footer {
+    justify-content: center;
+  }
+  &.no-border .modal-footer,
+  &.no-border .modal-header {
+    border: 0;
+  }
+  &.text-center .modal-header {
+    justify-content: center;
+  }
+  .modal-header img {
+    max-height: 200px;
+  }
+}
+/*******CAROUSEL*******/
 .carousel-wrapper {
   display: flex;
   position: relative;
@@ -190,6 +220,12 @@ body::-webkit-scrollbar-thumb {
   .dropdown-menu[data-bs-popper] {
     //left: -50%;
     width: max-content;
+  }
+}
+
+footer {
+  .footer-copyright {
+    background-color: #cecece;
   }
 }
 
@@ -971,6 +1007,7 @@ body::-webkit-scrollbar-thumb {
 
 /*******NUEVO PROYECTO*******/
 .app-nuevo-proyecto {
+  min-height: calc(100vh - var(--vh100-offset));
   padding-top: 20px;
   .steps-nav {
     margin-bottom: 5%;
