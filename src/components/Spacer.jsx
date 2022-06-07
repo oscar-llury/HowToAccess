@@ -1,5 +1,5 @@
 import React from "react";
-import Wave from "../img/wave-1.svg";
+//import Wave from "../img/wave-1.svg";
 
 export default function Spacer({ space }) {
   return (

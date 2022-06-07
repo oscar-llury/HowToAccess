@@ -1,11 +1,22 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Col, Container, Form, Row, Spinner, Button } from "react-bootstrap";
+import {
+  Col,
+  Container,
+  Form,
+  Row,
+  Spinner,
+  Button,
+  Modal,
+} from "react-bootstrap";
+
+import modalImg from "../img/complete-form.svg";
 
 export default function NuevoProyecto() {
-  const [validated, setValidated] = useState(false);
-  const [errors, setErrors] = useState({});
-
+  //const [validated, setValidated] = useState(false);
+  let navigate = useNavigate();
+  const [error, setError] = useState();
   const [nombre, setNombre] = useState("");
   const [tipoCriterios, setTipoCriterios] = useState(0);
   const [conformanceLevel, setConformanceLevel] = useState(0);
@@ -15,21 +26,12 @@ export default function NuevoProyecto() {
   const ids = [1, 2, 3];
   const [totalComplete, setTotalComplete] = useState(0);
   const [conformanceCriteria, setConformanceCriteria] = useState([]);
+  const [show, setShow] = useState(false);
 
-  const addEventListenerToDot = useCallback((e) => {
-    const id = Number(e.target.dataset.id);
-    setActive(id);
-  }, []);
-
-  useEffect(() => {
-    let rowNav = document.getElementById("steps-nav").querySelectorAll(".dots");
-    rowNav.forEach((l) => {
-      if (!l.classList.contains("disabled")) {
-        l.removeEventListener("click", addEventListenerToDot);
-        l.addEventListener("click", addEventListenerToDot);
-      }
-    });
-  }, [totalComplete]);
+  const handleClose = (e) => {
+    setShow(false);
+    navigate("/proyectos/" + e.target.dataset.id);
+  };
 
   function setActive(active, ...completed) {
     if (completed.length > 0) {
@@ -61,6 +63,23 @@ export default function NuevoProyecto() {
     foo.classList.remove("disabled");
     foo.classList.add("active");
   }
+
+  const addEventListenerToDot = useCallback((e) => {
+    const id = Number(e.target.dataset.id);
+    setActive(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    let rowNav = document.getElementById("steps-nav").querySelectorAll(".dots");
+    rowNav.forEach((l) => {
+      if (!l.classList.contains("disabled")) {
+        l.removeEventListener("click", addEventListenerToDot);
+        l.addEventListener("click", addEventListenerToDot);
+      }
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [totalComplete]);
 
   useEffect(() => {
     Number(tipoCriterios) === 1 ? (
@@ -160,6 +179,16 @@ export default function NuevoProyecto() {
       )
       .then((data) => {
         const dataR = data.data;
+        console.log(dataR);
+        if (dataR.status === 1) {
+          setShow(true);
+          document.getElementById("modal-continue").dataset.id = dataR.data.id;
+        } else {
+          //error
+          setError(
+            "Por favor, revisa que los datos sean correctos e inténtalo de nuevo."
+          );
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -194,7 +223,7 @@ export default function NuevoProyecto() {
           </ol>
         </Col>
       </Row>
-      <Form validated={validated} onSubmit={handleSubmitSt1}>
+      <Form onSubmit={handleSubmitSt1}>
         <Row id="step-1" className="form-proyecto step-1">
           <Col xs="12" className="text-center mb-3">
             <h2>Datos del proyecto</h2>
@@ -257,9 +286,9 @@ export default function NuevoProyecto() {
             <Container className="text-center mb-3">
               A continuación se listan los Criterios de Conformidad que deberán
               satisfacerse para cumplir con un Nivel de Conformidad{" "}
-              {conformanceLevel == 1
+              {conformanceLevel === 1
                 ? " A"
-                : conformanceLevel == 2
+                : conformanceLevel === 2
                 ? "AA"
                 : "AAA"}
               .
@@ -344,15 +373,15 @@ export default function NuevoProyecto() {
             Método de selección de criterios de conformidad:{" "}
           </p>
           <p className="value">
-            {tipoCriterios == 1
+            {tipoCriterios === 1
               ? "En base a un nivel de conformidad"
               : "En base a un público objetivo"}
           </p>
           <p className="field">Nivel de conformidad:</p>
           <p className="value">
-            {conformanceLevel == 1
+            {conformanceLevel === 1
               ? "Nivel A"
-              : conformanceLevel == 2
+              : conformanceLevel === 2
               ? "Nivel AA"
               : "Nivel AAA"}
           </p>
@@ -388,6 +417,15 @@ export default function NuevoProyecto() {
             ))}
           </ul>
         </Col>
+        <Col xs="12">
+          <p
+            id="bar-status"
+            className={`text-end text-danger ${error ?? "d-none"}`}
+          >
+            <strong className="text-danger">Ha ocurrido un error.</strong>{" "}
+            {error}
+          </p>
+        </Col>
         <Col xs="12" className="d-flex justify-content-between">
           <Button
             variant="primary"
@@ -402,6 +440,28 @@ export default function NuevoProyecto() {
           </Button>
         </Col>
       </Row>
+      <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+        centered
+        className="drop-from-top only-continue no-border text-center"
+      >
+        <Modal.Header className="flex-column">
+          <img src={modalImg} alt="" />
+          <Modal.Title>Proyecto creado correctamente</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          El proyecto se ha creado correctamente. A continuación serás
+          redirigido a la ficha del proyecto.
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" id="modal-continue" onClick={handleClose}>
+            Continuar
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Container>
   );
 

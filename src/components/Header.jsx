@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState /*useEffect*/ } from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { Collapse } from "bootstrap";
+//import { Collapse } from "bootstrap";
 
 import { useAuth } from "../lib/auth";
 import logo from "../img/logo/logotipo.svg";
@@ -77,14 +77,16 @@ export default function Header() {
             <Nav className="me-auto">
               <Link
                 to="/"
-                className={`nav-item ${locationUrl == "/" ? "active" : ""}`}
+                className={`nav-item ${locationUrl === "/" ? "active" : ""}`}
                 title="Inicio"
               >
                 Inicio
               </Link>
               <Link
                 to="/accesibilidad-web"
-                className={`nav-item ${locationUrl == "/accesibilidad-web" ? "active" : ""}`}
+                className={`nav-item ${
+                  locationUrl === "/accesibilidad-web" ? "active" : ""
+                }`}
                 title="Sobre accesibilidad web"
               >
                 Sobre accesibilidad web
@@ -92,7 +94,7 @@ export default function Header() {
               <Link
                 to="/normas-de-accesibilidad-web"
                 className={`nav-item ${
-                  locationUrl == "/normas-de-accesibilidad-web" ? "active" : ""
+                  locationUrl === "/normas-de-accesibilidad-web" ? "active" : ""
                 }`}
                 title="Normas de accesibilidad"
               >
@@ -100,7 +102,7 @@ export default function Header() {
               </Link>
               <Link
                 to="#"
-                className={`nav-item ${locationUrl == "" ? "active" : ""}`}
+                className={`nav-item ${locationUrl === "" ? "active" : ""}`}
                 title="Tips web"
               >
                 Tips web
@@ -141,7 +143,7 @@ export default function Header() {
                 <Link
                   to="/iniciar-sesion"
                   className={`nav-item ${
-                    locationUrl == "/iniciar-sesion" ? "active" : ""
+                    locationUrl === "/iniciar-sesion" ? "active" : ""
                   }`}
                   title="Iniciar sesión"
                 >

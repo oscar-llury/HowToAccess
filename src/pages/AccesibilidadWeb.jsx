@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Container, ToastContainer, Toast, Row, Col } from "react-bootstrap";
 import Masonry from "react-masonry-css";
-import { AnimationOnScroll } from "react-animation-on-scroll";
 
 import image_alts from "../img/accesibility-elements/image-alts.webp";
 import color_contrast from "../img/accesibility-elements/color-contrast.svg";
@@ -129,7 +128,7 @@ export default function AccesibilidadWeb() {
       document.body.classList.add("toast-accessibility-open", "cursor-pointer");
     }
   }
-
+  // eslint-disable-next-line no-unused-vars
   const startAnimation = () => {
     const title = document.querySelector(".title-heading");
     const columns = document.querySelectorAll(".column-heading");
