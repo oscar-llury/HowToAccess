@@ -16,17 +16,11 @@ import NuevoProyecto from "./pages/NuevoProyecto";
 //functions
 import { AuthProvider, RequireAuth } from "./lib/auth";
 import AccesibilidadWeb from "./pages/AccesibilidadWeb";
-
-/* eslint-disable import/no-webpack-loader-syntax */
-import MdxDoc, {
-  frontMatter,
-} from "!babel-loader!mdx-loader!./data/principio.mdx";
+import Principle from "./pages/Principle";
 
 export default function App() {
   return (
     <div className="App">
-      <h2>{frontMatter.title}</h2>
-      <MdxDoc />
       <AuthProvider>
         <Header />
         <Routes>
@@ -36,6 +30,15 @@ export default function App() {
             path="/normas-de-accesibilidad-web"
             element={<NormasAccesibilidadWeb />}
           />
+          {[
+            "/normas-de-accesibilidad-web/perceptible",
+            "/normas-de-accesibilidad-web/operable",
+            "/normas-de-accesibilidad-web/entendible",
+            "/normas-de-accesibilidad-web/robusto",
+          ].map((path) => (
+            <Route key={path} path={path} element={<Principle />} />
+          ))}
+
           <Route path="/iniciar-sesion" element={<Login />} />
           <Route
             path="/nuevo-proyecto"

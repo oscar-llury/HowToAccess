@@ -1,7 +1,7 @@
 import { fs } from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { serialize } from "@mdx-js/loader";
+import serialize from "@mdx-js/loader";
 
 const root = process.cwd();
 

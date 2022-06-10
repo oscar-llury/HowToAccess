@@ -217,7 +217,11 @@ export default function NormasAccesibilidadWeb() {
                           Un contenido perceptible hará posible que todos los
                           usuarios vean y escuchen la informarción.
                         </p>
-                        <Button variant="primary" className="w-auto" href="#">
+                        <Button
+                          variant="primary"
+                          className="w-auto"
+                          href="/normas-de-accesibilidad-web/perceptible"
+                        >
                           Ver pautas <i className="bi bi-arrow-right"></i>
                         </Button>
                       </Col>
@@ -258,7 +262,11 @@ export default function NormasAccesibilidadWeb() {
                           navegar por la información de forma independiente,
                           indistintamente de la herramienta usada.
                         </p>
-                        <Button variant="primary" className="w-auto" href="#">
+                        <Button
+                          variant="primary"
+                          className="w-auto"
+                          href="/normas-de-accesibilidad-web/operable"
+                        >
                           Ver pautas <i className="bi bi-arrow-right"></i>
                         </Button>
                       </Col>
@@ -302,7 +310,11 @@ export default function NormasAccesibilidadWeb() {
                           Un lenguaje claro y conciso facilitará la comprensión
                           por parte de los usuarios en todos los dispositivos.
                         </p>
-                        <Button variant="primary" className="w-auto" href="#">
+                        <Button
+                          variant="primary"
+                          className="w-auto"
+                          href="/normas-de-accesibilidad-web/entendible"
+                        >
                           Ver pautas <i className="bi bi-arrow-right"></i>
                         </Button>
                       </Col>
@@ -344,7 +356,11 @@ export default function NormasAccesibilidadWeb() {
                           preferencias de los usuarios sin importar desde dónde
                           accedan.
                         </p>
-                        <Button variant="primary" className="w-auto" href="#">
+                        <Button
+                          variant="primary"
+                          className="w-auto"
+                          href="/normas-de-accesibilidad-web/robusto"
+                        >
                           Ver pautas <i className="bi bi-arrow-right"></i>
                         </Button>
                       </Col>

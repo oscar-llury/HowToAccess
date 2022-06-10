@@ -131,6 +131,7 @@ body::-webkit-scrollbar-thumb {
     max-height: 200px;
   }
 }
+
 /*******CAROUSEL*******/
 .carousel-wrapper {
   display: flex;
@@ -223,6 +224,7 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
+/*******FOOTER*******/
 footer {
   .footer-copyright {
     background-color: #cecece;
@@ -1181,6 +1183,53 @@ footer {
         padding: 0;
       }
     }
+  }
+}
+
+/*******404*******/
+.page-404 {
+  min-height: calc(100vh - var(--vh100-offset));
+  display: flex;
+
+  .browser {
+    margin: auto;
+    --browser-header: 50px;
+    --browser-content: 450px;
+    --browser-lateral: calc(var(--browser-header) + var(--browser-content));
+    min-height: var(--browser-lateral);
+    max-width: var(--browser-lateral);
+    background-color: #fff;
+    .header {
+      height: var(--browser-header);
+      display: flex;
+      align-items: center;
+      background-color: #000;
+      padding: 10px;
+      i {
+        margin: 5px;
+        color: #fff;
+        font-size: 10px;
+      }
+    }
+    .e-404 {
+      height: var(--browser-content);
+      padding-bottom: var(--browser-header);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      span {
+        font-size: 4em;
+      }
+      border: 2px solid #000;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100%25' width='100%25'%3E%3Cdefs%3E%3Cpattern id='doodad' width='70' height='70' viewBox='0 0 40 40' patternUnits='userSpaceOnUse' patternTransform=''%3E%3Crect width='100%25' height='100%25' fill='rgba(247, 250, 252,1)'/%3E%3Cpath d='M-0.5 20v20h1v-20zM39.5 20v20h1v-20z' fill='rgba(26, 32, 44,1)'/%3E%3Cpath d='M-10 29.5 h60 v1 h-60z' fill='rgba(26, 32, 44,1)'/%3E%3Cpath d='M19.5 0v40h1v-40z' fill='rgba(26, 32, 44,1)'/%3E%3Cpath d='M-10 9.5h60v1h-60z' fill='rgba(26, 32, 44,1)'/%3E%3Cpath d='M-0.5 0v20h1v-20zM39.5 0v20h1v-20z' fill='rgba(26, 32, 44,1)'/%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23doodad)' height='200%25' width='200%25'/%3E%3C/svg%3E ");
+    }
+  }
+}
+
+/*******PRINCIPIOS*******/
+.breadcrumb-custom {
+  .breadcrumb-item:first-letter {
+    text-transform: capitalize;
   }
 }
 
