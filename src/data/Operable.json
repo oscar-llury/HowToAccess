@@ -1,0 +1,187 @@
+[
+    {
+      "key": "2.1",
+      "name": "Accesible por teclado",
+      "description":
+        "Proporcionar acceso a toda la funcionalidad mediante el teclado.",
+      "criteria": [
+        {
+          "name": "Teclado",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Sin trampas para el foco del teclado",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Teclado (sin excepciones)",
+          "level": "Nivel AAA",
+          "comment": ""
+        },
+        {
+          "name": "Atajos de teclas de caracteres",
+          "level": "Nivel A",
+          "comment": "(Agregado en WCAG 2.1)"
+        }
+      ]
+    },
+    {
+      "key": "2.2",
+      "name": "Tiempo suficiente",
+      "description":
+        "Proporcionar a los usuarios el tiempo suficiente para leer y usar el contenido.",
+      "criteria": [
+        {
+          "name": "Tiempo ajustable",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Poner en pausa, detener, ocultar",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Sin tiempo",
+          "level": "Nivel AAA",
+          "comment": ""
+        },
+        {
+          "name": "Interrupciones",
+          "level": "Nivel AAA",
+          "comment": ""
+        },
+        {
+          "name": "Re-autentificación",
+          "level": "Nivel AAA",
+          "comment": ""
+        },
+        {
+          "name": "Tiempos de espera",
+          "level": "Nivel AAA",
+          "comment": "(Agregado en WCAG 2.1)"
+        }
+      ]
+    },
+    {
+      "key": "2.3",
+      "name": "Convulsiones",
+      "description":
+        "No diseñar contenido de un modo que se sepa podría provocar ataques, espasmos o convulsiones.",
+      "criteria": [
+        {
+          "name": "Umbral de tres destellos o menos",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Tres destellos",
+          "level": "Nivel AAA",
+          "comment": ""
+        },
+        {
+          "name": "Animación de interacciones",
+          "level": "Nivel AAA",
+          "comment": "(Agregado en WCAG 2.1)"
+        }
+      ]
+    },
+    {
+      "key": "2.4",
+      "name": "Navegable",
+      "description":
+        "Proporcionar medios para ayudar a los usuarios a navegar, encontrar contenido y determinar dónde se encuentran.",
+      "criteria": [
+        {
+          "name": "Evitar bloques",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Titulado de páginas",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Orden del foco",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Propósito de los enlaces (en contexto)",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Múltiples vías",
+          "level": "Nivel AA",
+          "comment": ""
+        },
+        {
+          "name": "Encabezados y etiquetas",
+          "level": "Nivel AA",
+          "comment": ""
+        },
+        {
+          "name": "Foco visible",
+          "level": "Nivel AA",
+          "comment": ""
+        },
+        {
+          "name": "Ubicación",
+          "level": "Nivel AAA",
+          "comment": ""
+        },
+        {
+          "name": "Propósito de los enlaces (sólo enlaces)",
+          "level": "Nivel AAA",
+          "comment": ""
+        },
+        {
+          "name": "Encabezados de sección",
+          "level": "Nivel AAA",
+          "comment": ""
+        }
+      ]
+    },
+    {
+      "key": "2.5",
+      "name": "Modalidades de entrada",
+      "description":
+        "",
+      "criteria": [
+        {
+          "name": "Gestos de puntero",
+          "level": "Nivel A",
+          "comment": "(Agregado en WCAG 2.1)"
+        },
+        {
+          "name": "Cancelación de puntero",
+          "level": "Nivel A",
+          "comment": "(Agregado en WCAG 2.1)"
+        },
+        {
+          "name": "Etiqueta en nombre",
+          "level": "Nivel A",
+          "comment": "(Agregado en WCAG 2.1)"
+        },
+        {
+          "name": "Actuación de movimiento",
+          "level": "Nivel A",
+          "comment": "(Agregado en WCAG 2.1)"
+        },
+        {
+          "name": "Tamaño objetivo",
+          "level": "Nivel AAA",
+          "comment": "(Agregado en WCAG 2.1)"
+        },
+        {
+          "name": "Mecanismos de entrada concurrentes",
+          "level": "Nivel AAA",
+          "comment": "(Agregado en WCAG 2.1)"
+        }
+      ]
+    }
+  ]

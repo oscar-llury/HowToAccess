@@ -1,0 +1,25 @@
+[
+  {
+    "key": "4.1",
+    "name": "Compatible",
+    "description":
+      "Maximizar la compatibilidad con las aplicaciones de usuario actuales y futuras, incluyendo las ayudas técnicas.",
+    "criteria": [
+      {
+        "name": "Procesamiento",
+        "level": "Nivel A",
+        "comment": ""
+      },
+      {
+        "name": "Nombre, función, valor",
+        "level": "Nivel A",
+        "comment": ""
+      },
+      {
+        "name": "Mensajes de estado",
+        "level": "Nivel AA",
+        "comment": "(Agregado en WCAG 2.1)"
+      }
+    ]
+  }
+]

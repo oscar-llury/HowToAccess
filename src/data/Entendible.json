@@ -1,0 +1,111 @@
+[
+    {
+      "key": "3.1",
+      "name": "Legible",
+      "description":
+        "Hacer que los contenidos textuales resulten legibles y comprensibles.",
+      "criteria": [
+        {
+          "name": "Idioma de la página",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Idioma de las partes",
+          "level": "Nivel AA",
+          "comment": ""
+        },
+        {
+          "name": "Palabras inusuales",
+          "level": "Nivel AA",
+          "comment": ""
+        },
+        {
+          "name": "Abreviaturas",
+          "level": "Nivel AAA",
+          "comment": ""
+        },
+        {
+          "name": "Nivel de lectura",
+          "level": "Nivel AAA",
+          "comment": ""
+        },
+        {
+          "name": "Pronunciación",
+          "level": "Nivel AAA",
+          "comment": ""
+        }
+      ]
+    },
+    {
+      "key": "3.2",
+      "name": "Predecible",
+      "description":
+        "Hacer que las páginas web aparezcan y operen de manera predecible.",
+      "criteria": [
+        {
+          "name": "Al recibir el foco",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Al recibir entradas",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Navegación coherente",
+          "level": "Nivel AA",
+          "comment": ""
+        },
+        {
+          "name": "Identificación coherente",
+          "level": "Nivel AA",
+          "comment": ""
+        },
+        {
+          "name": "Cambios a petición",
+          "level": "Nivel AAA",
+          "comment": ""
+        }
+      ]
+    },
+    {
+      "key": "3.3",
+      "name": "Entrada de datos asistida",
+      "description":
+        "Ayudar a los usuarios a evitar y corregir los errores.",
+      "criteria": [
+        {
+          "name": "Identificación de errores",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Etiquetas o instrucciones",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Sugerencias ante errores",
+          "level": "Nivel AA",
+          "comment": ""
+        },
+        {
+          "name": "Prevención de errores (legales, financieros, datos)",
+          "level": "Nivel AA",
+          "comment": ""
+        },
+        {
+          "name": "Ayuda",
+          "level": "Nivel AAA",
+          "comment": ""
+        },
+        {
+          "name": "Prevención de errores (todos)",
+          "level": "Nivel AAA",
+          "comment": ""
+        }
+      ]
+    }
+  ]

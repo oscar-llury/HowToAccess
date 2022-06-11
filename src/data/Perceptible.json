@@ -1,0 +1,179 @@
+[
+    {
+      "key": "1.1",
+      "name": "Alternativas textuales",
+      "description":
+        "Proporcionar alternativas textuales para todo contenido no textual de modo que se pueda convertir a otros formatos que las personas necesiten, tales como textos ampliados, braille, voz, símbolos o en un lenguaje más simple.",
+      "criteria": [
+        {
+          "name": "Contenido no textual",
+          "level": "Nivel A",
+          "comment": ""
+        }
+      ]
+    },
+    {
+      "key": "1.2",
+      "name": "Medios tempodependientes",
+      "description":
+        "Proporcionar alternativas para los medios tempodependientes.",
+      "criteria": [
+        {
+          "name": "Sólo audio y sólo vídeo (grabado)",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Subtítulos (grabados)",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Audiodescripción o Medio Alternativo (grabado)",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Subtítulos (en directo)",
+          "level": "Nivel AA",
+          "comment": ""
+        },
+        {
+          "name": "Audiodescripción (grabado)",
+          "level": "Nivel AA",
+          "comment": ""
+        },
+        {
+          "name": "Lengua de señas (grabado)",
+          "level": "Nivel AAA",
+          "comment": ""
+        },
+        {
+          "name": "Audiodescripción ampliada (grabada)",
+          "level": "Nivel AAA",
+          "comment": ""
+        },
+        {
+          "name": "Medio alternativo (grabado)",
+          "level": "Nivel AAA",
+          "comment": ""
+        },
+        {
+          "name": "Sólo audio (en directo)",
+          "level": "Nivel AAA",
+          "comment": ""
+        }
+      ]
+    },
+    {
+      "key": "1.3",
+      "name": "Adaptable",
+      "description":
+        "Crear contenido que pueda presentarse de diferentes formas (por ejemplo, con una disposición más simple) sin perder información o estructura.",
+      "criteria": [
+        {
+          "name": "Información y relaciones",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Secuencia significativa",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Características sensoriales",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Orientación",
+          "level": "Nivel AA",
+          "comment": "(Agregado en WCAG 2.1)"
+        },
+        {
+          "name": "Identificar el propósito de entrada",
+          "level": "Nivel AA",
+          "comment": "(Agregado en WCAG 2.1)"
+        },
+        {
+          "name": "Identificar Propósito",
+          "level": "Nivel AAA",
+          "comment": "(Agregado en WCAG 2.1)"
+        }
+      ]
+    },
+    {
+      "key": "1.4",
+      "name": "Distinguible",
+      "description":
+        "Facilitar a los usuarios ver y oír el contenido, incluyendo la separación entre el primer plano y el fondo.",
+      "criteria": [
+        {
+          "name": "Uso del color",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Control del audio",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Contraste (mínimo)",
+          "level": "Nivel AA",
+          "comment": ""
+        },
+        {
+          "name": "Cambiar el tamaño del texto",
+          "level": "Nivel AA",
+          "comment": ""
+        },
+        {
+          "name": "Imágenes de texto",
+          "level": "Nivel AA",
+          "comment": ""
+        },
+        {
+          "name": "Contraste (mejorado)",
+          "level": "Nivel AAA",
+          "comment": ""
+        },
+        {
+          "name": "Sonido de fondo bajo o ausente",
+          "level": "Nivel AAA",
+          "comment": ""
+        },
+        {
+          "name": "Presentación visual",
+          "level": "Nivel AAA",
+          "comment": ""
+        },
+        {
+          "name": "Imágenes de texto (sin excepción)",
+          "level": "Nivel AAA",
+          "comment": ""
+        },
+        {
+          "name": "Reflujo",
+          "level": "Nivel AA",
+          "comment": "(Agregado en WCAG 2.1)"
+        },
+        {
+          "name": "Contraste sin texto",
+          "level": "Nivel AA",
+          "comment": "(Agregado en WCAG 2.1)"
+        },
+        {
+          "name": "Espaciado de texto",
+          "level": "Nivel AA",
+          "comment": "(Agregado en WCAG 2.1)"
+        },
+        {
+          "name": "Contenido en Hover o Focus",
+          "level": "Nivel AA",
+          "comment": "(Agregado en WCAG 2.1)"
+        }
+      ]
+    }
+  ]
