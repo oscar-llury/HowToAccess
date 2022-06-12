@@ -1,10 +1,16 @@
-[
+{
+  "key": "Principio 1",
+  "name": "Perceptible",
+  "description": "La información y los componentes de la interfaz de usuario deben ser presentados al usuario de tal forma que sean perceptibles. El objetivo es ofrecer diversas formas de sentir, ver y escuchar el contenido web, como el ajuste del tamaño de letra, la visualización de subtítulos en un vídeo, o la escucha del texto alternativo de una imagen en un teléfono inteligente. Un contenido perceptible hará posible que todos los usuarios vean y escuchen la informarción.",
+  "text": "<p class='mb-2'> El principio Perceptible está compuesto por las pautas: </p> <ul> <li> Proporcione <strong>alternativas textuales</strong> para contenido no textual. </li> <li> Proporcione <strong>subtítulos y otras alternativas</strong> para multimedia. </li> <li> Cree contenido que se pueda <strong>presentar de diferentes formas</strong>, incluyendo a las tecnologías de apoyo, sin perder información. </li> <li> Facilite que los usuarios puedan <strong>ver y oir el contenido</strong>. </li> </ul>",
+  "date": "Fecha de última actualización: 12 junio 2022",
+  "guidelines": [
     {
-      "key": "1.1",
+      "key": "Pauta 1.1",
       "name": "Alternativas textuales",
       "description":
-        "Proporcionar alternativas textuales para todo contenido no textual de modo que se pueda convertir a otros formatos que las personas necesiten, tales como textos ampliados, braille, voz, símbolos o en un lenguaje más simple.",
-      "criteria": [
+        "Proporcionar alternativas textuales para todo contenido no textual de modo que se pueda convertir a otros formatos que las personas necesiten, tales como textos ampliados, braille, voz, símbolos o en un lenguaje más simple.",      
+        "criteria": [
         {
           "name": "Contenido no textual",
           "level": "Nivel A",
@@ -13,7 +19,7 @@
       ]
     },
     {
-      "key": "1.2",
+      "key": "Pauta 1.2",
       "name": "Medios tempodependientes",
       "description":
         "Proporcionar alternativas para los medios tempodependientes.",
@@ -66,7 +72,7 @@
       ]
     },
     {
-      "key": "1.3",
+      "key": "Pauta 1.3",
       "name": "Adaptable",
       "description":
         "Crear contenido que pueda presentarse de diferentes formas (por ejemplo, con una disposición más simple) sin perder información o estructura.",
@@ -104,7 +110,7 @@
       ]
     },
     {
-      "key": "1.4",
+      "key": "Pauta 1.4",
       "name": "Distinguible",
       "description":
         "Facilitar a los usuarios ver y oír el contenido, incluyendo la separación entre el primer plano y el fondo.",
@@ -177,3 +183,4 @@
       ]
     }
   ]
+}

@@ -1,6 +1,12 @@
-[
+{
+  "key": "Principio 3",
+  "name": "Entendible",
+  "description": "La información y los componentes de la interfaz de usuario deben ser presentados al usuario de tal forma que sean perceptibles. El objetivo es ofrecer diversas formas de sentir, ver y escuchar el contenido web, como el ajuste del tamaño de letra, la visualización de subtítulos en un vídeo, o la escucha del texto alternativo de una imagen en un teléfono inteligente. Un contenido perceptible hará posible que todos los usuarios vean y escuchen la informarción.",
+  "text": "<p class='mb-2'> El principio Perceptible está compuesto por las pautas: </p> <ul> <li> Proporcione <strong>alternativas textuales</strong> para contenido no textual. </li> <li> Proporcione <strong>subtítulos y otras alternativas</strong> para multimedia. </li> <li> Cree contenido que se pueda <strong>presentar de diferentes formas</strong>, incluyendo a las tecnologías de apoyo, sin perder información. </li> <li> Facilite que los usuarios puedan <strong>ver y oir el contenido</strong>. </li> </ul>",
+  "date": "Fecha de última actualización: 12 junio 2022",
+  "guidelines":[
     {
-      "key": "3.1",
+      "key": "Pauta 3.1",
       "name": "Legible",
       "description":
         "Hacer que los contenidos textuales resulten legibles y comprensibles.",
@@ -38,7 +44,7 @@
       ]
     },
     {
-      "key": "3.2",
+      "key": "Pauta 3.2",
       "name": "Predecible",
       "description":
         "Hacer que las páginas web aparezcan y operen de manera predecible.",
@@ -71,7 +77,7 @@
       ]
     },
     {
-      "key": "3.3",
+      "key": "Pauta 3.3",
       "name": "Entrada de datos asistida",
       "description":
         "Ayudar a los usuarios a evitar y corregir los errores.",
@@ -109,3 +115,4 @@
       ]
     }
   ]
+}

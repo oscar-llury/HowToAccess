@@ -1250,6 +1250,7 @@ footer {
     font-weight: 600;
   }
   .principio {
+    padding: 0;
     p {
       margin-bottom: 0;
     }
@@ -1272,6 +1273,12 @@ footer {
           margin: 0.5rem 0;
         }
       }
+    }
+  }
+  @media (max-width: 576px) {
+    .pauta {
+      margin: 1rem 0;
+      padding: 1.5rem;
     }
   }
 }
