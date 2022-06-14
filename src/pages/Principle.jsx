@@ -9,44 +9,18 @@ import operable_json from "data/Operable.json";
 import entendible_json from "data/Entendible.json";
 import robusto_json from "data/Robusto.json";
 
-//media
-import perceptible_img from "img/perceivable.png";
-import operable_img from "img/operable.png";
-import entendible_img from "img/understandable.png";
-import robusto_img from "img/robust.png";
-
-/* eslint-disable import/no-webpack-loader-syntax */
-//import perceptible from "!babel-loader!mdx-loader!./../data/perceptible.mdx";
+import Image from "lib/Image";
 
 export default function Principle() {
   let location = useLocation();
   const paths = location.pathname.split("/");
   const slug = paths[paths.length - 1];
 
-  /*
-  function importAll(r) {
-    r.keys()
-      .map(r)
-      .forEach((element) => {
-        console.log(element);
-        //const { data, content } = matter(element);
-      });
-  }
-  const images = importAll(require.context("./../data/", false, /\.(mdx)$/));
-*/
-
   const principle = {
     perceptible: perceptible_json,
     operable: operable_json,
     entendible: entendible_json,
     robusto: robusto_json,
-  }[slug];
-
-  const img = {
-    perceptible: perceptible_img,
-    operable: operable_img,
-    entendible: entendible_img,
-    robusto: robusto_img,
   }[slug];
 
   const pautas = principle.guidelines;
@@ -59,22 +33,27 @@ export default function Principle() {
     { title: slug, link: location.pathname },
   ]);
 
-  //const imgUrl = require(`../${principle.img}`);
-  //console.log(imgUrl);
-
   return (
     <Container className="app-principle main-container">
       <BreadcrumbCustom breadcrumb={crumbs} />
       <Container className="principio">
-        <Row className="align-items-center">
-          <span className="index">{principle.key}</span>
-          <h1>{principle.name}</h1>
-          <Col xl="8" lg="6" md="12">
+        <Row className="align-items-start">
+          <Col
+            xl={principle.img ? "8" : "12"}
+            lg={principle.img ? "8" : "12"}
+            md="12"
+          >
+            <span className="index">{principle.key}</span>
+            <h1>{principle.name}</h1>
             <p>{principle.description}</p>
           </Col>
-          <Col xl="4" lg="6" md="12">
-            <img src={img} alt="" className="w-100" />
-          </Col>
+          {principle.img ? (
+            <Col xl="4" lg="6" md="12">
+              <Image src={principle.img} alt="" className="w-100" />
+            </Col>
+          ) : (
+            ""
+          )}
         </Row>
         <Row>
           <Col dangerouslySetInnerHTML={{ __html: principle.text }}></Col>
@@ -89,19 +68,19 @@ export default function Principle() {
           <Row>
             <span className="index">{pauta.key}</span>
             <h2>{pauta.name}</h2>
-            <Col lg="8" md="12">
+            <Col lg={pauta.img ? "8" : "12"} md="12">
               <p>{pauta.description}</p>
               <Button as="a" href="#">
                 Ampliar información
               </Button>
             </Col>
-            <Col lg="4" md="12">
-              <img
-                src={require("img/operable.png").default}
-                alt=""
-                className="w-100"
-              />
-            </Col>
+            {pauta.img ? (
+              <Col lg="4" md="12">
+                <Image src={pauta.img} alt="" className="w-100" />
+              </Col>
+            ) : (
+              ""
+            )}
             <Col lg="8" md="12">
               <Accordion flush>
                 <Accordion.Item eventKey="0">
