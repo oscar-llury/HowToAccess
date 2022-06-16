@@ -1,8 +1,11 @@
 {
   "key": "Principio 1",
   "name": "Perceptible",
-  "description": "La información y los componentes de la interfaz de usuario deben ser presentados al usuario de tal forma que sean perceptibles. El objetivo es ofrecer diversas formas de sentir, ver y escuchar el contenido web, como el ajuste del tamaño de letra, la visualización de subtítulos en un vídeo, o la escucha del texto alternativo de una imagen en un teléfono inteligente. Un contenido perceptible hará posible que todos los usuarios vean y escuchen la informarción.",
-  "text": "<p class='mb-2'> El principio Perceptible está compuesto por las pautas: </p> <ul> <li> Proporcione <strong>alternativas textuales</strong> para contenido no textual. </li> <li> Proporcione <strong>subtítulos y otras alternativas</strong> para multimedia. </li> <li> Cree contenido que se pueda <strong>presentar de diferentes formas</strong>, incluyendo a las tecnologías de apoyo, sin perder información. </li> <li> Facilite que los usuarios puedan <strong>ver y oir el contenido</strong>. </li> </ul>",
+  "objective": "Cualquier información que se muestre debe presentarse a los usuarios de forma que pueda ser percibida fácilmente.",
+  "description": "Este principio se enfoca en permitir que los usuarios puedan percibir la información que se presenta (no puede ser invisible para todos sus sentidos). Se trata de proporcionar métodos alternativos para comprender el contenido de una página web. Si los usuarios no pueden ver su contenido, por ejemplo, permítales escucharlo; o si no pueden escuchar su contenido, proporcione una alternativa textual.",
+  "text": "<p class='mb-2'> Recomendamos: </p> <ul> <li> Incluir texto alternativo a todo el contenido que no sea textual. </li> <li> Proporcionar alternativas al contenido tempo-dependiente. </li> <li> Crear contenido que sea adaptable a diferentes formas sin perder información o estructura. </li> <li> Que la presentación de los contenidos se perciba de forma instantánea.</li> </ul> <p class='mb-2'> El principio Perceptible está compuesto por las pautas: </p> <ol> <li> <a href='#pauta_1_1'>Alternativas textuales</a>. </li> <li> <a href='#pauta_1_2'>Medios tempodependientes</a>: subtítulos y otras alternativas. </li> <li> <a href='#pauta_1_3'>Adaptable</a>: contenido presentable de diferentes formas. </li> <li> <a href='#pauta_1_4'>Distinguible</a>: contenido que pueda ser visto y escuchado. </li> </ol>",
+  "img": "video-transcription.png",
+  "caption": "Proporcionar subtítulos y transcripciones para contenido de audio y video está cubierto por el principio Perceptible.",
   "date": "Fecha de última actualización: 12 junio 2022",
   "guidelines": [
     {

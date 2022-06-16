@@ -1,9 +1,11 @@
 {
   "key": "Principio 2",
   "name": "Operable",
-  "description": "La información y los componentes de la interfaz de usuario deben ser presentados al usuario de tal forma que sean perceptibles. El objetivo es ofrecer diversas formas de sentir, ver y escuchar el contenido web, como el ajuste del tamaño de letra, la visualización de subtítulos en un vídeo, o la escucha del texto alternativo de una imagen en un teléfono inteligente. Un contenido perceptible hará posible que todos los usuarios vean y escuchen la informarción.",
-  "text": "<p class='mb-2'> El principio Perceptible está compuesto por las pautas: </p> <ul> <li> Proporcione <strong>alternativas textuales</strong> para contenido no textual. </li> <li> Proporcione <strong>subtítulos y otras alternativas</strong> para multimedia. </li> <li> Cree contenido que se pueda <strong>presentar de diferentes formas</strong>, incluyendo a las tecnologías de apoyo, sin perder información. </li> <li> Facilite que los usuarios puedan <strong>ver y oir el contenido</strong>. </li> </ul>",
-  "img": "1.png",
+  "objective": "La navegación ha de ser manejable, es decir, se debe poder acceder al contenido desde cualquier dispositivo de apoyo.",
+  "description": "Esto significa que los usuarios deben poder operar la interfaz (la interfaz no puede requerir una interacción que un usuario no pueda realizar). El principio Operable trata de eliminar las barreras entre el usuario y su contenido.",
+  "text": "<p class='mb-2'> Recomendamos: </p> <ul> <li> Que todas las funcionalidades sean accesibles mediante un teclado. </li> <li> Proporcionar tiempo suficiente a los usuarios para que puedan leer y entender el contenido. </li> <li> No presentar contenidos que puedan provocar trastornos en los usuarios. </li> <li> Facilitar ayudas a los usuarios en la navegación, es decir, para encontrar contenido o saber en qué lugar se encuentran. </li> </ul> <p class='mb-2'> El principio Operable está compuesto por las pautas: </p> <ol> <li> <a href='#pauta_2_1'>Accesibilidad por teclado</a>. </li> <li> <a href='#pauta_2_2'>Tiempo suficiente</a>. </li> <li> <a href='#pauta_2_3'>No crear convulsiones</a>. </li> <li> <a href='#pauta_2_4'>Ayuda en la navegabilidad</a>. </li> </li> <li> <a href='#pauta_2_5'>Modalidades de entrada</a>. </li> </ul>",
+  "img": "operable-principle.png",
+  "caption": "Garantizar que el contenido web se pueda navegar usando solo un teclado está cubierto por el principio Operable.",
   "date": "Fecha de última actualización: 12 junio 2022",
   "guidelines": [
     {

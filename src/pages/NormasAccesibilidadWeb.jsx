@@ -215,7 +215,8 @@ export default function NormasAccesibilidadWeb() {
                         </p>
                         <p>
                           Un contenido perceptible hará posible que todos los
-                          usuarios vean y escuchen la informarción.
+                          usuarios puedar recibir la informarción que
+                          proporciona la página web.
                         </p>
                         <Button
                           variant="primary"

@@ -1,9 +1,11 @@
 {
   "key": "Principio 3",
   "name": "Entendible",
-  "description": "La información y los componentes de la interfaz de usuario deben ser presentados al usuario de tal forma que sean perceptibles. El objetivo es ofrecer diversas formas de sentir, ver y escuchar el contenido web, como el ajuste del tamaño de letra, la visualización de subtítulos en un vídeo, o la escucha del texto alternativo de una imagen en un teléfono inteligente. Un contenido perceptible hará posible que todos los usuarios vean y escuchen la informarción.",
-  "text": "<p class='mb-2'> El principio Perceptible está compuesto por las pautas: </p> <ul> <li> Proporcione <strong>alternativas textuales</strong> para contenido no textual. </li> <li> Proporcione <strong>subtítulos y otras alternativas</strong> para multimedia. </li> <li> Cree contenido que se pueda <strong>presentar de diferentes formas</strong>, incluyendo a las tecnologías de apoyo, sin perder información. </li> <li> Facilite que los usuarios puedan <strong>ver y oir el contenido</strong>. </li> </ul>",
-  "img": "1.png",
+  "objective": "El contenido que proporcionemos ha de ser claro y fácil de interpretar, sin dar lugar a confusiones o equivocaciones.",
+  "description": "El principio Entendible se trata de usar un lenguaje sencillo, hacer que los errores sean fáciles de detectar y corregir, y hacer que el contenido en línea sea consistente y predecible para navegar (el contenido o el funcionamiento no pueden estar más allá de su comprensión).",
+  "text": "<p class='mb-2'> Recomendamos: </p> <ul> <li> Crear contenido legible y comprensible </li> <li> Que la navegación de las páginas web sea predecible.  </li> <li> Ayudar a los usuarios a prevenir y corregir los errores.  </li> </ul> <p class='mb-2'> El principio Entendible está compuesto por las pautas: </p> <ol> <li> <a href='#pauta_3_1'>Texto legible y comprensible</a>. </li> <li> <a href='#pauta_3_2'>Contenido predecible</a>. </li> <li> <a href='#pauta_3_3'>Entrada de datos asistida</a>. </li> </ul>",
+  "img": "error-forms.png",
+  "caption": "Ayudar a los usuarios a evitar y corregir errores está cubierto por el principio Entendible.",
   "date": "Fecha de última actualización: 12 junio 2022",
   "guidelines": [
     {
