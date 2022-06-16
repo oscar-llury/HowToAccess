@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Col, Row, Container, Button, Accordion } from "react-bootstrap";
 import { useLocation } from "react-router";
 import BreadcrumbCustom from "components/Breadcrumb";
@@ -9,9 +9,9 @@ import operable_json from "data/Operable.json";
 import entendible_json from "data/Entendible.json";
 import robusto_json from "data/Robusto.json";
 
-import Image from "lib/Image";
+import Image from "components/Image";
 
-export default function Principle() {
+export default function Principle({ crumbs }) {
   let location = useLocation();
   const paths = location.pathname.split("/");
   const slug = paths[paths.length - 1];
@@ -24,14 +24,6 @@ export default function Principle() {
   }[slug];
 
   const pautas = principle.guidelines;
-
-  const [crumbs, setCrumbs] = useState([
-    {
-      title: paths[1].replaceAll("-", " "),
-      link: "/" + paths[1],
-    },
-    { title: slug, link: location.pathname },
-  ]);
 
   return (
     <Container className="app-principle main-container">
@@ -70,7 +62,14 @@ export default function Principle() {
             <h2>{pauta.name}</h2>
             <Col lg={pauta.img ? "8" : "12"} md="12">
               <p>{pauta.description}</p>
-              <Button as="a" href="#">
+              <Button
+                as="a"
+                href={`/normas-de-accesibilidad-web/${principle.name
+                  .toLowerCase()
+                  .replace(/ /g, "-")}/${pauta.name
+                  .toLowerCase()
+                  .replace(/ /g, "-")}`}
+              >
                 Ampliar información
               </Button>
             </Col>

@@ -102,6 +102,15 @@ body::-webkit-scrollbar-thumb {
 .italic {
   font-style: italic;
 }
+.breadcrumb-custom {
+  margin: 1em 0 2em;
+  .breadcrumb-item:first-letter {
+    text-transform: capitalize;
+  }
+}
+.underline-full-right {
+  border-image: linear-gradient(0deg, #1095c1 5px, #0000 0) fill 0; //0 100vw 0 0
+}
 .main-container {
   padding: 0 8em;
   @media (max-width: 1400px) {
@@ -1232,12 +1241,6 @@ footer {
 /*******PRINCIPIOS*******/
 .app-principle {
   padding-top: 2em;
-  .breadcrumb-custom {
-    margin: 1em 0 2em;
-    .breadcrumb-item:first-letter {
-      text-transform: capitalize;
-    }
-  }
   .index {
     font-size: 1.4em;
     line-height: 1em;
@@ -1430,4 +1433,6 @@ html {
 <nav>
 <section>
 <summary>
+
+margin-inline: max(10px, 50% - 800px/2);
 */
