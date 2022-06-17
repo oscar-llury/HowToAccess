@@ -108,6 +108,12 @@ body::-webkit-scrollbar-thumb {
     text-transform: capitalize;
   }
 }
+.conformance-box {
+  width: 70px;
+  margin: auto;
+  background-color: white;
+  border: 1px solid black;
+}
 .underline-full-right {
   border-image: linear-gradient(0deg, #1095c1 5px, #0000 0) fill 0; //0 100vw 0 0
 }
@@ -1195,6 +1201,13 @@ footer {
         padding: 0;
       }
     }
+  }
+}
+
+/*******PROYECTO*******/
+.app-proyecto {
+  .card-info {
+    background-color: $gray-500;
   }
 }
 

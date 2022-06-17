@@ -1,27 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
+import ConformanceBox from "./ConformanceBox";
 
 async function handleDownload(e) {
   e.preventDefault();
   console.dir(e.target.id);
-}
-
-function renderConformidad(nivel) {
-  switch (nivel) {
-    case 1:
-      return <span title="Conformidad de nivel A">A</span>;
-    case 2:
-      return <span title="Conformidad de nivel AA">AA</span>;
-    case 3:
-      return <span title="Conformidad de nivel AAA">AAA</span>;
-    case 4:
-      return (
-        <i className="bi bi-person-check-fill" title="Público objetivo"></i>
-      );
-    default:
-      return <span></span>;
-  }
 }
 
 export default function TableRowProyectos({ proyecto }) {
@@ -46,17 +30,7 @@ export default function TableRowProyectos({ proyecto }) {
         {proyecto.nombre}
       </td>
       <td>
-        <Container
-          className="text-center p-0"
-          style={{
-            width: "70px",
-            margin: "auto",
-            backgroundColor: "white",
-            border: "1px solid black",
-          }}
-        >
-          {renderConformidad(proyecto.conformidad)}
-        </Container>
+        <ConformanceBox idConformance={proyecto.conformidad} />
       </td>
       <td>
         <span>{proyecto.criteriosF}</span>/<span>{proyecto.criteriosT}</span>
