@@ -85,22 +85,22 @@ export default function Proyecto() {
           </Col>
         </Row>
       ) : (
-        <Row className="card-info align-items-end">
-          <Col xs="8" sm="8" md="9" className="">
-            <RenderProjectInfo />
-          </Col>
-          <Col xs="4" sm="4" md="3" className="text-center">
-            <RenderTotalProgress
-              animationDuration={animationDuration}
-              size={size}
-              data={data}
-              totalProgress={totalProgress}
-            />
-          </Col>
-          <Col>
-            <RenderProjectPrinciples />
-          </Col>
-        </Row>
+        <div className="card-info flex-wrap">
+          <Row className="align-items-center flex-wrap">
+            <Col xs="8" sm="8" md="9" className="">
+              <RenderProjectInfo />
+            </Col>
+            <Col xs="4" sm="4" md="3" className="text-center">
+              <RenderTotalProgress
+                animationDuration={animationDuration}
+                size={size}
+                data={data}
+                totalProgress={totalProgress}
+              />
+            </Col>
+          </Row>
+          <RenderProjectPrinciples />
+        </div>
       )}
     </Container>
   );
@@ -133,16 +133,16 @@ const RenderProjectInfo = () => {
 const RenderProjectPrinciples = () => {
   return (
     <Row className="principles">
-      <Col sm="6" lg="3">
+      <Col sm="6" lg="3" className="box">
         <PrincipleProgress completed={1} total={3} name={"Perceptible"} />
       </Col>
-      <Col sm="6" lg="3">
+      <Col sm="6" lg="3" className="box">
         <PrincipleProgress completed={1} total={4} name={"Operable"} />
       </Col>
-      <Col sm="6" lg="3">
+      <Col sm="6" lg="3" className="box">
         <PrincipleProgress completed={1} total={4} name={"Entendible"} />
       </Col>
-      <Col sm="6" lg="3">
+      <Col sm="6" lg="3" className="box">
         <PrincipleProgress completed={1} total={4} name={"Robusto"} />
       </Col>
       <p className="mt-3">*CA: Criterios de Conformidad</p>

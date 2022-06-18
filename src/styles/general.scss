@@ -1221,10 +1221,22 @@ footer {
     }
     .principles {
       margin-top: 1em;
-
       h3 {
         font-size: 1.5em;
         font-weight: 600;
+      }
+    }
+  }
+  @media (max-width: 992px) {
+    .card-info {
+      h2 {
+        font-size: 2em;
+      }
+      .principles {
+        margin-top: 1em;
+        .box {
+          margin-bottom: 20px;
+        }
       }
     }
   }
