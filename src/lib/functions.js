@@ -7,6 +7,32 @@ export function descifrarBA64(id) {
 }
 
 /**
+ * Calculo de porcentajes
+ * @param value valor completado
+ * @param total valor total
+ * @param [round] >0 para X decimales, <0 para 0 decimales, otro caso no redondea
+ */
+export function percentage(value, total, round = null) {
+  return roundOff((100 * value) / total, round);
+}
+
+/**
+ * Fijar decimales en numero
+ * @param num valor completo
+ * @param [places] >0 para X decimales, =0 para 0 decimales, otro caso no redondea
+ */
+export function roundOff(num, places = null) {
+  if (places && places > 0) {
+    const x = Math.pow(10, places);
+    num = Math.round(num * x) / x;
+  } else if (places === 0) {
+    const x = Math.pow(10, 0);
+    num = Math.round(num * x) / x;
+  }
+  return num;
+}
+
+/**
  * Establece una cookie
  * @param name nombre de la cookie
  * @param value valor de la cookie
