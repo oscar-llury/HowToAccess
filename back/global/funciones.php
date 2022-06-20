@@ -51,7 +51,7 @@ function validateToken($token): stdClass
     $key = 'PA22_T0K3N';
     try {
         $data = JWT::decode($token, new Key($key, 'HS256'));
-        //$data = JWT::decode($token, $key, array('HS256'));
+        //$data = JWT::decode($token, $key, array('HS256')); //with version 5.2
         $foo->status = 1;
         $foo->idUsuario = base64_decode($data->iss);
         $foo->idiomusr = base64_decode($data->idiomusr);
