@@ -22,7 +22,6 @@ export default function Proyecto() {
     };
   }, [windowWd]);
 
-  let timer;
   const size = 300;
   const animationDuration = 2000;
   const [totalProgress, setTotalProgress] = useState(75);
@@ -31,28 +30,9 @@ export default function Proyecto() {
     { x: 2, y: 100 },
   ]);
 
-  const updateCount = () => {
-    setData(getData(totalProgress > 100 ? 0 : totalProgress));
-
-    /*
-    timer =
-      !timer &&
-      setInterval(() => {
-        console.log("ticking");
-        console.log(totalProgress);
-        setData(getData(totalProgress > 100 ? 0 : totalProgress));
-      }, 2000);*/
-  };
-
   useEffect(() => {
-    // Runs on first render
-    updateCount();
-
-    return () => {
-      // Runs once on cleanup/un-mounting this component
-      clearInterval(timer);
-    };
-  }, []);
+    setData(getData(totalProgress > 100 ? 0 : totalProgress));
+  }, [totalProgress]);
 
   function getData(totalProgress) {
     return [

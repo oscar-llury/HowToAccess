@@ -29,6 +29,7 @@ export default function App() {
       title: e.replaceAll("-", " "),
       link: "/" + e,
     });
+    return fooCrumbs;
   });
   const [crumbs, setCrumbs] = useState(fooCrumbs);
 

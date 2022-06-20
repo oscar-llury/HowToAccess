@@ -7,24 +7,27 @@ export default function ConformanceBox({ idConformance, className, children }) {
   useEffect(() => {
     switch (idConformance) {
       case 1:
-        return setTitle("Conformidad de nivel A"), setComponent(<span>A</span>);
+        setTitle("Conformidad de nivel A");
+        setComponent(<span>A</span>);
+        break;
       case 2:
-        return (
-          setTitle("Conformidad de nivel AA"), setComponent(<span>AA</span>)
-        );
+        setTitle("Conformidad de nivel AA");
+        setComponent(<span>AA</span>);
+        break;
       case 3:
-        return (
-          setTitle("Conformidad de nivel AAA"), setComponent(<span>AAA</span>)
-        );
+        setTitle("Conformidad de nivel AAA");
+        setComponent(<span>AAA</span>);
+        break;
       case 4:
-        return (
-          setTitle("Público objetivo"),
-          setComponent(<i className="bi bi-person-check-fill"></i>)
-        );
+        setTitle("Público objetivo");
+        setComponent(<i className="bi bi-person-check-fill"></i>);
+        break;
       default:
-        return setTitle(""), setComponent(<span></span>);
+        setTitle("");
+        setComponent(<span></span>);
+        break;
     }
-  }, []);
+  }, [idConformance]);
 
   return (
     <div

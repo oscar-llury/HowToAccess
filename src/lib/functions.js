@@ -37,10 +37,10 @@ export function roundOff(num, places = null) {
  * @param name nombre de la cookie
  * @param value valor de la cookie
  * @param exDays dias de expiración de la cookie
- * @param [cifrar] true para cifrar el valor de la cookie
+ * @param [encode] true para cifrar el valor de la cookie
  */
-export function setCookie(name, value, exDays, cifrar = false) {
-  if (cifrar) {
+export function setCookie(name, value, exDays, encode = false) {
+  if (encode) {
     value = cifrarBA64(value);
   }
   const d = new Date();
@@ -58,18 +58,25 @@ export function setCookie(name, value, exDays, cifrar = false) {
  * Retorna el valor de una cookie
  * @param name nombre de la cookie
  */
-export function getCookie(nameSearch) {
+export function getCookie(nameSearch, decode = false) {
   let name = nameSearch + "=";
+  //get cookies and build array
   let decodedCookie = decodeURIComponent(document.cookie);
   let ca = decodedCookie.split(";");
+  //search cookie
   for (let i = 0; i < ca.length; i++) {
     let c = ca[i];
     while (c.charAt(0) === " ") {
       c = c.substring(1);
     }
     if (c.indexOf(name) === 0) {
-      return c.substring(name.length, c.length);
+      if (decode) {
+        return descifrarBA64(c.substring(name.length, c.length));
+      } else {
+        return c.substring(name.length, c.length);
+      }
     }
   }
+  //not found
   return "";
 }
