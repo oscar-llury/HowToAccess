@@ -1,6 +1,7 @@
+import axios from "axios";
 import ConformanceBox from "components/ConformanceBox";
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col, ProgressBar } from "react-bootstrap";
+import { Container, Row, Col, ProgressBar, Table } from "react-bootstrap";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { VictoryPie, VictoryAnimation, VictoryLabel } from "victory";
@@ -9,11 +10,28 @@ import { percentage } from "../lib/functions";
 export default function Proyecto() {
   const params = useParams();
   const id = params.proyectoId;
-
+  const [info, setInfo] = useState({});
+  const [criteria, setCriteria] = useState([]);
+  const [principles, setPrinciples] = useState([]);
   const [windowWd, detectWd] = useState(window.innerWidth);
+  const size = 300;
+  const animationDuration = 2000;
+  const [totalProgress, setTotalProgress] = useState([
+    { x: 1, y: 0 },
+    { x: 2, y: 100 },
+  ]);
+
   const detectSize = () => {
     detectWd(window.innerWidth);
   };
+
+  function getData(total, progress) {
+    return [
+      { x: 1, y: progress },
+      { x: 2, y: total },
+    ];
+  }
+
   useEffect(() => {
     window.addEventListener("resize", detectSize);
 
@@ -21,25 +39,47 @@ export default function Proyecto() {
       window.removeEventListener("resize", detectSize);
     };
   }, [windowWd]);
-
-  const size = 300;
-  const animationDuration = 2000;
-  const [totalProgress, setTotalProgress] = useState(75);
-  const [data, setData] = useState([
-    { x: 1, y: 0 },
-    { x: 2, y: 100 },
-  ]);
-
+  /*
   useEffect(() => {
     setData(getData(totalProgress > 100 ? 0 : totalProgress));
-  }, [totalProgress]);
+  }, [totalProgress]);*/
 
-  function getData(totalProgress) {
-    return [
-      { x: 1, y: totalProgress },
-      { x: 2, y: 100 - totalProgress },
-    ];
-  }
+  useEffect(() => {
+    //run when page loaded
+    let formData = new FormData();
+    formData.append("proyectoId", id);
+
+    return axios
+      .post(
+        `${process.env.REACT_APP_BACK_URL}/API/proyectos/info.php`,
+        formData,
+        {
+          headers: {},
+        }
+      )
+      .then((data) => {
+        const dataR = data.data;
+        if (dataR.status) {
+          setInfo(dataR.data);
+          setCriteria(dataR.data.criterios);
+          setPrinciples(dataR.data.principios);
+          setTotalProgress(
+            getData(
+              dataR.data.criterios_totales,
+              dataR.data.criterios_cumplidos
+            )
+          );
+        } else {
+          console.dir(dataR);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally((e) => {
+        //console.log("always");
+      });
+  }, [id]);
 
   return (
     <Container fluid="sm" className="app-proyecto p-lg-5">
@@ -47,20 +87,21 @@ export default function Proyecto() {
         <Link to="/proyectos">
           <i className="bi bi-arrow-left"></i>Volver a proyectos
         </Link>
-        <p> {windowWd}</p>
       </div>
       {windowWd >= 992 ? (
         <Row className="card-info align-items-center">
           <Col lg="9" className="">
-            <RenderProjectInfo />
-            <RenderProjectPrinciples />
+            <RenderProjectInfo
+              name={info.nombre}
+              idConformance={info.conformidad}
+            />
+            <RenderProjectPrinciples principles={principles} />
           </Col>
           <Col lg="3" className="text-center">
             <RenderTotalProgress
               animationDuration={animationDuration}
               size={size}
-              data={data}
-              totalProgress={totalProgress}
+              data={totalProgress}
             />
           </Col>
         </Row>
@@ -68,20 +109,62 @@ export default function Proyecto() {
         <div className="card-info flex-wrap">
           <Row className="align-items-center flex-wrap">
             <Col xs="8" sm="8" md="9" className="">
-              <RenderProjectInfo />
+              <RenderProjectInfo
+                name={info.nombre}
+                idConformance={info.conformidad}
+              />
             </Col>
             <Col xs="4" sm="4" md="3" className="text-center">
               <RenderTotalProgress
                 animationDuration={animationDuration}
                 size={size}
-                data={data}
-                totalProgress={totalProgress}
+                data={totalProgress}
               />
             </Col>
           </Row>
-          <RenderProjectPrinciples />
+          <RenderProjectPrinciples principles={principles} />
         </div>
       )}
+      <Container>
+        <Table striped bordered hover responsive>
+          <thead>
+            <tr>
+              <th className="text-center">Estado</th>
+              <th className="text-center">Indice</th>
+              <th className="text-center">Conformidad</th>
+              <th>Nombre del criterio</th>
+            </tr>
+          </thead>
+          <tbody>
+            {criteria.map((criteria, index) => (
+              <tr
+                id={"criteria_" + criteria.id}
+                key={index}
+                data-id={criteria.id}
+              >
+                <td className="text-center">
+                  {criteria.completado ? (
+                    <i
+                      className="bi bi-check-circle"
+                      title="Proyecto completado"
+                    ></i>
+                  ) : (
+                    <i
+                      className="bi bi-three-dots"
+                      title="Proyecto en curso"
+                    ></i>
+                  )}
+                </td>
+                <td className="text-center">{criteria.indice}</td>
+                <td>
+                  <ConformanceBox idConformance={criteria.conformidad} />
+                </td>
+                <td>{criteria.nombre}</td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      </Container>
     </Container>
   );
 }
@@ -100,42 +183,38 @@ const PrincipleProgress = ({ completed, total, name }) => {
   );
 };
 
-const RenderProjectInfo = () => {
+const RenderProjectInfo = ({ name, idConformance }) => {
   return (
     <>
-      <h2>Nombre del proyecto</h2>
-      <ConformanceBox idConformance={1} className="d-inline-block" />
+      <h2>{name}</h2>
+      <ConformanceBox
+        idConformance={idConformance}
+        className="d-inline-block"
+      />
       <p className="d-inline-block ms-2">Nivel de conformidad WCAG objetivo</p>
     </>
   );
 };
 
-const RenderProjectPrinciples = () => {
+const RenderProjectPrinciples = ({ principles }) => {
   return (
     <Row className="principles">
-      <Col sm="6" lg="3" className="box">
-        <PrincipleProgress completed={1} total={3} name={"Perceptible"} />
-      </Col>
-      <Col sm="6" lg="3" className="box">
-        <PrincipleProgress completed={1} total={4} name={"Operable"} />
-      </Col>
-      <Col sm="6" lg="3" className="box">
-        <PrincipleProgress completed={1} total={4} name={"Entendible"} />
-      </Col>
-      <Col sm="6" lg="3" className="box">
-        <PrincipleProgress completed={1} total={4} name={"Robusto"} />
-      </Col>
+      {principles.map((principle, index) => (
+        <Col sm="6" lg="3" className="box" key={index}>
+          <PrincipleProgress
+            completed={principle.cumplidos}
+            total={principle.total}
+            name={principle.nombre}
+          />
+        </Col>
+      ))}
+
       <p className="mt-3">*CA: Criterios de Conformidad</p>
     </Row>
   );
 };
 
-const RenderTotalProgress = ({
-  animationDuration,
-  size,
-  data,
-  totalProgress,
-}) => {
+const RenderTotalProgress = ({ animationDuration, size, data }) => {
   return (
     <>
       <svg viewBox={`0 0 ${size} ${size}`} width="100%" height="100%">
@@ -178,7 +257,7 @@ const RenderTotalProgress = ({
                 verticalAnchor="middle"
                 x={size / 2}
                 y={size / 2}
-                text={`${totalProgress}%`}
+                text={`${percentage(data[0].y, data[1].y, 0)}%`}
                 style={{
                   fontSize: 45,
                   fontFamily: "Inter",
