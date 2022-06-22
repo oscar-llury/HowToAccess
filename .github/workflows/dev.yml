@@ -2,6 +2,7 @@ on:
   push:
     branches:
       - development
+      - principios
 name: 🚀 Deploy dev
 jobs:
   build:
