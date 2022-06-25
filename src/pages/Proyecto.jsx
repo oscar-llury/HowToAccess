@@ -6,10 +6,12 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { VictoryPie, VictoryAnimation, VictoryLabel } from "victory";
 import { percentage } from "../lib/functions";
+import { useSelector } from "react-redux";
 
 export default function Proyecto() {
   const params = useParams();
-  const id = params.proyectoId;
+  const id_pjt = params.proyectoId;
+  const tokenRedux = useSelector((state) => state.token);
   const [info, setInfo] = useState({});
   const [criteria, setCriteria] = useState([]);
   const [principles, setPrinciples] = useState([]);
@@ -47,7 +49,7 @@ export default function Proyecto() {
   useEffect(() => {
     //run when page loaded
     let formData = new FormData();
-    formData.append("proyectoId", id);
+    formData.append("proyectoId", id_pjt);
 
     return axios
       .post(
@@ -79,7 +81,47 @@ export default function Proyecto() {
       .finally((e) => {
         //console.log("always");
       });
-  }, [id]);
+  }, [id_pjt]);
+
+  const handleCompleteCriteria = (e) => {
+    e.preventDefault();
+    const index_e = e.target.dataset.id;
+
+    //el id a enviar de pro_has_criterio = completado
+    let formData = new FormData();
+    formData.append("id", criteria[index_e].id);
+    formData.append("proyectoId", id_pjt);
+    formData.append("token", tokenRedux);
+
+    return axios
+      .post(
+        `${process.env.REACT_APP_BACK_URL}/API/proyectos/completarCriterio.php`,
+        formData,
+        { headers: {} }
+      )
+      .then((data) => {
+        const dataR = data.data;
+        if (dataR.status === 1) {
+          const newCriteria = criteria.slice(0);
+          newCriteria[index_e].completado = 1;
+          setCriteria(newCriteria);
+
+          const newPrinciples = principles.slice(0);
+          newPrinciples[criteria[index_e].principio - 1].cumplidos++;
+          setPrinciples(newPrinciples);
+
+          setTotalProgress(
+            getData(info.criterios_totales, info.criterios_cumplidos + 1)
+          );
+        } else {
+          //error
+          console.dir(dataR);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <Container fluid="sm" className="app-proyecto p-lg-5">
@@ -125,7 +167,7 @@ export default function Proyecto() {
           <RenderProjectPrinciples principles={principles} />
         </div>
       )}
-      <Container>
+      <Container className="criterios">
         <Table striped bordered hover responsive>
           <thead>
             <tr>
@@ -133,16 +175,13 @@ export default function Proyecto() {
               <th className="text-center">Indice</th>
               <th className="text-center">Conformidad</th>
               <th>Nombre del criterio</th>
+              <th className="text-center">Acciones</th>
             </tr>
           </thead>
           <tbody>
             {criteria.map((criteria, index) => (
-              <tr
-                id={"criteria_" + criteria.id}
-                key={index}
-                data-id={criteria.id}
-              >
-                <td className="text-center">
+              <tr id={"criteria_" + index} key={index}>
+                <td className="text-center status">
                   {criteria.completado ? (
                     <i
                       className="bi bi-check-circle"
@@ -159,7 +198,23 @@ export default function Proyecto() {
                 <td>
                   <ConformanceBox idConformance={criteria.conformidad} />
                 </td>
-                <td>{criteria.nombre}</td>
+                <td className="link">
+                  <a href="#c">{criteria.nombre}</a>
+                </td>
+                <td className="text-center">
+                  {criteria.completado ? (
+                    <span></span>
+                  ) : (
+                    <button
+                      className="btn px-4 py-0 cursor-pointer"
+                      title="Marcar criterio como cumplido"
+                      onClick={handleCompleteCriteria}
+                      data-id={index}
+                    >
+                      <i className="bi bi-check2-circle" data-id={index}></i>
+                    </button>
+                  )}
+                </td>
               </tr>
             ))}
           </tbody>
@@ -227,6 +282,7 @@ const RenderTotalProgress = ({ animationDuration, size, data }) => {
           innerRadius={115}
           cornerRadius={25}
           labels={() => null}
+          /*
           events={[
             {
               target: "data",
@@ -239,7 +295,7 @@ const RenderTotalProgress = ({ animationDuration, size, data }) => {
                 },
               },
             },
-          ]}
+          ]}*/
           style={{
             data: {
               fill: ({ datum }) => {

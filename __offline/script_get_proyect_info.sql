@@ -21,7 +21,7 @@ where proyecto_id=9 and pro_has_criterio.completado=1 and pro_has_criterio.activ
 group by acc_principio.codigo;
 
 -- seleccionar criterios de un proyecto
-SELECT completado, acc_principio.codigo as principio, acc_pauta.codigo as pauta, acc_criterio_conformidad.codigo as criterio, nivel_conformidad, acc_criterio_conformidad.nombre
+SELECT pro_has_criterio.id, completado, acc_principio.id as id_principio, acc_principio.codigo as principio, acc_pauta.codigo as pauta, acc_criterio_conformidad.codigo as criterio, nivel_conformidad, acc_criterio_conformidad.nombre
 FROM pro_has_criterio
 INNER JOIN acc_criterio_conformidad ON pro_has_criterio.criterio_id=acc_criterio_conformidad.id and acc_criterio_conformidad.activo=1
 INNER JOIN acc_pauta ON acc_criterio_conformidad.pauta_id=acc_pauta.id and acc_pauta.activo=1

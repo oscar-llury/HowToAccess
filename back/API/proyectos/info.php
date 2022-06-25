@@ -31,7 +31,7 @@ WHERE pro_proyecto.activo=1 and usr_has_proyecto.id_usuario='.$idUsuario.'
 $info_proyecto = $contextDB->query($query1)->fetch();
 
 $proyecto = new stdClass();
-$proyecto->id = $proyectoId;
+$proyecto->id = cifrarBA64($proyectoId);
 $proyecto->nombre = $info_proyecto['nombre'];
 $proyecto->conformidad = $info_proyecto['tipo_proyecto'];
 $proyecto->criterios_totales = 0;
@@ -81,7 +81,7 @@ for($i = 0; $i <4; $i++) {
 }
 
 // seleccionar criterios de un proyecto
-$query4 = 'SELECT completado, acc_principio.codigo as principio, acc_pauta.codigo as pauta, acc_criterio_conformidad.codigo as criterio, nivel_conformidad, acc_criterio_conformidad.nombre
+$query4 = 'SELECT pro_has_criterio.id, completado, acc_principio.id as id_principio, acc_principio.codigo as principio, acc_pauta.codigo as pauta, acc_criterio_conformidad.codigo as criterio, nivel_conformidad, acc_criterio_conformidad.nombre
 FROM pro_has_criterio
 INNER JOIN acc_criterio_conformidad ON pro_has_criterio.criterio_id=acc_criterio_conformidad.id and acc_criterio_conformidad.activo=1
 INNER JOIN acc_pauta ON acc_criterio_conformidad.pauta_id=acc_pauta.id and acc_pauta.activo=1
@@ -94,7 +94,9 @@ foreach($criterios as $criterio){
     $foo->completado = $criterio['completado'];
     $foo->indice = $criterio['principio'].'.'.$criterio['pauta'].'.'.$criterio['criterio'];
     $foo->conformidad = $criterio['nivel_conformidad'];
+    $foo->principio = $criterio['id_principio'];
     $foo->nombre = $criterio['nombre'];
+    $foo->id = cifrarBA64($criterio['id']);
     array_push($proyecto->criterios,$foo);
 }
 
