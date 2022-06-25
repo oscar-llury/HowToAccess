@@ -3,13 +3,14 @@ import ConformanceBox from "components/ConformanceBox";
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, ProgressBar, Table } from "react-bootstrap";
 import { useParams } from "react-router";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { VictoryPie, VictoryAnimation, VictoryLabel } from "victory";
 import { percentage } from "../lib/functions";
 import { useSelector } from "react-redux";
 
 export default function Proyecto() {
   const params = useParams();
+  const navigate = useNavigate();
   const id_pjt = params.proyectoId;
   const tokenRedux = useSelector((state) => state.token);
   const [info, setInfo] = useState({});
@@ -28,9 +29,10 @@ export default function Proyecto() {
   };
 
   function getData(total, progress) {
+    const perc = percentage(progress, total, 0);
     return [
-      { x: 1, y: progress },
-      { x: 2, y: total },
+      { x: 1, y: perc },
+      { x: 2, y: 100 - perc },
     ];
   }
 
@@ -144,6 +146,7 @@ export default function Proyecto() {
               animationDuration={animationDuration}
               size={size}
               data={totalProgress}
+              info={info}
             />
           </Col>
         </Row>
@@ -161,6 +164,7 @@ export default function Proyecto() {
                 animationDuration={animationDuration}
                 size={size}
                 data={totalProgress}
+                info={info}
               />
             </Col>
           </Row>
@@ -198,7 +202,12 @@ export default function Proyecto() {
                 <td>
                   <ConformanceBox idConformance={criteria.conformidad} />
                 </td>
-                <td className="link">
+                <td
+                  className="link"
+                  onClick={() => {
+                    navigate(criteria.id);
+                  }}
+                >
                   <a href="#c">{criteria.nombre}</a>
                 </td>
                 <td className="text-center">
@@ -269,7 +278,7 @@ const RenderProjectPrinciples = ({ principles }) => {
   );
 };
 
-const RenderTotalProgress = ({ animationDuration, size, data }) => {
+const RenderTotalProgress = ({ animationDuration, size, data, info }) => {
   return (
     <>
       <svg viewBox={`0 0 ${size} ${size}`} width="100%" height="100%">
@@ -305,7 +314,7 @@ const RenderTotalProgress = ({ animationDuration, size, data }) => {
             },
           }}
         />
-        <VictoryAnimation duration={animationDuration} data={data}>
+        <VictoryAnimation duration={animationDuration} data={data} info={info}>
           {(newProps) => {
             return (
               <VictoryLabel
@@ -313,7 +322,11 @@ const RenderTotalProgress = ({ animationDuration, size, data }) => {
                 verticalAnchor="middle"
                 x={size / 2}
                 y={size / 2}
-                text={`${percentage(data[0].y, data[1].y, 0)}%`}
+                text={`${percentage(
+                  info.criterios_cumplidos,
+                  info.criterios_totales,
+                  0
+                )}%`}
                 style={{
                   fontSize: 45,
                   fontFamily: "Inter",

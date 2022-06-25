@@ -64,20 +64,23 @@ for($i = 0; $i <4; $i++) {
     $total = $principios_totales[$i] ?? null;
     $cumplido = $principios_cumplidos[$i] ?? null;
     
-    $principio->codigo = $total['codigo'];
-    $principio->nombre = $total['nombre'];
-    $principio->total = $total['total'];
-
-    if($cumplido){
-        $principio->cumplidos = $cumplido['cumplidos'];
-    }else{
-        $principio->cumplidos = 0;
-    }
-
-    $proyecto->criterios_totales = $proyecto->criterios_totales + $principio->total;
-    $proyecto->criterios_cumplidos = $proyecto->criterios_cumplidos + $principio->cumplidos;
+    $principio->total=0;
+    $principio->cumplidos = 0;
+    if($total){
+        //si no hay total significa que no hay criterios de ese principio
+        $principio->codigo = $total['codigo'];
+        $principio->nombre = $total['nombre'];
+        $principio->total = $total['total'];
     
-    array_push($proyecto->principios,$principio);
+        if($cumplido){
+            $principio->cumplidos = $cumplido['cumplidos'];
+        }
+
+        $proyecto->criterios_totales = $proyecto->criterios_totales + $principio->total;
+        $proyecto->criterios_cumplidos = $proyecto->criterios_cumplidos + $principio->cumplidos;
+        
+        array_push($proyecto->principios,$principio);
+    }
 }
 
 // seleccionar criterios de un proyecto

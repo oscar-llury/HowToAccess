@@ -72,7 +72,6 @@ body::-webkit-scrollbar-thumb {
 .text-hover:hover,
 .cursor-pointer {
   cursor: pointer;
-  border: 1px solid black;
 }
 .left-0 {
   left: 0;
@@ -117,6 +116,19 @@ body::-webkit-scrollbar-thumb {
 }
 .underline-full-right {
   border-image: linear-gradient(0deg, #1095c1 5px, #0000 0) fill 0; //0 100vw 0 0
+}
+.table {
+  .link {
+    cursor: pointer;
+    a {
+      text-decoration: none;
+    }
+  }
+  .link:hover a,
+  .link:hover {
+    text-decoration: underline;
+    color: $primary-dark;
+  }
 }
 .main-container {
   padding: 0 8em;
@@ -1226,17 +1238,6 @@ footer {
         font-size: 1.5em;
         font-weight: 600;
       }
-    }
-  }
-  .criterios {
-    .link {
-      cursor: pointer;
-      a {
-        text-decoration: none;
-      }
-    }
-    .link:hover a {
-      text-decoration: underline;
     }
   }
   @media (max-width: 992px) {

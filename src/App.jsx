@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useLocation } from "react-router";
 //components
@@ -21,17 +21,21 @@ import { AuthProvider, RequireAuth } from "./lib/auth";
 
 export default function App() {
   let location = useLocation();
-  const paths = location.pathname.split("/");
-  const fooCrumbs = [];
-  paths.shift();
-  paths.map((e, i) => {
-    fooCrumbs.push({
-      title: e.replaceAll("-", " "),
-      link: "/" + e,
+  const [crumbs, setCrumbs] = useState([]);
+
+  useEffect(() => {
+    const paths = location.pathname.split("/");
+    const fooCrumbs = [];
+    paths.shift();
+    paths.map((e, i) => {
+      fooCrumbs.push({
+        title: e.replaceAll("-", " "),
+        link: "/" + e,
+      });
+      return fooCrumbs;
     });
-    return fooCrumbs;
-  });
-  const [crumbs, setCrumbs] = useState(fooCrumbs);
+    setCrumbs(fooCrumbs);
+  }, [setCrumbs]);
 
   return (
     <div className="App">

@@ -26,8 +26,6 @@ WHERE usr_has_proyecto.id_usuario='.$idUsuario.'
 group by pro_proyecto.id, completado ;';
 
 $proyectosUsr = $contextDB->query($query)->fetchAll();
-//var_dump($proyectosUsr);
-
 
 if ($proyectosUsr) {
     $objRespuesta->status = 1;
@@ -37,11 +35,6 @@ if ($proyectosUsr) {
 
     $id = 0;
     foreach($proyectosUsr as $prj){
-        //var_dump($prj);
-        //var_dump($id);
-        //var_dump($prj);
-        //var_dump($prj);
-        //echo '<br><br>';
         if($prj->id != $id){
             //cambiamos de proyecto
             if($id > 0){
@@ -65,7 +58,7 @@ if ($proyectosUsr) {
             // == 1 finalizados
             $sumTotalCrF = $prj->suma;
         }
-        $sumTotalCrT = $prj->suma;
+        $sumTotalCrT = $sumTotalCrT + $prj->suma;
     }
     $objData->estado = $sumTotalCrT==$sumTotalCrF ? true : false;
     $objData->criteriosT = $sumTotalCrT;
@@ -76,6 +69,5 @@ if ($proyectosUsr) {
     $objRespuesta->code = 2;
     $objRespuesta->msg = 'ERROR_USUARIO';
 }
-
 
 echo json_encode($objRespuesta);
