@@ -112,6 +112,10 @@ export default function Proyecto() {
           newPrinciples[criteria[index_e].principio - 1].cumplidos++;
           setPrinciples(newPrinciples);
 
+          info.criterios_cumplidos++;
+          info.criterios = criteria;
+          info.principios = principles;
+
           setTotalProgress(
             getData(info.criterios_totales, info.criterios_cumplidos + 1)
           );
