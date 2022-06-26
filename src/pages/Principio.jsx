@@ -40,7 +40,9 @@ export default function Principle({ crumbs }) {
               lg={principle.img ? "8" : "12"}
               md="12"
             >
-              <p className="mb-3 objective">{principle.objective}</p>
+              <p className="mb-3 objective">
+                <strong>{principle.objective}</strong>
+              </p>
               <p className="mb-3">{principle.description}</p>
             </Col>
             {principle.img ? (
@@ -68,13 +70,15 @@ export default function Principle({ crumbs }) {
             className="pauta"
             id={pauta.key.toLowerCase().replace(/\.| /g, "_")}
           >
-            <Row>
-              <header>
-                <span className="index">{pauta.key}</span>
-                <h2>{pauta.name}</h2>
-              </header>
+            <header>
+              <span className="index">{pauta.key}</span>
+              <h2>{pauta.name}</h2>
+            </header>
+            <Row className="align-items-center">
               <Col lg={pauta.img ? "8" : "12"} md="12">
-                <p>{pauta.description}</p>
+                <div
+                  dangerouslySetInnerHTML={{ __html: pauta.description }}
+                ></div>
                 <Button
                   as="a"
                   href={`/normas-de-accesibilidad-web/${principle.name
@@ -87,8 +91,15 @@ export default function Principle({ crumbs }) {
                 </Button>
               </Col>
               {pauta.img ? (
-                <Col lg="4" md="12">
-                  <Image src={pauta.img} alt="" className="w-100" />
+                <Col lg="4" md="12" className="text-center">
+                  <figure>
+                    <Image
+                      src={pauta.img}
+                      alt={pauta.caption}
+                      className="w-100"
+                    />
+                    <figcaption>{pauta.caption}</figcaption>
+                  </figure>
                 </Col>
               ) : (
                 ""

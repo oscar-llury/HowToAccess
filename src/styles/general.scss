@@ -1312,8 +1312,10 @@ footer {
   .principio {
     padding: 0;
     .objective {
-      font-size: 1.2em;
-      font-weight: 600;
+      border-left: 10px solid;
+      border-image-source: linear-gradient($primary-dark, $primary-dark);
+      border-image-slice: 20;
+      padding: 1em;
     }
     img {
       max-height: 200px;
@@ -1327,8 +1329,14 @@ footer {
     margin: 2rem 1rem;
     padding: 2rem;
     border: 1px solid #000;
+    img {
+      max-height: 200px;
+      object-fit: contain;
+    }
+    .btn {
+      margin-bottom: 1rem;
+    }
     .accordion {
-      margin-top: 1rem;
       .accordion-header {
         border-bottom: 1px solid #000;
       }

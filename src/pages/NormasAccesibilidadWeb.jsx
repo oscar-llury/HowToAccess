@@ -215,8 +215,8 @@ export default function NormasAccesibilidadWeb() {
                         </p>
                         <p>
                           Un contenido perceptible hará posible que todos los
-                          usuarios puedar recibir la informarción que
-                          proporciona la página web.
+                          usuarios puedan recibir la información que proporciona
+                          la página web.
                         </p>
                         <Button
                           variant="primary"
@@ -341,13 +341,13 @@ export default function NormasAccesibilidadWeb() {
                       >
                         <h3>Robusto</h3>
                         <p>
-                          El contenido web debe debe funcionar lo
-                          suficientemente bien en todas las plataformas,
-                          navegadores y dispositivos para que sea independiente
-                          a la tecnología de uso que el usuario elija.
+                          El contenido web debe funcionar lo suficientemente
+                          bien en todas las plataformas, navegadores y
+                          dispositivos para que sea independiente a la
+                          tecnología de uso que el usuario elija.
                         </p>
                         <p>
-                          El ojetivo es proporcionar metadatos descriptivos y
+                          El objetivo es proporcionar metadatos descriptivos y
                           contenidos accesibles y usables para que todos
                           usuarios y tecnologías de asistencia puedan
                           comprenderlos.
