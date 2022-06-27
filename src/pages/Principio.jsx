@@ -15,6 +15,7 @@ export default function Principle({ crumbs }) {
   let location = useLocation();
   const paths = location.pathname.split("/");
   const slug = paths[paths.length - 1];
+  let dateTime = 0;
 
   const principle = {
     perceptible: perceptible_json,
@@ -22,6 +23,11 @@ export default function Principle({ crumbs }) {
     entendible: entendible_json,
     robusto: robusto_json,
   }[slug];
+
+  const dateString = principle.date;
+  let date = new Date(dateString.split(":")[1]);
+  date.setHours(12);
+  dateTime = date.toISOString();
 
   const pautas = principle.guidelines;
 
@@ -127,7 +133,7 @@ export default function Principle({ crumbs }) {
           </article>
         ))}
         <Container className="p-0">
-          <time dateTime="2014-03-28T20:00-04:00">*{principle.date}</time>
+          <time dateTime={dateTime}>*{principle.date}</time>
         </Container>
       </article>
     </Container>
