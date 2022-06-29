@@ -18,6 +18,7 @@ import Pauta from "pages/Pauta";
 
 //functions
 import { AuthProvider, RequireAuth } from "./lib/auth";
+import SimulacionInteractiva from "pages/SimulacionInteractiva";
 
 export default function App() {
   let location = useLocation();
@@ -78,6 +79,14 @@ export default function App() {
             <Route key={path} path={path} element={<Pauta crumbs={crumbs} />} />
           ))}
           <Route path="/iniciar-sesion" element={<Login />} />
+          <Route
+            path="/simulacion-interactiva"
+            element={
+              <RequireAuth>
+                <SimulacionInteractiva />
+              </RequireAuth>
+            }
+          />
           <Route
             path="/nuevo-proyecto"
             element={
