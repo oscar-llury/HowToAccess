@@ -77,10 +77,13 @@ export function checkContrast(color1, color2) {
  * @param {number} ratio
  * @returns {string}
  */
-export function formatRatio(ratio) {
+export function formatRatio(ratio, number = null) {
   let ratioAsFloat = ratio.toFixed(2);
   let isInteger = Number.isInteger(parseFloat(ratioAsFloat));
-  return `${isInteger ? Math.floor(ratio) : ratioAsFloat}:1`;
+  if (number) {
+    return `${isInteger ? Math.floor(ratio) : ratioAsFloat}:1`;
+  }
+  return isInteger ? Math.floor(ratio) : ratioAsFloat;
 }
 
 /**
