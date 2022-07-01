@@ -135,6 +135,7 @@ body::-webkit-scrollbar-thumb {
 }
 .main-container {
   padding: 0 8em;
+  //max-width: 1200px;
   @media (max-width: 1400px) {
     padding: 0 6em;
   }
@@ -1366,10 +1367,13 @@ footer {
 .app-simulacion {
   padding-top: 2em;
   .results {
-    display: flex;
-    gap: 10px;
+    //display: flex;
+    //gap: 10px;
     align-items: flex-start;
     justify-content: space-between;
+    > * {
+      padding: calc(var(--bs-gutter-x) * 0.5);
+    }
     .box {
       display: flex;
       flex-direction: column;
@@ -1379,26 +1383,27 @@ footer {
         flex-direction: column;
         padding: 10px;
         border-radius: 10px;
-        i {
-          font-size: 3em;
+      }
+      i {
+        font-size: 3em;
+        color: $white;
+      }
+      .info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 5px;
+        p {
+          margin: 0;
+          font-size: 1.5em;
+          font-weight: 800;
           color: $white;
         }
-        .info {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          padding: 0 10px;
-          p {
-            margin: 0;
-            font-size: 1.5em;
-            font-weight: 800;
-            color: $white;
-          }
-          span {
-            white-space: nowrap;
-            font-weight: 600;
-            color: $white;
-          }
+        span {
+          //white-space: nowrap;
+          font-weight: 600;
+          color: $white;
+          text-align: center;
         }
       }
     }
@@ -1430,7 +1435,7 @@ footer {
     }
     .total {
       font-size: 1.5em;
-      padding: 15px 20px;
+      padding: 15px 30px;
       font-weight: 600;
       border-radius: 10px;
       width: 150px;
@@ -1439,9 +1444,10 @@ footer {
     }
   }
   .color-picker {
-    display: flex;
+    //display: flex;
     align-items: flex-end;
-    gap: 20px;
+    justify-content: space-between;
+    //gap: 20px;
     height: 150px;
     margin: 1em 0;
     padding: 2em 1em;
@@ -1452,17 +1458,69 @@ footer {
       font-size: 1.1em;
     }
     > div {
-      width: 45%;
+      //width: 45%;
       display: inline-block;
     }
-    > button {
-      width: 10%;
+    button.change {
+      //width: 10%;
       height: 50px;
       border: 0;
       background-color: transparent;
       i {
         font-size: 1.5em;
         font-weight: 800;
+      }
+    }
+  }
+  @media (max-width: 1400px) {
+    .color-picker {
+      .form-control {
+        font-size: 1em;
+      }
+      button.change {
+        i {
+          font-size: 1.2em;
+        }
+      }
+    }
+  }
+  @media (max-width: 1200px) {
+    &.main-container {
+      //max-width: 1000px;
+      padding: 0;
+    }
+  }
+  @media (max-width: 992px) {
+    .results {
+      .box {
+        i {
+          font-size: 2em;
+        }
+        .info {
+          p {
+            font-size: 1.2em;
+            font-weight: 700;
+          }
+          span {
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    .color-picker {
+      height: auto;
+      button.change {
+        i::before {
+          transform: rotate(90deg);
+        }
+      }
+    }
+    .c-ratio {
+      .total {
+        font-size: 1.2em;
+        width: auto;
       }
     }
   }

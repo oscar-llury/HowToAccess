@@ -55,9 +55,9 @@ export default function SimulacionInteractiva() {
       <Container>
         <h1>Herramienta de contraste de color</h1>
         <Row className="mt-3">
-          <Col md="6">
-            <div className="color-picker">
-              <div>
+          <Col lg="6">
+            <Row className="color-picker">
+              <Col md="5">
                 <Form.Label htmlFor="textColorPicker">Text color</Form.Label>
                 <InputGroup size="lg">
                   <Form.Control
@@ -76,11 +76,13 @@ export default function SimulacionInteractiva() {
                     className="w-50"
                   />
                 </InputGroup>
-              </div>
-              <button onClick={handleSwapColors}>
-                <i className="bi bi-arrow-left-right"></i>
-              </button>
-              <div>
+              </Col>
+              <Col md="2" className="text-center">
+                <button className="change" onClick={handleSwapColors}>
+                  <i className="bi bi-arrow-left-right"></i>
+                </button>
+              </Col>
+              <Col md="5">
                 <Form.Label htmlFor="bgColorPicker">
                   Background color
                 </Form.Label>
@@ -101,10 +103,10 @@ export default function SimulacionInteractiva() {
                     className="w-50"
                   />
                 </InputGroup>
-              </div>
-            </div>
+              </Col>
+            </Row>
           </Col>
-          <Col md="6">
+          <Col lg="6">
             <div className="c-ratio">
               <h2>Ratio de contraste</h2>
               <div>
@@ -148,32 +150,41 @@ export default function SimulacionInteractiva() {
             md={{ order: "last", span: 6 }}
             xs={{ order: "first", span: 12 }}
           >
-            <div className="results">
-              <LevelBox
-                result={level.AAsmall}
-                level="AA"
-                info="small text"
-                tooltip="<18pt or >=14pt bold"
-              />
-              <LevelBox
-                result={level.AAAsmall}
-                level="AAA"
-                info="small text"
-                tooltip="<18pt or >=14pt bold"
-              />
-              <LevelBox
-                result={level.AAlarge}
-                level="AA"
-                info="large text"
-                tooltip=">=18pt"
-              />
-              <LevelBox
-                result={level.AAAlarge}
-                level="AAA"
-                info="large text"
-                tooltip=">=18pt"
-              />
-            </div>
+            <Row className="results">
+              <Col lg="3" md="6" sm="3" xs="6">
+                <LevelBox
+                  result={level.AAsmall}
+                  level="AA"
+                  info="small text"
+                  tooltip="<18pt , >=14pt bold"
+                />
+              </Col>
+              <Col lg="3" md="6" sm="3" xs="6">
+                <LevelBox
+                  result={level.AAAsmall}
+                  level="AAA"
+                  info="small text"
+                  tooltip="<18pt , >=14pt bold"
+                />
+              </Col>
+
+              <Col lg="3" md="6" sm="3" xs="6">
+                <LevelBox
+                  result={level.AAlarge}
+                  level="AA"
+                  info="large text"
+                  tooltip=">=18pt"
+                />
+              </Col>
+              <Col lg="3" md="6" sm="3" xs="6">
+                <LevelBox
+                  result={level.AAAlarge}
+                  level="AAA"
+                  info="large text"
+                  tooltip=">=18pt"
+                />
+              </Col>
+            </Row>
           </Col>
         </Row>
         <Container>
