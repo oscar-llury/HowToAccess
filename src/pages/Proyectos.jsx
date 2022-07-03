@@ -3,8 +3,7 @@ import { Button, Container, Row, Col, Table } from "react-bootstrap";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
-import TableRowProyectos from "../components/TableRowProyectos";
+import ConformanceBox from "../components/ConformanceBox";
 
 export default function Proyectos() {
   let navigate = useNavigate();
@@ -80,7 +79,11 @@ export default function Proyectos() {
             </thead>
             <tbody>
               {proyectos.map((proyecto, index) => (
-                <TableRowProyectos key={index} proyecto={proyecto} />
+                <TableRowProyectos
+                  key={index}
+                  proyecto={proyecto}
+                  navigate={navigate}
+                />
               ))}
             </tbody>
           </Table>
@@ -89,3 +92,50 @@ export default function Proyectos() {
     </Container>
   );
 }
+
+async function handleDownload(e) {
+  e.preventDefault();
+  console.dir(e.target.id);
+}
+
+const TableRowProyectos = ({ proyecto, navigate }) => {
+  return (
+    <tr id={"proyecto_" + proyecto.id} data-id={proyecto.id}>
+      <td>
+        {proyecto.estado ? (
+          <i className="bi bi-check-circle" title="Proyecto completado"></i>
+        ) : (
+          <i className="bi bi-three-dots" title="Proyecto en curso"></i>
+        )}
+      </td>
+      <td
+        className="text-start link"
+        title="Ver datos del proyecto"
+        onClick={(e) => {
+          navigate(e.target.parentNode.dataset.id);
+        }}
+      >
+        {proyecto.nombre}
+      </td>
+      <td>
+        <ConformanceBox idConformance={proyecto.conformidad} />
+      </td>
+      <td>
+        <span>{proyecto.criteriosF}</span>/<span>{proyecto.criteriosT}</span>
+      </td>
+      <td>
+        {proyecto.estado ? (
+          <button
+            className="btn px-4 py-0"
+            title="Descargar insignias"
+            onClick={handleDownload}
+          >
+            <i className="bi bi-download" id={proyecto.id}></i>
+          </button>
+        ) : (
+          <span></span>
+        )}
+      </td>
+    </tr>
+  );
+};

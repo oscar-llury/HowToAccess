@@ -215,9 +215,14 @@ export default function NormasAccesibilidadWeb() {
                         </p>
                         <p>
                           Un contenido perceptible hará posible que todos los
-                          usuarios vean y escuchen la informarción.
+                          usuarios puedan recibir la información que proporciona
+                          la página web.
                         </p>
-                        <Button variant="primary" className="w-auto" href="#">
+                        <Button
+                          variant="primary"
+                          className="w-auto"
+                          href="/normas-de-accesibilidad-web/perceptible"
+                        >
                           Ver pautas <i className="bi bi-arrow-right"></i>
                         </Button>
                       </Col>
@@ -258,7 +263,11 @@ export default function NormasAccesibilidadWeb() {
                           navegar por la información de forma independiente,
                           indistintamente de la herramienta usada.
                         </p>
-                        <Button variant="primary" className="w-auto" href="#">
+                        <Button
+                          variant="primary"
+                          className="w-auto"
+                          href="/normas-de-accesibilidad-web/operable"
+                        >
                           Ver pautas <i className="bi bi-arrow-right"></i>
                         </Button>
                       </Col>
@@ -302,7 +311,11 @@ export default function NormasAccesibilidadWeb() {
                           Un lenguaje claro y conciso facilitará la comprensión
                           por parte de los usuarios en todos los dispositivos.
                         </p>
-                        <Button variant="primary" className="w-auto" href="#">
+                        <Button
+                          variant="primary"
+                          className="w-auto"
+                          href="/normas-de-accesibilidad-web/entendible"
+                        >
                           Ver pautas <i className="bi bi-arrow-right"></i>
                         </Button>
                       </Col>
@@ -328,13 +341,13 @@ export default function NormasAccesibilidadWeb() {
                       >
                         <h3>Robusto</h3>
                         <p>
-                          El contenido web debe debe funcionar lo
-                          suficientemente bien en todas las plataformas,
-                          navegadores y dispositivos para que sea independiente
-                          a la tecnología de uso que el usuario elija.
+                          El contenido web debe funcionar lo suficientemente
+                          bien en todas las plataformas, navegadores y
+                          dispositivos para que sea independiente a la
+                          tecnología de uso que el usuario elija.
                         </p>
                         <p>
-                          El ojetivo es proporcionar metadatos descriptivos y
+                          El objetivo es proporcionar metadatos descriptivos y
                           contenidos accesibles y usables para que todos
                           usuarios y tecnologías de asistencia puedan
                           comprenderlos.
@@ -344,7 +357,11 @@ export default function NormasAccesibilidadWeb() {
                           preferencias de los usuarios sin importar desde dónde
                           accedan.
                         </p>
-                        <Button variant="primary" className="w-auto" href="#">
+                        <Button
+                          variant="primary"
+                          className="w-auto"
+                          href="/normas-de-accesibilidad-web/robusto"
+                        >
                           Ver pautas <i className="bi bi-arrow-right"></i>
                         </Button>
                       </Col>

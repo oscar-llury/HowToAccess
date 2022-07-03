@@ -123,7 +123,7 @@ export default function Header() {
                   </Link>
                   <NavDropdown.Divider />
                   <Link
-                    to="#"
+                    to="/simulacion-interactiva"
                     className="nav-item"
                     title="Simulación interactiva"
                   >
