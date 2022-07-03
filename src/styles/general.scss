@@ -1387,6 +1387,7 @@ footer {
       i {
         font-size: 3em;
         color: $white;
+        line-height: normal;
       }
       .info {
         display: flex;
@@ -1434,7 +1435,7 @@ footer {
       }
     }
     .total {
-      font-size: 1.5em;
+      font-size: 1.2em;
       padding: 15px 30px;
       font-weight: 600;
       border-radius: 10px;
@@ -1519,7 +1520,7 @@ footer {
     }
     .c-ratio {
       .total {
-        font-size: 1.2em;
+        font-size: 1.1em;
         width: auto;
       }
     }

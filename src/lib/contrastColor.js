@@ -1,18 +1,13 @@
 /**
- * ============================================================================
- * Utility functions for color luminance and contrast ratios
- * ============================================================================
- */
-
-/**
- * Calculate the relative luminance of a color. See the defintion of relative
- * luminance in the WCAG 2.0 guidelines:
+ * Calcula la luminancia relativa de un color en RGB.
+ * Definición de luminancia relativa WCAG:
  * https://www.w3.org/TR/WCAG21/#dfn-relative-luminance
+ * Retorna la luminancia en el rango [0,1] en float.
  *
- * @param {number} r The red component (0-255)
- * @param {number} g The green component (0-255)
- * @param {number} b The blue component (0-255)
- * @returns {number}
+ * @param {number} r componente rojo [0-255]
+ * @param {number} g componente verde [0-255]
+ * @param {number} b componente azul [0-255]
+ * @returns {float}
  */
 function luminance(r, g, b) {
   let [lumR, lumG, lumB] = [r, g, b].map((component) => {
@@ -33,13 +28,14 @@ function luminance(r, g, b) {
 }
 
 /**
- * Calculate the contrast ratio between the relative luminance values of two
- * colors. See the definition of contrast ratio in the WCAG 2.0 guidelines:
+ * Calcula el contraste entre la luminancia relativa de dos colores.
+ * Definición de ratio de contraste WCAG:
  * https://www.w3.org/TR/WCAG21/#dfn-contrast-ratio
+ * Retorna el ratio en el rango [1,21] en float.
  *
- * @param {number} luminance1 The relative luminance of the first color (0-1)
- * @param {number} luminance2 The relative luminance of the second color (0-1)
- * @returns {number}
+ * @param {float} luminance1 luminancia relativa del color 1
+ * @param {float} luminance2 luminancia relativa del color 1
+ * @returns {float}
  */
 function contrastRatio(luminance1, luminance2) {
   let lighterLum = Math.max(luminance1, luminance2);
@@ -49,16 +45,16 @@ function contrastRatio(luminance1, luminance2) {
 }
 
 /**
- * Calculate the contrast ratio between two colors. The minimum contrast is 1,
- * and the maximum is 21.
+ * Calcula el ratio de contraste entre dos colores.
+ * Retorna el ratio en el rango [1,21] en float.
  *
- * @param {string} color1 The six-digit hex code of the first color
- * @param {string} color2 The six-digit hex code of the second color
- * @returns {number}
+ * @param {string} color1 código hex de 6 digitos del color 1
+ * @param {string} color2 código hex de 6 digitos del color 2
+ * @returns {float}
  */
 export function checkContrast(color1, color2) {
   let [luminance1, luminance2] = [color1, color2].map((color) => {
-    /* Remove the leading hash sign if it exists */
+    /* eliminar el # en caso de existir */
     color = color.startsWith("#") ? color.slice(1) : color;
 
     let r = parseInt(color.slice(0, 2), 16);
@@ -72,35 +68,34 @@ export function checkContrast(color1, color2) {
 }
 
 /**
- * Format the given contrast ratio as a string (ex. "4.3:1" or "17:1")
+ * Formatea un ratio en float a la estructura X.XX
  *
- * @param {number} ratio
+ * @param {float} ratio ratio de contraste
+ * @param {float} isFormated true para formatear en X.XX:1
  * @returns {string}
  */
-export function formatRatio(ratio, number = null) {
+export function formatRatio(ratio, isFormated = null) {
   let ratioAsFloat = ratio.toFixed(2);
   let isInteger = Number.isInteger(parseFloat(ratioAsFloat));
-  if (number) {
+  if (isFormated) {
     return `${isInteger ? Math.floor(ratio) : ratioAsFloat}:1`;
   }
   return isInteger ? Math.floor(ratio) : ratioAsFloat;
 }
 
 /**
- * Determine whether the given contrast ratio meets WCAG requirements at any
- * level (AA Large, AA, or AAA). In the return value, `isPass` is true if
- * the ratio meets or exceeds the minimum of at least one level, and `maxLevel`
- * is the strictest level that the ratio passes.
+ * Dato un ratio de contraste comprueba los requerimientos de WCAG
+ * para los niveles:
+ * AA small text (<18pt or >=14pt bold) >= 4.5
+ * AAA small text (<18pt or >=14pt bold) >= 7
+ * AA large text (>=18pt) >= 3
+ * AAA large text (>=18pt) >= 4.5
  *
- * @param {number} ratio The contrast ratio (1-21)
- * @returns {{ isPass: boolean, maxLevel: "AAA"|"AA"|"AA Large" }}
+ * Retorna un objeto con boolean sobre los niveles WCAG
+ *
+ * @param {float} ratio ratio de contraste (1-21)
+ * @returns {{ AAsmall: boolean,  AAlarge: boolean, AAAsmall: boolean, AAAlarge: boolean, }}
  */
-/*
-    AA small text (<18pt or >=14pt bold) >= 4.5
-    AAA small text (<18pt or >=14pt bold) >= 7
-    AA large text (>=18pt) >= 3
-    AAA large text (>=18pt) >= 4.5
-*/
 export function meetsMinimumRequirements(ratio) {
   const result = {
     AAsmall: ratio < 4.5 ? false : true,
@@ -110,4 +105,14 @@ export function meetsMinimumRequirements(ratio) {
   };
 
   return result;
+}
+
+/**
+ * Retorna el grado de contrante [1-4]
+ *
+ * @param {float} ratio ratio de contraste
+ * @returns {number}
+ */
+export function resultOfRatio(ratio) {
+  return ratio < 4.5 ? 1 : ratio < 7 ? 2 : ratio < 12 ? 3 : 4;
 }

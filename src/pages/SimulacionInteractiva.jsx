@@ -1,11 +1,5 @@
-import {
-  checkContrast,
-  formatRatio,
-  meetsMinimumRequirements,
-} from "lib/contrastColor";
 import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Container,
   Row,
@@ -13,35 +7,39 @@ import {
   InputGroup,
   Tooltip,
   OverlayTrigger,
+  Form,
 } from "react-bootstrap";
-import Form from "react-bootstrap/Form";
+import {
+  checkContrast,
+  formatRatio,
+  meetsMinimumRequirements,
+  resultOfRatio,
+} from "lib/contrastColor";
 
 export default function SimulacionInteractiva() {
   const [textColor, setTextColor] = useState("#000000");
   const [bgColor, setBgColor] = useState("#ffffff");
-  //const [contrast, setContrast] = useState();
+  const [resultRatio, setResultRatio] = useState("");
   const [ratio, setRatio] = useState();
   const [level, setlevel] = useState({});
 
   useEffect(() => {
     let newRatio = checkContrast(textColor, bgColor);
-    //setContrast(newRatio);
     let result = meetsMinimumRequirements(newRatio);
+    setResultRatio(resultOfRatio(newRatio));
     setlevel(result);
     setRatio(formatRatio(newRatio, false));
   }, [textColor, bgColor]);
 
   const handleTextColorChange = (e) => {
     if (e.target.value.match("^#[0-9a-f]{0,6}$") != null) {
-      //setTextColor(e.target.value);
-      console.log(e.target.value);
+      setTextColor(e.target.value);
     }
   };
 
   const handleBgColorChange = (e) => {
     if (e.target.value.match("^#[0-9a-f]{0,6}$") != null) {
       setBgColor(e.target.value);
-      console.log(e.target.value);
     }
   };
 
@@ -57,47 +55,47 @@ export default function SimulacionInteractiva() {
         <Row className="mt-3">
           <Col lg="6">
             <Row className="color-picker">
-              <Col md="5">
-                <Form.Label htmlFor="textColorPicker">Text color</Form.Label>
+              <Col md="5" className="p-0">
+                <Form.Label htmlFor="textColorPicker">
+                  Color de texto
+                </Form.Label>
                 <InputGroup size="lg">
                   <Form.Control
                     type="color"
                     id="textColorPicker"
-                    title="Choose your color"
+                    title="Elige un color de texto"
                     onChange={handleTextColorChange}
                     size="lg"
                     value={textColor}
                   />
                   <Form.Control
                     id="textColorPicker"
-                    aria-label="First name"
+                    aria-label="color de texto"
                     onChange={handleTextColorChange}
                     value={textColor}
                     className="w-50"
                   />
                 </InputGroup>
               </Col>
-              <Col md="2" className="text-center">
+              <Col md="2" className="text-center p-0">
                 <button className="change" onClick={handleSwapColors}>
                   <i className="bi bi-arrow-left-right"></i>
                 </button>
               </Col>
-              <Col md="5">
-                <Form.Label htmlFor="bgColorPicker">
-                  Background color
-                </Form.Label>
+              <Col md="5" className="p-0">
+                <Form.Label htmlFor="bgColorPicker">Color de fondo</Form.Label>
                 <InputGroup size="lg">
                   <Form.Control
                     type="color"
                     id="bgColorPicker"
-                    title="Choose your color"
+                    title="Elige un color de fondo"
                     onChange={handleBgColorChange}
                     size="lg"
                     value={bgColor}
                   />
                   <Form.Control
                     id="bgColorPicker"
-                    aria-label="First name"
+                    aria-label="color de fondo"
                     onChange={handleBgColorChange}
                     value={bgColor}
                     className="w-50"
@@ -115,7 +113,13 @@ export default function SimulacionInteractiva() {
                   <span className="unit">: 1</span>
                 </span>
                 <span className={`total ${ratio ? "bg-success" : "bg-danger"}`}>
-                  Good
+                  {resultRatio === 1
+                    ? "Malo"
+                    : resultRatio === 2
+                    ? "Suficiente"
+                    : resultRatio === 3
+                    ? "Bueno"
+                    : "Perfecto"}
                 </span>
               </div>
             </div>
@@ -128,20 +132,19 @@ export default function SimulacionInteractiva() {
           >
             <Container className="p-3">
               <p>
-                Contrast ratios can range from 1 to 21{" "}
+                El ratio de contraste de color está en el rango de 1 a 21{" "}
                 <span className="space-nowrap">
-                  (commonly written 1:1 to 21:1).
+                  (comúnmente escrito de 1:1 a 21:1).
                 </span>
               </p>
               <ul>
                 <li>
-                  If both are the exact same color, the contrast ratio will be
-                  1.
+                  Si ambos son el mismo color, el ratio de contraste será 1.
                 </li>
-                <li>The highest contrast is between white and black.</li>
+                <li>El mayor contraste es entre el blanco y el negro.</li>
                 <li>
-                  Exact opposites in the color wheel (complementary colors) will
-                  have high values too.
+                  Colores opuestos en el círculo cromático (colores
+                  complementarios) también tendrán valores altos.
                 </li>
               </ul>
             </Container>
@@ -155,7 +158,7 @@ export default function SimulacionInteractiva() {
                 <LevelBox
                   result={level.AAsmall}
                   level="AA"
-                  info="small text"
+                  info="texto pequeño"
                   tooltip="<18pt , >=14pt bold"
                 />
               </Col>
@@ -163,7 +166,7 @@ export default function SimulacionInteractiva() {
                 <LevelBox
                   result={level.AAAsmall}
                   level="AAA"
-                  info="small text"
+                  info="texto pequeño"
                   tooltip="<18pt , >=14pt bold"
                 />
               </Col>
@@ -172,7 +175,7 @@ export default function SimulacionInteractiva() {
                 <LevelBox
                   result={level.AAlarge}
                   level="AA"
-                  info="large text"
+                  info="texto grande"
                   tooltip=">=18pt"
                 />
               </Col>
@@ -180,7 +183,7 @@ export default function SimulacionInteractiva() {
                 <LevelBox
                   result={level.AAAlarge}
                   level="AAA"
-                  info="large text"
+                  info="texto grande"
                   tooltip=">=18pt"
                 />
               </Col>

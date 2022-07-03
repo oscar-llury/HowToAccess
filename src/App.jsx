@@ -21,7 +21,7 @@ import { AuthProvider, RequireAuth } from "./lib/auth";
 import SimulacionInteractiva from "pages/SimulacionInteractiva";
 
 export default function App() {
-  let location = useLocation();
+  const location = useLocation();
   const [crumbs, setCrumbs] = useState([]);
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function App() {
       return fooCrumbs;
     });
     setCrumbs(fooCrumbs);
-  }, [setCrumbs]);
+  }, [setCrumbs, location]);
 
   return (
     <div className="App">
