@@ -7,12 +7,12 @@ $primary-dark: #177abd; //#0d4970;
 
 $secondary: #de0dd8;
 $success: #005e14;
+$success-light: #5aaf49;
 $info: #f6d0b1;
 $warning: #f7b05b;
 $dark: #272727;
+$light: #ffffff;
 $danger: #a4001d;
-
-$light: #5aaf49;
 
 $text-light: #f2f2f2;
 $text-dark: $text-color;
@@ -28,12 +28,9 @@ $link-hover-color: $primary-dark;
   font-style: oblique 0deg 20deg;
 }
 
-$font-family-sans-serif: "Inter", "Helvetica Neue", Arial, "Noto Sans",
-  "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-  "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-sans-serif: "Inter", "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 
-$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
-  "Liberation Mono", "Courier New", monospace !default;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 /*
 $headings-color:              null !default;
 $headings-font-family:        null !default;

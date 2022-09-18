@@ -54,7 +54,8 @@ export default function Login() {
   return (
     <Container fluid className="text-black">
       <Row className="app-login justify-content-center align-items-center">
-        <Col lg="4" md="6" xs="8">
+        <div className="bg"></div>
+        <Col lg="4" md="6" sm="8" xs="10" className="card">
           <Container className="text-center mb-4">
             <img src={logo} className="app-login-logo" alt="logo" />
             <h1>Iniciar sesión</h1>
@@ -62,26 +63,12 @@ export default function Login() {
           <Form validated={validated} onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="username">
               <Form.Label>Correo electrónico</Form.Label>
-              <Form.Control
-                name="username"
-                type="email"
-                placeholder="name@example.com"
-                autoComplete="username"
-                required
-                isInvalid={!!errors.username}
-              />
+              <Form.Control name="username" type="email" placeholder="name@example.com" autoComplete="username" required isInvalid={!!errors.username} />
             </Form.Group>
             <Form.Group className="mb-3" controlId="password">
               <Form.Label>Contraseña</Form.Label>
               <InputGroup hasValidation>
-                <Form.Control
-                  name="password"
-                  type={showPass ? "text " : "password"}
-                  placeholder="Contraseña"
-                  autoComplete="current-password"
-                  required
-                  isInvalid={!!errors.password}
-                />
+                <Form.Control name="password" type={showPass ? "text " : "password"} placeholder="Contraseña" autoComplete="current-password" required isInvalid={!!errors.password} />
                 <InputGroup.Text onClick={showPassHandler}>
                   <i className={showPass ? "bi bi-eye-slash" : "bi bi-eye"}></i>
                 </InputGroup.Text>

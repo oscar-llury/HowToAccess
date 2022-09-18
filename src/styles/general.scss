@@ -19,11 +19,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   --header-height: 60px;
   --banner-height: 0px;
-  --footer-height: calc(24px + 5rem);
+  --footer-height: calc(24px + 2rem);
   --vh100-offset-header: calc(var(--header-height));
-  --vh100-offset: calc(
-    var(--header-height) + var(--banner-height) + var(--footer-height)
-  );
+  --vh100-offset: calc(var(--header-height) + var(--banner-height) + var(--footer-height));
   width: 100%;
 }
 @media (min-width: 992px) {
@@ -273,7 +271,7 @@ body::-webkit-scrollbar-thumb {
 
 /*******FOOTER*******/
 footer {
-  .footer-copyright {
+  .footer-container {
     background-color: #cecece;
   }
 }
@@ -297,17 +295,41 @@ footer {
 /*******LOGIN*******/
 .app-login {
   height: calc(100vh - var(--vh100-offset));
-  @media (max-width: 768px) {
-    height: calc(100svh - var(--vh100-offset));
-  }
+
   //font-size: calc(10px + 2vmin);
   //color: $dark;
-
+  .bg {
+    background-image: url(/img/background-login.svg);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: -webkit-fill-available;
+    height: 100%;
+    position: absolute;
+    z-index: -5;
+    /* Add the blur effect */
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+  }
+  .card {
+    padding: 2em;
+    background-color: $light;
+    -webkit-box-shadow: 5px 5px 43px 3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 5px 5px 43px 3px rgba(0, 0, 0, 0.75);
+    box-shadow: 5px 5px 43px 3px rgba(0, 0, 0, 0.75);
+  }
   .app-login-logo {
     height: 50px;
   }
   form {
     text-align: left;
+  }
+  @media (max-width: 768px) {
+    height: calc(100svh - var(--vh100-offset));
+    .card {
+      padding: 1em;
+    }
   }
 }
 
