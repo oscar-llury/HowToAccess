@@ -1,0 +1,15 @@
+// New color map
+$custom-colors: (
+  "success-light": $success-light,
+);
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+$custom-sizes: (
+  "075": $font-size-base * 0.75,
+  "05": $font-size-base * 0.5,
+  "025": $font-size-base * 0.25,
+);
+
+$font-sizes: map-merge($font-sizes, $custom-sizes);
