@@ -112,7 +112,7 @@ body::-webkit-scrollbar-thumb {
 }
 .conformance-box {
   width: 70px;
-  margin: auto;
+  /*margin: auto;*/
   background-color: white;
   border: 1px solid black;
 }
@@ -1277,6 +1277,64 @@ footer {
         .box {
           margin-bottom: 20px;
         }
+      }
+    }
+  }
+}
+
+/*******PROYECTOS*******/
+.app-proyectos {
+  width: 80%;
+  .header {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    .title {
+      text-align: start;
+    }
+    .button {
+      text-align: end;
+    }
+  }
+  .proyectos-table {
+    border-spacing: 0 15px;
+    border-collapse: separate;
+    td {
+      padding: 1em;
+      vertical-align: middle;
+    }
+    .proyecto-row {
+      background-color: white;
+      box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+      border-radius: 5px;
+      td:nth-child(1) {
+        border-radius: 5px 0 0 5px;
+      }
+      td:nth-last-child(1) {
+        border-radius: 0 5px 5px 0;
+      }
+      .estado {
+        white-space: nowrap;
+        i {
+          margin-right: 5px;
+          display: inline-block;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+  @media (max-width: 992px) {
+    width: 100%;
+  }
+  @media (max-width: 576px) {
+    .header {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      .title,
+      .button {
+        text-align: center;
+      }
+      .button {
+        margin-top: 10px;
       }
     }
   }

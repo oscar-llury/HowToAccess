@@ -18,12 +18,16 @@ $warning: #f7b05b;
 $dark: #272727;
 $light: #ffffff;
 $danger: #a4001d;
+$black: #000;
 
 $text-light: #f2f2f2;
 $text-dark: $text-color;
 
 $link-color: $text-color;
 $link-hover-color: $primary-dark;
+
+$table-hover-bg-factor: 0.2 !default;
+$table-hover-bg: rgba($black, $table-hover-bg-factor) !default;
 
 @font-face {
   font-family: "Inter";
