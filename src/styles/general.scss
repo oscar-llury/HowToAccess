@@ -66,7 +66,9 @@ body::-webkit-scrollbar-thumb {
   color: inherit;
   background: $primary;
 }
-
+.app {
+  width: 100vw;
+}
 /*******GENERAL CLASSES*******/
 .text-hover:hover,
 .cursor-pointer {
@@ -242,6 +244,7 @@ body::-webkit-scrollbar-thumb {
 /*******HEADER*******/
 .app-nav-header {
   //height: var(--header-height);
+  background-color: $bg-nav;
   .container-header {
     width: 100%;
     z-index: 100;
@@ -337,18 +340,27 @@ footer {
 /*******HOME*******/
 .app-home {
   .carousel {
+    background-color: $bg-nav;
     .carousel-control-prev,
     .carousel-control-next {
       width: 10%;
+      background-image: none;
     }
-    img {
+    .image {
       height: calc(100vh - var(--vh100-offset-header));
       @media (max-width: 768px) {
         height: calc(100svh - var(--vh100-offset-header));
       }
-      background-color: $body-bg;
+      img {
+        float: right;
+        object-fit: contain;
+        max-width: 100%;
+        //width: 100%;
+        height: inherit;
+      }
       overflow: hidden;
-      object-fit: cover;
+      margin-left: 40%;
+      margin-right: 5%;
     }
     .title {
       font-size: 5em;
@@ -493,6 +505,18 @@ footer {
       .carousel-control-prev,
       .carousel-control-next {
         width: 5%;
+      }
+      .image {
+        margin: auto;
+        img {
+          height: auto;
+        }
+      }
+      .image.zoom {
+        object-fit: cover;
+        img {
+          height: 60%;
+        }
       }
       .title {
         font-size: 2em;

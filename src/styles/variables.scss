@@ -6,7 +6,7 @@ $enable-shadows: true;
 $body-bg: rgb(240, 240, 240);
 $text-color: rgb(20, 20, 20);
 
-$primary: #1d9bf0;
+$primary: #177abd;
 $primary-light: #66baf2;
 $primary-dark: #177abd; //#0d4970;
 
@@ -22,6 +22,8 @@ $black: #000;
 
 $text-light: #f2f2f2;
 $text-dark: $text-color;
+
+$bg-nav: #e9ecef !default; //$gray-200
 
 $link-color: $text-color;
 $link-hover-color: $primary-dark;
