@@ -33,8 +33,10 @@ export default function NormasAccesibilidadWeb() {
 
   useEffect(() => {
     const whereToGo = document.location.hash.replace("#", "");
-    navPrinciple(whereToGo);
-    setTab(whereToGo);
+    if (whereToGo) {
+      navPrinciple(whereToGo);
+      setTab(whereToGo);
+    }
     setHeightTabNav(document.querySelector(".container-tabs .content").offsetHeight);
   }, []);
 
