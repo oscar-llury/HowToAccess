@@ -7,18 +7,18 @@ import Slides from "../components/Slides";
 import Spacer from "../components/Spacer";
 
 //images
-import slide1 from "../img/home/home-slider-1.svg";
-import slide2 from "../img/home-2.svg";
-import slide3 from "../img/home-3.svg";
-import barrera_accesibilidad from "../img/barrera_accesibilidad.png";
-import que_es_accesibilidad from "../img/accesibilidad-bg.png";
-import que_es_accesibilidad2 from "../img/accesibilidad-1.png";
-import que_es_accesibilidad3 from "../img/accesibilidad-2.png";
-import que_es_accesibilidad4 from "../img/accesibilidad-3.png";
-import daltonismo from "../img/confirmar-eliminación.svg";
-import daltonismo_azul from "../img/confirmar-eliminación-azul.svg";
-import daltonismo_rojo from "../img/confirmar-eliminación-rojo.svg";
-import daltonismo_verde from "../img/confirmar-eliminación-verde.svg";
+import slide1 from "../img/home/slide-1.svg";
+import slide2 from "../img/home/slide-2.svg";
+import slide3 from "../img/home/slide-3.svg";
+import barrera_accesibilidad from "../img/home/barrera_accesibilidad.png";
+import que_es_accesibilidad from "../img/home/accesibilidad-bg.png";
+import que_es_accesibilidad2 from "../img/home/accesibilidad-1.png";
+import que_es_accesibilidad3 from "../img/home/accesibilidad-2.png";
+import que_es_accesibilidad4 from "../img/home/accesibilidad-3.png";
+import daltonismo from "../img/home/confirmar-eliminación.svg";
+import daltonismo_azul from "../img/home/confirmar-eliminación-azul.svg";
+import daltonismo_rojo from "../img/home/confirmar-eliminación-rojo.svg";
+import daltonismo_verde from "../img/home/confirmar-eliminación-verde.svg";
 
 const Home = () => {
   const [imageAccHeight, setImageAccHeight] = useState(200);
@@ -90,10 +90,10 @@ const Home = () => {
                   La <span className="bolder">Accesibilidad</span> en <span className="highlighted">Páginas Web</span>
                 </h2>
 
-                <p className="my-4">En un mundo rebosante de información digital se ha convertido en un factor imprescindible retener a los visitantes de un nuestro web. Se estima que Google procesa 63.000 búsquedas por segundo.</p>
+                <p className="my-4">En un mundo rebosante de información digital se ha convertido en un factor imprescindible retener a los visitantes de nuestro web. Se estima que Google procesa 63.000 búsquedas por segundo.</p>
                 <p>Personas que no comprendan o no puedan interactuar con la información o el funcionamiento de una página web la abandonarán rápidamente.</p>
                 <p className="my-4">
-                  Los sitios web deben estár diseñados y desarrollados de tal manera que puedan usarlos el mayor porcentaje de población posible, este es el objetivo de la Accesibilidad web. Texto alternativo en imágenes, colores contrastados y navegación por teclado... Descubre los elementos más importantes de la accesibilidad web en <span className="accent-hta">How To Access</span>.
+                  Los sitios web deben estár diseñados y desarrollados de tal manera que puedan usarlos el mayor porcentaje de población posible, este es el objetivo de la Accesibilidad web. Texto alternativo en imágenes, colores contrastados, navegación por teclado... Descubre los elementos más importantes de la accesibilidad web en <span className="accent-hta">How To Access</span>.
                 </p>
                 <Button variant="primary" className="w-auto" href="/accesibilidad-web">
                   Ver más <i className="bi bi-arrow-right"></i>

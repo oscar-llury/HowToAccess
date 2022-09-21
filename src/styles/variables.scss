@@ -1,5 +1,5 @@
 // Toggle global options
-$enable-gradients: true;
+$enable-gradients: false;
 $enable-shadows: true;
 
 // Customize some defaults
@@ -16,14 +16,14 @@ $success-light: #5aaf49;
 $info: #f6d0b1;
 $warning: #f7b05b;
 $dark: #272727;
-$light: #ffffff;
+$light: #e9eaeb;
 $danger: #a4001d;
 $black: #000;
 
 $text-light: #f2f2f2;
 $text-dark: $text-color;
 
-$bg-nav: #e9ecef !default; //$gray-200
+$bg-nav: #e9eaeb !default; //$gray-200
 
 $link-color: $text-color;
 $link-hover-color: $primary-dark;

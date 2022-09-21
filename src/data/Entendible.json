@@ -4,7 +4,7 @@
   "objective": "El contenido que proporcionemos ha de ser claro y fácil de interpretar, sin dar lugar a confusiones o equivocaciones.",
   "description": "El principio Entendible trata de usar un lenguaje sencillo, hacer que los errores sean fáciles de detectar y corregir, y hacer que el contenido en línea sea consistente y predecible para navegar (el contenido y el funcionamiento no pueden estar más allá de la comprensión de los usuarios).",
   "text": "<p class='mb-2'> Recomendamos: </p> <ul> <li> Crear contenido legible y comprensible </li> <li> Que la navegación de las páginas web sea predecible.  </li> <li> Ayudar a los usuarios a prevenir y corregir los errores.  </li> </ul> <p class='mb-2'> El principio Entendible está compuesto por las pautas: </p> <ol> <li> <a href='#pauta_3_1'>Texto legible y comprensible</a>. </li> <li> <a href='#pauta_3_2'>Contenido predecible</a>. </li> <li> <a href='#pauta_3_3'>Entrada de datos asistida</a>. </li> </ul>",
-  "img": "error-forms.png",
+  "img": "principles/entendible/error-forms.png",
   "caption": "Ayudar a los usuarios a evitar y corregir errores está cubierto por el principio Entendible.",
   "date": "Fecha de última actualización: 12 junio 2022",
   "guidelines": [

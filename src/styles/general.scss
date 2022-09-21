@@ -77,9 +77,7 @@ body::-webkit-scrollbar-thumb {
 .left-0 {
   left: 0;
 }
-.bg-light {
-  background-color: $gray-200 !important;
-}
+
 .btn-primary,
 .btn-primary:hover {
   color: $text-light;
@@ -253,14 +251,16 @@ body::-webkit-scrollbar-thumb {
     width: 100%;
   }
   .nav-item {
-    padding: 1em;
+    padding: 1em 0.5em;
+    margin: 0 0.5em;
     font-weight: 450;
     text-decoration: none;
   }
   .nav-link {
     padding: 0;
   }
-  .active {
+  .active,
+  .nav-item:hover {
     color: $primary;
     border-bottom: 3px solid $primary;
   }
@@ -340,7 +340,7 @@ footer {
 /*******HOME*******/
 .app-home {
   .carousel {
-    background-color: $bg-nav;
+    /*background-color: $bg-nav;*/
     .carousel-control-prev,
     .carousel-control-next {
       width: 10%;
@@ -373,7 +373,7 @@ footer {
     }
   }
   .bg-soft {
-    background-color: rgb(219, 219, 219);
+    background-color: $bg-nav;
   }
   .spacer-path {
     fill: $body-bg;
@@ -516,6 +516,8 @@ footer {
         object-fit: cover;
         img {
           height: 60%;
+          float: none;
+          margin: auto;
         }
       }
       .title {
@@ -550,6 +552,14 @@ footer {
   }
 
   @media (max-width: 576px) {
+    .carousel {
+      .image.zoom {
+        img {
+          height: 75%;
+          object-fit: cover;
+        }
+      }
+    }
     .app-home-section2 {
       .container-image-accesibility {
         .tap-to-discover {
@@ -950,7 +960,7 @@ footer {
         justify-content: center;
         width: 10%;
         padding: 0;
-        color: #fff;
+        color: $text-color;
         text-align: center;
         background: none;
         border: 0;
@@ -971,7 +981,7 @@ footer {
         justify-content: center;
         width: 10%;
         padding: 0;
-        color: #fff;
+        color: $text-color;
         text-align: center;
         background: none;
         border: 0;
