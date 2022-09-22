@@ -13,3 +13,31 @@ $custom-sizes: (
 );
 
 $font-sizes: map-merge($font-sizes, $custom-sizes);
+
+$utilities: () !default;
+
+$utilities: map-merge(
+  (
+    "min-viewport-height": (
+      property: min-height,
+      class: min-vh,
+      values: (
+        100: 100vh,
+        75: 75vh,
+      ),
+    ),
+  ),
+  $utilities
+);
+/*
+$utilities: map-merge(
+  (
+    "cursor": (
+      property: cursor,
+      class: cursor,
+      responsive: true,
+      values: auto pointer grab,
+    ),
+  ),
+  $utilities
+);*/

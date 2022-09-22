@@ -838,28 +838,34 @@ footer {
 .app-normas-accesibilidad {
   .main-image {
     position: relative;
-    h1 {
-      position: absolute;
-      top: 35%;
-      left: 15%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 5em 2em;
+    .container-image {
+      top: 0;
+      height: 100%;
+      display: block;
+      transform: skewX(-10deg);
+      overflow: hidden;
+      width: 75%;
+      right: -10rem;
+      /*border-bottom-left-radius: 0.75rem;*/
       text-align: center;
-      font-family: "Inter";
-      font-weight: 900;
-      font-size: 3em;
-      @media (max-width: 992px) {
-        left: 12%;
-        font-size: 2.5em;
+    }
+    .text-container {
+      z-index: 2;
+      width: 50%;
+      h1 {
+        font-weight: 900;
+        font-size: 3em;
       }
-      @media (max-width: 768px) {
-        top: 30%;
-      }
-      @media (max-width: 576px) {
-        top: 35%;
-        font-size: 1.5em;
+      p {
+        font-size: 1.2em;
       }
     }
     img {
-      //padding-left: 20%;
+      height: 100%;
     }
   }
 
@@ -870,8 +876,8 @@ footer {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-top: 10%;
-    margin-bottom: 10%;
+    margin-top: 1em;
+    margin-bottom: 2em;
     padding: 50px 0;
 
     .bg {
@@ -941,7 +947,7 @@ footer {
       }
       img {
         object-fit: contain;
-        width: 50%;
+        width: 30%;
         margin: auto;
       }
     }
@@ -1071,11 +1077,26 @@ footer {
   }
 
   @media (max-width: 1200px) {
+    .main-image {
+      .container-image {
+        width: 80%;
+        right: -8rem;
+      }
+    }
     .section-1 .bg {
       margin-right: -120px;
     }
   }
   @media (max-width: 992px) {
+    .main-image {
+      .container-image {
+        width: 80%;
+        right: -5rem;
+      }
+      .text-container {
+        width: 30%;
+      }
+    }
     .section-1 .bg {
       margin-right: -100px;
     }
@@ -1089,12 +1110,37 @@ footer {
       }
     }
   }
-  @media (max-width: 576px) {
-    .section-1 .bg {
-      margin-right: -20px;
+  @media (max-width: 768px) {
+    .main-image {
+      align-items: flex-start;
+      .container-image {
+        width: 80%;
+        right: -2rem;
+      }
+      .text-container {
+        width: 40%;
+        .btn-principles {
+          display: none;
+        }
+      }
     }
     .section-2 .grid-pour img {
-      width: 60%;
+      width: 40%;
+    }
+  }
+  @media (max-width: 576px) {
+    .main-image {
+      padding: 3em 1em;
+      .container-image {
+        width: 80%;
+        right: 0;
+      }
+      .text-container {
+        width: 50%;
+      }
+    }
+    .section-1 .bg {
+      margin-right: -20px;
     }
   }
 }

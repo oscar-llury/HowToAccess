@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { Button, Container, Row, Col, OverlayTrigger, Tooltip, Tab, Tabs } from "react-bootstrap";
-//import Highlight, { defaultProps } from "prism-react-renderer";
-//import theme from "prism-react-renderer/themes/vsLight";
-
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import logo_wcag from "../img/wcag-hta-logo.svg";
 import slide1 from "../img/principles/main-normas-accesibilidad.png";
@@ -16,29 +13,33 @@ import eye_perceivable from "../img/eye_perceivable.png";
 import hand_operable from "../img/hand_operable.png";
 import head_understandable from "../img/head_understandable.png";
 import like_robust from "../img/like_robust.png";
-/*
-import anillo from "../img/4-Principios-anillo.png";
-import centro from "../img/4-Principios-centro.png";
-import ojo from "../img/4-Principios-ojo.png";
-import oido from "../img/4-Principios-oido.png";
-import cerebro from "../img/4-Principios-cerebro.png";
-import mano from "../img/4-Principios-mano.png";
-*/
+
 export default function NormasAccesibilidadWeb() {
   const navigate = useNavigate();
 
   const [tab, setTab] = useState("perceivable");
-  const tabs = ["perceivable", "operable", "understandable", "robust"];
+  const tabs = useMemo(() => {
+    return ["perceivable", "operable", "understandable", "robust"];
+  }, []);
+
+  //const tabs = ["perceivable", "operable", "understandable", "robust"];
   const [heightTabsNav, setHeightTabNav] = useState(200);
+
+  const navPrinciple = useCallback(
+    (url) => {
+      navigate(`#${url}`);
+    },
+    [navigate]
+  );
 
   useEffect(() => {
     const whereToGo = document.location.hash.replace("#", "");
-    if (whereToGo) {
+    if (whereToGo && tabs.includes(whereToGo)) {
       navPrinciple(whereToGo);
       setTab(whereToGo);
     }
     setHeightTabNav(document.querySelector(".container-tabs .content").offsetHeight);
-  }, []);
+  }, [navPrinciple, tabs]);
 
   function prev(e) {
     e.preventDefault();
@@ -62,19 +63,21 @@ export default function NormasAccesibilidadWeb() {
     navPrinciple(dest);
     setTab(dest);
   }
-  const navPrinciple = (url) => {
-    navigate(`#${url}`);
-  };
+
   return (
     <Container fluid className="app-normas-accesibilidad p-0">
-      <Container fluid className="px-2 main-image">
-        <h1>
-          W3C
-          <br /> & <br />
-          WCAG
-        </h1>
-        <img className="w-100" src={slide1} alt="" />
-      </Container>
+      <header className="main-image min-vh-75">
+        <div className="position-absolute container-image">
+          <img src={slide1} alt="" />
+        </div>
+        <Container className="m-0 text-container text-center">
+          <h1>W3C & WCAG</h1>
+          <p>Descubre los estándares de la accesibilidad web.</p>
+          <Button variant="outline-primary" className="px-4 py-3 rounded-0 btn-principles" href="#principles">
+            Comenzar
+          </Button>
+        </Container>
+      </header>
       <Container fluid="sm" className="main-container">
         <Row className="section-1">
           <div className="bg"></div>
@@ -102,7 +105,7 @@ export default function NormasAccesibilidadWeb() {
             <p>La última versión es WCAG 2.1 publicada el 5 de junio de 2018.</p>
           </Col>
         </Row>
-        <Row className="mt-5 section-2">
+        <Row className="mt-5 section-2" id="principles">
           <h2>Los 4 Principios de la Accesibilidad</h2>
           <p>POUR (Perceivable, Operable, Understandable, Robust): los cuatro principios que describen la accesibilidad funcional.</p>
 
@@ -131,11 +134,6 @@ export default function NormasAccesibilidadWeb() {
                 onSelect={(k) => {
                   setTab(k);
                   navPrinciple(k);
-                  /*
-                  history.push({
-                    pathname: "/dresses",
-                    search: "?color=blue",
-                  });*/
                 }}
                 id="uncontrolled-tab-example"
                 className="justify-content-around tablist p-0"
@@ -216,30 +214,6 @@ export default function NormasAccesibilidadWeb() {
             </div>
           </div>
         </Row>
-        {/*
-        <Row className="mt-5 section-3">
-          <Col style={{ position: "relative", height: "516px" }}>
-            <div id="anillo">
-              <img src={anillo} />
-            </div>
-            <div id="centro">
-              <img src={centro} />
-            </div>
-            <div id="ojo">
-              <img src={ojo} />
-            </div>
-            <div id="oido">
-              <img src={oido} />
-            </div>
-            <div id="cerebro">
-              <img src={cerebro} />
-            </div>
-            <div id="mano">
-              <img src={mano} />
-            </div>
-          </Col>
-        </Row>
-              */}
       </Container>
     </Container>
   );
