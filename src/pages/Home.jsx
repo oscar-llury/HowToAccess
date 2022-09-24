@@ -116,7 +116,7 @@ const Home = () => {
             </Col>
           </Row>
         </Container>
-        <Spacer space={[2, 0]} />
+        <Spacer space={[2, 0]} color="rgb(240, 240, 240)" />
       </div>
       <Container fluid="lg" className="text-black app-home-section2 p-container">
         <Row className="justify-content-center align-items-center gx-4">

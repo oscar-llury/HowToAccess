@@ -66,8 +66,8 @@ export default function NormasAccesibilidadWeb() {
 
   return (
     <Container fluid className="app-normas-accesibilidad p-0">
-      <header className="main-image min-vh-75">
-        <div className="position-absolute container-image">
+      <header className="main-image min-vh-75 overflow-hidden position-relative">
+        <div className="oblique">
           <img src={slide1} alt="" />
         </div>
         <Container className="m-0 text-container text-center">

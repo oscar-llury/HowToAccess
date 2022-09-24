@@ -17,8 +17,10 @@ import cabeza from "../img/cabeza.svg";
 import tap from "../img/tap.svg";
 import oido from "../img/oido.svg";
 import discapacidades from "../img/discapacidades.svg";
-
 import web_building from "../img/web_building.svg";
+import waves_white from "../img/waves-white.svg";
+
+import Spacer from "components/Spacer";
 
 export default function AccesibilidadWeb() {
   const [showToast, setShowToast] = useState(false);
@@ -41,57 +43,48 @@ export default function AccesibilidadWeb() {
     {
       name: "Control sobre vídeos",
       image: video_control,
-      description:
-        "Permite a los usuarios utilizar los controles de reproducción para los vídeos. Esto permitirá elegir cuándo se reproduce el contenido, para evitar distracciones y reducir cualquier desencadenante que pueda causar convulsiones o eventos epilépticos.",
+      description: "Permite a los usuarios utilizar los controles de reproducción para los vídeos. Esto permitirá elegir cuándo se reproduce el contenido, para evitar distracciones y reducir cualquier desencadenante que pueda causar convulsiones o eventos epilépticos.",
     },
     {
       name: "Estructura de la página",
       image: page_structure,
-      description:
-        "Proporciona una estructura html (section, article, title). Es esencial para los lectores de pantalla puedan interpretar el fin de cada sección de la página.",
+      description: "Proporciona una estructura html (section, article, title). Es esencial para los lectores de pantalla puedan interpretar el fin de cada sección de la página.",
     },
     {
       name: "Navegación por teclado",
       image: keyboard,
-      description:
-        "Permite a los usuarios la navegación por la web usando únicamente el teclado. Ayuda a los usuarios con discapacidades físicas o visuales a navegar por el contenido sin necesitar un ratón o puntero.",
+      description: "Permite a los usuarios la navegación por la web usando únicamente el teclado. Ayuda a los usuarios con discapacidades físicas o visuales a navegar por el contenido sin necesitar un ratón o puntero.",
     },
     {
       name: "Alt en imágenes",
       image: image_alts,
-      description:
-        "Proporciona un texto alternativo a las imágenes del sitio web para mostrar en lugar de la imagen en caso de error de carga.",
+      description: "Proporciona un texto alternativo a las imágenes del sitio web para mostrar en lugar de la imagen en caso de error de carga.",
     },
     {
       name: "Encabezados de página",
       image: headers,
-      description:
-        "Proporciona títulos descriptivos para cada página y una estructura de encabezados jerárquica y accesible.",
+      description: "Proporciona títulos descriptivos para cada página y una estructura de encabezados jerárquica y accesible.",
     },
     {
       name: "Texto accesible",
       image: texto_accesible,
-      description:
-        "Proporciona herramientas para cambiar el tamaño de texto, interlineado y tipografía. Permite que usuarios con dislexia o discapacidades visuales puedan adaptar el texto a sus necesidades.",
+      description: "Proporciona herramientas para cambiar el tamaño de texto, interlineado y tipografía. Permite que usuarios con dislexia o discapacidades visuales puedan adaptar el texto a sus necesidades.",
     },
     {
       name: "Omitir enlace de navegación",
       image: skip_navigation_link,
-      description:
-        "Permite a los usuarios saltar bloques de contenido que estén repetidos.",
+      description: "Permite a los usuarios saltar bloques de contenido que estén repetidos.",
     },
 
     {
       name: "Idioma de la página",
       image: multicultural_flags,
-      description:
-        "Proporciona atributos de idioma para cada página. Esto es esencial para los usuarios que dependen de tecnología de asistencia como: lectores de pantalla, traductores de braille y software de reconocimiento de voz.",
+      description: "Proporciona atributos de idioma para cada página. Esto es esencial para los usuarios que dependen de tecnología de asistencia como: lectores de pantalla, traductores de braille y software de reconocimiento de voz.",
     },
     {
       name: "Etiquetas en formularios",
       image: form_usage,
-      description:
-        "Crea etiquetas de formulario, atributos de obligatoriedad, y más, para que los lectores de pantalla comuniquen la intención y el valor esperado en cada campo del formulario.",
+      description: "Crea etiquetas de formulario, atributos de obligatoriedad, y más, para que los lectores de pantalla comuniquen la intención y el valor esperado en cada campo del formulario.",
     },
   ];
 
@@ -133,18 +126,8 @@ export default function AccesibilidadWeb() {
     const title = document.querySelector(".title-heading");
     const columns = document.querySelectorAll(".column-heading");
     const titleAnimation = "zoomInDown";
-    title.classList.add(
-      "animate__animated",
-      `animate__${titleAnimation}`,
-      "animate__slow"
-    );
-    columns.forEach((e, index) =>
-      e.classList.add(
-        "animate__animated",
-        `animate__${titleAnimation}`,
-        "animate__slow"
-      )
-    );
+    title.classList.add("animate__animated", `animate__${titleAnimation}`, "animate__slow");
+    columns.forEach((e, index) => e.classList.add("animate__animated", `animate__${titleAnimation}`, "animate__slow"));
   };
 
   useEffect(() => {
@@ -175,9 +158,7 @@ export default function AccesibilidadWeb() {
 
           <Col md="4" className="title-heading ">
             <div className="p-3">
-              <h1 className="text-center">
-                Elementos que mejoran la accesibilidad web
-              </h1>
+              <h1 className="text-center">Elementos que mejoran la accesibilidad web</h1>
             </div>
           </Col>
           <Col xs="12" md="4">
@@ -196,51 +177,39 @@ export default function AccesibilidadWeb() {
           </Col>
         </Row>
 
-        <Masonry
-          breakpointCols={breakpointColumnsObj}
-          className="masonry-accessibility-elements"
-          columnClassName="masonry-column"
-        >
+        <Masonry breakpointCols={breakpointColumnsObj} className="masonry-accessibility-elements" columnClassName="masonry-column">
           {elements.map((e, index) => (
             <MasonryColumn key={index} info={e} openToast={openToast} />
           ))}
         </Masonry>
-        <p className="info-click">
-          * Pincha en los elementos para descubrir más.
-        </p>
+        <p className="info-click">* Pincha en los elementos para descubrir más.</p>
       </Container>
+      <div className="position-relative">
+        <Spacer space={[0, 0]} color="rgb(240, 240, 240)" className="invert-y position-absolute w-100 top-0 z-index-1" />
+        <img src={waves_white} className="position-absolute w-100 h-100 object-fit-cover " alt="" />
+        <div className="bg-dark-blue py-5">
+          <Container fluid="sm" className="main-content">
+            <Row className="row1">
+              <Col>
+                <Container className="quote position-relative">
+                  <img src={discapacidades} alt="" className="position-inherit" />
+                  <blockquote cite="https://www.who.int/news-room/fact-sheets/detail/disability-and-health">
+                    <span className="italic">Unicef</span> estima que hay 1000 millones de personas, el 15% de la población mundial, que experimentan algún tipo de discapacidad, de los cuales 240 millones son niños.
+                  </blockquote>
+                </Container>
+              </Col>
+            </Row>
+          </Container>
+        </div>
+        <Spacer space={[0, 0]} color="rgb(240, 240, 240)" className="position-absolute w-100 bottom-0" />
+      </div>
       <Container fluid="sm" className="main-content">
-        <Row className="row1">
-          <Col>
-            <Container className="quote">
-              <img src={discapacidades} alt="" />
-              <blockquote cite="https://www.who.int/news-room/fact-sheets/detail/disability-and-health">
-                <span className="italic">Unicef</span> estima que hay 1000
-                millones de personas, el 15% de la población mundial, que
-                experimentan algún tipo de discapacidad, de los cuales 240
-                millones son niños.
-              </blockquote>
-            </Container>
-          </Col>
-        </Row>
         <Row className="row2 align-items-center">
           <Col md="12" lg="6">
             <h2>Todos nos beneficiamos de una buena accesibilidad web</h2>
-            <p>
-              Realizar un diseño web que sea usable y accesible para personas
-              con discapacidad tiene beneficios para el resto de personas que no
-              presentan dichas discapacidades.
-            </p>
-            <p>
-              Aproximadamente la mitad de los usuarios que llegan a una página
-              web podrían tener dificultades para navegar a traves de ella o
-              entender su información.
-            </p>
-            <p>
-              Además, personas perfectamente saludables, con excelente vista,
-              audición y mobilidad, y que pueden leer y escribir sin esfuerzo,
-              también pueden encontrar problemas de uso en páginas web.
-            </p>
+            <p>Realizar un diseño web que sea usable y accesible para personas con discapacidad tiene beneficios para el resto de personas que no presentan dichas discapacidades.</p>
+            <p>Aproximadamente la mitad de los usuarios que llegan a una página web podrían tener dificultades para navegar a traves de ella o entender su información.</p>
+            <p>Además, personas perfectamente saludables, con excelente vista, audición y mobilidad, y que pueden leer y escribir sin esfuerzo, también pueden encontrar problemas de uso en páginas web.</p>
           </Col>
           <Col md="12" lg="6">
             <img alt="" src={web_building} className="w-100" />

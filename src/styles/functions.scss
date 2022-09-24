@@ -29,6 +29,15 @@ $utilities: map-merge(
   ),
   $utilities
 );
+$utilities: map-merge(
+  (
+    "position": (
+      property: position,
+      values: static relative absolute fixed sticky inherit,
+    ),
+  ),
+  $utilities
+);
 /*
 $utilities: map-merge(
   (

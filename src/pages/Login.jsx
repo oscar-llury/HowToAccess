@@ -4,6 +4,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 import { useAuth } from "../lib/auth";
 import logo from "../img/logo/isotipo.svg";
+import slide1 from "../img/login-bg.jpg";
 
 export default function Login() {
   let navigate = useNavigate();
@@ -53,8 +54,10 @@ export default function Login() {
 
   return (
     <Container fluid className="text-black">
-      <Row className="app-login justify-content-center align-items-center">
-        <div className="bg"></div>
+      <Row className="app-login justify-content-center align-items-center overflow-hidden position-relative">
+        <div className="oblique">
+          <img src={slide1} alt="" />
+        </div>
         <Col lg="4" md="6" sm="8" xs="10" className="card">
           <Container className="text-center mb-4">
             <img src={logo} className="app-login-logo" alt="logo" />

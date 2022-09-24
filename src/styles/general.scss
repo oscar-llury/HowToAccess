@@ -74,10 +74,18 @@ body::-webkit-scrollbar-thumb {
 .cursor-pointer {
   cursor: pointer;
 }
+.object-fit-cover {
+  object-fit: cover;
+}
+.object-fit-contain {
+  object-fit: contain;
+}
 .left-0 {
   left: 0;
 }
-
+.z-index-1 {
+  z-index: 1;
+}
 .btn-primary,
 .btn-primary:hover {
   color: $text-light;
@@ -131,6 +139,41 @@ body::-webkit-scrollbar-thumb {
     text-decoration: underline;
     color: $primary-dark;
   }
+}
+.bg-dark-blue {
+  background-color: #3a416f;
+}
+.bg-dark-blue-gradient {
+  background-image: linear-gradient(155deg, #141727, #3a416f);
+}
+.oblique {
+  position: absolute;
+  transform: skewX(-10deg);
+  overflow: hidden;
+  width: 60%;
+  right: -10rem;
+  border-bottom-left-radius: 0.75rem;
+  top: 0;
+  height: 100%;
+  display: block;
+  padding: 0;
+  .img {
+    transform: skewX(10deg);
+  }
+  @media (max-width: 768px) {
+    right: -5rem;
+  }
+}
+.spacer {
+  margin-bottom: -1px;
+}
+.invert-y {
+  -moz-transform: scale(-1, -1);
+  -o-transform: scale(-1, -1);
+  -webkit-transform: scale(-1, -1);
+  transform: scale(-1, -1);
+  margin-bottom: 0;
+  margin-top: -1px;
 }
 .main-container {
   padding: 0 8em;
@@ -299,23 +342,6 @@ footer {
 /*******LOGIN*******/
 .app-login {
   height: calc(100vh - var(--vh100-offset));
-
-  //font-size: calc(10px + 2vmin);
-  //color: $dark;
-  .bg {
-    background-image: url(/img/background-login.svg);
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: -webkit-fill-available;
-    height: 100%;
-    position: absolute;
-    z-index: -5;
-    /* Add the blur effect */
-    filter: blur(3px);
-    -webkit-filter: blur(3px);
-  }
   .card {
     padding: 2em;
     background-color: $light;
@@ -374,9 +400,6 @@ footer {
   }
   .bg-soft {
     background-color: $bg-nav;
-  }
-  .spacer-path {
-    fill: $body-bg;
   }
   .app-home-section1 {
     //padding: 3rem;
@@ -683,6 +706,8 @@ footer {
         padding: 1em calc(10vw);
         text-align: center;
         font-size: 1.5em;
+        font-weight: 600;
+        color: $text-light;
         img {
           margin-bottom: 20px;
         }
@@ -781,7 +806,7 @@ footer {
     .main-content {
       .row1 {
         .quote {
-          padding: 1em calc(6vw);
+          padding: 1em calc(5vw);
         }
       }
     }
@@ -801,7 +826,7 @@ footer {
     .main-content {
       .row1 {
         .quote {
-          padding: 1em calc(5vw);
+          padding: 1em calc(3vw);
         }
       }
     }
@@ -842,17 +867,6 @@ footer {
     display: flex;
     align-items: center;
     padding: 5em 2em;
-    .container-image {
-      top: 0;
-      height: 100%;
-      display: block;
-      transform: skewX(-10deg);
-      overflow: hidden;
-      width: 75%;
-      right: -10rem;
-      /*border-bottom-left-radius: 0.75rem;*/
-      text-align: center;
-    }
     .text-container {
       z-index: 2;
       width: 50%;
@@ -1078,8 +1092,8 @@ footer {
 
   @media (max-width: 1200px) {
     .main-image {
-      .container-image {
-        width: 80%;
+      .oblique {
+        width: 70%;
         right: -8rem;
       }
     }
@@ -1089,7 +1103,7 @@ footer {
   }
   @media (max-width: 992px) {
     .main-image {
-      .container-image {
+      .oblique {
         width: 80%;
         right: -5rem;
       }
@@ -1113,7 +1127,7 @@ footer {
   @media (max-width: 768px) {
     .main-image {
       align-items: flex-start;
-      .container-image {
+      .oblique {
         width: 80%;
         right: -2rem;
       }
@@ -1131,7 +1145,7 @@ footer {
   @media (max-width: 576px) {
     .main-image {
       padding: 3em 1em;
-      .container-image {
+      .oblique {
         width: 80%;
         right: 0;
       }
@@ -1842,3 +1856,6 @@ html {
 
 margin-inline: max(10px, 50% - 800px/2);
 */
+/* Add the blur effect 
+filter: blur(3px);
+-webkit-filter: blur(3px);*/
