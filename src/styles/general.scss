@@ -143,7 +143,7 @@ body::-webkit-scrollbar-thumb {
   }
 }
 .bg-dark-blue {
-  background-color: #3a416f;
+  background-color: $bg-dark-blue;
 }
 .bg-dark-blue-gradient {
   background-image: linear-gradient(155deg, #141727, #3a416f);
@@ -618,7 +618,7 @@ footer {
     --section-padding: 10vh;
     --clip-point: calc(var(--section-padding) / 1);
 
-    padding-bottom: var(--section-padding);
+    //padding-bottom: var(--section-padding);
     clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
     /*clip-path: polygon(
       0 var(--clip-point) ,top left
@@ -713,6 +713,39 @@ footer {
       margin-left: 20px;
     }
   }
+  .accessibility-elements {
+    margin: 20px 0;
+    .main-title {
+      @media (min-width: 992px) {
+        padding: 0 1.5rem;
+      }
+      .title {
+        font-size: 2rem;
+        font-weight: 800;
+      }
+    }
+    .column-item {
+      .box {
+        background-color: $bg-dark-blue;
+        padding: 10px;
+        border-radius: $btn-border-radius;
+        margin-right: 10px;
+        box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(58, 65, 111, 0.4);
+        img {
+          width: 40px;
+        }
+      }
+      .box,
+      .title {
+        display: inline-block;
+      }
+      .title {
+        font-size: 1.5em;
+        font-weight: 600;
+        margin: 0;
+      }
+    }
+  }
   .main-content {
     .row1 {
       .quote {
@@ -728,9 +761,8 @@ footer {
     }
     .row2 {
       margin: 50px 0;
-      h2 {
+      .title {
         font-weight: 800;
-
         margin-bottom: 20px;
         @media (min-width: 1200px) {
           max-width: 80%;
@@ -738,34 +770,11 @@ footer {
       }
     }
   }
-  .accesibility-carrousel {
-    > div {
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .carrousel-item {
-      padding: 8px;
-      img {
-        width: 100%;
-      }
-    }
-  }
   @media (max-width: 1400px) {
-    .masonry-box {
-      .heading {
-        h1 {
-          font-size: 1.8rem;
-        }
-      }
-    }
   }
   @media (max-width: 1200px) {
     .masonry-box {
       .heading {
-        h1 {
-          font-size: 1.5rem;
-        }
         .column-heading img {
           width: 40%;
           height: 100%;
@@ -780,12 +789,22 @@ footer {
         max-height: 90%;
       }
       .heading {
-        h1 {
-          font-size: 1.2rem;
-        }
         .column-heading img {
           width: 50%;
           height: 100%;
+        }
+      }
+    }
+    .accessibility-elements {
+      .column-item {
+        .box {
+          //padding: 0.375rem 0.75rem;
+          img {
+            width: 30px;
+          }
+        }
+        .title {
+          font-size: 1.2em;
         }
       }
     }
@@ -799,6 +818,7 @@ footer {
   }
   @media (max-width: 768px) {
     .masonry-box {
+      padding-bottom: 40px;
       .masonry-column > div {
         padding: 25px 15px 15px;
         margin-bottom: 20px;
@@ -807,9 +827,6 @@ footer {
         max-height: 100%;
       }
       .heading {
-        h1 {
-          font-size: 1.3rem;
-        }
         .column-heading img {
           width: 40%;
           height: 100%;
@@ -827,9 +844,6 @@ footer {
   @media (max-width: 576px) {
     .masonry-box {
       .heading {
-        h1 {
-          font-size: 1.2rem;
-        }
         .column-heading img {
           width: 30%;
           height: 100%;
@@ -891,11 +905,21 @@ footer {
         font-size: 1.2em;
       }
     }
+    .foreground-layer {
+      background-image: linear-gradient(195deg, #42424a, #191919);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.5;
+    }
     img {
       height: 100%;
+      top: 0;
+      left: 0;
+      object-fit: cover;
     }
   }
-
   .section-1 {
     position: relative;
     display: flex;
@@ -1104,22 +1128,12 @@ footer {
   }
 
   @media (max-width: 1200px) {
-    .main-image {
-      .oblique {
-        width: 70%;
-        right: -8rem;
-      }
-    }
     .section-1 .bg {
       margin-right: -120px;
     }
   }
   @media (max-width: 992px) {
     .main-image {
-      .oblique {
-        width: 80%;
-        right: -5rem;
-      }
       .text-container {
         width: 30%;
       }
@@ -1140,12 +1154,11 @@ footer {
   @media (max-width: 768px) {
     .main-image {
       align-items: flex-start;
-      .oblique {
-        width: 80%;
-        right: -2rem;
-      }
       .text-container {
         width: 40%;
+        p {
+          margin: 0;
+        }
         .btn-principles {
           display: none;
         }
@@ -1158,12 +1171,8 @@ footer {
   @media (max-width: 576px) {
     .main-image {
       padding: 3em 1em;
-      .oblique {
-        width: 80%;
-        right: 0;
-      }
       .text-container {
-        width: 50%;
+        width: 60%;
       }
     }
     .section-1 .bg {

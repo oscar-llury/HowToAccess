@@ -38,8 +38,7 @@ export default function AccesibilidadWeb() {
   };
 
   const elements = [
-    { name: "Color de contraste", image: color_contrast, description: "" },
-
+    { name: "Color de contraste", image: color_contrast, description: "Proporciona un buen contraste de color entre los colores de texto y los colores de fondo o imágenes." },
     {
       name: "Control sobre vídeos",
       image: video_control,
@@ -140,49 +139,62 @@ export default function AccesibilidadWeb() {
   return (
     <div className="web-accessibility">
       <Container fluid className="masonry-box">
-        <Row className="heading">
-          <Col xs="12" md="4">
-            <Row className="group2">
-              <Col xs="6" className="column-heading ">
-                <div className="text-center">
-                  <img src={ojo} alt="" />
-                </div>
-              </Col>
-              <Col xs="6" className="column-heading ">
-                <div className="text-center">
-                  <img src={cabeza} alt="" />
-                </div>
-              </Col>
-            </Row>
-          </Col>
-
-          <Col md="4" className="title-heading ">
-            <div className="p-3">
-              <h1 className="text-center">Elementos que mejoran la accesibilidad web</h1>
-            </div>
-          </Col>
-          <Col xs="12" md="4">
-            <Row className="group2">
-              <Col xs="6" className="column-heading ">
-                <div className="text-center">
-                  <img src={tap} alt="" />
-                </div>
-              </Col>
-              <Col xs="6" className="column-heading ">
-                <div className="text-center">
-                  <img src={oido} alt="" />
-                </div>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-
         <Masonry breakpointCols={breakpointColumnsObj} className="masonry-accessibility-elements" columnClassName="masonry-column">
           {elements.map((e, index) => (
             <MasonryColumn key={index} info={e} openToast={openToast} />
           ))}
         </Masonry>
         <p className="info-click">* Pincha en los elementos para descubrir más.</p>
+      </Container>
+      <Container fluid="sm" className="">
+        <Row className="accessibility-elements py-3 align-items-center">
+          <Col xs="12" md="6" className="main-title">
+            <h1 className="title">Elementos que mejoran la accesibilidad web</h1>
+            <p className="description">Elementos que mejoran la accesibilidad web Elementos que mejoran la accesibilidad web Elementos que mejoran la accesibilidad web</p>
+          </Col>
+          <Col xs="12" md="6">
+            <Row className="pt-4 pb-2">
+              <Col xs="6" className="column-item">
+                <div className="d-flex align-items-center pb-2">
+                  <div className="box">
+                    <img src={ojo} alt="" />
+                  </div>
+                  <h2 className="title">Visuales</h2>
+                </div>
+                <p>Elementos que mejoran la accesibilidad web</p>
+              </Col>
+              <Col xs="6" className="column-item">
+                <div className="d-flex align-items-center pb-2">
+                  <div className="box">
+                    <img src={cabeza} alt="" />
+                  </div>
+                  <h2 className="title">Cognitivos</h2>
+                </div>
+                <p>Elementos que mejoran la accesibilidad web</p>
+              </Col>
+            </Row>
+            <Row className="pt-2 pb-4">
+              <Col xs="6" className="column-item">
+                <div className="d-flex align-items-center pb-2">
+                  <div className="box">
+                    <img src={tap} alt="" />
+                  </div>
+                  <h2 className="title">Táctiles</h2>
+                </div>
+                <p>Elementos que mejoran la accesibilidad web</p>
+              </Col>
+              <Col xs="6" className="column-item">
+                <div className="d-flex align-items-center pb-2">
+                  <div className="box">
+                    <img src={oido} alt="" />
+                  </div>
+                  <h2 className="title">Auditivos</h2>
+                </div>
+                <p>Elementos que mejoran la accesibilidad web</p>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
       </Container>
       <div className="position-relative">
         <Spacer space={[0, 0]} color="rgb(240, 240, 240)" className="invert-y position-absolute w-100 top-0 z-index-1" />
@@ -206,7 +218,7 @@ export default function AccesibilidadWeb() {
       <Container fluid="sm" className="main-content">
         <Row className="row2 align-items-center">
           <Col md="12" lg="6">
-            <h2>Todos nos beneficiamos de una buena accesibilidad web</h2>
+            <h3 className="title">Todos nos beneficiamos de una buena accesibilidad web</h3>
             <p>Realizar un diseño web que sea usable y accesible para personas con discapacidad tiene beneficios para el resto de personas que no presentan dichas discapacidades.</p>
             <p>Aproximadamente la mitad de los usuarios que llegan a una página web podrían tener dificultades para navegar a traves de ella o entender su información.</p>
             <p>Además, personas perfectamente saludables, con excelente vista, audición y mobilidad, y que pueden leer y escribir sin esfuerzo, también pueden encontrar problemas de uso en páginas web.</p>

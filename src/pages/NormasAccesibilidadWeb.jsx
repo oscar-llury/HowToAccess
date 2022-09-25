@@ -3,7 +3,7 @@ import { Button, Container, Row, Col, OverlayTrigger, Tooltip, Tab, Tabs } from 
 import { useNavigate } from "react-router-dom";
 
 import logo_wcag from "../img/wcag-hta-logo.svg";
-import slide1 from "../img/principles/main-normas-accesibilidad.png";
+import slide1 from "../img/Accessibility.png";
 import perceivable from "../img/principles/perceivable.png";
 import operable from "../img/principles/operable.png";
 import understandable from "../img/principles/understandable.png";
@@ -66,19 +66,18 @@ export default function NormasAccesibilidadWeb() {
 
   return (
     <Container fluid className="app-normas-accesibilidad p-0">
-      <header className="main-image min-vh-75 overflow-hidden position-relative">
-        <div className="oblique">
-          <img src={slide1} alt="" />
-        </div>
-        <Container className="m-0 text-container text-center">
+      <header className="main-image min-vh-50 overflow-hidden position-relative d-flex align-items-center">
+        <img src={slide1} alt="" className="position-absolute w-100" />
+        <div className="foreground-layer position-absolute"></div>
+        <Container className="m-0 text-container text-center text-white">
           <h1>W3C & WCAG</h1>
           <p>Descubre los estándares de la accesibilidad web.</p>
-          <Button variant="outline-primary" className="px-4 py-3 rounded-0 btn-principles" href="#principles">
+          <Button variant="primary" className="px-4 py-2 btn-principles" href="#principles">
             Comenzar
           </Button>
         </Container>
       </header>
-      <Container fluid="sm" className="main-container">
+      <Container fluid="sm" className="main-container mt-5">
         <Row className="section-1">
           <div className="bg"></div>
           <Col xl="4" lg="3" md={{ order: "first", span: 4 }} xs={{ order: "last", span: 8 }} className="col-sello">
