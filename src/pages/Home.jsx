@@ -82,16 +82,47 @@ const Home = () => {
     <Container fluid className="app-home p-0">
       <div className="bg-soft">
         <Slides slides={slides} interval={10000} />
-        <Container fluid="lg" className="mt-4 text-black app-home-section1">
-          <Row className="justify-content-center align-items-center m-auto">
-            <Col lg="7" md="6" xs="12">
-              <Container className="mb-4 text-container">
-                <h2>
-                  La <span className="bolder">Accesibilidad</span> en <span className="highlighted">Páginas Web</span>
-                </h2>
+        <div className="text-white app-home-section1 bg-dark-blue-gradient">
+          <Container fluid="lg" className="p-container" style={{ marginTop: imageAccHeight / 4, marginBottom: imageAccHeight / 4 }}>
+            <Row className="justify-content-center align-items-center">
+              <Col lg="7" md="6" xs="12">
+                <Container className="my-4 text-container">
+                  <h2 className="bolder">
+                    <span className="highlighted">La Accesibilidad en</span>
+                    <br />
+                    Páginas Web
+                  </h2>
 
-                <p className="my-4">En un mundo rebosante de información digital se ha convertido en un factor imprescindible retener a los visitantes de nuestro web. Se estima que Google procesa 63.000 búsquedas por segundo.</p>
-                <p>Personas que no comprendan o no puedan interactuar con la información o el funcionamiento de una página web la abandonarán rápidamente.</p>
+                  <p className="my-4">En un mundo rebosante de información digital se ha convertido en un factor imprescindible retener a los visitantes de nuestro web. Se estima que Google procesa 63.000 búsquedas por segundo.</p>
+                  <p className="m-0">Personas que no comprendan o no puedan interactuar con la información o el funcionamiento de una página web la abandonarán rápidamente.</p>
+                </Container>
+              </Col>
+              <Col lg="5" md="6" xs="12" className="keyboard-container position-relative">
+                <div className=" w-100" style={{ marginTop: -(imageAccHeight / 2), top: 0 }}>
+                  <Container className="position-relative" style={{ height: imageAccHeight }}>
+                    <img className="w-100 position-absolute left-0" src={que_es_accesibilidad} alt="" onLoad={onImgLoad} />
+                    <AnimationOnScroll animateIn="animate__bounceInRight" delay={1000} animateOnce={true} className="position-absolute left-0">
+                      <img className="w-100" src={que_es_accesibilidad2} alt="" />
+                    </AnimationOnScroll>
+                    <AnimationOnScroll animateIn="animate__bounceInRight" delay={2000} animateOnce={true} className="position-absolute left-0">
+                      <img className="w-100" src={que_es_accesibilidad3} alt="" />
+                    </AnimationOnScroll>
+                    <AnimationOnScroll animateIn="animate__bounceInRight" delay={3000} animateOnce={true} className="position-absolute left-0">
+                      <img className="w-100" src={que_es_accesibilidad4} alt="" />
+                    </AnimationOnScroll>
+                  </Container>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </div>
+        <Container fluid="lg" className="text-black app-home-section2 p-container">
+          <Row className="justify-content-center align-items-center gx-4">
+            <Col md="7" xs="12">
+              <Container className="mb-4 text-container">
+                <h2>Barreras de Accesibilidad</h2>
+                <p className="mt-4">Personas que utilizan gafas, son daltónicas, tienen mobilidad reducida en los brazos, viven en entornos ruidosos, son dislexicos, o tienen mala conexion a internet, se encuentran con barreras de accesibilidad diariamente.</p>
+                <p className="my-4">Páginas web que no contemplen los elementos de la accesibilidad web pueden provocar que estas personas no puedan navegar o comprender su contenido.</p>
                 <p className="my-4">
                   Los sitios web deben estár diseñados y desarrollados de tal manera que puedan usarlos el mayor porcentaje de población posible, este es el objetivo de la Accesibilidad web. Texto alternativo en imágenes, colores contrastados, navegación por teclado... Descubre los elementos más importantes de la accesibilidad web en <span className="accent-hta">How To Access</span>.
                 </p>
@@ -100,52 +131,28 @@ const Home = () => {
                 </Button>
               </Container>
             </Col>
-            <Col lg="5" md="6" xs="12" className="keyboard-container">
-              <Container className="position-relative" style={{ height: imageAccHeight }}>
-                <img className="w-100 position-absolute left-0" src={que_es_accesibilidad} alt="" />
-                <AnimationOnScroll animateIn="animate__bounceInRight" delay={1000} animateOnce="true" className="position-absolute left-0">
-                  <img className="w-100" src={que_es_accesibilidad2} alt="" onLoad={onImgLoad} />
-                </AnimationOnScroll>
-                <AnimationOnScroll animateIn="animate__bounceInRight" delay={2000} animateOnce="true" className="position-absolute left-0">
-                  <img className="w-100" src={que_es_accesibilidad3} alt="" />
-                </AnimationOnScroll>
-                <AnimationOnScroll animateIn="animate__bounceInRight" delay={3000} animateOnce="true" className="position-absolute left-0">
-                  <img className="w-100" src={que_es_accesibilidad4} alt="" />
-                </AnimationOnScroll>
+            <Col md="5" xs="12" className="px-3 mb-3">
+              <Container className="px-3 text-center container-image-accesibility" fluid="sm">
+                <div className="tap-to-discover" aria-hidden="true" data-st-delay="0.3">
+                  Clic para descubrir
+                </div>
+                <ToastContainer position="middle-center" className="toast-accessibility">
+                  <Toast show={visibleTooltip} onClose={randomTooltip} bg="white" className="custom-toast">
+                    <Toast.Header>
+                      <strong className="me-auto">Barrera de accesibilidad</strong>
+                    </Toast.Header>
+                    <Toast.Body>{tooltip}</Toast.Body>
+                  </Toast>
+                </ToastContainer>
+
+                <img onClick={randomTooltip} className="w-75 cursor-pointer" src={barrera_accesibilidad} alt="" />
               </Container>
             </Col>
           </Row>
         </Container>
         <Spacer space={[2, 0]} color="rgb(240, 240, 240)" />
       </div>
-      <Container fluid="lg" className="text-black app-home-section2 p-container">
-        <Row className="justify-content-center align-items-center gx-4">
-          <Col lg="7" md="6" xs="12">
-            <Container className="mb-4 text-container">
-              <h2>Barreras de Accesibilidad</h2>
-              <p className="mt-4">Personas que utilizan gafas, son daltónicas, tienen mobilidad reducida en los brazos, viven en entornos ruidosos, son dislexicos, o tienen mala conexion a internet, se encuentran con barreras de accesibilidad diariamente.</p>
-              <p className="my-4">Páginas web que no contemplen los elementos de la accesibilidad web pueden provocar que estas personas no puedan navegar o comprender su contenido.</p>
-            </Container>
-          </Col>
-          <Col lg="5" md="6" xs="12" className="px-3 mb-3">
-            <Container className="px-3 text-center container-image-accesibility" fluid="sm">
-              <div className="tap-to-discover" aria-hidden="true" data-st-delay="0.3">
-                Clic para descubrir
-              </div>
-              <ToastContainer position="middle-center" className="toast-accessibility">
-                <Toast show={visibleTooltip} onClose={randomTooltip} bg="white" className="custom-toast">
-                  <Toast.Header>
-                    <strong className="me-auto">Barrera de accesibilidad</strong>
-                  </Toast.Header>
-                  <Toast.Body>{tooltip}</Toast.Body>
-                </Toast>
-              </ToastContainer>
 
-              <img onClick={randomTooltip} className="w-75 cursor-pointer" src={barrera_accesibilidad} alt="" />
-            </Container>
-          </Col>
-        </Row>
-      </Container>
       <Container fluid="lg" className="text-black app-home-section3 p-container">
         <Row className="justify-content-center align-items-center gx-5">
           <Col lg="5" md={{ order: "first", span: 6 }} sm={{ order: "last", span: 12 }} xs={{ order: "last", span: 12 }}>
