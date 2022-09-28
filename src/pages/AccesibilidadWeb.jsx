@@ -149,8 +149,9 @@ export default function AccesibilidadWeb() {
       <Container fluid="sm" className="">
         <Row className="accessibility-elements py-3 align-items-center">
           <Col xs="12" md="6" className="main-title">
-            <h1 className="title">Elementos que mejoran la accesibilidad web</h1>
-            <p className="description">Elementos que mejoran la accesibilidad web Elementos que mejoran la accesibilidad web Elementos que mejoran la accesibilidad web</p>
+            <h1 className="title">Tipos de discapacidades</h1>
+            <p className="description">Los usuarios que navegan en internet pueden presentar distintos tipos de discapacidades que afectan al uso y experiencia de navegación web. Tamnién es posible que los usuarios presenten múltiples discapacidades simultáneamente. Estas discapacidades pueden verse agravadas por una avanzada edad del usuario o el desconocimiento de las tecnologías.</p>
+            <p className="description">Comprender los distintos tipos de discapacidades y cómo estas afectan al uso de la tecnología es esencial para saber qué elementos implementar para proporcionar la mejor experiencia de usuario posible.</p>
           </Col>
           <Col xs="12" md="6">
             <Row className="pt-4 pb-2">
@@ -161,16 +162,16 @@ export default function AccesibilidadWeb() {
                   </div>
                   <h2 className="title">Visuales</h2>
                 </div>
-                <p>Elementos que mejoran la accesibilidad web</p>
+                <p>Las discapacidades visuales pueden abarcar desde el daltonismo, una visión reducida, o incluso la ceguera completa.</p>
               </Col>
               <Col xs="6" className="column-item">
                 <div className="d-flex align-items-center pb-2">
                   <div className="box">
                     <img src={cabeza} alt="" />
                   </div>
-                  <h2 className="title">Cognitivos</h2>
+                  <h2 className="title">Cognitivas</h2>
                 </div>
-                <p>Elementos que mejoran la accesibilidad web</p>
+                <p>Las discapacidades cognitivas afectan a la comprensión del entorno y resolución de problemas, como el autismo.</p>
               </Col>
             </Row>
             <Row className="pt-2 pb-4">
@@ -179,18 +180,18 @@ export default function AccesibilidadWeb() {
                   <div className="box">
                     <img src={tap} alt="" />
                   </div>
-                  <h2 className="title">Táctiles</h2>
+                  <h2 className="title">Motoras</h2>
                 </div>
-                <p>Elementos que mejoran la accesibilidad web</p>
+                <p>Las discapacidades motoras afectan a los tiempos de respuesta y al método de intracción entre el usuario y el ordenador.</p>
               </Col>
               <Col xs="6" className="column-item">
                 <div className="d-flex align-items-center pb-2">
                   <div className="box">
                     <img src={oido} alt="" />
                   </div>
-                  <h2 className="title">Auditivos</h2>
+                  <h2 className="title">Auditivas</h2>
                 </div>
-                <p>Elementos que mejoran la accesibilidad web</p>
+                <p>Las discapacidades auditivas pueden abarcar desde una audición reducida hasta la perdida total de la audición.</p>
               </Col>
             </Row>
           </Col>
@@ -219,9 +220,9 @@ export default function AccesibilidadWeb() {
         <Row className="row2 align-items-center">
           <Col md="12" lg="6">
             <h3 className="title">Todos nos beneficiamos de una buena accesibilidad web</h3>
-            <p>Realizar un diseño web que sea usable y accesible para personas con discapacidad tiene beneficios para el resto de personas que no presentan dichas discapacidades.</p>
             <p>Aproximadamente la mitad de los usuarios que llegan a una página web podrían tener dificultades para navegar a traves de ella o entender su información.</p>
             <p>Además, personas perfectamente saludables, con excelente vista, audición y mobilidad, y que pueden leer y escribir sin esfuerzo, también pueden encontrar problemas de uso en páginas web.</p>
+            <p>Realizar un diseño web que sea usable y accesible para personas con discapacidad tiene beneficios para el resto de personas que no presentan dichas discapacidades.</p>
           </Col>
           <Col md="12" lg="6">
             <img alt="" src={web_building} className="w-100" />
