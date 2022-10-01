@@ -37,7 +37,9 @@ export default function Principle({ crumbs }) {
   return (
     <Container className="app-principle main-container">
       <BreadcrumbCustom breadcrumb={crumbs} />
-      <button onClick={() => navigate(-1)}>Back</button>
+      <button className="btn btn-link p-0 mb-3" onClick={() => navigate(-1)}>
+        <i className="bi bi-arrow-left"></i>Volver
+      </button>
       <article>
         <header>
           <span className="index">{principle.key}</span>
@@ -75,7 +77,7 @@ export default function Principle({ crumbs }) {
             <Row className="align-items-center">
               <Col lg={pauta.img ? "8" : "12"} md="12">
                 <div dangerouslySetInnerHTML={{ __html: pauta.description }}></div>
-                <Button as="a" href={`/normas-de-accesibilidad-web/${principle.name.toLowerCase().replace(/ /g, "-")}/${pauta.name.toLowerCase().replace(/ /g, "-")}`}>
+                <Button variant="outline-primary" as="a" href={`/normas-de-accesibilidad-web/${principle.name.toLowerCase().replace(/ /g, "-")}/${pauta.name.toLowerCase().replace(/ /g, "-")}`}>
                   Ampliar información
                 </Button>
               </Col>

@@ -1,21 +1,22 @@
-// New color map
+// extends color theme classes
 $custom-colors: (
   "success-light": $success-light,
+  "primary-light": $primary-light,
+  "primary-dark": $primary-dark,
 );
-
-// Merge the maps
 $theme-colors: map-merge($theme-colors, $custom-colors);
 
+// extends sizes classes
 $custom-sizes: (
   "075": $font-size-base * 0.75,
   "05": $font-size-base * 0.5,
   "025": $font-size-base * 0.25,
 );
-
 $font-sizes: map-merge($font-sizes, $custom-sizes);
 
 $utilities: () !default;
 
+// extends min vh classes
 $utilities: map-merge(
   (
     "min-viewport-height": (
@@ -30,6 +31,8 @@ $utilities: map-merge(
   ),
   $utilities
 );
+
+// extends position classes
 $utilities: map-merge(
   (
     "position": (
@@ -39,6 +42,29 @@ $utilities: map-merge(
   ),
   $utilities
 );
+
+// extends font weight classes
+$utilities: map-merge(
+  (
+    "font-weight": (
+      property: font-weight,
+      class: fw,
+      values: (
+        thin: $font-weight-thin,
+        extralight: $font-weight-extralight,
+        light: $font-weight-light,
+        regular: $font-weight-regular,
+        medium: $font-weight-medium,
+        semibold: $font-weight-semibold,
+        bold: $font-weight-bold,
+        extrabold: $font-weight-extrabold,
+        black: $font-weight-black,
+      ),
+    ),
+  ),
+  $utilities
+);
+
 /*
 $utilities: map-merge(
   (

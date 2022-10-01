@@ -88,7 +88,7 @@ const Home = () => {
               <Col lg="7" md="6" xs="12">
                 <Container className="my-4 text-container">
                   <h2 className="bolder">
-                    <span className="highlighted">La Accesibilidad en</span>
+                    <span className="highlighted text-color-gradient-purple">La Accesibilidad en</span>
                     <br />
                     Páginas Web
                   </h2>
@@ -126,7 +126,7 @@ const Home = () => {
                 <p className="my-4">
                   Los sitios web deben estár diseñados y desarrollados de tal manera que puedan usarlos el mayor porcentaje de población posible, este es el objetivo de la Accesibilidad web. Texto alternativo en imágenes, colores contrastados, navegación por teclado... Descubre los elementos más importantes de la accesibilidad web en <span className="accent-hta">How To Access</span>.
                 </p>
-                <Button variant="primary" className="w-auto" href="/accesibilidad-web">
+                <Button variant="outline-primary" className="w-auto" href="/accesibilidad-web">
                   Ver más <i className="bi bi-arrow-right"></i>
                 </Button>
               </Container>
@@ -182,7 +182,7 @@ const Home = () => {
               <p className="my-4">
                 Una de las mejores maneras de aprender es prácticando, por eso en <span className="accent-hta">How To Access</span> proporcionamos ejemplos de diseños e implementaciones que cumplen con las normativas y recomendaciones de la Accesibilidad web.
               </p>
-              <Button variant="primary" className="w-auto" href="/normas-de-accesibilidad-web">
+              <Button variant="outline-primary" className="w-auto" href="/normas-de-accesibilidad-web">
                 Descubrir más <i className="bi bi-arrow-right"></i>
               </Button>
             </Container>

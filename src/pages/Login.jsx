@@ -81,7 +81,7 @@ export default function Login() {
               <Form.Check type="checkbox" label="Recordarme" />
             </Form.Group>
             {errors.msg && <p className="text-danger">{errors.msg}</p>}
-            <Button variant="primary" type="submit" className="w-100">
+            <Button variant="outline-primary" type="submit" className="w-100">
               Iniciar sesión
             </Button>
           </Form>

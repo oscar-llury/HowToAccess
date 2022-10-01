@@ -69,11 +69,11 @@ export default function Header() {
             <Nav>
               {username ? (
                 <NavDropdown title={`Hola ${username}`} id="collasible-nav-dropdown">
-                  <Link to="/proyectos" className="nav-item" title="Mis proyectos">
+                  <Link to="/proyectos" className={`nav-item ${locationUrl === "/proyectos" ? "active" : ""}`} title="Mis proyectos">
                     Mis Proyectos
                   </Link>
                   <NavDropdown.Divider />
-                  <Link to="/simulacion-interactiva" className="nav-item" title="Simulación interactiva">
+                  <Link to="/simulacion-interactiva" className={`nav-item ${locationUrl === "/simulacion-interactiva" ? "active" : ""}`} title="Simulación interactiva">
                     Simulación interactiva
                   </Link>
                   <NavDropdown.Divider />

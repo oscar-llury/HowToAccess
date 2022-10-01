@@ -8,7 +8,9 @@ $text-color: rgb(20, 20, 20);
 
 $primary: #177abd;
 $primary-light: #66baf2;
-$primary-dark: #177abd; //#0d4970;
+$primary-dark: #3a416f; //#0d4970;
+$blue-gradient-dark: #141727;
+$blue-gradient-light: $primary-dark;
 
 $secondary: #de0dd8;
 $success: #005e14;
@@ -29,6 +31,17 @@ $bg-dark-blue: #3a416f;
 $link-color: $text-color;
 $link-hover-color: $primary-dark;
 
+$btn-padding-y: 0.5rem;
+$btn-padding-x: 2rem;
+$btn-white-space: nowrap; // Set to `nowrap` to prevent text wrapping
+$btn-border-width: 2px;
+$btn-font-weight: 600;
+$btn-box-shadow: none;
+$btn-focus-box-shadow: none;
+$btn-active-box-shadow: none;
+$btn-border-radius: 2rem;
+$btn-transition: color 350ms ease-in-out, background-color 350ms ease-in-out, border-color 350ms ease-in-out, box-shadow 350ms ease-in-out;
+
 $table-hover-bg-factor: 0.2 !default;
 $table-hover-bg: rgba($black, $table-hover-bg-factor) !default;
 
@@ -41,8 +54,17 @@ $table-hover-bg: rgba($black, $table-hover-bg-factor) !default;
 }
 
 $font-family-sans-serif: "Inter", "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
-
 $font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+
+$font-weight-thin: 100;
+$font-weight-extralight: 200;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+$font-weight-black: 900;
 /*
 $headings-color:              null !default;
 $headings-font-family:        null !default;

@@ -18,7 +18,7 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --header-height: 60px;
+  --header-height: 65px;
   --banner-height: 0px;
   --footer-height: calc(24px + 2rem);
   --vh100-offset-header: calc(var(--header-height));
@@ -146,7 +146,7 @@ body::-webkit-scrollbar-thumb {
   background-color: $bg-dark-blue;
 }
 .bg-dark-blue-gradient {
-  background-image: linear-gradient(155deg, #141727, #3a416f);
+  background-image: linear-gradient(155deg, $blue-gradient-dark, $blue-gradient-light);
 }
 .oblique {
   position: absolute;
@@ -176,6 +176,44 @@ body::-webkit-scrollbar-thumb {
   transform: scale(-1, -1);
   margin-bottom: 0;
   margin-top: -1px;
+}
+.text-color-gradient-yellow {
+  background-image: linear-gradient(180deg, #ffe993, #eb831c);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+}
+.text-color-gradient-blue {
+  background-image: linear-gradient(180deg, #5ac8fa, #194bb5);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+}
+.text-color-gradient-purple {
+  background-image: linear-gradient(180deg, #f88bf8, #f900b8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+}
+.underlining-text {
+  z-index: 1;
+  position: relative;
+  &::before {
+    width: 118px;
+    height: 48px;
+    background-size: 118px 48px;
+    background-repeat: no-repeat;
+    background-image: url("../img/subrayado-verde.png");
+    content: "";
+    position: absolute;
+    z-index: -1;
+  }
 }
 .main-container {
   padding: 0 8em;
@@ -300,7 +338,10 @@ body::-webkit-scrollbar-thumb {
     margin: 0 0.5em;
     font-weight: 450;
     text-decoration: none;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
   }
+
   .nav-link {
     padding: 0;
   }
@@ -315,6 +356,15 @@ body::-webkit-scrollbar-thumb {
   .dropdown-menu[data-bs-popper] {
     //left: -50%;
     width: max-content;
+  }
+  .dropdown-menu {
+    .nav-item {
+      padding: 0.5em 0.5em;
+    }
+    .active,
+    .nav-item:hover {
+      border-bottom: 3px solid $primary;
+    }
   }
 }
 
@@ -417,13 +467,7 @@ footer {
       font-weight: 500;
     }
     .highlighted {
-      background-image: linear-gradient(310deg, #b66dff, #ff0080);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      color: $primary;
       font-weight: 700;
-      white-space: nowrap;
     }
     .keyboard-container {
       & div {
@@ -437,7 +481,7 @@ footer {
 
       .tap-to-discover {
         text-align: end;
-        color: $primary-dark;
+        color: $primary;
         font-weight: 600;
         margin-top: -20px;
         margin-bottom: 20px;
@@ -1055,7 +1099,7 @@ footer {
     }
     .tablist {
       margin-top: 20px;
-      border: 1px solid $primary-light;
+      border: 1px solid $primary;
       border-radius: 20px;
       //background-color: $primary-light;
       width: 80%;
@@ -1082,6 +1126,7 @@ footer {
         .active {
           border-radius: 20px;
           background-color: $primary;
+          color: $text-light;
           -webkit-transition: background-color 0.5s linear;
           -ms-transition: background-color 0.5s linear;
           transition: background-color 0.5s linear;
@@ -1514,7 +1559,7 @@ footer {
     padding: 0;
     .objective {
       border-left: 10px solid;
-      border-image-source: linear-gradient($primary-dark, $primary-dark);
+      border-image-source: $primary-dark;
       border-image-slice: 20;
       padding: 1em;
     }
