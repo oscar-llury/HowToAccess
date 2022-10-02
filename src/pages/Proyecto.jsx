@@ -1,7 +1,7 @@
 import axios from "axios";
 import ConformanceBox from "components/ConformanceBox";
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col, ProgressBar, Table } from "react-bootstrap";
+import { Container, Row, Col, ProgressBar, Table, Button } from "react-bootstrap";
 import { useParams } from "react-router";
 import { Link, useNavigate } from "react-router-dom";
 import { VictoryPie, VictoryAnimation, VictoryLabel } from "victory";
@@ -54,25 +54,16 @@ export default function Proyecto() {
     formData.append("proyectoId", id_pjt);
 
     return axios
-      .post(
-        `${process.env.REACT_APP_BACK_URL}/API/proyectos/info.php`,
-        formData,
-        {
-          headers: {},
-        }
-      )
+      .post(`${process.env.REACT_APP_BACK_URL}/API/proyectos/info.php`, formData, {
+        headers: {},
+      })
       .then((data) => {
         const dataR = data.data;
         if (dataR.status) {
           setInfo(dataR.data);
           setCriteria(dataR.data.criterios);
           setPrinciples(dataR.data.principios);
-          setTotalProgress(
-            getData(
-              dataR.data.criterios_totales,
-              dataR.data.criterios_cumplidos
-            )
-          );
+          setTotalProgress(getData(dataR.data.criterios_totales, dataR.data.criterios_cumplidos));
         } else {
           console.dir(dataR);
         }
@@ -96,11 +87,7 @@ export default function Proyecto() {
     formData.append("token", tokenRedux);
 
     return axios
-      .post(
-        `${process.env.REACT_APP_BACK_URL}/API/proyectos/completarCriterio.php`,
-        formData,
-        { headers: {} }
-      )
+      .post(`${process.env.REACT_APP_BACK_URL}/API/proyectos/completarCriterio.php`, formData, { headers: {} })
       .then((data) => {
         const dataR = data.data;
         if (dataR.status === 1) {
@@ -116,9 +103,7 @@ export default function Proyecto() {
           info.criterios = criteria;
           info.principios = principles;
 
-          setTotalProgress(
-            getData(info.criterios_totales, info.criterios_cumplidos + 1)
-          );
+          setTotalProgress(getData(info.criterios_totales, info.criterios_cumplidos + 1));
         } else {
           //error
           console.dir(dataR);
@@ -139,73 +124,59 @@ export default function Proyecto() {
       {windowWd >= 992 ? (
         <Row className="card-info align-items-center">
           <Col lg="9" className="">
-            <RenderProjectInfo
-              name={info.nombre}
-              idConformance={info.conformidad}
-            />
+            <RenderProjectInfo name={info.nombre} idConformance={info.conformidad} />
             <RenderProjectPrinciples principles={principles} />
           </Col>
           <Col lg="3" className="text-center">
-            <RenderTotalProgress
-              animationDuration={animationDuration}
-              size={size}
-              data={totalProgress}
-              info={info}
-            />
+            <RenderTotalProgress animationDuration={animationDuration} size={size} data={totalProgress} info={info} />
           </Col>
         </Row>
       ) : (
         <div className="card-info flex-wrap">
           <Row className="align-items-center flex-wrap">
             <Col xs="8" sm="8" md="9" className="">
-              <RenderProjectInfo
-                name={info.nombre}
-                idConformance={info.conformidad}
-              />
+              <RenderProjectInfo name={info.nombre} idConformance={info.conformidad} />
             </Col>
             <Col xs="4" sm="4" md="3" className="text-center">
-              <RenderTotalProgress
-                animationDuration={animationDuration}
-                size={size}
-                data={totalProgress}
-                info={info}
-              />
+              <RenderTotalProgress animationDuration={animationDuration} size={size} data={totalProgress} info={info} />
             </Col>
           </Row>
           <RenderProjectPrinciples principles={principles} />
         </div>
       )}
       <Container className="criterios">
-        <Table striped bordered hover responsive>
+        <Table borderless hover responsive className="proyectos-table">
           <thead>
             <tr>
               <th className="text-center">Estado</th>
               <th className="text-center">Indice</th>
               <th className="text-center">Conformidad</th>
+              <th>Principio</th>
               <th>Nombre del criterio</th>
               <th className="text-center">Acciones</th>
             </tr>
           </thead>
           <tbody>
             {criteria.map((criteria, index) => (
-              <tr id={"criteria_" + index} key={index}>
-                <td className="text-center status">
+              <tr id={"criteria_" + index} key={index} className="proyecto-row">
+                <td className="text-center estado">
                   {criteria.completado ? (
-                    <i
-                      className="bi bi-check-circle"
-                      title="Proyecto completado"
-                    ></i>
+                    <>
+                      <i className="bi bi-circle-fill text-success-light fs-05" title="Proyecto completado"></i>
+                      Completado
+                    </>
                   ) : (
-                    <i
-                      className="bi bi-three-dots"
-                      title="Proyecto en curso"
-                    ></i>
+                    <>
+                      <i className="bi bi-circle-fill text-warning fs-05" title="Proyecto en curso"></i>
+                      En curso
+                    </>
                   )}
                 </td>
                 <td className="text-center">{criteria.indice}</td>
                 <td>
-                  <ConformanceBox idConformance={criteria.conformidad} />
+                  <ConformanceBox className="m-auto" idConformance={criteria.conformidad} />
                 </td>
+                <td>{criteria.principio == 1 ? <>Perceptible</> : criteria.principio == 2 ? <>Operable</> : criteria.principio == 3 ? <>Comprensible</> : criteria.principio == 4 ? <>Robusto</> : <></>}</td>
                 <td
                   className="link"
                   onClick={() => {
@@ -218,14 +189,9 @@ export default function Proyecto() {
                   {criteria.completado ? (
                     <span></span>
                   ) : (
-                    <button
-                      className="btn px-4 py-0 cursor-pointer"
-                      title="Marcar criterio como cumplido"
-                      onClick={handleCompleteCriteria}
-                      data-id={index}
-                    >
+                    <Button variant="outline-primary" className="btn px-3 py-0 cursor-pointer border-0" title="Marcar criterio como cumplido" onClick={handleCompleteCriteria} data-id={index}>
                       <i className="bi bi-check2-circle" data-id={index}></i>
-                    </button>
+                    </Button>
                   )}
                 </td>
               </tr>
@@ -240,11 +206,7 @@ const PrincipleProgress = ({ completed, total, name }) => {
   return (
     <>
       <h3 className="mb-3">{name}</h3>
-      <ProgressBar
-        now={percentage(completed, total, 0)}
-        label={`${percentage(completed, total, 0)}%`}
-        className="my-2"
-      />
+      <ProgressBar now={percentage(completed, total, 0)} label={`${percentage(completed, total, 0)}%`} className="my-2" />
       <p className="mb-0">CA cumplidos: {completed}</p>
       <p className="mb-0">CA pendientes: {total - completed}</p>
     </>
@@ -255,10 +217,7 @@ const RenderProjectInfo = ({ name, idConformance }) => {
   return (
     <>
       <h2>{name}</h2>
-      <ConformanceBox
-        idConformance={idConformance}
-        className="d-inline-block"
-      />
+      <ConformanceBox idConformance={idConformance} className="d-inline-block" />
       <p className="d-inline-block ms-2">Nivel de conformidad WCAG objetivo</p>
     </>
   );
@@ -269,11 +228,7 @@ const RenderProjectPrinciples = ({ principles }) => {
     <Row className="principles">
       {principles.map((principle, index) => (
         <Col sm="6" lg="3" className="box" key={index}>
-          <PrincipleProgress
-            completed={principle.cumplidos}
-            total={principle.total}
-            name={principle.nombre}
-          />
+          <PrincipleProgress completed={principle.cumplidos} total={principle.total} name={principle.nombre} />
         </Col>
       ))}
 
@@ -326,11 +281,7 @@ const RenderTotalProgress = ({ animationDuration, size, data, info }) => {
                 verticalAnchor="middle"
                 x={size / 2}
                 y={size / 2}
-                text={`${percentage(
-                  info.criterios_cumplidos,
-                  info.criterios_totales,
-                  0
-                )}%`}
+                text={`${percentage(info.criterios_cumplidos, info.criterios_totales, 0)}%`}
                 style={{
                   fontSize: 45,
                   fontFamily: "Inter",

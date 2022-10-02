@@ -215,6 +215,33 @@ body::-webkit-scrollbar-thumb {
     z-index: -1;
   }
 }
+.proyectos-table {
+  border-spacing: 0 15px;
+  border-collapse: separate;
+  td {
+    padding: 1em;
+    vertical-align: middle;
+  }
+  .proyecto-row {
+    background-color: white;
+    box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+    border-radius: 5px;
+    td:nth-child(1) {
+      border-radius: 5px 0 0 5px;
+    }
+    td:nth-last-child(1) {
+      border-radius: 0 5px 5px 0;
+    }
+    .estado {
+      white-space: nowrap;
+      i {
+        margin-right: 5px;
+        display: inline-block;
+        overflow: hidden;
+      }
+    }
+  }
+}
 .main-container {
   padding: 0 8em;
   //max-width: 1200px;
@@ -352,6 +379,9 @@ body::-webkit-scrollbar-thumb {
   }
   .dropdown-toggle::after {
     margin-left: 0.5em;
+  }
+  .navbar-toggler {
+    border-radius: 5px;
   }
   .dropdown-menu[data-bs-popper] {
     //left: -50%;
@@ -1231,7 +1261,7 @@ footer {
   min-height: calc(100vh - var(--vh100-offset));
   padding-top: 20px;
   .steps-nav {
-    margin-bottom: 5%;
+    //margin-bottom: 5%;
 
     .dots,
     .dots:after,
@@ -1314,7 +1344,10 @@ footer {
     }
   }
   .form-proyecto {
-    padding: 0 3em;
+    padding: 2rem 3em;
+    background: white;
+    border-radius: 2rem;
+    box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
     h2 {
       font-size: 1.5em;
       font-weight: 600;
@@ -1375,7 +1408,7 @@ footer {
   }
   @media (max-width: 1200px) {
     .form-proyecto {
-      padding: 0 2em;
+      padding: 2em;
     }
     .step-2 {
       .principles-list {
@@ -1384,9 +1417,6 @@ footer {
     }
   }
   @media (max-width: 992px) {
-    .form-proyecto {
-      padding: 0 2em;
-    }
     .step-2 {
       .principles-list {
         padding: 0 1em;
@@ -1395,7 +1425,7 @@ footer {
   }
   @media (max-width: 768px) {
     .form-proyecto {
-      padding: 0;
+      padding: 1rem;
     }
     .step-2 {
       .principles-list {
@@ -1414,7 +1444,7 @@ footer {
     margin: 2em 0;
     padding: 1em;
     border-radius: 10px;
-    background-color: $gray-500;
+    background-color: white;
     h2 {
       font-size: 2.5em;
       font-weight: 700;
@@ -1454,33 +1484,6 @@ footer {
     }
     .button {
       text-align: end;
-    }
-  }
-  .proyectos-table {
-    border-spacing: 0 15px;
-    border-collapse: separate;
-    td {
-      padding: 1em;
-      vertical-align: middle;
-    }
-    .proyecto-row {
-      background-color: white;
-      box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
-      border-radius: 5px;
-      td:nth-child(1) {
-        border-radius: 5px 0 0 5px;
-      }
-      td:nth-last-child(1) {
-        border-radius: 0 5px 5px 0;
-      }
-      .estado {
-        white-space: nowrap;
-        i {
-          margin-right: 5px;
-          display: inline-block;
-          overflow: hidden;
-        }
-      }
     }
   }
   @media (max-width: 992px) {
@@ -1558,8 +1561,8 @@ footer {
   .principio {
     padding: 0;
     .objective {
-      border-left: 10px solid;
-      border-image-source: $primary-dark;
+      border-left: 10px solid $primary-dark;
+      //border-image-source: linear-gradient($primary-dark, $primary-dark);
       border-image-slice: 20;
       padding: 1em;
     }

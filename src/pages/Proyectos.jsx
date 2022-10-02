@@ -63,8 +63,8 @@ export default function Proyectos() {
               <tr>
                 <th>Nombre del proyecto</th>
                 <th>Estado</th>
-                <th>Conformidad</th>
-                <th>Criterios</th>
+                <th className="text-center">Conformidad</th>
+                <th className="text-center">Criterios</th>
                 <th className="text-center">Insignia</th>
               </tr>
             </thead>
@@ -111,9 +111,9 @@ const TableRowProyectos = ({ proyecto, navigate }) => {
         )}
       </td>
       <td>
-        <ConformanceBox idConformance={proyecto.conformidad} />
+        <ConformanceBox className="m-auto" idConformance={proyecto.conformidad} />
       </td>
-      <td>
+      <td className="text-center">
         <span>{proyecto.criteriosF}</span>/<span>{proyecto.criteriosT}</span>
       </td>
       <td className="text-center">

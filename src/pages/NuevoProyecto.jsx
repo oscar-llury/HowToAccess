@@ -1,15 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import {
-  Col,
-  Container,
-  Form,
-  Row,
-  Spinner,
-  Button,
-  Modal,
-} from "react-bootstrap";
+import { Col, Container, Form, Row, Spinner, Button, Modal } from "react-bootstrap";
 
 import modalImg from "../img/complete-form.svg";
 
@@ -20,9 +12,7 @@ export default function NuevoProyecto() {
   const [nombre, setNombre] = useState("");
   const [tipoCriterios, setTipoCriterios] = useState(0);
   const [conformanceLevel, setConformanceLevel] = useState(0);
-  const [foo, setFoo] = useState(
-    <p>Selecciona primero un método de selección de criterios de conformidad</p>
-  );
+  const [foo, setFoo] = useState(<p>Selecciona primero un método de selección de criterios de conformidad</p>);
   const ids = [1, 2, 3];
   const [totalComplete, setTotalComplete] = useState(0);
   const [conformanceCriteria, setConformanceCriteria] = useState([]);
@@ -82,13 +72,7 @@ export default function NuevoProyecto() {
   }, [totalComplete]);
 
   useEffect(() => {
-    Number(tipoCriterios) === 1 ? (
-      setFoo(<ProyectTypeConformance />)
-    ) : Number(tipoCriterios) === 2 ? (
-      setFoo(<ProyectTypePublic />)
-    ) : (
-      <div></div>
-    );
+    Number(tipoCriterios) === 1 ? setFoo(<ProyectTypeConformance />) : Number(tipoCriterios) === 2 ? setFoo(<ProyectTypePublic />) : <div></div>;
   }, [tipoCriterios]);
 
   function loadCriteria(callback) {
@@ -98,11 +82,7 @@ export default function NuevoProyecto() {
     const formData = new FormData();
     formData.append("conformanceLevel", conformanceLevel);
     return axios
-      .post(
-        `${process.env.REACT_APP_BACK_URL}/API/accesibilidad/listarCriterios.php`,
-        formData,
-        headers
-      )
+      .post(`${process.env.REACT_APP_BACK_URL}/API/accesibilidad/listarCriterios.php`, formData, headers)
       .then((data) => {
         const dataR = data.data;
         if (dataR.status) {
@@ -132,18 +112,20 @@ export default function NuevoProyecto() {
         setConformanceCriteria([...criteria]);
       }
     });
+    window.scrollTo(0, 0);
   }
 
   function handleSubmitSt2(e) {
     e.preventDefault();
     setActive(3, 2, 1);
     setTotalComplete(2);
+    window.scrollTo(0, 0);
   }
 
   function handleGoBack(e) {
     e.preventDefault();
-    console.dir(e.target);
     setActive(e.target.dataset.id);
+    window.scrollTo(0, 0);
   }
 
   function handleCreateProyect(e) {
@@ -172,22 +154,15 @@ export default function NuevoProyecto() {
     });
     formData.append("criterios_list", JSON.stringify(criterios_list));
     return axios
-      .post(
-        `${process.env.REACT_APP_BACK_URL}/API/proyectos/crear.php`,
-        formData,
-        headers
-      )
+      .post(`${process.env.REACT_APP_BACK_URL}/API/proyectos/crear.php`, formData, headers)
       .then((data) => {
         const dataR = data.data;
-        console.log(dataR);
         if (dataR.status === 1) {
           setShow(true);
           document.getElementById("modal-continue").dataset.id = dataR.data.id;
         } else {
           //error
-          setError(
-            "Por favor, revisa que los datos sean correctos e inténtalo de nuevo."
-          );
+          setError("Por favor, revisa que los datos sean correctos e inténtalo de nuevo.");
         }
       })
       .catch((err) => {
@@ -204,11 +179,11 @@ export default function NuevoProyecto() {
   }
 
   return (
-    <Container
-      fluid="sm"
-      className="text-black p-lg-5 p-md-3 p-sm-2 app-nuevo-proyecto"
-    >
-      <Row id="steps-nav" className="steps-nav">
+    <Container fluid="sm" className="text-black p-lg-5 p-md-3 p-sm-2 app-nuevo-proyecto">
+      <Row id="steps-nav" className="steps-nav mb-5">
+        <div className="text-center">
+          <h1>Nuevo proyecto</h1>
+        </div>
         <Col xs="12">
           <ol className="steps">
             <li id="dot-1" data-id="1" className="dots active">
@@ -243,36 +218,17 @@ export default function NuevoProyecto() {
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="proyect_type">
-              <Form.Label>
-                Método de selección de criterios de conformidad
-              </Form.Label>
-              <Form.Check
-                required
-                name="proyect_type"
-                id="proyect_type_1"
-                type="radio"
-                onChange={changeProyectType}
-                value={1}
-                label="Automática: en base a un nivel de conformidad"
-              />
-              <Form.Check
-                required
-                name="proyect_type"
-                id="proyect_type_2"
-                type="radio"
-                onChange={changeProyectType}
-                value={2}
-                label="Automática: en base a un público objetivo"
-                disabled
-              />
+              <Form.Label>Método de selección de criterios de conformidad</Form.Label>
+              <Form.Check required name="proyect_type" id="proyect_type_1" type="radio" onChange={changeProyectType} value={1} label="Automática: en base a un nivel de conformidad" />
+              <Form.Check required name="proyect_type" id="proyect_type_2" type="radio" onChange={changeProyectType} value={2} label="Automática: en base a un público objetivo" disabled />
             </Form.Group>
           </Col>
           <Col md="6" xs="12">
             {foo}
           </Col>
           <Col xs="12" className="d-flex justify-content-end">
-            <Button variant="primary" type="submit" onSubmit={handleSubmitSt1}>
-              Siguiente
+            <Button variant="outline-primary" type="submit" onSubmit={handleSubmitSt1}>
+              Siguiente <i className="bi bi-arrow-right"></i>
             </Button>
           </Col>
         </Row>
@@ -283,16 +239,7 @@ export default function NuevoProyecto() {
         </Col>
         <Form onSubmit={handleSubmitSt2}>
           <Col xs="12">
-            <Container className="text-center mb-3">
-              A continuación se listan los Criterios de Conformidad que deberán
-              satisfacerse para cumplir con un Nivel de Conformidad{" "}
-              {conformanceLevel === 1
-                ? " A"
-                : conformanceLevel === 2
-                ? "AA"
-                : "AAA"}
-              .
-            </Container>
+            <Container className="text-center mb-3">A continuación se listan los Criterios de Conformidad que deberán satisfacerse para cumplir con un Nivel de Conformidad {conformanceLevel === 1 ? " A" : conformanceLevel === 2 ? "AA" : "AAA"}.</Container>
             <Container id="step-2-spinner" className="text-center">
               <Spinner animation="border" role="status">
                 <span className="visually-hidden">Loading...</span>
@@ -320,18 +267,10 @@ export default function NuevoProyecto() {
                                   </h5>
                                 </Col>
                                 <Col xs="4" md="3" className="text-end">
-                                  <p className="m-0">
-                                    Nivel {criteria.level_name}
-                                  </p>
+                                  <p className="m-0">Nivel {criteria.level_name}</p>
                                 </Col>
                                 <Col xs="2" md="1" className="text-end">
-                                  <Button
-                                    variant="info"
-                                    href="#"
-                                    size="sm"
-                                    target="blank"
-                                    title="Consultar criterio"
-                                  >
+                                  <Button variant="info" href="#" size="sm" target="blank" title="Consultar criterio">
                                     <i className="bi bi-info-circle"></i>
                                   </Button>
                                 </Col>
@@ -347,16 +286,11 @@ export default function NuevoProyecto() {
             </ul>
           </Col>
           <Col xs="12" className="d-flex justify-content-between">
-            <Button
-              variant="primary"
-              type="button"
-              data-id="1"
-              onClick={handleGoBack}
-            >
-              Anterior
+            <Button variant="outline-primary" type="button" data-id="1" onClick={handleGoBack}>
+              <i className="bi bi-arrow-left"></i> Anterior
             </Button>
-            <Button variant="primary" type="submit" onSubmit={handleSubmitSt2}>
-              Siguiente
+            <Button variant="outline-primary" type="submit" onSubmit={handleSubmitSt2}>
+              Siguiente <i className="bi bi-arrow-right"></i>
             </Button>
           </Col>
         </Form>
@@ -369,22 +303,10 @@ export default function NuevoProyecto() {
         <Col md="6" xs="12" className="project-data">
           <p className="field">Nombre del proyecto:</p>
           <p className="value">{nombre}</p>
-          <p className="field">
-            Método de selección de criterios de conformidad:{" "}
-          </p>
-          <p className="value">
-            {tipoCriterios === 1
-              ? "En base a un nivel de conformidad"
-              : "En base a un público objetivo"}
-          </p>
+          <p className="field">Método de selección de criterios de conformidad: </p>
+          <p className="value">{tipoCriterios === 1 ? "En base a un nivel de conformidad" : "En base a un público objetivo"}</p>
           <p className="field">Nivel de conformidad:</p>
-          <p className="value">
-            {conformanceLevel === 1
-              ? "Nivel A"
-              : conformanceLevel === 2
-              ? "Nivel AA"
-              : "Nivel AAA"}
-          </p>
+          <p className="value">{conformanceLevel === 1 ? "Nivel A" : conformanceLevel === 2 ? "Nivel AA" : "Nivel AAA"}</p>
         </Col>
         <Col md="6" xs="12" className="principles">
           <p className="field">Listado de Criterios de Conformidad:</p>
@@ -404,8 +326,7 @@ export default function NuevoProyecto() {
                         {guidelines.criterios.map((criteria, ind) => (
                           <li key={ind}>
                             <h5>
-                              <span>{criteria.key}</span>- {criteria.name}{" "}
-                              (Nivel {criteria.level_name})
+                              <span>{criteria.key}</span>- {criteria.name} (Nivel {criteria.level_name})
                             </h5>
                           </li>
                         ))}
@@ -418,44 +339,25 @@ export default function NuevoProyecto() {
           </ul>
         </Col>
         <Col xs="12">
-          <p
-            id="bar-status"
-            className={`text-end text-danger ${error ?? "d-none"}`}
-          >
-            <strong className="text-danger">Ha ocurrido un error.</strong>{" "}
-            {error}
+          <p id="bar-status" className={`text-end text-danger ${error ?? "d-none"}`}>
+            <strong className="text-danger">Ha ocurrido un error.</strong> {error}
           </p>
         </Col>
         <Col xs="12" className="d-flex justify-content-between">
-          <Button
-            variant="primary"
-            type="button"
-            data-id="2"
-            onClick={handleGoBack}
-          >
-            Anterior
+          <Button variant="outline-primary" type="button" data-id="2" onClick={handleGoBack}>
+            <i className="bi bi-arrow-left"></i> Anterior
           </Button>
           <Button variant="primary" type="button" onClick={handleCreateProyect}>
             Crear proyecto
           </Button>
         </Col>
       </Row>
-      <Modal
-        show={show}
-        onHide={handleClose}
-        backdrop="static"
-        keyboard={false}
-        centered
-        className="drop-from-top only-continue no-border text-center"
-      >
+      <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false} centered className="drop-from-top only-continue no-border text-center">
         <Modal.Header className="flex-column">
           <img src={modalImg} alt="" />
           <Modal.Title>Proyecto creado correctamente</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          El proyecto se ha creado correctamente. A continuación serás
-          redirigido a la ficha del proyecto.
-        </Modal.Body>
+        <Modal.Body>El proyecto se ha creado correctamente. A continuación serás redirigido a la ficha del proyecto.</Modal.Body>
         <Modal.Footer>
           <Button variant="primary" id="modal-continue" onClick={handleClose}>
             Continuar
@@ -469,38 +371,10 @@ export default function NuevoProyecto() {
     return (
       <Form.Group className="mb-3" controlId="proyect_conformance">
         <Form.Label>Nivel de conformidad</Form.Label>
-        <Form.Check
-          required
-          name="proyect_conformance"
-          id="proyect_conformance_1"
-          type="radio"
-          onChange={changeConformanceLevel}
-          value={1}
-          label="Nivel A"
-          title="Nivel A"
-        />
-        <Form.Check
-          required
-          name="proyect_conformance"
-          id="proyect_conformance_2"
-          type="radio"
-          onChange={changeConformanceLevel}
-          value={2}
-          label="Nivel AA"
-        />
-        <Form.Check
-          required
-          name="proyect_conformance"
-          id="proyect_conformance_3"
-          type="radio"
-          onChange={changeConformanceLevel}
-          value={3}
-          label="Nivel AAA"
-        />
-        <p>
-          Ten en cuenta que los criterios agrupados en un nivel también se
-          encuentran incluidos en el siguiente nivel.
-        </p>
+        <Form.Check required name="proyect_conformance" id="proyect_conformance_1" type="radio" onChange={changeConformanceLevel} value={1} label="Nivel A" title="Nivel A" />
+        <Form.Check required name="proyect_conformance" id="proyect_conformance_2" type="radio" onChange={changeConformanceLevel} value={2} label="Nivel AA" />
+        <Form.Check required name="proyect_conformance" id="proyect_conformance_3" type="radio" onChange={changeConformanceLevel} value={3} label="Nivel AAA" />
+        <p>Ten en cuenta que los criterios agrupados en un nivel también se encuentran incluidos en el siguiente nivel.</p>
       </Form.Group>
     );
   }
