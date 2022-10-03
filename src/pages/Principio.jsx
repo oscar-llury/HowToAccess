@@ -95,7 +95,7 @@ export default function Principle({ crumbs }) {
                 <Accordion flush>
                   <Accordion.Item eventKey="0">
                     <Accordion.Header>{pauta.key} - Criterios de conformidad</Accordion.Header>
-                    <Accordion.Body>
+                    <Accordion.Body className="px-0">
                       <ol>
                         {pauta.criteria.map((criteria, indexC) => (
                           <li key={indexC}>

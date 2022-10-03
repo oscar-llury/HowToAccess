@@ -81,7 +81,7 @@ export default function NormasAccesibilidadWeb() {
         <Row className="section-1">
           <div className="bg"></div>
           <Col xl="4" lg="3" md={{ order: "first", span: 4 }} xs={{ order: "last", span: 8 }} className="col-sello">
-            <OverlayTrigger placement="top" overlay={<Tooltip id="tooltip-top">[WAI Accessibility Guidelines] that are [W3C Recommendations] are [Web Standards]</Tooltip>}>
+            <OverlayTrigger placement="top" overlay={<Tooltip id="tooltip-top">WAI Accessibility Guidelines that are W3C Recommendations are Web Standards</Tooltip>}>
               <img alt="Web Content Accessibility Guidelines (WCAG)" src={logo_wcag} />
             </OverlayTrigger>
           </Col>
@@ -99,14 +99,14 @@ export default function NormasAccesibilidadWeb() {
               <strong>Web Content Accessibility Guidelines (WCAG)</strong> son las directrices de accesibilidad al contenido web, publicadas por WAI, y que pertenecen a los estándares W3C.
             </p>
 
-            <p>Las WCAG se dividen en cuatro Principios de accesibilidad y trece Pautas, agrupando los distintos Criterios de conformidad.</p>
-            <p>El grado de accesibilidad WCAG de una página web se mide en Criterios de conformidad verificables, que se agrupan en tres niveles: A, AA, y AAA.</p>
+            <p>Las WCAG se dividen en cuatro principios de accesibilidad y trece pautas, agrupando los distintos criterios de conformidad.</p>
+            <p>El grado de accesibilidad WCAG de una página web se mide en criterios de conformidad verificables, que se agrupan en tres niveles: A, AA, y AAA.</p>
             <p>La última versión es WCAG 2.1 publicada el 5 de junio de 2018.</p>
           </Col>
         </Row>
         <Row className="mt-5 section-2" id="principles">
           <h2>Los 4 Principios de la Accesibilidad</h2>
-          <p>POUR (Perceivable, Operable, Understandable, Robust): los cuatro principios que describen la accesibilidad funcional.</p>
+          <p>POUR (Perceivable, Operable, Understandable, Robust) son los cuatro principios que describen la accesibilidad funcional.</p>
 
           <div className="grid-pour text-center">
             <div>

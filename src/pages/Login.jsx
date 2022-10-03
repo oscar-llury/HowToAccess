@@ -56,7 +56,7 @@ export default function Login() {
     <Container fluid className="text-black">
       <Row className="app-login justify-content-center align-items-center overflow-hidden position-relative">
         <div className="oblique">
-          <img src={slide1} alt="" />
+          <img src={slide1} alt="" className="w-100" />
         </div>
         <Col lg="4" md="6" sm="8" xs="10" className="card">
           <Container className="text-center mb-4">

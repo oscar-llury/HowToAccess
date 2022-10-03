@@ -137,8 +137,9 @@ export default function AccesibilidadWeb() {
   }, []);
 
   return (
-    <div className="web-accessibility">
+    <div className="web-accessibility bg-soft">
       <Container fluid className="masonry-box">
+        <h1 className="opacity-0 m-0 w-0 h-0 m-0">Elementos que mejoran la accesibilidad web</h1>
         <Masonry breakpointCols={breakpointColumnsObj} className="masonry-accessibility-elements" columnClassName="masonry-column">
           {elements.map((e, index) => (
             <MasonryColumn key={index} info={e} openToast={openToast} />
@@ -150,7 +151,7 @@ export default function AccesibilidadWeb() {
         <Row className="accessibility-elements py-3 align-items-center">
           <Col xs="12" md="6" className="main-title">
             <h1 className="title">Tipos de discapacidades</h1>
-            <p className="description">Los usuarios que navegan en internet pueden presentar distintos tipos de discapacidades que afectan al uso y experiencia de navegación web. Tamnién es posible que los usuarios presenten múltiples discapacidades simultáneamente. Estas discapacidades pueden verse agravadas por una avanzada edad del usuario o el desconocimiento de las tecnologías.</p>
+            <p className="description">Los usuarios que navegan en internet pueden presentar distintos tipos de discapacidades que afectan al uso y experiencia de navegación web. También es posible que los usuarios presenten múltiples discapacidades simultáneamente. Estas discapacidades pueden verse agravadas por una avanzada edad del usuario o el desconocimiento de las tecnologías.</p>
             <p className="description">Comprender los distintos tipos de discapacidades y cómo estas afectan al uso de la tecnología es esencial para saber qué elementos implementar para proporcionar la mejor experiencia de usuario posible.</p>
           </Col>
           <Col xs="12" md="6">
@@ -198,7 +199,7 @@ export default function AccesibilidadWeb() {
         </Row>
       </Container>
       <div className="position-relative">
-        <Spacer space={[0, 0]} color="rgb(240, 240, 240)" className="invert-y position-absolute w-100 top-0 z-index-1" />
+        <Spacer space={[0, 0]} color="#e9eaeb" className="invert-y position-absolute w-100 top-0 z-index-1" />
         <img src={waves_white} className="position-absolute w-100 h-100 object-fit-cover " alt="" />
         <div className="bg-dark-blue py-5">
           <Container fluid="sm" className="main-content">
@@ -214,21 +215,23 @@ export default function AccesibilidadWeb() {
             </Row>
           </Container>
         </div>
-        <Spacer space={[0, 0]} color="rgb(240, 240, 240)" className="position-absolute w-100 bottom-0" />
+        <Spacer space={[0, 0]} color="#fff" className="position-absolute w-100 bottom-0" />
       </div>
-      <Container fluid="sm" className="main-content">
-        <Row className="row2 align-items-center">
-          <Col md="12" lg="6">
-            <h3 className="title">Todos nos beneficiamos de una buena accesibilidad web</h3>
-            <p>Aproximadamente la mitad de los usuarios que llegan a una página web podrían tener dificultades para navegar a traves de ella o entender su información.</p>
-            <p>Además, personas perfectamente saludables, con excelente vista, audición y mobilidad, y que pueden leer y escribir sin esfuerzo, también pueden encontrar problemas de uso en páginas web.</p>
-            <p>Realizar un diseño web que sea usable y accesible para personas con discapacidad tiene beneficios para el resto de personas que no presentan dichas discapacidades.</p>
-          </Col>
-          <Col md="12" lg="6">
-            <img alt="" src={web_building} className="w-100" />
-          </Col>
-        </Row>
-      </Container>
+      <div className="bg-white">
+        <Container fluid="sm" className="main-content">
+          <Row className="row2 align-items-center py-4">
+            <Col md="12" lg="6">
+              <h3 className="title">Todos nos beneficiamos de una buena accesibilidad web</h3>
+              <p>Aproximadamente la mitad de los usuarios que llegan a una página web podrían tener dificultades para navegar a traves de ella o entender su información.</p>
+              <p>Además, personas perfectamente saludables, con excelente vista, audición y mobilidad, y que pueden leer y escribir sin esfuerzo, también pueden encontrar problemas de uso en páginas web.</p>
+              <p>Realizar un diseño web que sea usable y accesible para personas con discapacidad tiene beneficios para el resto de personas que no presentan dichas discapacidades.</p>
+            </Col>
+            <Col md="12" lg="6">
+              <img alt="" src={web_building} className="w-100" />
+            </Col>
+          </Row>
+        </Container>
+      </div>
       <ToastContainer className="toast-accessibility" position="top-center">
         <div className={showToast ? "d-flex" : "d-none"}>
           <Toast

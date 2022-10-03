@@ -142,6 +142,9 @@ body::-webkit-scrollbar-thumb {
     color: $primary-dark;
   }
 }
+.bg-soft {
+  background-color: $body-bg-soft;
+}
 .bg-dark-blue {
   background-color: $bg-dark-blue;
 }
@@ -223,7 +226,7 @@ body::-webkit-scrollbar-thumb {
     vertical-align: middle;
   }
   .proyecto-row {
-    background-color: white;
+    background-color: $body-bg-soft;
     box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
     border-radius: 5px;
     td:nth-child(1) {
@@ -352,6 +355,7 @@ body::-webkit-scrollbar-thumb {
 /*******HEADER*******/
 .app-nav-header {
   //height: var(--header-height);
+  box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
   background-color: $bg-nav;
   .container-header {
     width: 100%;
@@ -480,9 +484,6 @@ footer {
       font-size: 1.5em;
     }
   }
-  .bg-soft {
-    background-color: $bg-nav;
-  }
   .app-home-section1 {
     position: relative;
     font-weight: 200;
@@ -539,7 +540,6 @@ footer {
     }
   }
   .app-home-section3 {
-    margin-bottom: 2em;
     .grid-daltonismo {
       grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
@@ -689,6 +689,7 @@ footer {
     padding-top: 20px;
     padding-bottom: 20px;
     background-image: url("../img/background-points.webp");
+    background-color: $body-bg-soft;
     --section-padding: 10vh;
     --clip-point: calc(var(--section-padding) / 1);
 
@@ -834,7 +835,6 @@ footer {
       }
     }
     .row2 {
-      margin: 50px 0;
       .title {
         font-weight: 800;
         margin-bottom: 20px;
@@ -1561,7 +1561,7 @@ footer {
   .principio {
     padding: 0;
     .objective {
-      border-left: 10px solid $primary-dark;
+      border-left: 10px solid $primary;
       //border-image-source: linear-gradient($primary-dark, $primary-dark);
       border-image-slice: 20;
       padding: 1em;

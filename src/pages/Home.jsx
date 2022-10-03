@@ -150,11 +150,11 @@ const Home = () => {
             </Col>
           </Row>
         </Container>
-        <Spacer space={[2, 0]} color="rgb(240, 240, 240)" />
+        <Spacer space={[2, 0]} color="#fff" />
       </div>
 
       <Container fluid="lg" className="text-black app-home-section3 p-container">
-        <Row className="justify-content-center align-items-center gx-5">
+        <Row className="justify-content-center align-items-center gx-5 my-5">
           <Col lg="5" md={{ order: "first", span: 6 }} sm={{ order: "last", span: 12 }} xs={{ order: "last", span: 12 }}>
             <Container fluid="sm" className="d-grid grid-daltonismo">
               <img ref={targetImg1} className="w-100" src={daltonismo} alt="" />

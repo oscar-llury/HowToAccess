@@ -176,7 +176,7 @@ export default function Proyecto() {
                 <td>
                   <ConformanceBox className="m-auto" idConformance={criteria.conformidad} />
                 </td>
-                <td>{criteria.principio == 1 ? <>Perceptible</> : criteria.principio == 2 ? <>Operable</> : criteria.principio == 3 ? <>Comprensible</> : criteria.principio == 4 ? <>Robusto</> : <></>}</td>
+                <td>{criteria.principio === 1 ? <>Perceptible</> : criteria.principio === 2 ? <>Operable</> : criteria.principio === 3 ? <>Comprensible</> : criteria.principio === 4 ? <>Robusto</> : <></>}</td>
                 <td
                   className="link"
                   onClick={() => {

@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 //import { Collapse } from "bootstrap";
 
 import { useAuth } from "../lib/auth";
-import logo from "../img/logo/logotipo.svg";
+import logotipo from "../img/logo/logotipo.svg";
 
 export default function Header() {
   let navigate = useNavigate();
@@ -44,9 +44,9 @@ export default function Header() {
   return (
     <header>
       <Navbar collapseOnSelect expand="lg" bg="light" variant="light" className="app-nav-header p-0">
-        <Container fluid="sm" className="container-header">
+        <Container fluid="sm" className="container container-header">
           <Navbar.Brand href="/" title="Inicio">
-            <img alt="HowToAccess logotipo" src={logo} width="auto" height="50" className="d-inline-block align-top" /> <span className="d-none">HowToAccess</span>
+            <img alt="HowToAccess" src={logotipo} width="auto" height="50" className="d-inline-block align-top" /> <span className="d-none">HowToAccess</span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" data-toggle="dropdown" data-bs-target="#responsive-navbar-nav" onClick={handleNavDrop}>
             {navDropped ? <i className="bi bi-x-lg"></i> : <i className="bi bi-list"></i>}
