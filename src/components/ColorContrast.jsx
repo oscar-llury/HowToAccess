@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Container, Row, Col, InputGroup, Tooltip, OverlayTrigger, Form } from "react-bootstrap";
 import { checkContrast, formatRatio, meetsMinimumRequirements, resultOfRatio } from "lib/contrastColor";
+import CustomPicker from "./CustomColorPicker";
 
 export default function ColorContrast() {
   const [textColor, setTextColor] = useState("#000000");
@@ -39,28 +40,18 @@ export default function ColorContrast() {
     <Container>
       <h1>Herramienta de contraste de color</h1>
       <Row className="mt-3">
-        <Col lg="6">
-          <Row className="color-picker">
-            <Col md="5" className="p-0">
-              <Form.Label htmlFor="textColorPicker">Color de texto</Form.Label>
-              <InputGroup size="lg">
-                <Form.Control type="color" id="textColorPicker" title="Elige un color de texto" onChange={handleTextColorChange} size="lg" value={textColor} />
-                <Form.Control id="textColorPicker" aria-label="color de texto" onChange={handleTextColorChange} value={textColor} className="w-50" />
-              </InputGroup>
-            </Col>
-            <Col md="2" className="text-center p-0">
-              <button className="change" onClick={handleSwapColors}>
-                <i className="bi bi-arrow-left-right"></i>
-              </button>
-            </Col>
-            <Col md="5" className="p-0">
-              <Form.Label htmlFor="bgColorPicker">Color de fondo</Form.Label>
-              <InputGroup size="lg">
-                <Form.Control type="color" id="bgColorPicker" title="Elige un color de fondo" onChange={handleBgColorChange} size="lg" value={bgColor} />
-                <Form.Control id="bgColorPicker" aria-label="color de fondo" onChange={handleBgColorChange} value={bgColor} className="w-50" />
-              </InputGroup>
-            </Col>
-          </Row>
+        <Col lg="4" className="color-picker h-100">
+          <div className="p-3 w-100 text-center">
+            <CustomPicker className="text-color" color={textColor} setColor={setTextColor} width="250px" />
+          </div>
+          <div className="p-3 w-100 text-center">
+            <button className="change" onClick={handleSwapColors}>
+              <i className="bi bi-arrow-left-right"></i>
+            </button>
+          </div>
+          <div className="p-3 w-100 text-center">
+            <CustomPicker className="bgColor" color={bgColor} setColor={setBgColor} width="250px" />
+          </div>
         </Col>
         <Col lg="6">
           <div className="c-ratio">

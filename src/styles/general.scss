@@ -1611,6 +1611,52 @@ footer {
 /*******SIMULACION INTERACTIVA*******/
 .app-simulacion {
   padding-top: 2em;
+  div.position-relative {
+    > div > div:nth-child(2) {
+      > div:nth-child(1) {
+        > div:nth-child(1) {
+          height: 20px !important;
+          > div > div > div {
+            border-radius: 12px;
+            border: 3px solid rgb(255, 255, 255);
+            height: 19px;
+            width: 19px;
+            background: rgb(0, 0, 0);
+            z-index: 2;
+            transform: translateX(-9px);
+            top: 1px;
+          }
+          > div > div > div > div {
+            height: 19px !important;
+            width: 19px !important;
+            opacity: 0;
+          }
+        }
+        > div:nth-child(2) {
+          display: none;
+        }
+      }
+      > div:nth-child(2) {
+        display: none;
+      }
+    }
+    > div > div:nth-child(3) {
+      input {
+        text-align: center !important;
+        width: 100% !important;
+      }
+      > div:nth-child(1) {
+        margin-right: 5%;
+      }
+      > div:nth-child(5) {
+        display: none;
+      }
+    }
+    > div > div:nth-child(4) {
+      display: none !important;
+    }
+  }
+
   .results {
     //display: flex;
     //gap: 10px;

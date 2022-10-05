@@ -127,7 +127,7 @@ export default function NormasAccesibilidadWeb() {
             <button className="next" tabIndex="0" onClick={next} style={{ height: heightTabsNav }}>
               <i className="bi bi-chevron-right"></i>
             </button>
-            <div className="content">
+            <div className="content mb-5">
               <Tabs
                 activeKey={tab}
                 onSelect={(k) => {
