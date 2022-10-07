@@ -1658,22 +1658,20 @@ footer {
   }
 
   .results {
-    //display: flex;
-    //gap: 10px;
-    align-items: flex-start;
-    justify-content: space-between;
     > * {
       padding: calc(var(--bs-gutter-x) * 0.5);
     }
     .box {
       display: flex;
       flex-direction: column;
+      margin: auto;
       > div {
         display: flex;
         align-items: center;
         flex-direction: column;
         padding: 10px;
         border-radius: 10px;
+        height: 100%;
       }
       i {
         font-size: 3em;
@@ -1701,15 +1699,11 @@ footer {
     }
   }
   .c-ratio {
-    h2 {
-      font-size: 1.5em;
-      //margin: 0;
-    }
-    height: 150px;
-    margin: 1em 0;
-    padding: 2em;
+    padding: 1em;
     border-radius: 10px;
-    background-color: $gray-500;
+    padding-left: 2em;
+    padding-right: 2em;
+    border-radius: 10px;
     > div {
       display: flex;
       align-items: center;
@@ -1736,15 +1730,13 @@ footer {
     }
   }
   .color-picker {
-    //display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    //gap: 20px;
-    height: 150px;
-    margin: 1em 0;
-    padding: 2em 1em;
+    padding: 1em;
     border-radius: 10px;
-    background-color: $gray-500;
+    .sketch-picker {
+      background-color: $body-bg-soft !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+    }
     label {
       margin-bottom: 0.6em;
       font-size: 1.1em;
@@ -1762,6 +1754,14 @@ footer {
         font-size: 1.5em;
         font-weight: 800;
       }
+    }
+  }
+  .example-boxes {
+    border: 2rem;
+    border-radius: 30px;
+    overflow: auto;
+    button {
+      transition: none;
     }
   }
   @media (max-width: 1400px) {

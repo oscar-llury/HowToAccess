@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { CustomPicker } from "react-color";
 import { SketchPicker } from "react-color";
 
 function CustomColorPicker({ color, setColor, width, className }) {
+  useEffect(() => {
+    //console.dir(document.querySelector("#rc-editable-input-4"));
+  }, []);
+
   const handleChange = (color) => {
     //console.log(color);
     setColor(color.hex);
