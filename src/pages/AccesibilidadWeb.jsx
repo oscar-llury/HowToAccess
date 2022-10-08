@@ -149,8 +149,8 @@ export default function AccesibilidadWeb() {
       </Container>
       <Container fluid="sm" className="">
         <Row className="accessibility-elements py-3 align-items-center">
-          <Col xs="12" md="6" className="main-title">
-            <h1 className="title">Tipos de discapacidades</h1>
+          <Col xs="12" md="6" className="title">
+            <h1 className="fw-extrabold">Tipos de discapacidades</h1>
             <p className="description">Los usuarios que navegan en internet pueden presentar distintos tipos de discapacidades que afectan al uso y experiencia de navegación web. También es posible que los usuarios presenten múltiples discapacidades simultáneamente. Estas discapacidades pueden verse agravadas por una avanzada edad del usuario o el desconocimiento de las tecnologías.</p>
             <p className="description">Comprender los distintos tipos de discapacidades y cómo estas afectan al uso de la tecnología es esencial para saber qué elementos implementar para proporcionar la mejor experiencia de usuario posible.</p>
           </Col>
@@ -221,7 +221,7 @@ export default function AccesibilidadWeb() {
         <Container fluid="sm" className="main-content">
           <Row className="row2 align-items-center py-4">
             <Col md="12" lg="6">
-              <h3 className="title">Todos nos beneficiamos de una buena accesibilidad web</h3>
+              <h3 className="title fw-extrabold">Todos nos beneficiamos de una buena accesibilidad web</h3>
               <p>Aproximadamente la mitad de los usuarios que llegan a una página web podrían tener dificultades para navegar a traves de ella o entender su información.</p>
               <p>Además, personas perfectamente saludables, con excelente vista, audición y mobilidad, y que pueden leer y escribir sin esfuerzo, también pueden encontrar problemas de uso en páginas web.</p>
               <p>Realizar un diseño web que sea usable y accesible para personas con discapacidad tiene beneficios para el resto de personas que no presentan dichas discapacidades.</p>

@@ -497,9 +497,6 @@ footer {
     .bolder {
       font-weight: 500;
     }
-    .highlighted {
-      font-weight: 700;
-    }
     .keyboard-container {
       & div {
         position: absolute;
@@ -790,13 +787,9 @@ footer {
   }
   .accessibility-elements {
     margin: 20px 0;
-    .main-title {
+    .title {
       @media (min-width: 992px) {
         padding: 0 1.5rem;
-      }
-      .title {
-        font-size: 2rem;
-        font-weight: 800;
       }
     }
     .column-item {
@@ -813,8 +806,6 @@ footer {
       .box,
       .title {
         display: inline-block;
-      }
-      .title {
         font-size: 1.5em;
         font-weight: 600;
         margin: 0;
@@ -836,8 +827,6 @@ footer {
     }
     .row2 {
       .title {
-        font-weight: 800;
-        margin-bottom: 20px;
         @media (min-width: 1200px) {
           max-width: 80%;
         }
@@ -876,9 +865,6 @@ footer {
           img {
             width: 30px;
           }
-        }
-        .title {
-          font-size: 1.2em;
         }
       }
     }
@@ -971,10 +957,6 @@ footer {
     .text-container {
       z-index: 2;
       width: 50%;
-      h1 {
-        font-weight: 900;
-        font-size: 3em;
-      }
       p {
         font-size: 1.2em;
       }
@@ -1027,11 +1009,6 @@ footer {
         text-align: center;
       }
     }
-    h2 {
-      font-weight: 700;
-      font-size: 2.5em;
-      margin-bottom: 0.5em;
-    }
     @media (max-width: 1200px) {
       .col-sello {
         padding: 2em;
@@ -1042,10 +1019,6 @@ footer {
       }
     }
     @media (max-width: 576px) {
-      h2 {
-        font-weight: 650;
-        font-size: 2em;
-      }
       .col-sello {
         padding: 1em;
       }
@@ -1053,11 +1026,7 @@ footer {
   }
   .section-2 {
     h2 {
-      font-weight: 700;
-      font-size: 2.5em;
       @media (max-width: 576px) {
-        font-weight: 650;
-        font-size: 2em;
         text-align: center;
       }
     }
@@ -1189,10 +1158,6 @@ footer {
 
       section {
         padding: 2em 0;
-        h3 {
-          font-weight: 700;
-          font-size: 1.5em;
-        }
       }
       @media (max-width: 576px) {
         section {
@@ -1611,93 +1576,6 @@ footer {
 /*******SIMULACION INTERACTIVA*******/
 .app-simulacion {
   padding-top: 2em;
-  div.position-relative {
-    > div > div:nth-child(2) {
-      > div:nth-child(1) {
-        > div:nth-child(1) {
-          height: 20px !important;
-          > div > div > div {
-            border-radius: 12px;
-            border: 3px solid rgb(255, 255, 255);
-            height: 19px;
-            width: 19px;
-            background: rgb(0, 0, 0);
-            z-index: 2;
-            transform: translateX(-9px);
-            top: 1px;
-          }
-          > div > div > div > div {
-            height: 19px !important;
-            width: 19px !important;
-            opacity: 0;
-          }
-        }
-        > div:nth-child(2) {
-          display: none;
-        }
-      }
-      > div:nth-child(2) {
-        display: none;
-      }
-    }
-    > div > div:nth-child(3) {
-      input {
-        text-align: center !important;
-        width: 100% !important;
-      }
-      > div:nth-child(1) {
-        margin-right: 5%;
-      }
-      > div:nth-child(5) {
-        display: none;
-      }
-    }
-    > div > div:nth-child(4) {
-      display: none !important;
-    }
-  }
-
-  .results {
-    > * {
-      padding: calc(var(--bs-gutter-x) * 0.5);
-    }
-    .box {
-      display: flex;
-      flex-direction: column;
-      margin: auto;
-      > div {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        padding: 10px;
-        border-radius: 10px;
-        height: 100%;
-      }
-      i {
-        font-size: 3em;
-        color: $white;
-        line-height: normal;
-      }
-      .info {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 0 5px;
-        p {
-          margin: 0;
-          font-size: 1.5em;
-          font-weight: 800;
-          color: $white;
-        }
-        span {
-          //white-space: nowrap;
-          font-weight: 600;
-          color: $white;
-          text-align: center;
-        }
-      }
-    }
-  }
   .c-ratio {
     padding: 1em;
     border-radius: 10px;
@@ -1728,10 +1606,99 @@ footer {
       text-align: center;
       color: $white;
     }
+    .results {
+      > * {
+        padding: calc(var(--bs-gutter-x) * 0.5);
+      }
+      .box {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        > div {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          padding: 10px;
+          border-radius: 10px;
+          height: 100%;
+        }
+        i {
+          font-size: 3em;
+          color: $white;
+          line-height: normal;
+        }
+        .info {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 0 5px;
+          p {
+            margin: 0;
+            font-size: 1.5em;
+            font-weight: 800;
+            color: $white;
+          }
+          span {
+            //white-space: nowrap;
+            font-weight: 600;
+            color: $white;
+            text-align: center;
+          }
+        }
+      }
+    }
   }
   .color-picker {
     padding: 1em;
     border-radius: 10px;
+    div.position-relative {
+      > div > div:nth-child(2) {
+        > div:nth-child(1) {
+          > div:nth-child(1) {
+            height: 20px !important;
+            > div > div > div {
+              border-radius: 12px;
+              border: 3px solid rgb(255, 255, 255);
+              height: 19px;
+              width: 19px;
+              background: rgb(0, 0, 0);
+              z-index: 2;
+              transform: translateX(-9px);
+              top: 1px;
+            }
+            > div > div > div > div {
+              height: 19px !important;
+              width: 19px !important;
+              opacity: 0;
+            }
+          }
+          > div:nth-child(2) {
+            display: none;
+          }
+        }
+        > div:nth-child(2) {
+          display: none;
+        }
+      }
+      > div > div:nth-child(3) {
+        input {
+          text-align: center !important;
+          width: 100% !important;
+        }
+        > div:nth-child(1) {
+          margin-right: 5%;
+        }
+        > div:nth-child(5) {
+          display: none;
+        }
+      }
+      > div > div:nth-child(4) {
+        display: none !important;
+      }
+    }
+    div.bgColor > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div > div > div {
+      background: rgb(255, 255, 255);
+    }
     .sketch-picker {
       background-color: $body-bg-soft !important;
       box-shadow: none !important;
@@ -1758,7 +1725,7 @@ footer {
   }
   .example-boxes {
     border: 2rem;
-    border-radius: 30px;
+    border-radius: 2rem;
     overflow: auto;
     button {
       transition: none;
@@ -1779,7 +1746,7 @@ footer {
   @media (max-width: 1200px) {
     &.main-container {
       //max-width: 1000px;
-      padding: 0;
+      //padding: 0;
     }
   }
   @media (max-width: 992px) {

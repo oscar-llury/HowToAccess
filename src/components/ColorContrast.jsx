@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Container, Row, Col, Tooltip, OverlayTrigger, Button } from "react-bootstrap";
+import { Container, Row, Col, Tooltip, OverlayTrigger } from "react-bootstrap";
 import { checkContrast, formatRatio, meetsMinimumRequirements, resultOfRatio } from "lib/contrastColor";
 import CustomPicker from "./CustomColorPicker";
 
@@ -19,46 +19,34 @@ export default function ColorContrast() {
     setRatio(formatRatio(newRatio, false));
   }, [textColor, bgColor]);
 
-  const handleTextColorChange = (e) => {
-    if (e.target.value.match("^#[0-9a-f]{0,6}$") != null) {
-      setTextColor(e.target.value);
-    }
-  };
-
-  const handleBgColorChange = (e) => {
-    if (e.target.value.match("^#[0-9a-f]{0,6}$") != null) {
-      setBgColor(e.target.value);
-    }
-  };
-
   const handleSwapColors = () => {
     setBgColor(textColor);
     setTextColor(bgColor);
   };
 
   return (
-    <Container>
-      <h1>Herramienta de contraste de color</h1>
+    <Container fluid="md" className="app-simulacion main-container">
+      <h1 className="fw-extrabold">Herramienta de contraste de color</h1>
       <Row className="mt-3">
-        <Col lg="3">
-          <div className="color-picker h-100 bg-soft">
-            <div className="px-3 text-center">
+        <Col xxl="3" xl="4" lg="4" md="12" sm="12" className="mt-4">
+          <Row className="color-picker bg-soft m-auto align-items-center">
+            <Col lg="12" sm="5" className="px-3 text-center">
               <h2 className="text-start fs-4">Color de texto</h2>
               <CustomPicker className="text-color" color={textColor} setColor={setTextColor} width="auto" />
-            </div>
-            <div className="p-0 w-100 text-center">
+            </Col>
+            <Col lg="12" sm="2" className="p-0 text-center my-lg-3">
               <button className="change" onClick={handleSwapColors}>
                 <i className="bi bi-arrow-left-right"></i>
               </button>
-            </div>
-            <div className="px-3 text-center">
+            </Col>
+            <Col lg="12" sm="5" className="px-3 text-center">
               <h2 className="text-start fs-4">Color de fondo</h2>
               <CustomPicker className="bgColor" color={bgColor} setColor={setBgColor} width="auto" />
-            </div>
-          </div>
+            </Col>
+          </Row>
         </Col>
-        <Col lg="9">
-          <div className="c-ratio bg-soft">
+        <Col xxl="9" xl="8" lg="8" md="12" sm="12">
+          <div className="c-ratio bg-soft mt-4">
             <h2 className="fs-4">Ratio de contraste</h2>
             <div>
               <span>
@@ -68,37 +56,41 @@ export default function ColorContrast() {
               <span className={`total ${resultRatio !== 1 ? "bg-success" : "bg-danger"}`}>{resultRatio === 1 ? "Malo" : resultRatio === 2 ? "Suficiente" : resultRatio === 3 ? "Bueno" : "Perfecto"}</span>
             </div>
             <Row className="results">
-              <Col lg="3" md="6" sm="3" xs="6">
+              <Col md="3" xs="6">
                 <LevelBox result={level.AAsmall} level="AA" info="texto pequeño" tooltip="<18pt , >=14pt bold" />
               </Col>
-              <Col lg="3" md="6" sm="3" xs="6">
+              <Col md="3" xs="6">
                 <LevelBox result={level.AAAsmall} level="AAA" info="texto pequeño" tooltip="<18pt , >=14pt bold" />
               </Col>
 
-              <Col lg="3" md="6" sm="3" xs="6">
+              <Col md="3" xs="6">
                 <LevelBox result={level.AAlarge} level="AA" info="texto grande" tooltip=">=18pt" />
               </Col>
-              <Col lg="3" md="6" sm="3" xs="6">
+              <Col md="3" xs="6">
                 <LevelBox result={level.AAAlarge} level="AAA" info="texto grande" tooltip=">=18pt" />
               </Col>
             </Row>
           </div>
           <Row className="example-boxes my-4 m-0">
-            <Col className="px-5 py-4 d-flex flex-column box" style={{ backgroundColor: textColor, color: bgColor }}>
+            <Col className="px-4 px-lg-5 py-4 d-flex flex-column box" style={{ backgroundColor: textColor, color: bgColor }}>
               <h2>Example</h2>
               <p className="example-text-normal"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. </p>
               <div className="d-flex mt-auto align-items-center justify-content-between">
-                <p className="m-0">#FB9696 / #052942</p>
+                <p className="m-0">
+                  {bgColor} / {textColor}
+                </p>
                 <button className="btn" style={{ backgroundColor: textColor, color: bgColor, borderColor: bgColor }}>
                   Button
                 </button>
               </div>
             </Col>
-            <Col className="px-5 py-4 d-flex flex-column box" style={{ backgroundColor: bgColor, color: textColor }}>
+            <Col className="px-4 px-lg-5 py-4 d-flex flex-column box" style={{ backgroundColor: bgColor, color: textColor }}>
               <h2>Example</h2>
               <p className="example-text-normal"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. </p>
               <div className="d-flex mt-auto align-items-center justify-content-between">
-                <p className="m-0">#052942 / #FB9696</p>
+                <p className="m-0">
+                  {textColor} / {bgColor}
+                </p>
                 <button className="btn" style={{ backgroundColor: bgColor, color: textColor, borderColor: textColor }}>
                   Button
                 </button>

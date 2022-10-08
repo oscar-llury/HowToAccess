@@ -88,7 +88,7 @@ const Home = () => {
               <Col lg="7" md="6" xs="12">
                 <Container className="my-4 text-container">
                   <h2 className="bolder">
-                    <span className="highlighted text-color-gradient-purple">La Accesibilidad en</span>
+                    <span className="fw-extrabold text-color-gradient-purple">La Accesibilidad en</span>
                     <br />
                     Páginas Web
                   </h2>
@@ -120,7 +120,7 @@ const Home = () => {
           <Row className="justify-content-center align-items-center gx-4">
             <Col md="7" xs="12">
               <Container className="mb-4 text-container">
-                <h2>Barreras de Accesibilidad</h2>
+                <h2 className="fw-extrabold">Barreras de Accesibilidad</h2>
                 <p className="mt-4">Personas que utilizan gafas, son daltónicas, tienen mobilidad reducida en los brazos, viven en entornos ruidosos, son dislexicos, o tienen mala conexion a internet, se encuentran con barreras de accesibilidad diariamente.</p>
                 <p className="my-4">Páginas web que no contemplen los elementos de la accesibilidad web pueden provocar que estas personas no puedan navegar o comprender su contenido.</p>
                 <p className="my-4">
@@ -177,7 +177,7 @@ const Home = () => {
           </Col>
           <Col lg="7" md={{ order: "last", span: 6 }} sm={{ order: "first", span: 12 }} xs={{ order: "first", span: 12 }} className="mb-4">
             <Container className="text-container">
-              <h2>Aprendizaje práctico</h2>
+              <h2 className="fw-extrabold">Aprendizaje práctico</h2>
               <p className="mt-4">El daltonismo puede provocar que una persona no pueda diferenciar bien los colores. Para evitar confusiones, se debe proporcionar ayuda textual que permita distinguir los elementos afectados.</p>
               <p className="my-4">
                 Una de las mejores maneras de aprender es prácticando, por eso en <span className="accent-hta">How To Access</span> proporcionamos ejemplos de diseños e implementaciones que cumplen con las normativas y recomendaciones de la Accesibilidad web.

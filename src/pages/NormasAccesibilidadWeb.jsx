@@ -70,7 +70,7 @@ export default function NormasAccesibilidadWeb() {
         <img src={slide1} alt="" className="position-absolute w-100" />
         <div className="foreground-layer position-absolute"></div>
         <Container className="m-0 text-container text-center text-white">
-          <h1>W3C & WCAG</h1>
+          <h1 className="fw-black fs-1">W3C & WCAG</h1>
           <p>Descubre los estándares de la accesibilidad web.</p>
           <Button variant="primary" className="px-4 py-2 btn-principles" href="#principles">
             Comenzar
@@ -86,7 +86,7 @@ export default function NormasAccesibilidadWeb() {
             </OverlayTrigger>
           </Col>
           <Col xl="8" lg="9" md={{ order: "last", span: 8 }} xs={{ order: "first", span: 12 }} className="col-info">
-            <h2>
+            <h2 className="fw-extrabold mb-2 fs-1">
               Estándares de <br /> accesibilidad web
             </h2>
             <p>
@@ -105,7 +105,7 @@ export default function NormasAccesibilidadWeb() {
           </Col>
         </Row>
         <Row className="mt-5 section-2" id="principles">
-          <h2>Los 4 Principios de la Accesibilidad</h2>
+          <h2 className="fw-extrabold fs-1">Los 4 Principios de la Accesibilidad</h2>
           <p>POUR (Perceivable, Operable, Understandable, Robust) son los cuatro principios que describen la accesibilidad funcional.</p>
 
           <div className="grid-pour text-center">
@@ -144,7 +144,7 @@ export default function NormasAccesibilidadWeb() {
                         <img src={perceivable} alt="" className="w-100"></img>
                       </Col>
                       <Col xl="5" lg="5" md={{ order: "first", span: 12 }} xs={{ order: "first", span: 12 }}>
-                        <h3>Perceptible</h3>
+                        <h3 className="fw-bold fs-4">Perceptible</h3>
                         <p>La información y los componentes de la interfaz de usuario deben ser presentados al usuario de tal forma que sean perceptibles.</p>
                         <p>El objetivo es ofrecer diversas formas de sentir, ver y escuchar el contenido web, como el ajuste del tamaño de letra, la visualización de subtítulos en un vídeo, o la escucha del texto alternativo de una imagen en un teléfono inteligente.</p>
                         <p>Un contenido perceptible hará posible que todos los usuarios puedan recibir la información que proporciona la página web.</p>
@@ -162,7 +162,7 @@ export default function NormasAccesibilidadWeb() {
                         <img src={operable} alt="" className="w-100"></img>
                       </Col>
                       <Col xl="5" lg="5" md={{ order: "first", span: 12 }} xs={{ order: "first", span: 12 }}>
-                        <h3>Operable</h3>
+                        <h3 className="fw-bold fs-4">Operable</h3>
                         <p>Los componentes de la interfaz y navegación web deben ser operables con variedad de herramientas.</p>
                         <p>El objetivo es ofrecer diversas formas de navegación en la página web. Personas con discapacidades físicas o visuales utilizan herramientas de lectura de texto y navegación que necesitan de cierta información en los elementos html para funcionar correctamente.</p>
                         <p>Un contenido operable ayudará a todos los usuarios a navegar por la información de forma independiente, indistintamente de la herramienta usada.</p>
@@ -180,7 +180,7 @@ export default function NormasAccesibilidadWeb() {
                         <img src={understandable} alt="" className="w-100"></img>
                       </Col>
                       <Col xl="5" lg="5" md={{ order: "first", span: 12 }} xs={{ order: "first", span: 12 }}>
-                        <h3>Entendible</h3>
+                        <h3 className="fw-bold fs-4">Entendible</h3>
                         <p>La información y la operación de la interfaz de usuario deben ser entendibles.</p>
                         <p>El objetivo es representar, transmitir y traducir la información y funcionalidad web de distintas formas, de manera que sea más intuitivo, consistente y sencillo; como la traducción de idiomas o los audiolibros en los dispositivos móviles.</p>
                         <p>Un lenguaje claro y conciso facilitará la comprensión por parte de los usuarios en todos los dispositivos.</p>
@@ -198,7 +198,7 @@ export default function NormasAccesibilidadWeb() {
                         <img src={robust} alt="" className="w-100"></img>
                       </Col>
                       <Col xl="5" lg="5" md={{ order: "first", span: 12 }} xs={{ order: "first", span: 12 }}>
-                        <h3>Robusto</h3>
+                        <h3 className="fw-bold fs-4">Robusto</h3>
                         <p>El contenido web debe funcionar lo suficientemente bien en todas las plataformas, navegadores y dispositivos para que sea independiente a la tecnología de uso que el usuario elija.</p>
                         <p>El objetivo es proporcionar metadatos descriptivos y contenidos accesibles y usables para que todos usuarios y tecnologías de asistencia puedan comprenderlos.</p>
                         <p>Un contenido robusto se adaptará a las necesidades y preferencias de los usuarios sin importar desde dónde accedan.</p>
