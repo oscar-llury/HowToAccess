@@ -1,8 +1,10 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Container, Row, Col, Tooltip, OverlayTrigger } from "react-bootstrap";
+import { Container, Row, Col, Tooltip, OverlayTrigger, Card } from "react-bootstrap";
 import { checkContrast, formatRatio, meetsMinimumRequirements, resultOfRatio } from "lib/contrastColor";
 import CustomPicker from "./CustomColorPicker";
+
+import loading from "../img/loading.gif";
 
 export default function ColorContrast() {
   const [textColor, setTextColor] = useState("#000000");
@@ -26,12 +28,22 @@ export default function ColorContrast() {
 
   return (
     <Container fluid="md" className="app-simulacion main-container">
-      <h1 className="fw-extrabold">Herramienta de contraste de color</h1>
+      <Row className="align-items-center">
+        <Col md="7">
+          <h1 className="fw-extrabold">Herramienta de contraste de color</h1>
+          <p>
+            Utilice el verificador de contraste de color <span className="accent-hta">How To Access</span> para verificar rápidamente que las combinaciones de colores son accesibles para todos, cumpliendo con las Pautas de Accesibilidad para el Contenido Web (WCAG) establecidas por el W3C.
+          </p>
+        </Col>
+        <Col md="5" className="overflow-hidden">
+          <img src={loading} alt="" className="remove-bg-white w-100" />
+        </Col>
+      </Row>
       <Row className="mt-3">
         <Col xxl="3" xl="4" lg="4" md="12" sm="12" className="mt-4">
           <Row className="color-picker bg-soft m-auto align-items-center">
             <Col lg="12" sm="5" className="px-3 text-center">
-              <h2 className="text-start fs-4">Color de texto</h2>
+              <h2 className="text-start fs-5">Color de texto</h2>
               <CustomPicker className="text-color" color={textColor} setColor={setTextColor} width="auto" />
             </Col>
             <Col lg="12" sm="2" className="p-0 text-center my-lg-3">
@@ -40,14 +52,14 @@ export default function ColorContrast() {
               </button>
             </Col>
             <Col lg="12" sm="5" className="px-3 text-center">
-              <h2 className="text-start fs-4">Color de fondo</h2>
+              <h2 className="text-start fs-5">Color de fondo</h2>
               <CustomPicker className="bgColor" color={bgColor} setColor={setBgColor} width="auto" />
             </Col>
           </Row>
         </Col>
         <Col xxl="9" xl="8" lg="8" md="12" sm="12">
           <div className="c-ratio bg-soft mt-4">
-            <h2 className="fs-4">Ratio de contraste</h2>
+            <h2 className="fs-3">Ratio de contraste</h2>
             <div>
               <span>
                 {ratio}
@@ -99,26 +111,41 @@ export default function ColorContrast() {
           </Row>
         </Col>
       </Row>
-      <Row>
-        <Col md={{ order: "first", span: 6 }} xs={{ order: "last", span: 12 }}>
-          <Container className="p-3">
-            <p>
-              El ratio de contraste de color está en el rango de 1 a 21 <span className="space-nowrap">(comúnmente escrito de 1:1 a 21:1).</span>
-            </p>
-            <ul>
-              <li>Si ambos son el mismo color, el ratio de contraste será 1.</li>
-              <li>El mayor contraste es entre el blanco y el negro.</li>
-              <li>Colores opuestos en el círculo cromático (colores complementarios) también tendrán valores altos.</li>
-            </ul>
-          </Container>
-        </Col>
-        <Col md={{ order: "last", span: 6 }} xs={{ order: "first", span: 12 }}></Col>
-      </Row>
-      <Container>
-        <Row>
-          <Col></Col>
-          <Col></Col>
-        </Row>
+      <Container className="mt-5 main-container">
+        <Container className="p-3">
+          <h2 className="fw-extrabold">Cómo interpretar el contraste de color</h2>
+          <p>
+            El ratio de contraste de color está en el rango de 1 a 21 <span className="space-nowrap">(comúnmente escrito de 1:1 a 21:1).</span>
+          </p>
+          <ul>
+            <li>Si ambos son el mismo color, el ratio de contraste será 1.</li>
+            <li>El mayor contraste es entre el blanco y el negro.</li>
+            <li>Colores opuestos en el círculo cromático (colores complementarios) también tendrán valores altos.</li>
+          </ul>
+          <p>Requisitos mínimos de relación de contraste establecidos por el W3C:</p>
+          <Row className="m-auto mb-3">
+            <Col md="6">
+              <Card>
+                <Card.Body>
+                  <Card.Title className="fw-bold">WCAG 2.1 Nivel AA</Card.Title>
+                  <Card.Text className="m-1">Texto normal: ratio de contraste mínimo 4,5:1</Card.Text>
+                  <Card.Text className="m-1">Texto grande: ratio de contraste mínimo 3:1</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md="6">
+              <Card>
+                <Card.Body>
+                  <Card.Title className="fw-bold">WCAG 2.1 Nivel AAA</Card.Title>
+                  <Card.Text className="m-1">Texto normal: ratio de contraste mínimo 7:1</Card.Text>
+                  <Card.Text className="m-1">Texto grande: ratio de contraste mínimo 4,5:1</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+          <p>El texto grande se define a partir de 14 pt (18,67 px) y negrita, o mayor de 18 pt (24 px).</p>
+          <p>Tenga en cuenta que las imágenes son puramente decorativas y los logotipos o nombre de marca no tienen requisitos mínimos de contraste.</p>
+        </Container>
       </Container>
     </Container>
   );

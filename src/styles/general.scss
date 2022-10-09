@@ -245,6 +245,10 @@ body::-webkit-scrollbar-thumb {
     }
   }
 }
+.remove-bg-white {
+  filter: brightness(1.1);
+  mix-blend-mode: multiply;
+}
 .main-container {
   padding: 0 8em;
   //max-width: 1200px;
@@ -1576,6 +1580,9 @@ footer {
 /*******SIMULACION INTERACTIVA*******/
 .app-simulacion {
   padding-top: 2em;
+  .remove-bg-white {
+    transform: scale(1.2);
+  }
   .c-ratio {
     padding: 1em;
     border-radius: 10px;
