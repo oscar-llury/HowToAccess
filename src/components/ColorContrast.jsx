@@ -28,15 +28,15 @@ export default function ColorContrast() {
 
   return (
     <Container fluid="md" className="app-simulacion main-container">
-      <Row className="align-items-center">
-        <Col md="7">
+      <Row className="align-items-center justify-content-around">
+        <Col xs="12" md="7" lg="6">
           <h1 className="fw-extrabold">Herramienta de contraste de color</h1>
           <p>
             Utilice el verificador de contraste de color <span className="accent-hta">How To Access</span> para verificar rápidamente que las combinaciones de colores son accesibles para todos, cumpliendo con las Pautas de Accesibilidad para el Contenido Web (WCAG) establecidas por el W3C.
           </p>
         </Col>
-        <Col md="5" className="overflow-hidden">
-          <img src={loading} alt="" className="remove-bg-white w-100" />
+        <Col xs="6" sm="5" md="4" lg="5" xl="4" className="overflow-hidden text-center">
+          <img src={loading} alt="" className="scale-1-2 w-100" />
         </Col>
       </Row>
       <Row className="mt-3">
@@ -111,8 +111,8 @@ export default function ColorContrast() {
           </Row>
         </Col>
       </Row>
-      <Container className="mt-5 main-container">
-        <Container className="p-3">
+      <Container className="mt-3 main-container">
+        <Container className="p-0 p-md-3">
           <h2 className="fw-extrabold">Cómo interpretar el contraste de color</h2>
           <p>
             El ratio de contraste de color está en el rango de 1 a 21 <span className="space-nowrap">(comúnmente escrito de 1:1 a 21:1).</span>
@@ -124,7 +124,7 @@ export default function ColorContrast() {
           </ul>
           <p>Requisitos mínimos de relación de contraste establecidos por el W3C:</p>
           <Row className="m-auto mb-3">
-            <Col md="6">
+            <Col md="6" className="py-2">
               <Card>
                 <Card.Body>
                   <Card.Title className="fw-bold">WCAG 2.1 Nivel AA</Card.Title>
@@ -133,7 +133,7 @@ export default function ColorContrast() {
                 </Card.Body>
               </Card>
             </Col>
-            <Col md="6">
+            <Col md="6" className="py-2">
               <Card>
                 <Card.Body>
                   <Card.Title className="fw-bold">WCAG 2.1 Nivel AAA</Card.Title>

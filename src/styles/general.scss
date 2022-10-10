@@ -249,6 +249,9 @@ body::-webkit-scrollbar-thumb {
   filter: brightness(1.1);
   mix-blend-mode: multiply;
 }
+.scale-1-2 {
+  transform: scale(1.2);
+}
 .main-container {
   padding: 0 8em;
   //max-width: 1200px;
@@ -1580,9 +1583,6 @@ footer {
 /*******SIMULACION INTERACTIVA*******/
 .app-simulacion {
   padding-top: 2em;
-  .remove-bg-white {
-    transform: scale(1.2);
-  }
   .c-ratio {
     padding: 1em;
     border-radius: 10px;
@@ -1738,6 +1738,16 @@ footer {
       transition: none;
     }
   }
+  @media (min-width: 992px) {
+    .color-picker button.change i::before {
+      transform: rotate(90deg);
+    }
+  }
+  @media (max-width: 576px) {
+    .color-picker button.change i::before {
+      transform: rotate(90deg);
+    }
+  }
   @media (max-width: 1400px) {
     .color-picker {
       .form-control {
@@ -1773,15 +1783,13 @@ footer {
         }
       }
     }
+    .main-container {
+      padding: 0;
+    }
   }
   @media (max-width: 768px) {
     .color-picker {
       height: auto;
-      button.change {
-        i::before {
-          transform: rotate(90deg);
-        }
-      }
     }
     .c-ratio {
       > div > span {
