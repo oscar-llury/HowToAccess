@@ -794,12 +794,15 @@ footer {
   }
   .accessibility-elements {
     margin: 20px 0;
-    .title {
-      @media (min-width: 992px) {
-        padding: 0 1.5rem;
-      }
-    }
     .column-item {
+      .box,
+      .title {
+        display: inline-block;
+        font-size: 1.2em;
+        font-weight: 600;
+        margin: 0;
+        padding-left: 10px;
+      }
       .box {
         background-color: $bg-dark-blue;
         padding: 10px;
@@ -810,12 +813,11 @@ footer {
           width: 40px;
         }
       }
-      .box,
       .title {
-        display: inline-block;
-        font-size: 1.5em;
-        font-weight: 600;
-        margin: 0;
+        @media (min-width: 992px) {
+          padding-left: 20px;
+          font-size: 1.5em;
+        }
       }
     }
   }
@@ -839,8 +841,6 @@ footer {
         }
       }
     }
-  }
-  @media (max-width: 1400px) {
   }
   @media (max-width: 1200px) {
     .masonry-box {
@@ -868,7 +868,7 @@ footer {
     .accessibility-elements {
       .column-item {
         .box {
-          //padding: 0.375rem 0.75rem;
+          padding: 8px 10px;
           img {
             width: 30px;
           }
