@@ -4,7 +4,7 @@
   "objective": "Cualquier información que se muestre debe presentarse a los usuarios de forma que pueda ser percibida fácilmente.",
   "description": "El principio Perceptible se enfoca en permitir que los usuarios puedan percibir la información que se presenta (no puede ser invisible para todos sus sentidos). Se trata de proporcionar métodos alternativos para comprender el contenido de una página web. Si los usuarios no pueden ver su contenido, por ejemplo, permítales escucharlo; o si no pueden escuchar su contenido, proporcione una alternativa textual.",
   "text": "<p class='mb-2'> Recomendamos: </p> <ul> <li> Incluir texto alternativo a todo el contenido que no sea textual. </li> <li> Proporcionar alternativas al contenido tempo-dependiente. </li> <li> Crear contenido que sea adaptable a diferentes formas sin perder información o estructura. </li> <li> Que la presentación de los contenidos se perciba de forma instantánea.</li> </ul> <p class='mb-2'> El principio Perceptible está compuesto por las pautas: </p> <ol> <li> <a href='#pauta_1_1'>Alternativas textuales</a>. </li> <li> <a href='#pauta_1_2'>Medios tempodependientes</a>: subtítulos y otras alternativas. </li> <li> <a href='#pauta_1_3'>Adaptable</a>: contenido presentable de diferentes formas. </li> <li> <a href='#pauta_1_4'>Distinguible</a>: contenido que pueda ser visto y escuchado. </li> </ol>",
-  "img": "video-transcription.png",
+  "img": "principles/perceptible/video-transcription.png",
   "caption": "Proporcionar subtítulos y transcripciones para contenido de audio y video está cubierto por el principio Perceptible.",
   "date": "Fecha de última actualización: 12 junio 2022",
   "guidelines": [

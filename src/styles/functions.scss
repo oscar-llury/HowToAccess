@@ -1,0 +1,129 @@
+// extends color theme classes
+$custom-colors: (
+  "success-light": $success-light,
+  "primary-light": $primary-light,
+  "primary-dark": $primary-dark,
+);
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+// extends sizes classes
+$custom-sizes: (
+  "075": $font-size-base * 0.75,
+  "05": $font-size-base * 0.5,
+  "025": $font-size-base * 0.25,
+);
+$font-sizes: map-merge($font-sizes, $custom-sizes);
+
+$utilities: () !default;
+
+// extends min vh classes
+$utilities: map-merge(
+  (
+    "min-viewport-height": (
+      property: min-height,
+      class: min-vh,
+      values: (
+        100: 100vh,
+        75: 75vh,
+        50: 50vh,
+      ),
+    ),
+  ),
+  $utilities
+);
+
+$utilities: map-merge(
+  (
+    "height": (
+      property: height,
+      class: h,
+      values: (
+        0: 0,
+        25: 25%,
+        50: 50%,
+        75: 75%,
+        100: 100%,
+        auto: auto,
+      ),
+    ),
+  ),
+  $utilities
+);
+$utilities: map-merge(
+  (
+    "max-width": (
+      property: max-width,
+      class: mw,
+      values: (
+        80: 80%,
+        75: 75%,
+        50: 50%,
+        25: 25%,
+      ),
+    ),
+  ),
+  $utilities
+);
+$utilities: map-merge(
+  (
+    "width": (
+      property: width,
+      class: w,
+      values: (
+        0: 0,
+        25: 25%,
+        50: 50%,
+        75: 75%,
+        100: 100%,
+        auto: auto,
+      ),
+    ),
+  ),
+  $utilities
+);
+
+// extends position classes
+$utilities: map-merge(
+  (
+    "position": (
+      property: position,
+      values: static relative absolute fixed sticky inherit,
+    ),
+  ),
+  $utilities
+);
+
+// extends font weight classes
+$utilities: map-merge(
+  (
+    "font-weight": (
+      property: font-weight,
+      class: fw,
+      values: (
+        thin: $font-weight-thin,
+        extralight: $font-weight-extralight,
+        light: $font-weight-light,
+        regular: $font-weight-regular,
+        medium: $font-weight-medium,
+        semibold: $font-weight-semibold,
+        bold: $font-weight-bold,
+        extrabold: $font-weight-extrabold,
+        black: $font-weight-black,
+      ),
+    ),
+  ),
+  $utilities
+);
+
+/*
+$utilities: map-merge(
+  (
+    "cursor": (
+      property: cursor,
+      class: cursor,
+      responsive: true,
+      values: auto pointer grab,
+    ),
+  ),
+  $utilities
+);*/
