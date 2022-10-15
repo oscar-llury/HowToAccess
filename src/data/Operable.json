@@ -1,0 +1,201 @@
+{
+  "key": "Principio 2",
+  "name": "Operable",
+  "objective": "La navegación ha de ser manejable, es decir, se debe poder acceder al contenido desde cualquier dispositivo de apoyo.",
+  "description": "El principio Operable se centra en que los usuarios deben poder operar la interfaz (la interfaz no puede requerir una interacción que un usuario no pueda realizar). El principio Operable trata de eliminar las barreras entre el usuario y su contenido.",
+  "text": "<p class='mb-2'> Recomendamos: </p> <ul> <li> Que todas las funcionalidades sean accesibles mediante un teclado. </li> <li> Proporcionar tiempo suficiente a los usuarios para que puedan leer y entender el contenido. </li> <li> No presentar contenidos que puedan provocar trastornos en los usuarios. </li> <li> Facilitar ayudas a los usuarios en la navegación, es decir, para encontrar contenido o saber en qué lugar se encuentran. </li> </ul> <p class='mb-2'> El principio Operable está compuesto por las pautas: </p> <ol> <li> <a href='#pauta_2_1'>Accesible por teclado</a>. </li> <li> <a href='#pauta_2_2'>Tiempo suficiente</a>. </li> <li> <a href='#pauta_2_3'>No crear convulsiones</a>. </li> <li> <a href='#pauta_2_4'>Ayuda en la navegabilidad</a>. </li> </li> <li> <a href='#pauta_2_5'>Modalidades de entrada</a>. </li> </ul>",
+  "img": "principles/operable/operable-principle.png",
+  "caption": "Garantizar que el contenido web se pueda navegar usando solo un teclado está cubierto por el principio Operable.",
+  "date": "Fecha de última actualización: 12 junio 2022",
+  "guidelines": [
+    {
+      "key": "Pauta 2.1",
+      "name": "Accesible por teclado",
+      "description": "<p><strong>Proporcionar acceso a toda la funcionalidad mediante el teclado.</strong></p><p>Si se puede acceder a todas las funcionalidades mediante el uso del teclado, entonces podrán utilizarlas todos aquellos usuarios que usan entrada por voz, ratón, y otras tecnologías de asistencias que emulan la presión de las teclas. Ningún otro método de entrada de datos tiene esta flexibilidad ni resulta tan universal y operable por parte de personas con discapacidad.</p>",
+      "img": "principles/operable/enter_key_press.svg",
+      "caption": "Es clave que el contenido sea navegable por teclado, sin el uso de ratón.",
+      "criteria": [
+        {
+          "name": "Teclado",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Sin trampas para el foco del teclado",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Teclado (sin excepciones)",
+          "level": "Nivel AAA",
+          "comment": ""
+        },
+        {
+          "name": "Atajos de teclas de caracteres",
+          "level": "Nivel A",
+          "comment": "(Agregado en WCAG 2.1)"
+        }
+      ]
+    },
+    {
+      "key": "Pauta 2.2",
+      "name": "Tiempo suficiente",
+      "description": "<p><strong>Proporcionar a los usuarios el tiempo suficiente para leer y usar el contenido.</strong></p><p>Muchos usuarios con discapacidad necesitan más tiempo para completar las tareas que la mayoría de los usuarios; pueden tardar más en responder físicamente; pueden necesitar más tiempo para leer; pueden tener visión reducida y necesitar más tiempo leerlas los textos; o bien pueden estar accediendo al contenido a través de una ayuda técnica que requiere más tiempo. Esta pauta se enfoca en asegurar que los usuarios puedan completar las tareas requeridas según sus tiempos de respuesta individuales.</p>",
+      "img": "principles/operable/enough-time.gif",
+      "caption": "Cada usuario tiene una velocidad de lectura e interacción con el contenido distinta.",
+      "criteria": [
+        {
+          "name": "Tiempo ajustable",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Poner en pausa, detener, ocultar",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Sin tiempo",
+          "level": "Nivel AAA",
+          "comment": ""
+        },
+        {
+          "name": "Interrupciones",
+          "level": "Nivel AAA",
+          "comment": ""
+        },
+        {
+          "name": "Re-autentificación",
+          "level": "Nivel AAA",
+          "comment": ""
+        },
+        {
+          "name": "Tiempos de espera",
+          "level": "Nivel AAA",
+          "comment": "(Agregado en WCAG 2.1)"
+        }
+      ]
+    },
+    {
+      "key": "Pauta 2.3",
+      "name": "Convulsiones",
+      "description": "<p><strong>No diseñar contenido de un modo que se sepa que podría provocar ataques, espasmos o convulsiones.</strong></p><p>Algunas personas con trastornos neurológicos pueden sufrir ataques por el contenido visual que destella. Las advertencias no son efectivas pues muchas veces son ignoradas, otras, las personas no están al tanto de que pueden tener este desorden hasta que lo sufren.</p>",
+      "img": "principles/operable/convulsiones.png",
+      "caption": "La mejor forma de asegurar que una página web no provocará convulsiones a sus visitantes es no diseñar contenido que sea susceptible de crearlas.",
+      "criteria": [
+        {
+          "name": "Umbral de tres destellos o menos",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Tres destellos",
+          "level": "Nivel AAA",
+          "comment": ""
+        },
+        {
+          "name": "Animación de interacciones",
+          "level": "Nivel AAA",
+          "comment": "(Agregado en WCAG 2.1)"
+        }
+      ]
+    },
+    {
+      "key": "Pauta 2.4",
+      "name": "Navegable",
+      "description": "<p><strong>Proporcionar medios para ayudar a los usuarios a navegar, encontrar contenido y determinar dónde se encuentran.</strong></p><p>La intención de esta pauta es ayudar a los usuarios a encontrar el contenido que necesitan y permitirles determinar su ubicación. Estas tareas resultan a menudo más complicadas para las personas con discapacidad. Para encontrar, navegar y orientarse es importante que el usuario pueda saber cuál es su actual ubicación. Para navegar debe haber información disponible acerca de los destinos posibles.</p>",
+      "img": "principles/operable/navegabilidad_web.png",
+      "criteria": [
+        {
+          "name": "Evitar bloques",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Titulado de páginas",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Orden del foco",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Propósito de los enlaces (en contexto)",
+          "level": "Nivel A",
+          "comment": ""
+        },
+        {
+          "name": "Múltiples vías",
+          "level": "Nivel AA",
+          "comment": ""
+        },
+        {
+          "name": "Encabezados y etiquetas",
+          "level": "Nivel AA",
+          "comment": ""
+        },
+        {
+          "name": "Foco visible",
+          "level": "Nivel AA",
+          "comment": ""
+        },
+        {
+          "name": "Ubicación",
+          "level": "Nivel AAA",
+          "comment": ""
+        },
+        {
+          "name": "Propósito de los enlaces (sólo enlaces)",
+          "level": "Nivel AAA",
+          "comment": ""
+        },
+        {
+          "name": "Encabezados de sección",
+          "level": "Nivel AAA",
+          "comment": ""
+        }
+      ]
+    },
+    {
+      "key": "Pauta 2.5",
+      "name": "Modalidades de entrada",
+      "description": "<p><strong>Facilite que los usuarios puedan operar la funcionalidad a través de diferentes entradas además del teclado.</strong></p><p>Este principio es incluido en WCAG 2.1, y se centra principalmente en la visualización de páginas web en dispositivos móviles.</p>",
+      "img": "principles/operable/modalidades-de-entrada.svg",
+      "caption": "Distintas modalidades de entrada de datos.",
+      "criteria": [
+        {
+          "name": "Gestos de puntero",
+          "level": "Nivel A",
+          "comment": "(Agregado en WCAG 2.1)"
+        },
+        {
+          "name": "Cancelación de puntero",
+          "level": "Nivel A",
+          "comment": "(Agregado en WCAG 2.1)"
+        },
+        {
+          "name": "Etiqueta en nombre",
+          "level": "Nivel A",
+          "comment": "(Agregado en WCAG 2.1)"
+        },
+        {
+          "name": "Actuación de movimiento",
+          "level": "Nivel A",
+          "comment": "(Agregado en WCAG 2.1)"
+        },
+        {
+          "name": "Tamaño objetivo",
+          "level": "Nivel AAA",
+          "comment": "(Agregado en WCAG 2.1)"
+        },
+        {
+          "name": "Mecanismos de entrada concurrentes",
+          "level": "Nivel AAA",
+          "comment": "(Agregado en WCAG 2.1)"
+        }
+      ]
+    }
+  ]
+}

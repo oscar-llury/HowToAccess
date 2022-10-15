@@ -1,6 +1,10 @@
 import React from "react";
-import { AnimationOnScroll } from "react-animation-on-scroll";
+//import { AnimationOnScroll } from "react-animation-on-scroll";
 import { Carousel } from "react-bootstrap";
+
+/*
+ * Component for Slides (only show one slide) also Prev,Next buttons
+ */
 
 export default function Slides({ slides, interval }) {
   return (

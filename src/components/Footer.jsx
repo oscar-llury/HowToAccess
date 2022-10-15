@@ -1,9 +1,9 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+//import { Container, Row, Col } from "react-bootstrap";
 
 export default function Footer() {
   return (
-    <Container className="pt-4 mt-4 footer-container">
+    <footer className="pt-4 mt-4 footer-container">
       {/*
       <Container fluid className="text-center text-md-left">
         <Row>
@@ -34,12 +34,9 @@ export default function Footer() {
         </Row>
       </Container>
   */}
-
       <div className="footer-copyright text-center py-3">
-        <Container fluid>
-          <span>&copy;{new Date().getFullYear()} Copyright</span>
-        </Container>
+        <span>&copy;HowToAccess {new Date().getFullYear()}.</span>
       </div>
-    </Container>
+    </footer>
   );
 }

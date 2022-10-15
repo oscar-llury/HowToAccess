@@ -1,19 +1,52 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { setCookie, getCookie } from "../lib/states/functions";
+import { setCookie, getCookie } from "./functions";
 //import Cookies from "js-cookie";
 
 const AuthContext = React.createContext();
 
 export function AuthProvider({ children }) {
   const tokenRedux = useSelector((state) => state.token);
-  let token = useState(tokenRedux);
+  const tokenCookie = getCookie("LOGIN_TOKEN", true);
+  const [token, setToken] = useState(tokenRedux);
   const dispatch = useDispatch();
   const headers = {
     headers: {},
   };
+
+  const checkTokenValid = useCallback(() => {
+    let formData = new FormData();
+    formData.append("token", tokenCookie);
+    axios
+      .post(
+        `${process.env.REACT_APP_BACK_URL}/API/login/checkToken.php`,
+        formData,
+        { headers: {} }
+      )
+      .then((data) => {
+        const dataR = data.data;
+        if (dataR.status) {
+          if (tokenCookie && dataR.status) {
+            setToken(tokenCookie);
+            dispatch({ type: "LOGIN_TOKEN", data: tokenCookie });
+            dispatch({ type: "LOGIN_USERNAME", data: dataR.data.username });
+          }
+          return true;
+        } else {
+          return false;
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        return false;
+      });
+  }, [tokenCookie, dispatch]);
+
+  useEffect(() => {
+    checkTokenValid(tokenCookie);
+  }, [tokenCookie, setToken, checkTokenValid]);
 
   const login = async (formData, callback) => {
     return axios
@@ -45,45 +78,14 @@ export function AuthProvider({ children }) {
 
   const logout = (callback) => {
     console.log("logout");
+    setToken("");
     dispatch({ type: "LOGOUT_TOKEN" });
     dispatch({ type: "LOGOUT_USERNAME" });
     setCookie("LOGIN_TOKEN", "", -2, true);
     callback(true);
   };
 
-  const tokenValid = async (token) => {
-    let formData = new FormData();
-    formData.append("token", token);
-    axios
-      .post(
-        `${process.env.REACT_APP_BACK_URL}/API/login/checkToken.php`,
-        formData,
-        headers
-      )
-      .then((data) => {
-        const dataR = data.data;
-        if (dataR.status) {
-          return { valid: true, username: "" };
-        } else {
-          return false;
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-        return false;
-      });
-  };
-
-  const tokenCookie = getCookie("LOGIN_TOKEN");
-
-  const tokenV = tokenValid(tokenCookie);
-
-  if (tokenCookie && true) {
-    token = tokenCookie;
-    dispatch({ type: "LOGIN_TOKEN", data: token });
-    dispatch({ type: "LOGIN_USERNAME", data: "admin" });
-  }
-  const value = { token, login, logout };
+  const value = { token, login, logout, checkTokenValid };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
@@ -95,8 +97,9 @@ export function useAuth() {
 export function RequireAuth({ children }) {
   let auth = useAuth();
   let location = useLocation();
+  const tokenCookie = getCookie("LOGIN_TOKEN", true);
 
-  if (!auth.token) {
+  if (!auth.token && !tokenCookie) {
     // Redirect them to the /login page, but save the current location they were
     // trying to go to when they were redirected. This allows us to send them
     // along to that page after they login, which is a nicer user experience

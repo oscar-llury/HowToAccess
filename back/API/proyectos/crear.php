@@ -99,4 +99,6 @@ foreach($criterios_list as $criterio){
 
 $objRespuesta->status = 1;
 $objRespuesta->msg = 'OK';
+$objRespuesta->data = new stdClass();
+$objRespuesta->data->id = cifrarBA64($id_proyecto);
 echo json_encode($objRespuesta);
