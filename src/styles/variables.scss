@@ -51,14 +51,21 @@ $table-hover-bg: rgba($black, $table-hover-bg-factor);
 
 @font-face {
   font-family: "Inter";
-  src: url("Inter-VariableFont_slnt_wght.ttf") format("woff2-variations");
+  src: url("static/Inter-VariableFont_slnt_wght.ttf") format("woff2-variations");
   font-weight: 125 950;
   font-stretch: 75% 125%;
   font-style: oblique 0deg 20deg;
 }
+@font-face {
+  font-family: "opendyslexic";
+  src: url("static/OpenDyslexic-Regular.otf") format("opentype");
+  font-style: normal;
+  font-weight: normal;
+}
 
-$font-family-sans-serif: "Inter", "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
-$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-sans-serif: "Inter", "Helvetica Neue", Arial, sans-serif;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+$font-family-opendyslexic: "opendyslexic ", Arial, sans-serif;
 
 $font-weight-thin: 100;
 $font-weight-extralight: 200;
