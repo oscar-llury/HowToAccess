@@ -4,7 +4,7 @@ import { Container, Row, Col, Tooltip, OverlayTrigger, Card } from "react-bootst
 import { checkContrast, formatRatio, meetsMinimumRequirements, resultOfRatio } from "lib/contrastColor";
 import CustomPicker from "./CustomColorPicker";
 
-import loading from "../img/loading.gif";
+import loading from "../img/simulations/loading.gif";
 
 export default function ColorContrast() {
   const [textColor, setTextColor] = useState("#000000");

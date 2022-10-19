@@ -1,38 +1,44 @@
 import React, { useState } from "react";
-import { Row, Col, Container } from "react-bootstrap";
+import { Row, Col, Container, Button } from "react-bootstrap";
 
 import ColorContrast from "../components/ColorContrast";
 
 import imgB from "../img/simulations/background-letters.png";
 import imgA from "../img/simulations/foreground-letters.png";
-import loading from "../img/loading.gif";
+import bpq_letters from "../img/simulations/bpq-letters.svg";
+import dyslexis_letters from "../img/simulations/dyslexis-letters.svg";
+import letters_mural from "../img/simulations/letters-dyslexia-mural.svg";
+
+import zip from "../styles/static/OpenDyslexic.zip";
 
 export default function SimulacionInteractiva() {
   const [pos, setPos] = useState(50);
-  const [imageDyslexia, setImageDyslexia] = useState({ with: 664, height: 336 });
+  const [imageDyslexia, setImageDyslexia] = useState({ with: 648, height: 328 });
 
   function onImgLoad({ target: img }) {
+    console.log({ with: img.offsetWidth, height: img.offsetHeight });
     setImageDyslexia({ with: img.offsetWidth, height: img.offsetHeight });
   }
+
   return (
     <>
-      <Container fluid="md" className="dyslexic-slider">
-        <Row className="align-items-center justify-content-around">
-          <Col xs="12" md="7" lg="6">
-            <h1 className="fw-extrabold">Herramienta de contraste de color</h1>
-            <p>OpenDyslexic se creó para ayudar a la lectura de textos con a personas con síntomas de dislexia. Las letras tienen bordes inferiores más pesados para indicar la dirección y poder distinguir rápidamente qué parte de la letra está abajo. Esto ayuda a reconocer la letra correcta y, a veces, ayuda a evitar que el cerebro las gire. Las formas únicas de cada letra ayudan a evitar confusiones al voltear e intercambiar letras.</p>
+      <Container fluid="md" className="dyslexic-slider main-container">
+        <Row className="align-items-center justify-content-around mb-4">
+          <Col xs="12" lg="6" xl="7">
+            <h1 className="fw-extrabold">Tipografía para disléxicos</h1>
+            <p>OpenDyslexic es un proyecto de código abierto que se creó para ayudar a la lectura de textos a personas con síntomas de dislexia. Las letras tienen bordes inferiores más pesados para indicar la dirección y poder distinguir rápidamente qué parte de la letra está abajo. Esto ayuda a reconocer la letra correcta y, a veces, ayuda a evitar que el cerebro las gire. Las formas únicas de cada letra también ayudan a evitar confusiones al voltear e intercambiar letras.</p>
           </Col>
-          <Col xs="6" sm="5" md="4" lg="5" xl="4" className="overflow-hidden text-center">
-            <img src={loading} alt="" className="scale-1-2 w-100" />
+          <Col xs="6" sm="5" xl="4" className="overflow-hidden text-center">
+            <img src={dyslexis_letters} alt="" className="scale-1-2 w-100" />
           </Col>
         </Row>
-        <div className="slider-container m-auto" style={{ width: `${imageDyslexia.with}px`, height: `${imageDyslexia.height}px` }}>
+        <div className="slider-container m-auto w-100" style={{ height: `${imageDyslexia.height}px`, maxWidth: `${imageDyslexia.with}px` }}>
           <div className="background-img text-end">
-            <span className="box position-absolute end-0">adios</span>
+            <span className="box position-absolute end-0">OpenDyslexic</span>
             <img src={imgB} alt="" className="container-text w-100" />
           </div>
           <div className="foreground-img overflow-hidden" style={{ width: `${pos}%` }}>
-            <span className="box position-absolute">hola</span>
+            <span className="box position-absolute">Helvetica</span>
             <img src={imgA} alt="" className="container-text" onLoad={onImgLoad} />
           </div>
           <input
@@ -49,16 +55,29 @@ export default function SimulacionInteractiva() {
           />
           <div className="slider-button cursor-pointer" style={{ left: `calc(${pos}% - 18px)` }}></div>
         </div>
-        <div>
-          <p>https://opendyslexic.org/</p>
-          <p>Puedo encontrar la lectura complicada y leer mal algunas palabras. Para hacer un seguimiento de dónde estoy, a menudo uso el dedo o el cursor y, a veces, necesito volver a leer algo varias veces para asegurarme de que lo he leído correctamente y lo he asimilado todo. Un tipo de letra disléxico ayuda mucho con esto, encuentro que reduce el impacto de mi dislexia y me permite leer más rápido y con mayor precisión.</p>
-
-          <p>La base pesada también es útil para los usuarios que se pierden en las líneas de texto. Debido a que la parte inferior de cada línea es más gruesa que la superior, significa que es más fácil ver dónde comienzan y terminan las líneas de texto.</p>
-
-          <p>También con Helvetica D, P, D, Q son todos el mismo carácter simplemente volteado o girado. Esto significa que a las personas que experimentan el cambio de letras les resulta difícil determinar qué personaje deben ver, en comparación con OpenDyslexic, donde cada personaje está mucho más definido, como D como una cola pequeña a diferencia de B, lo que significa que está claro para el usuario lo que está leyendo.</p>
-
-          <p>Las fuentes para disléxicos no son efectivas para todos, algo sobre lo que ha escrito Neil Milliken . A algunas personas simplemente no les gustan, mientras que otras pueden encontrarlos inútiles. A menudo se presentan como una solución para todas las dificultades de lectura, lo que no es el caso.Las personas tienen diferentes preferencias y esto es importante. Deje que la gente elija y no asuma que lo que funciona para uno funcionará para todos.</p>
-        </div>
+        <p className="mt-1 mb-3 text-center">Comparativa de texto entre la tipografía Helvetica y OpenDyslexic.</p>
+        <Container fluid="md" className="my-3">
+          <p className="mb-1">
+            También con Helvetica las letras B, P, Q son todas el mismo carácter simplemente volteado o girado. Esto significa que las personas con dislexia pueden experimentar un volteado letras y como resultado una mayor dificultad para determinar qué carácter deben ver. En comparación con OpenDyslexic, cada caracter está mucho más definido, como la Q con una cola más resaltada a diferencia de P, lo que facilita la distincion de ellas y queda claro para el usuario lo que está leyendo.
+          </p>
+          <figure className="text-center mb-4">
+            <img src={bpq_letters} alt="" className="bpq_letters" />
+            <figcaption>Comparativa de caracteres B, P, Q entre la tipografía Helvetica y OpenDyslexic.</figcaption>
+          </figure>
+          <p>Las fuentes para disléxicos no son efectivas para todas las personas. A algunas simplemente no les gustan, mientras que otras pueden encontrarlo inútil. A menudo se presentan como una solución para todas las dificultades de lectura, lo que no es el caso. Las personas tienen diferentes preferencias y esto es importante. Deje que el usuario elija, y no asuma que lo que funciona para uno funcionará para todos.</p>
+          <p>
+            Puedes descargar la tipografía de OpenDyslexic desde{" "}
+            <a href={zip} download="OpenDyslexic.zip" rel="nofollow">
+              aquí
+            </a>{" "}
+            y consultar toda la información en la documentación oficial en este{" "}
+            <a href="https://opendyslexic.org/" target="_blank" rel="nofollow">
+              enlace
+            </a>
+            .
+          </p>
+        </Container>
+        <img src={letters_mural} alt="" className="mural position-absolute opacity-75" />
       </Container>
       <div>
         <ColorContrast />
