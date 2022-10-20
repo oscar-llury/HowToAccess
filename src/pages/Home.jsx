@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Button, Container, Row, Col, Tooltip, Toast, ToastContainer, Overlay } from "react-bootstrap";
 import "animate.css";
 import { AnimationOnScroll } from "react-animation-on-scroll";
@@ -65,6 +65,15 @@ const Home = () => {
     setImageAccHeight(img.offsetHeight);
   }
 
+  useEffect(() => {
+    function handleResizeImageAccHeight() {
+      const img = document.querySelector("#imgKeyboard");
+      setImageAccHeight(img.offsetHeight);
+    }
+    window.addEventListener("resize", handleResizeImageAccHeight);
+    return () => window.removeEventListener("resize", handleResizeImageAccHeight);
+  }, []);
+
   function randomTooltip(e) {
     e.preventDefault();
     if (!visibleTooltip) {
@@ -100,7 +109,7 @@ const Home = () => {
               <Col lg="5" md="6" xs="12" className="keyboard-container position-relative">
                 <div className=" w-100" style={{ marginTop: -(imageAccHeight / 2), top: 0 }}>
                   <Container className="position-relative" style={{ height: imageAccHeight }}>
-                    <img className="w-100 position-absolute left-0" src={que_es_accesibilidad} alt="" onLoad={onImgLoad} />
+                    <img className="w-100 position-absolute left-0" src={que_es_accesibilidad} alt="" onLoad={onImgLoad} id="imgKeyboard" />
                     <AnimationOnScroll animateIn="animate__bounceInRight" delay={1000} animateOnce={true} className="position-absolute left-0">
                       <img className="w-100" src={que_es_accesibilidad2} alt="" />
                     </AnimationOnScroll>

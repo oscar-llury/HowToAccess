@@ -35,7 +35,7 @@ export default function ColorContrast() {
             Utilice el verificador de contraste de color <span className="accent-hta">How To Access</span> para verificar rápidamente que las combinaciones de colores son accesibles para todos, cumpliendo con las Pautas de Accesibilidad para el Contenido Web (WCAG) establecidas por el W3C.
           </p>
         </Col>
-        <Col xs="6" sm="5" md="4" lg="5" xl="4" className="overflow-hidden text-center">
+        <Col xs="7" sm="5" md="4" lg="5" xl="4" className="overflow-hidden text-center">
           <img src={loading} alt="" className="scale-1-2 w-100" />
         </Col>
       </Row>
