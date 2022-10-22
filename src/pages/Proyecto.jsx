@@ -118,7 +118,7 @@ export default function Proyecto() {
     <Container fluid="sm" className="app-proyecto p-lg-5">
       <div>
         <Link to="/proyectos">
-          <i className="bi bi-arrow-left"></i>Volver a proyectos
+          <i className="bi bi-arrow-left"></i>Volver al listado
         </Link>
       </div>
       {windowWd >= 992 ? (

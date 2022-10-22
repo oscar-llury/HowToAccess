@@ -1,32 +1,16 @@
 import React from "react";
 import { Col, Row, Container, Button, Accordion } from "react-bootstrap";
-import { useLocation } from "react-router";
 import BreadcrumbCustom from "components/Breadcrumb";
-import { useNavigate } from "react-router";
-
-//data
-import perceptible_json from "data/Perceptible.json";
-import operable_json from "data/Operable.json";
-import entendible_json from "data/Entendible.json";
-import robusto_json from "data/Robusto.json";
-
+import GoBack from "components/GoBack";
 import Image from "components/Image";
 
-export default function Principle({ crumbs }) {
-  const navigate = useNavigate();
+//data
+import Data from "data/Data";
 
-  let location = useLocation();
-  const paths = location.pathname.split("/");
-  const slug = paths[paths.length - 1];
+export default function Principle({ crumbs, slug, pages }) {
   let dateTime = 0;
-
-  const principle = {
-    perceptible: perceptible_json,
-    operable: operable_json,
-    entendible: entendible_json,
-    robusto: robusto_json,
-  }[slug];
-
+  //search in Data the actual page info
+  const principle = pages.reduce((o, key) => ({ ...o, [key]: Data[key] }), {})[slug.replaceAll("-", "_")];
   const dateString = principle.date;
   let date = new Date(dateString.split(":")[1]);
   date.setHours(12);
@@ -37,9 +21,7 @@ export default function Principle({ crumbs }) {
   return (
     <Container className="app-principle main-container">
       <BreadcrumbCustom breadcrumb={crumbs} />
-      <button className="btn btn-link p-0 mb-3" onClick={() => navigate(-1)}>
-        <i className="bi bi-arrow-left"></i>Volver
-      </button>
+      <GoBack />
       <article>
         <header>
           <span className="index">{principle.key}</span>

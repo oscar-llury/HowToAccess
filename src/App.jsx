@@ -28,15 +28,37 @@ export default function App() {
     const paths = location.pathname.split("/");
     const fooCrumbs = [];
     paths.shift();
+    let urlAcummulative = "";
     paths.map((e, i) => {
+      urlAcummulative = urlAcummulative + "/" + e;
       fooCrumbs.push({
         title: e.replaceAll("-", " "),
-        link: "/" + e,
+        link: urlAcummulative,
       });
       return fooCrumbs;
     });
     setCrumbs(fooCrumbs);
   }, [setCrumbs, location]);
+
+  const pagesGuideleness = [
+    "/normas-de-accesibilidad-web/perceptible/alternativas-textuales",
+    "/normas-de-accesibilidad-web/perceptible/medios-tempodependientes",
+    "/normas-de-accesibilidad-web/perceptible/adaptable",
+    "/normas-de-accesibilidad-web/perceptible/distinguible",
+    "/normas-de-accesibilidad-web/operable/accesible-por-teclado",
+    "/normas-de-accesibilidad-web/operable/tiempo-suficiente",
+    "/normas-de-accesibilidad-web/operable/convulsiones",
+    "/normas-de-accesibilidad-web/operable/navegable",
+    "/normas-de-accesibilidad-web/operable/modalidades-de-entrada",
+    "/normas-de-accesibilidad-web/entendible/legible",
+    "/normas-de-accesibilidad-web/entendible/predecible",
+    "/normas-de-accesibilidad-web/entendible/entrada-de-datos-asistida",
+    "/normas-de-accesibilidad-web/robusto/compatible",
+  ];
+  const pagesPrinciples = ["/normas-de-accesibilidad-web/perceptible", "/normas-de-accesibilidad-web/operable", "/normas-de-accesibilidad-web/entendible", "/normas-de-accesibilidad-web/robusto"];
+  //delete the previous pathnames of a page and transform - to _
+  const pagesPrinciplesNames = pagesPrinciples.reduce((o, key) => [...o, key.split("/").pop().replaceAll("-", "_")], []);
+  const pagesGuidelenessNames = pagesGuideleness.reduce((o, key) => [...o, key.split("/").pop().replaceAll("-", "_")], []);
 
   return (
     <div className="App">
@@ -45,38 +67,12 @@ export default function App() {
         <Routes>
           <Route index element={<Home />} />
           <Route path="/accesibilidad-web" element={<AccesibilidadWeb />} />
-          <Route
-            path="/normas-de-accesibilidad-web"
-            element={<NormasAccesibilidadWeb />}
-          />
-          {[
-            "/normas-de-accesibilidad-web/perceptible",
-            "/normas-de-accesibilidad-web/operable",
-            "/normas-de-accesibilidad-web/entendible",
-            "/normas-de-accesibilidad-web/robusto",
-          ].map((path) => (
-            <Route
-              key={path}
-              path={path}
-              element={<Principio crumbs={crumbs} />}
-            />
+          <Route path="/normas-de-accesibilidad-web" element={<NormasAccesibilidadWeb />} />
+          {pagesPrinciples.map((path) => (
+            <Route key={path} path={path} element={<Principio crumbs={crumbs} slug={location.pathname.split("/").pop()} pages={pagesPrinciplesNames} />} />
           ))}
-          {[
-            "/normas-de-accesibilidad-web/perceptible/alternativas-textuales",
-            "/normas-de-accesibilidad-web/perceptible/medios-tempodependientes",
-            "/normas-de-accesibilidad-web/perceptible/adaptable",
-            "/normas-de-accesibilidad-web/perceptible/distinguible",
-            "/normas-de-accesibilidad-web/operable/accesible-por-teclado",
-            "/normas-de-accesibilidad-web/operable/tiemposuficiente",
-            "/normas-de-accesibilidad-web/operable/convulsiones",
-            "/normas-de-accesibilidad-web/operable/navegable",
-            "/normas-de-accesibilidad-web/operable/modalidades-de-entrada",
-            "/normas-de-accesibilidad-web/entendible/legible",
-            "/normas-de-accesibilidad-web/entendible/predecible",
-            "/normas-de-accesibilidad-web/entendible/entrada-de-datos-asistida",
-            "/normas-de-accesibilidad-web/robusto/compatible",
-          ].map((path) => (
-            <Route key={path} path={path} element={<Pauta crumbs={crumbs} />} />
+          {pagesGuideleness.map((path) => (
+            <Route key={path} path={path} element={<Pauta crumbs={crumbs} slug={location.pathname.split("/").pop()} pages={pagesGuidelenessNames} />} />
           ))}
           <Route path="/iniciar-sesion" element={<Login />} />
           <Route
