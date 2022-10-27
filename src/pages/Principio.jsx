@@ -10,7 +10,7 @@ import Data from "data/Data";
 export default function Principle({ crumbs, slug, pages }) {
   let dateTime = 0;
   //search in Data the actual page info
-  const principle = pages.reduce((o, key) => ({ ...o, [key]: Data[key] }), {})[slug.replaceAll("-", "_")];
+  const principle = pages.reduce((o, i) => ({ ...o, [i]: Data[i] }), {})[slug.replaceAll("-", "_")];
   const dateString = principle.date;
   let date = new Date(dateString.split(":")[1]);
   date.setHours(12);
@@ -25,7 +25,7 @@ export default function Principle({ crumbs, slug, pages }) {
       <article>
         <header>
           <h1>
-            <span className="index">{principle.key} </span>
+            <span className="index">{principle.index} </span>
             <br />
             {principle.name}
           </h1>
@@ -54,26 +54,29 @@ export default function Principle({ crumbs, slug, pages }) {
           </Row>
         </Container>
         {pautas.map((pauta, indexP) => (
-          <article key={indexP} className="pauta" id={pauta.key.toLowerCase().replace(/\.| /g, "_")}>
+          <article key={indexP} className="pauta" id={Data[pauta.key].index.toLowerCase().replace(/\.| /g, "_")}>
             <header>
               <h2>
-                <span className="index">{pauta.key} </span>
+                <span className="index">{Data[pauta.key].index} </span>
                 <br />
-                {pauta.name}
+                {Data[pauta.key].name}
               </h2>
             </header>
             <Row>
-              <Col lg={pauta.img ? "8" : "12"} md="12" className="mt-3">
-                <div dangerouslySetInnerHTML={{ __html: pauta.description }}></div>
-                <Button variant="outline-primary" as="a" href={`/normas-de-accesibilidad-web/${principle.name.toLowerCase().replace(/ /g, "-")}/${pauta.name.toLowerCase().replace(/ /g, "-")}`}>
+              <Col lg={Data[pauta.key].img ? "8" : "12"} md="12" className="mt-3">
+                <p>
+                  <strong>{Data[pauta.key].objective}</strong>
+                </p>
+                <p>{Data[pauta.key].description}</p>
+                <Button variant="outline-primary" as="a" href={`/normas-de-accesibilidad-web/${principle.name.toLowerCase().replace(/ /g, "-")}/${pauta.key.replace("_", "-")}`}>
                   Ampliar información
                 </Button>
               </Col>
-              {pauta.img ? (
+              {Data[pauta.key].img ? (
                 <Col lg="4" md="12" className="text-center">
                   <figure>
-                    <Image src={pauta.img} alt={pauta.caption} className="w-100" />
-                    <figcaption>{pauta.caption}</figcaption>
+                    <Image src={Data[pauta.key].img} alt={Data[pauta.key].caption} className="w-100" />
+                    <figcaption>{Data[pauta.key].caption}</figcaption>
                   </figure>
                 </Col>
               ) : (
@@ -82,12 +85,12 @@ export default function Principle({ crumbs, slug, pages }) {
               <Col lg="8" md="12">
                 <Accordion flush>
                   <Accordion.Item eventKey="0">
-                    <Accordion.Header as="h3">{pauta.key} - Criterios de conformidad</Accordion.Header>
+                    <Accordion.Header as="h3">{Data[pauta.key].index} - Criterios de conformidad</Accordion.Header>
                     <Accordion.Body className="px-0">
                       <ol>
                         {pauta.criteria.map((criteria, indexC) => (
                           <li key={indexC}>
-                            <h4 className="title">{criteria.name}</h4> <span>({criteria.level})</span> {criteria.comment}
+                            <h4 className="title">{Data[criteria.key].name}</h4> <span>({Data[criteria.key].level})</span> {Data[criteria.key].comment}
                           </li>
                         ))}
                       </ol>

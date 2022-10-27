@@ -1,0 +1,39 @@
+{
+  "index": "Pauta 1.2",
+  "name": "Medios tempodependientes",
+  "principle": "Principio 1: Perceptible",
+  "objective": "Proporcionar alternativas para los medios tempodependientes.",
+  "description": "El propósito de esta pauta es que se proporcionen alternativas y/o complementos para proporcionar acceso a los medios de audio y vídeo interactivos y sincronizados.",
+  "img": "",
+  "caption": "",
+  "date": "Fecha de última actualización: 12 junio 2022",
+  "criteria": [
+    {
+      "key": "solo_audio_video_grabado"
+    },
+    {
+      "key": "subtitulos_grabado"
+    },
+    {
+      "key": "audiodescripcion_medio_alternativo"
+    },
+    {
+      "key": "subtitulos_directo"
+    },
+    {
+      "key": "audiodescripcion_grabado"
+    },
+    {
+      "key": "lengua_de_señas_grabado"
+    },
+    {
+      "key": "audiodescripcion_grabada_ampliada"
+    },
+    {
+      "key": "medio_alternativo_grabado"
+    },
+    {
+      "key": "solo_audio_directo"
+    }
+  ]
+}

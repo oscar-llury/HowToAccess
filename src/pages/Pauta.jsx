@@ -12,7 +12,7 @@ export default function Pauta({ crumbs, slug, pages }) {
   //search in Data the actual page info
   const guidelines = pages.reduce((o, key) => ({ ...o, [key]: Data[key] }), {})[slug.replaceAll("-", "_")];
   const criteria = guidelines.criteria;
-  const guidelines_index = guidelines.key.replace(/[^0-9 .]/g, "");
+  const guidelines_index = guidelines.index.replace(/[^0-9 .]/g, "");
 
   return (
     <Container className="app-principle main-container">
@@ -21,7 +21,7 @@ export default function Pauta({ crumbs, slug, pages }) {
       <article className="criterio">
         <header className="d-flex flex-column-reverse">
           <h1>
-            <span className="index fs-4">{guidelines.key} </span>
+            <span className="index fs-4">{guidelines.index} </span>
             <br />
             {guidelines.name}
           </h1>
@@ -46,10 +46,6 @@ export default function Pauta({ crumbs, slug, pages }) {
               ""
             )}
           </Row>
-          <Row>
-            <Col dangerouslySetInnerHTML={{ __html: guidelines.text }}></Col>
-          </Row>
-
           <Row className="criterios-list">
             <Col lg="3" key={1}>
               <div className="pauta mx-0 p-2">
@@ -60,7 +56,7 @@ export default function Pauta({ crumbs, slug, pages }) {
                       <div className="number">
                         {guidelines_index}.{indexP + 1}
                       </div>
-                      {criteria.name}
+                      {Data[criteria.key].name}
                     </li>
                   ))}
                 </ol>
@@ -68,7 +64,7 @@ export default function Pauta({ crumbs, slug, pages }) {
             </Col>
             <Col lg="9">
               {criteria.map((criteria, indexP) => (
-                <CriteriaBox criteria={criteria} index={indexP} key={indexP} />
+                <CriteriaBox criteria={Data[criteria.key]} index={indexP} key={indexP} />
               ))}
             </Col>
           </Row>
@@ -79,7 +75,6 @@ export default function Pauta({ crumbs, slug, pages }) {
 }
 
 const CriteriaBox = ({ criteria }) => {
-  //criteria.length > 1
   return (
     <article className="pauta mx-0 p-0 border-0" id={criteria.key.toLowerCase().replace(/\.| /g, "_")}>
       <Accordion flush>

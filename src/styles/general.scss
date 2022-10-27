@@ -1603,10 +1603,11 @@ footer {
       }
       li {
         margin-bottom: 0.25em;
+        list-style-type: none;
       }
     }
-    li {
-      list-style-type: none;
+    ol {
+      list-style-type: disc;
     }
   }
   @media (max-width: 576px) {

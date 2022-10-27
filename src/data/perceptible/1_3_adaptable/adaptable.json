@@ -1,0 +1,30 @@
+{
+  "index": "Pauta 1.3",
+  "name": "Adaptable",
+  "principle": "Principio 1: Perceptible",
+  "objective": "Crear contenido que pueda presentarse de diferentes formas (por ejemplo, con una disposición más simple) sin perder información o estructura.",
+  "description": "El propósito de esta pauta es asegurar que toda la información se encuentre disponible de forma que pueda ser percibida por todos los usuarios, por ejemplo, que pueda ser leída por un lector de pantalla o presentada con una disposición más simple.",
+  "img": "principles/perceptible/texto-solapado.jpg",
+  "caption": "Al ajustar el contenido al tamaño de pantalla, no se pueden producir solapamientos en los textos .",
+  "date": "Fecha de última actualización: 12 junio 2022",
+  "criteria": [
+    {
+      "key": "informacion_relaciones"
+    },
+    {
+      "key": "secuencia_significativa"
+    },
+    {
+      "key": "caracteristicas_sensoriales"
+    },
+    {
+      "key": "orientacion"
+    },
+    {
+      "key": "identificar_proposito_entrada"
+    },
+    {
+      "key": "identificar_proposito"
+    }
+  ]
+}
