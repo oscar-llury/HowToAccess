@@ -1531,7 +1531,6 @@ footer {
 .app-principle {
   padding-top: 2em;
   .index {
-    font-size: 1.4em;
     line-height: 1em;
     font-weight: 300;
   }
@@ -1570,7 +1569,16 @@ footer {
     }
     .accordion {
       .accordion-header {
-        border-bottom: 1px solid #000;
+        border: 1px solid #000;
+        .accordion-button {
+          box-shadow: none;
+        }
+      }
+      &.accordion-flush {
+        .accordion-collapse {
+          border: 1px solid;
+          border-top: 0;
+        }
       }
       .accordion-body {
         padding: 0.5rem 1rem;
@@ -1580,7 +1588,25 @@ footer {
         li {
           margin: 0.5rem 0;
         }
+        .title {
+          font-size: 1em;
+          display: inline;
+        }
       }
+    }
+  }
+  .criterios-list {
+    .index-list {
+      .number {
+        width: 2.5rem;
+        display: inline-block;
+      }
+      li {
+        margin-bottom: 0.25em;
+      }
+    }
+    li {
+      list-style-type: none;
     }
   }
   @media (max-width: 576px) {
@@ -1936,6 +1962,7 @@ footer {
     }
   }
 }
+
 /*******OLD REACT*******/
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

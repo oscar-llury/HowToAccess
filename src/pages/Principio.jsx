@@ -24,8 +24,11 @@ export default function Principle({ crumbs, slug, pages }) {
       <GoBack />
       <article>
         <header>
-          <span className="index">{principle.key}</span>
-          <h1>{principle.name}</h1>
+          <h1>
+            <span className="index">{principle.key} </span>
+            <br />
+            {principle.name}
+          </h1>
         </header>
         <Container className="principio">
           <Row className="align-items-center">
@@ -53,11 +56,14 @@ export default function Principle({ crumbs, slug, pages }) {
         {pautas.map((pauta, indexP) => (
           <article key={indexP} className="pauta" id={pauta.key.toLowerCase().replace(/\.| /g, "_")}>
             <header>
-              <span className="index">{pauta.key}</span>
-              <h2>{pauta.name}</h2>
+              <h2>
+                <span className="index">{pauta.key} </span>
+                <br />
+                {pauta.name}
+              </h2>
             </header>
-            <Row className="align-items-center">
-              <Col lg={pauta.img ? "8" : "12"} md="12">
+            <Row>
+              <Col lg={pauta.img ? "8" : "12"} md="12" className="mt-3">
                 <div dangerouslySetInnerHTML={{ __html: pauta.description }}></div>
                 <Button variant="outline-primary" as="a" href={`/normas-de-accesibilidad-web/${principle.name.toLowerCase().replace(/ /g, "-")}/${pauta.name.toLowerCase().replace(/ /g, "-")}`}>
                   Ampliar información
@@ -76,12 +82,12 @@ export default function Principle({ crumbs, slug, pages }) {
               <Col lg="8" md="12">
                 <Accordion flush>
                   <Accordion.Item eventKey="0">
-                    <Accordion.Header>{pauta.key} - Criterios de conformidad</Accordion.Header>
+                    <Accordion.Header as="h3">{pauta.key} - Criterios de conformidad</Accordion.Header>
                     <Accordion.Body className="px-0">
                       <ol>
                         {pauta.criteria.map((criteria, indexC) => (
                           <li key={indexC}>
-                            {criteria.name} <span>({criteria.level})</span> {criteria.comment}
+                            <h4 className="title">{criteria.name}</h4> <span>({criteria.level})</span> {criteria.comment}
                           </li>
                         ))}
                       </ol>

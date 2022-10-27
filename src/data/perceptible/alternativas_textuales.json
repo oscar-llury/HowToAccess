@@ -1,4 +1,22 @@
 {
-  "key": "Principio 3",
-  "name": "Entendible"
+  "key": "Pauta 1.1",
+  "name": "Alternativas textuales",
+  "principle": "Principio 1: Perceptible",
+  "objective": "Proporcionar alternativas textuales para todo contenido no textual de modo que se pueda convertir a otros formatos que las personas necesiten, tales como textos ampliados, braille, voz, símbolos o en un lenguaje más simple.",
+  "description": "El propósito de esta pauta es asegurar que todo el contenido no textual se encuentre también disponible en forma de texto. El texto electrónico tiene la particular ventaja de que se puede representar visual, auditiva o táctilmente.",
+  "text": "",
+  "img": "principles/perceptible/texto-alternativo.png",
+  "caption": "La información contenida en un texto electrónico puede ser presentada en la forma que mejor se adapte a las necesidades del usuario.",
+  "date": "Fecha de última actualización: 12 junio 2022",
+  "criteria": [
+    {
+      "key": "Criterio de Conformidad 1.1.1",
+      "name": "Contenido no textual",
+      "level": "Nivel A",
+      "comment": "",
+      "description": "<p><strong>Proporcionar alternativas textuales para todo contenido no textual de modo que se pueda convertir a otros formatos que las personas necesiten, tales como textos ampliados, braille, voz, símbolos o en un lenguaje más simple.</strong></p><p>El propósito de esta pauta es asegurar que todo el contenido no textual se encuentre también disponible en forma de texto. El texto electrónico tiene la particular ventaja de que se puede representar visual, auditiva o táctilmente.</p>",
+      "imgs": "principles/perceptible/texto-alternativo.png",
+      "caption": "La información contenida en un texto electrónico puede ser presentada en la forma que mejor se adapte a las necesidades del usuario."
+    }
+  ]
 }

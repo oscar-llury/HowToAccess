@@ -49,6 +49,12 @@ $btn-transition: color 350ms ease-in-out, background-color 350ms ease-in-out, bo
 $table-hover-bg-factor: 0.2;
 $table-hover-bg: rgba($black, $table-hover-bg-factor);
 
+$border-width: 1px !default;
+$border-radius: 0px !default;
+$accordion-border-width: $border-width;
+$accordion-border-color: $black;
+$accordion-border-radius: $border-radius;
+
 @font-face {
   font-family: "Inter";
   src: url("static/Inter-VariableFont_slnt_wght.ttf") format("woff2-variations");
