@@ -57,7 +57,7 @@ export default function NuevoProyecto() {
   const addEventListenerToDot = useCallback((e) => {
     const id = Number(e.target.dataset.id);
     setActive(id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // es lint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -68,7 +68,7 @@ export default function NuevoProyecto() {
         l.addEventListener("click", addEventListenerToDot);
       }
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // es lint-disable-next-line react-hooks/exhaustive-deps
   }, [totalComplete]);
 
   useEffect(() => {

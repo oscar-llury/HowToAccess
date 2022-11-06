@@ -35,7 +35,7 @@ export default function Proyectos() {
       .finally((e) => {
         //console.log("always");
       });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // es lint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const [proyectos, setProyectos] = useState([]);

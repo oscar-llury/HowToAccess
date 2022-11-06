@@ -90,21 +90,17 @@ const CriteriaBox = ({ criteria }) => {
             </header>
           </Accordion.Header>
           <Accordion.Body className="p-4">
-            <Row className="m-0">
-              <Col lg={criteria.img ? "8" : "12"} md="12" className="p-0">
-                <div dangerouslySetInnerHTML={{ __html: criteria.description }}></div>
-              </Col>
-              {criteria.img ? (
-                <Col lg="4" md="12" className="text-center p-0">
-                  <figure>
-                    <Image src={criteria.img} alt={criteria.caption} className="w-100" />
-                    <figcaption>{criteria.caption}</figcaption>
-                  </figure>
-                </Col>
-              ) : (
-                ""
-              )}
-            </Row>
+            <div dangerouslySetInnerHTML={{ __html: criteria.description }}></div>
+            {criteria.img ? (
+              <div className="text-center p-0">
+                <figure>
+                  <Image src={criteria.img} alt={criteria.caption} className="w-100" />
+                  <figcaption>{criteria.caption}</figcaption>
+                </figure>
+              </div>
+            ) : (
+              ""
+            )}
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
