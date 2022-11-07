@@ -23,6 +23,7 @@ import SimulacionInteractiva from "pages/SimulacionInteractiva";
 export default function App() {
   const location = useLocation();
   const [crumbs, setCrumbs] = useState([]);
+  const [windowWd, detectWd] = useState(window.innerWidth);
 
   useEffect(() => {
     const paths = location.pathname.split("/");
@@ -39,6 +40,16 @@ export default function App() {
     });
     setCrumbs(fooCrumbs);
   }, [setCrumbs, location]);
+
+  useEffect(() => {
+    const detectSize = () => {
+      detectWd(window.innerWidth);
+    };
+    window.addEventListener("resize", detectSize);
+    return () => {
+      window.removeEventListener("resize", detectSize);
+    };
+  }, []);
 
   const pagesGuideleness = [
     "/normas-de-accesibilidad-web/perceptible/alternativas-textuales",
@@ -69,7 +80,7 @@ export default function App() {
           <Route path="/accesibilidad-web" element={<AccesibilidadWeb />} />
           <Route path="/normas-de-accesibilidad-web" element={<NormasAccesibilidadWeb />} />
           {pagesPrinciples.map((path) => (
-            <Route key={path} path={path} element={<Principio crumbs={crumbs} slug={location.pathname.split("/").pop()} pages={pagesPrinciplesNames} />} />
+            <Route key={path} path={path} element={<Principio crumbs={crumbs} slug={location.pathname.split("/").pop()} pages={pagesPrinciplesNames} windowWd={windowWd} />} />
           ))}
           {pagesGuideleness.map((path) => (
             <Route key={path} path={path} element={<Pauta crumbs={crumbs} slug={location.pathname.split("/").pop()} pages={pagesGuidelenessNames} />} />

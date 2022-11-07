@@ -1,9 +1,10 @@
 {
   "key": "Criterio de Conformidad 1.2.1",
   "name": "Sólo audio y sólo vídeo (grabado)",
+  "slug": "solo-audio-solo-video",
   "level": "Nivel A",
   "comment": "",
-  "description": "",
+  "description": "<p>Para contenido sólo audio grabado y contenido sólo vídeo grabado, se cumple lo siguiente, excepto cuando el audio o el vídeo es un contenido multimedia alternativo al texto y está claramente identificado como tal:</p><ol><li><strong>Sólo audio grabado</strong>: Se proporciona una alternativa para los medios tempodependientes que presenta información equivalente para el contenido sólo audio grabado</li><li><strong>Sólo vídeo grabado</strong>: Se proporciona una alternativa para los medios tempodependientes o se proporciona una pista sonora que presenta información equivalente al contenido del medio de sólo vídeo grabado.</li></ol>",
   "imgs": "",
   "caption": ""
 }

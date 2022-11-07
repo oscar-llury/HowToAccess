@@ -1,9 +1,10 @@
 {
   "key": "Criterio de Conformidad 1.2.3",
   "name": "Audiodescripción o Medio Alternativo (grabado)",
+  "slug": "audiodescripcion-alternativa",
   "level": "Nivel A",
   "comment": "",
-  "description": "",
+  "description": "<p>Se proporciona una alternativa para los medios tempodependientes o una audiodescripción para el contenido de vídeo grabado en los multimedia sincronizados, excepto cuando ese contenido es un contenido multimedia alternativo al texto y está claramente identificado como tal.</p>",
   "imgs": "",
   "caption": ""
 }

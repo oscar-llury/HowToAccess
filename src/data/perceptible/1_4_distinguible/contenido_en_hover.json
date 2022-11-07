@@ -1,6 +1,7 @@
 {
   "key": "Criterio de Conformidad 1.4.13",
   "name": "Contenido en Hover o Focus",
+  "slug": "contenido-en-hover",
   "level": "Nivel AA",
   "comment": "(Agregado en WCAG 2.1)",
   "description": "",

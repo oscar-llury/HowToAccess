@@ -1,6 +1,7 @@
 {
   "key": "Criterio de Conformidad 1.4.11",
   "name": "Contraste sin texto",
+  "slug": "sontraste-sin-texto",
   "level": "Nivel AA",
   "comment": "(Agregado en WCAG 2.1)",
   "description": "",

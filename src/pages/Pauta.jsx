@@ -1,7 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Row, Container, Accordion } from "react-bootstrap";
-
-import GoBack from "components/GoBack";
 import BreadcrumbCustom from "components/Breadcrumb";
 import Image from "components/Image";
 
@@ -13,11 +11,11 @@ export default function Pauta({ crumbs, slug, pages }) {
   const guidelines = pages.reduce((o, key) => ({ ...o, [key]: Data[key] }), {})[slug.replaceAll("-", "_")];
   const criteria = guidelines.criteria;
   const guidelines_index = guidelines.index.replace(/[^0-9 .]/g, "");
+  const [criteriaOpen, setCriteriaOpen] = useState(document.location.hash.replace("#", ""));
 
   return (
     <Container className="app-principle main-container">
       <BreadcrumbCustom breadcrumb={crumbs} />
-      <GoBack />
       <article className="criterio">
         <header className="d-flex flex-column-reverse">
           <h1>
@@ -46,25 +44,35 @@ export default function Pauta({ crumbs, slug, pages }) {
               ""
             )}
           </Row>
-          <Row className="criterios-list">
+          <Row className="criterios-list mt-4">
             <Col lg="3" key={1}>
-              <div className="pauta mx-0 p-2">
-                <p>Índice de Criterios</p>
-                <ol start="2" className="p-0 m-0 index-list">
-                  {criteria.map((criteria, indexP) => (
-                    <li key={indexP}>
-                      <div className="number">
-                        {guidelines_index}.{indexP + 1}
-                      </div>
-                      {Data[criteria.key].name}
-                    </li>
-                  ))}
-                </ol>
+              <div className="position-sticky top-0 pt-3">
+                <div className="pauta m-0 p-2">
+                  <p>Índice de Criterios</p>
+                  <ol start="2" className="p-0 m-0 index-list">
+                    {criteria.map((criteria, indexP) => (
+                      <li key={indexP}>
+                        <a
+                          onClick={() => {
+                            setCriteriaOpen(Data[criteria.key].slug);
+                            document.location.hash = Data[criteria.key].slug;
+                          }}
+                          className="text-decoration-none cursor-pointer"
+                        >
+                          <div className="number">
+                            {guidelines_index}.{indexP + 1}
+                          </div>
+                          {Data[criteria.key].name}
+                        </a>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
               </div>
             </Col>
-            <Col lg="9">
+            <Col lg="9" className="">
               {criteria.map((criteria, indexP) => (
-                <CriteriaBox criteria={Data[criteria.key]} index={indexP} key={indexP} />
+                <CriteriaBox criteria={Data[criteria.key]} index={indexP} key={indexP} criteriaOpen={criteriaOpen} />
               ))}
             </Col>
           </Row>
@@ -74,36 +82,39 @@ export default function Pauta({ crumbs, slug, pages }) {
   );
 }
 
-const CriteriaBox = ({ criteria }) => {
+const CriteriaBox = ({ criteria, criteriaOpen }) => {
+  const open = criteriaOpen === criteria.slug ? "0" : "";
   return (
-    <article className="pauta mx-0 p-0 border-0" id={criteria.key.toLowerCase().replace(/\.| /g, "_")}>
-      <Accordion flush>
-        <Accordion.Item eventKey="0">
-          <Accordion.Header as="div">
-            <header className="d-flex flex-column flex-md-row align-items-md-end justify-content-between w-100 me-4">
-              <h2 className="m-0">
-                <span className="index fs-4">{criteria.key} </span>
-                <br />
-                {criteria.name}
-              </h2>
-              <p className="fs-4 fw-semibold m-0">{criteria.level}</p>
-            </header>
-          </Accordion.Header>
-          <Accordion.Body className="p-4">
-            <div dangerouslySetInnerHTML={{ __html: criteria.description }}></div>
-            {criteria.img ? (
-              <div className="text-center p-0">
-                <figure>
-                  <Image src={criteria.img} alt={criteria.caption} className="w-100" />
-                  <figcaption>{criteria.caption}</figcaption>
-                </figure>
-              </div>
-            ) : (
-              ""
-            )}
-          </Accordion.Body>
-        </Accordion.Item>
-      </Accordion>
+    <article className="pt-3 mb-3" id={criteria.slug}>
+      <div className="pauta p-0 border-0 m-0">
+        <Accordion flush activeKey={open}>
+          <Accordion.Item eventKey="0">
+            <Accordion.Header as="div">
+              <header className="d-flex flex-column flex-md-row align-items-md-end justify-content-between w-100 me-4">
+                <h2 className="m-0">
+                  <span className="index fs-4">{criteria.key} </span>
+                  <br />
+                  {criteria.name}
+                </h2>
+                <p className="fs-4 fw-semibold m-0 space-nowrap">{criteria.level}</p>
+              </header>
+            </Accordion.Header>
+            <Accordion.Body className="p-4">
+              <div dangerouslySetInnerHTML={{ __html: criteria.description }}></div>
+              {criteria.img ? (
+                <div className="text-center p-0">
+                  <figure>
+                    <Image src={criteria.img} alt={criteria.caption} className="w-100" />
+                    <figcaption>{criteria.caption}</figcaption>
+                  </figure>
+                </div>
+              ) : (
+                ""
+              )}
+            </Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
+      </div>
     </article>
   );
 };

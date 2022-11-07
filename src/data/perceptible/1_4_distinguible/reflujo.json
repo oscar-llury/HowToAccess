@@ -1,6 +1,7 @@
 {
   "key": "Criterio de Conformidad 1.4.10",
   "name": "Reflujo",
+  "slug": "reflujo",
   "level": "Nivel AA",
   "comment": "(Agregado en WCAG 2.1)",
   "description": "",

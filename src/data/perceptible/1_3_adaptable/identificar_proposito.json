@@ -1,6 +1,7 @@
 {
   "key": "Criterio de Conformidad 1.3.6",
   "name": "Identificar Propósito",
+  "slug": "identificar-proposito",
   "level": "Nivel AA",
   "comment": "(Agregado en WCAG 2.1)",
   "description": "",

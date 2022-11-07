@@ -1,6 +1,7 @@
 {
   "key": "Criterio de Conformidad 1.2.9",
   "name": "Sólo audio (en directo)",
+  "slug": "solo-audio",
   "level": "Nivel AAA",
   "comment": "",
   "description": "",

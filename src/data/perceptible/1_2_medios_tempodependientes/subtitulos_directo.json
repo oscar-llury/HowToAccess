@@ -1,9 +1,10 @@
 {
   "key": "Criterio de Conformidad 1.2.4",
   "name": "Subtítulos (en directo)",
+  "slug": "subtitulos-en-directo",
   "level": "Nivel AA",
   "comment": "",
-  "description": "",
+  "description": "<p>Se proporcionan subtítulos para todo el contenido de audio en directo de los multimedia sincronizados.</p>",
   "imgs": "",
   "caption": ""
 }

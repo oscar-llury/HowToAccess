@@ -1,9 +1,10 @@
 {
   "key": "Criterio de Conformidad 1.2.2",
   "name": "Subtítulos (grabados)",
+  "slug": "subtitulos-grabados",
   "level": "Nivel A",
   "comment": "",
-  "description": "",
+  "description": "<p>Se proporcionan subtítulos para el contenido de audio grabado dentro de contenido multimedia sincronizado, excepto cuando la presentación es un contenido multimedia alternativo al texto y está claramente identificado como tal.</p>",
   "imgs": "",
   "caption": ""
 }
