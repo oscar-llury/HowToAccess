@@ -3,7 +3,7 @@
   "name": "Alternativas textuales",
   "principle": "Principio 1: Perceptible",
   "objective": "Proporcionar alternativas textuales para todo contenido no textual de modo que se pueda convertir a otros formatos que las personas necesiten, tales como textos ampliados, braille, voz, símbolos o en un lenguaje más simple.",
-  "description": "El propósito de esta pauta es asegurar que todo el contenido no textual se encuentre también disponible en forma de texto. El texto electrónico tiene la particular ventaja de que se puede representar visual, auditiva o táctilmente.",
+  "description": "El propósito de esta pauta es asegurar que todo el contenido no textual, como imágenes y vídeos, se encuentren también disponibles en forma de texto. 'Texto' se refiere a texto electrónico, no a una imagen de texto. El texto electrónico tiene la particular ventaja de que se puede representar visual, auditiva o táctilmente, pudiendo ser representado en la forma que mejor se adapte a las necesidades del usuario. También puede ser fácilmente interpretado por tecnologías de asistencia al usuario. Además, el texto permite que el usuario pueda recibir toda la información presentada cuando las condiciones no lo permitan, como, por ejemplo, en situaciones de mucho ruido o entornos silenciosos.",
   "img": "principles/perceptible/texto-alternativo.png",
   "caption": "La información contenida en un texto electrónico puede ser presentada en la forma que mejor se adapte a las necesidades del usuario.",
   "date": "Fecha de última actualización: 12 junio 2022",

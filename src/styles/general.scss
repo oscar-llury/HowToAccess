@@ -74,6 +74,14 @@ body::-webkit-scrollbar-thumb {
 .app {
   width: 100vw;
 }
+.code-block {
+  > div {
+    padding: 10px;
+    > span {
+      padding: 0 !important;
+    }
+  }
+}
 /*******GENERAL CLASSES*******/
 .text-hover:hover,
 .cursor-pointer {

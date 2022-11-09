@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { Col, Row, Container, Accordion } from "react-bootstrap";
+import { Col, Row, Container, Accordion, useAccordionButton } from "react-bootstrap";
+
 import BreadcrumbCustom from "components/Breadcrumb";
 import Image from "components/Image";
 
 //data
 import Data from "data/Data";
+import CodeBlock from "components/CodeBlock";
 
 export default function Pauta({ crumbs, slug, pages }) {
   //search in Data the actual page info
@@ -35,7 +37,7 @@ export default function Pauta({ crumbs, slug, pages }) {
             </Col>
             {guidelines.img ? (
               <Col xl="5" lg="4" md="12">
-                <figure>
+                <figure className="text-center">
                   <Image src={guidelines.img} alt={guidelines.caption} className="w-100" />
                   <figcaption>{guidelines.caption}</figcaption>
                 </figure>
@@ -72,7 +74,7 @@ export default function Pauta({ crumbs, slug, pages }) {
             </Col>
             <Col lg="9" className="">
               {criteria.map((criteria, indexP) => (
-                <CriteriaBox criteria={Data[criteria.key]} index={indexP} key={indexP} criteriaOpen={criteriaOpen} />
+                <CriteriaBox criteria={Data[criteria.key]} key={indexP} criteriaOpen={criteriaOpen} setCriteriaOpen={setCriteriaOpen} />
               ))}
             </Col>
           </Row>
@@ -82,14 +84,21 @@ export default function Pauta({ crumbs, slug, pages }) {
   );
 }
 
-const CriteriaBox = ({ criteria, criteriaOpen }) => {
-  const open = criteriaOpen === criteria.slug ? "0" : "";
+const CriteriaBox = ({ criteria, criteriaOpen, setCriteriaOpen }) => {
+  const headerOnClick = useAccordionButton("", () => {
+    if (criteriaOpen === 0) {
+      setCriteriaOpen(criteria.slug);
+    } else {
+      setCriteriaOpen(0);
+    }
+    document.location.hash = criteria.slug;
+  });
   return (
     <article className="pt-3 mb-3" id={criteria.slug}>
       <div className="pauta p-0 border-0 m-0">
-        <Accordion flush activeKey={open}>
-          <Accordion.Item eventKey="0">
-            <Accordion.Header as="div">
+        <Accordion flush activeKey={criteriaOpen}>
+          <Accordion.Item eventKey={criteria.slug}>
+            <Accordion.Header as="div" onClick={headerOnClick}>
               <header className="d-flex flex-column flex-md-row align-items-md-end justify-content-between w-100 me-4">
                 <h2 className="m-0">
                   <span className="index fs-4">{criteria.key} </span>
@@ -99,8 +108,11 @@ const CriteriaBox = ({ criteria, criteriaOpen }) => {
                 <p className="fs-4 fw-semibold m-0 space-nowrap">{criteria.level}</p>
               </header>
             </Accordion.Header>
-            <Accordion.Body className="p-4">
-              <div dangerouslySetInnerHTML={{ __html: criteria.description }}></div>
+            <Accordion.Body className="p-4" id={`item-${criteria.slug}`}>
+              {criteria.description ? <div dangerouslySetInnerHTML={{ __html: criteria.description }}></div> : ""}
+              {criteria.example ? <div dangerouslySetInnerHTML={{ __html: criteria.example }}></div> : ""}
+              {criteria.implementation ? <div dangerouslySetInnerHTML={{ __html: criteria.implementation }}></div> : ""}
+              {criteria.code ? <CodeBlock code={criteria.code} language="html" /> : ""}
               {criteria.img ? (
                 <div className="text-center p-0">
                   <figure>
