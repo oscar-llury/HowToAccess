@@ -22,8 +22,8 @@ export default function Principle({ crumbs, slug, pages, windowWd }) {
       <BreadcrumbCustom breadcrumb={crumbs} />
       <article>
         <header>
-          <h1>
-            <span className="index">{principle.index} </span>
+          <h1 className="fw-extrabold ">
+            <span className="index fs-3">{principle.index} </span>
             <br />
             {principle.name}
           </h1>
@@ -38,7 +38,7 @@ export default function Principle({ crumbs, slug, pages, windowWd }) {
             </Col>
             {principle.img ? (
               <Col xl="5" lg="4" md="12">
-                <figure>
+                <figure className="text-center">
                   <Image src={principle.img} alt={principle.caption} className="w-100" />
                   <figcaption>{principle.caption}</figcaption>
                 </figure>
@@ -54,8 +54,8 @@ export default function Principle({ crumbs, slug, pages, windowWd }) {
         {pautas.map((pauta, indexP) => (
           <article key={indexP} className="pauta" id={Data[pauta.key].slug}>
             <header>
-              <h2>
-                <span className="index">{Data[pauta.key].index} </span>
+              <h2 className="fw-extrabold">
+                <span className="index fs-4">{Data[pauta.key].index} </span>
                 <br />
                 {Data[pauta.key].name}
               </h2>

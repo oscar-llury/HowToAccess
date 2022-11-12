@@ -4,7 +4,11 @@
   "slug": "solo-audio",
   "level": "Nivel AAA",
   "comment": "",
-  "description": "",
-  "imgs": "",
-  "caption": ""
+  "description": "<p><strong>Se proporciona una alternativa para los medios tempo dependientes que presenta información equivalente para el contenido de sólo audio en directo.</strong></p><p>La intención de este criterio es hacer que la información transmitida por audio en directo, como videoconferencias, discursos en vivo y webcasts de radio, sea accesible mediante el uso de una alternativa de texto. Un servicio de subtítulos de texto en directo permitirá que el audio en directo sea accesible para las personas sordas o con problemas de audición, o que no puedan escuchar el audio de otra manera. Dichos servicios utilizan un operador humano capacitado que escucha lo que se dice y usa un teclado especial para ingresar el texto con solo un pequeño retardo. Son capaces de capturar un evento en vivo con un alto grado de fidelidad y también de insertar notas en cualquier audio no hablado, que es esencial para comprender el evento. Una transcripción es a veces una posibilidad si el audio en directo sigue un guión establecido; pero se prefiere un servicio de subtítulos en vivo porque se reproduce al mismo ritmo que el audio en sí.</p><p>Este criterio de éxito estaba destinado a aplicarse a la transmisión de medios sincronizados y no pretende exigir que las llamadas multimedia bidireccionales entre dos o más personas a través de aplicaciones web deban subtitularse.</p>",
+  "examples": [
+    {
+      "title": "Rueda de prensa en directo con subtítulos.",
+      "description": "<p>Un director ejecutivo debe dar un comunicado de prensa a los medios de comunicación en respuesta a una noticia de última hora, el audio se está grabando y transmitiendo a través de Internet, pero debido a limitaciones de tiempo no se puede configurar un servicio de subtítulos web a tiempo. Se utiliza un taquígrafo para crear subtítulos en directo que se pueden ver en el reproductor de medios.</p>"
+    }
+  ]
 }

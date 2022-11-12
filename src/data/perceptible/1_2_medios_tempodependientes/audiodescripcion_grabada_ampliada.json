@@ -4,7 +4,11 @@
   "slug": "audiodescripcion-ampliada",
   "level": "Nivel AAA",
   "comment": "",
-  "description": "",
-  "imgs": "",
-  "caption": ""
+  "description": "<p><strong>Cuando las pausas en el audio son insuficientes para permitir que la audiodescripción comunique el significado del vídeo, se proporciona una audiodescripción ampliada para todos los contenidos de vídeo grabado dentro de contenido multimedia sincronizado.</strong></p><p>La intención de este criterio es proporcionar a las personas ciegas o con problemas de visión acceso a una presentación multimedia sincronizada más allá de lo que puede proporcionar la descripción de audio estándar. Esto se hace congelando periódicamente la presentación multimedia sincronizada y reproduciendo una descripción de audio adicional. A continuación, se reanuda la presentación multimedia sincronizada.</p><p>Debido a que interrumpe la visualización para aquellos que no necesitan la descripción adicional, a menudo se proporcionan técnicas que le permiten activar y desactivar la función. Alternativamente, se pueden proporcionar versiones con y sin la descripción adicional.</p>",
+  "examples": [
+    {
+      "title": "Vídeo de una clase online con pausas al final de cada explicación.",
+      "description": "<p>Un profesor de física está dando una conferencia. Hace bocetos a mano alzada en la pizarra, hablando rápidamente mientras dibuja. Tan pronto como termina de discutir un problema, borra el dibujo y hace otro boceto mientras continúa hablando y gesticulando con la otra mano. El video se detiene entre problemas y se proporciona una descripción de audio extendida de los dibujos y gestos del profesor; luego se reanuda el video.</p>"
+    }
+  ]
 }

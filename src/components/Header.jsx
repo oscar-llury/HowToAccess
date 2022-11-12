@@ -45,8 +45,8 @@ export default function Header() {
     <header>
       <Navbar collapseOnSelect expand="lg" bg="light" variant="light" className="app-nav-header p-0">
         <Container fluid="sm" className="container container-header">
-          <Navbar.Brand href="/" title="Inicio">
-            <img alt="HowToAccess" src={logotipo} width="auto" height="50" className="d-inline-block align-top" /> <span className="d-none">HowToAccess</span>
+          <Navbar.Brand href="/">
+            <img alt="logo HowToAccess" title="Inicio" src={logotipo} width="auto" height="50" className="d-inline-block align-top" /> <span className="d-none">HowToAccess</span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" data-toggle="dropdown" data-bs-target="#responsive-navbar-nav" onClick={handleNavDrop}>
             {navDropped ? <i className="bi bi-x-lg"></i> : <i className="bi bi-list"></i>}

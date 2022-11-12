@@ -3,9 +3,7 @@
   "name": "Medios tempodependientes",
   "principle": "Principio 1: Perceptible",
   "objective": "Proporcionar alternativas para los medios tempodependientes.",
-  "description": "El propósito de esta pauta es que se proporcionen alternativas y/o complementos para proporcionar acceso a los medios de audio y vídeo interactivos y sincronizados.",
-  "img": "",
-  "caption": "",
+  "description": "El propósito de esta pauta es que se proporcionen alternativas y/o complementos para proporcionar acceso a los medios de audio y vídeo interactivos y sincronizados. Esto incluye medios de solo audio, solo video, audio y video, y audio y vídeo combinado con interacción. Tener una transcripción de texto que diga 'para obtener más información, haga clic ahora' no sería muy útil, ya que el lector no tendría idea de cuándo el audio decía 'ahora'. Como resultado, se necesitarían subtítulos sincronizados.",
   "date": "Fecha de última actualización: 12 junio 2022",
   "criteria": [
     {

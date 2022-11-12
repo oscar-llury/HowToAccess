@@ -71,6 +71,13 @@ body::-webkit-scrollbar-thumb {
   color: inherit;
   background: $primary;
 }
+//custom selection text
+/*
+::selection {
+  background: $selection-bg !important;
+  text-shadow: 2.5px 2px 2px $secondary;
+  color: $light;
+}*/
 .app {
   width: 100vw;
 }
@@ -1542,20 +1549,14 @@ footer {
     line-height: 1em;
     font-weight: 300;
   }
-  h1 {
-    font-weight: 700;
-  }
-  h2 {
-    font-weight: 600;
+  .objective {
+    border-left: 10px solid $primary;
+    //border-image-source: linear-gradient($primary-dark, $primary-dark);
+    border-image-slice: 20;
+    padding: 1em;
   }
   .principio {
     padding: 0;
-    .objective {
-      border-left: 10px solid $primary;
-      //border-image-source: linear-gradient($primary-dark, $primary-dark);
-      border-image-slice: 20;
-      padding: 1em;
-    }
     img {
       max-height: 200px;
       object-fit: contain;
@@ -1563,6 +1564,15 @@ footer {
     p {
       margin-bottom: 0;
     }
+  }
+  .line-after:after {
+    content: "";
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: $dark;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
   .pauta {
     margin: 2rem 1rem;
@@ -1615,7 +1625,7 @@ footer {
       }
     }
     ol {
-      list-style-type: disc;
+      //list-style-type: disc;
     }
   }
   @media (max-width: 576px) {

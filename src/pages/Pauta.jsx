@@ -20,12 +20,12 @@ export default function Pauta({ crumbs, slug, pages }) {
       <BreadcrumbCustom breadcrumb={crumbs} />
       <article className="criterio">
         <header className="d-flex flex-column-reverse">
-          <h1>
-            <span className="index fs-4">{guidelines.index} </span>
+          <h1 className="fw-extrabold">
+            <span className="index fs-3">{guidelines.index} </span>
             <br />
             {guidelines.name}
           </h1>
-          <h2 className="fs-4 fw-light">{guidelines.principle}</h2>
+          <h2 className="fs-3 fw-light">{guidelines.principle}</h2>
         </header>
         <Container className="mt-3 mt-lg-0 p-0">
           <Row className="align-items-center">
@@ -78,6 +78,30 @@ export default function Pauta({ crumbs, slug, pages }) {
               ))}
             </Col>
           </Row>
+          <Row>
+            <Col>
+              {guidelines.examples ? <h2 className="fw-extrabold line-after mt-5">Ejemplo{guidelines.examples.length > 1 ? "s" : ""}</h2> : ""}
+              {guidelines.examples
+                ? guidelines.examples.map((content, indexC) => (
+                    <div key={indexC}>
+                      <h3 className="fw-bold fs-6">{content.title}</h3>
+                      <div dangerouslySetInnerHTML={{ __html: content.description }}></div>
+                    </div>
+                  ))
+                : ""}
+
+              {guidelines.implementation ? <h2 className="fw-extrabold line-after mt-5">Tip{guidelines.implementation.length > 1 ? "s" : ""} de implementación</h2> : ""}
+              {guidelines.implementation
+                ? guidelines.implementation.map((content, indexC) => (
+                    <div key={indexC}>
+                      {content.title ? <h3 className="fw-bold fs-6">{content.title}</h3> : ""}
+                      {content.description ? <div dangerouslySetInnerHTML={{ __html: content.description }}></div> : ""}
+                      {content.code ? <CodeBlock code={content.code} language="html" className="px-5" /> : ""}
+                    </div>
+                  ))
+                : ""}
+            </Col>
+          </Row>
         </Container>
       </article>
     </Container>
@@ -86,7 +110,7 @@ export default function Pauta({ crumbs, slug, pages }) {
 
 const CriteriaBox = ({ criteria, criteriaOpen, setCriteriaOpen }) => {
   const headerOnClick = useAccordionButton("", () => {
-    if (criteriaOpen === 0) {
+    if (criteriaOpen === 0 || criteriaOpen != criteria.slug) {
       setCriteriaOpen(criteria.slug);
     } else {
       setCriteriaOpen(0);
@@ -100,7 +124,7 @@ const CriteriaBox = ({ criteria, criteriaOpen, setCriteriaOpen }) => {
           <Accordion.Item eventKey={criteria.slug}>
             <Accordion.Header as="div" onClick={headerOnClick}>
               <header className="d-flex flex-column flex-md-row align-items-md-end justify-content-between w-100 me-4">
-                <h2 className="m-0">
+                <h2 className="m-0 fw-extrabold">
                   <span className="index fs-4">{criteria.key} </span>
                   <br />
                   {criteria.name}
@@ -110,9 +134,7 @@ const CriteriaBox = ({ criteria, criteriaOpen, setCriteriaOpen }) => {
             </Accordion.Header>
             <Accordion.Body className="p-4" id={`item-${criteria.slug}`}>
               {criteria.description ? <div dangerouslySetInnerHTML={{ __html: criteria.description }}></div> : ""}
-              {criteria.example ? <div dangerouslySetInnerHTML={{ __html: criteria.example }}></div> : ""}
-              {criteria.implementation ? <div dangerouslySetInnerHTML={{ __html: criteria.implementation }}></div> : ""}
-              {criteria.code ? <CodeBlock code={criteria.code} language="html" /> : ""}
+
               {criteria.img ? (
                 <div className="text-center p-0">
                   <figure>
@@ -123,6 +145,27 @@ const CriteriaBox = ({ criteria, criteriaOpen, setCriteriaOpen }) => {
               ) : (
                 ""
               )}
+
+              {criteria.examples ? <h3 className="fw-extrabold line-after mt-3 fs-4">Ejemplo{criteria.examples.length > 1 ? "s" : ""}</h3> : ""}
+              {criteria.examples
+                ? criteria.examples.map((content, indexC) => (
+                    <div key={indexC}>
+                      <h4 className="fw-bold fs-6">{content.title}</h4>
+                      <div dangerouslySetInnerHTML={{ __html: content.description }}></div>
+                    </div>
+                  ))
+                : ""}
+
+              {criteria.implementation ? <h3 className="fw-extrabold line-after mt-3 fs-4">Tip{criteria.implementation.length > 1 ? "s" : ""} de implementación</h3> : ""}
+              {criteria.implementation
+                ? criteria.implementation.map((content, indexC) => (
+                    <div key={indexC}>
+                      {content.title ? <h4 className="fw-bold fs-6">{content.title}</h4> : ""}
+                      {content.description ? <div dangerouslySetInnerHTML={{ __html: content.description }}></div> : ""}
+                      {content.code ? <CodeBlock code={content.code} language="html" /> : ""}
+                    </div>
+                  ))
+                : ""}
             </Accordion.Body>
           </Accordion.Item>
         </Accordion>
