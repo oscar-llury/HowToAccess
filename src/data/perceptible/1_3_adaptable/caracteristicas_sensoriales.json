@@ -4,7 +4,11 @@
   "slug": "caracteristicas-sensoriales",
   "level": "Nivel A",
   "comment": "",
-  "description": "",
-  "imgs": "",
-  "caption": ""
+  "description": "<p><strong>Las instrucciones proporcionadas para entender y operar el contenido no dependen exclusivamente en las características sensoriales de los componentes como su forma, tamaño, ubicación visual, orientación o sonido.</strong></p><p>La intención de este criterio es garantizar que todos los usuarios puedan acceder a las instrucciones para usar el contenido, incluso cuando no puedan percibir la forma o el tamaño o usar información sobre la ubicación espacial o la orientación. Algunos contenidos se basan en el conocimiento de la forma o la posición de los objetos que no están disponibles en la estructura del contenido. Por ejemplo, 'botón redondo' o 'botón a la derecha'. Algunos usuarios con discapacidades no pueden percibir la forma o la posición debido a la naturaleza de las tecnologías de asistencia que utilizan. Este criterio requiere que se proporcione información adicional para aclarar cualquier cosa que dependa de este tipo de información. Sin embargo, proporcionar información utilizando la forma y/o la ubicación es un método eficaz para muchos usuarios, incluidos aquellos con limitaciones cognitivas. Esta disposición no debe desalentar esos tipos de señales, siempre que la información también se proporcione de otras maneras. La pauta <a href='/normas-de-accesibilidad-web/perceptible/distinguible'>1.4 Distinguible</a> amplia los requisitos relacionados con el color.</p>",
+  "examples": [
+    {
+      "title": "Una encuesta online de varias páginas con navegación hacia delante y hacia atrás.",
+      "description": "<p>Una encuesta en línea de varias páginas utiliza un enlace implementado como un ícono de flecha verde ubicado en la esquina inferior derecha del contenido para pasar de una página de encuesta a la siguiente. La flecha está claramente etiquetada con 'Siguiente' y las instrucciones dicen: 'Para pasar a la siguiente sección de la encuesta, seleccione el ícono de flecha verde con la etiqueta `Siguiente` en la esquina inferior derecha debajo de la última pregunta de la encuesta'. Este ejemplo usa posicionamiento, color y etiquetado para ayudar a identificar el icono.</p>"
+    }
+  ]
 }

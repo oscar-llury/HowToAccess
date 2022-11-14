@@ -4,7 +4,15 @@
   "slug": "secuencia-significativa",
   "level": "Nivel A",
   "comment": "",
-  "description": "",
-  "imgs": "",
-  "caption": ""
+  "description": "<p>La intención de este criterio es permitir que un agente de usuario proporcione una presentación alternativa del contenido mientras conserva el orden de lectura necesario para comprender el significado. Es decir, es importante que sea posible determinar programáticamente una secuencia del contenido que tenga sentido. El contenido que no cumple con este criterio puede confundir o desorientar a los usuarios cuando la tecnología de asistencia lee el contenido en el orden incorrecto, o cuando se aplican hojas de estilo alternativas u otros cambios de formato.</p><p>Una secuencia es <em>significativa</em> si el orden del contenido de la secuencia no se puede cambiar sin que afecte a su significado. La semántica de algunos elementos define si su contenido es o no una secuencia significativa. Por ejemplo, en HTML, el texto siempre es una secuencia significativa. Las tablas y las listas ordenadas son secuencias significativas, pero las listas desordenadas no lo son.</p>",
+  "examples": [
+    {
+      "title": "Orden de lectura de varias columnas.",
+      "description": "<p>En un documento de varias columnas, la presentación lineal del contenido fluye desde la parte superior de una columna hasta la parte inferior de la columna y luego a la parte superior de la columna siguiente.</p>"
+    },
+    {
+      "title": "Colocación por CSS.",
+      "description": "<p>CSS se usa para colocar una barra de navegación, la historia principal en una página y una historia secundaria. La presentación visual de las secciones no coincide con el orden determinado mediante programación, pero el significado de la página no depende del orden de las secciones.</p>"
+    }
+  ]
 }

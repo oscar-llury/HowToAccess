@@ -10,10 +10,10 @@ export default function Principle({ crumbs, slug, pages, windowWd }) {
   let dateTime = 0;
   //search in Data the actual page info
   const principle = pages.reduce((o, i) => ({ ...o, [i]: Data[i] }), {})[slug.replaceAll("-", "_")];
-  const dateString = principle.date;
+  /*const dateString = principle.date;
   let date = new Date(dateString.split(":")[1]);
   date.setHours(12);
-  dateTime = date.toISOString();
+  dateTime = date.toISOString();*/
 
   const pautas = principle.guidelines;
 
@@ -96,7 +96,7 @@ export default function Principle({ crumbs, slug, pages, windowWd }) {
           </article>
         ))}
         <Container className="p-0">
-          <time dateTime={dateTime}>*{principle.date}</time>
+          <time>*{principle.date}</time>
         </Container>
       </article>
     </Container>

@@ -4,7 +4,17 @@
   "slug": "informacion-y-relaciones",
   "level": "Nivel A",
   "comment": "",
-  "description": "",
-  "imgs": "",
-  "caption": ""
+  "description": "<p><strong>La información, estructura y relaciones comunicadas a través de la presentación pueden ser determinadas por software o están disponibles como texto.</strong></p><p>La intención de este criterio es garantizar que la información y el formato visual o auditivo se conservan cuando cambia el formato de la presentación. Por ejemplo, el formato de la presentación cambia cuando se sustituye la hoja de estilo proporcionada por el autor por una hoja de estilo del usuario.</p>",
+  "examples": [
+    {
+      "title": "Un formulario con campos obligatorios",
+      "description": "<p>Un formulario contiene varios campos obligatorios. Las etiquetas de los campos obligatorios se muestran en rojo. Además, al final de cada etiqueta hay un carácter de asterisco, *. Las instrucciones para completar el formulario indican que 'todos los campos obligatorios se muestran en rojo y están marcados con un asterisco *', seguido de un ejemplo. Los campos obligatorios también deben estar marcados programáticamente para evitar que se pierda la información si las hojas de estilo son sustituidas.</p>"
+    }
+  ],
+  "implementation": [
+    {
+      "description": "<p>Además, al final de cada etiqueta hay un carácter de asterisco, *. Las instrucciones para completar el formulario indican que 'todos los campos obligatorios se muestran en rojo y están marcados con un asterisco *', seguido de un ejemplo. Los campos obligatorios también deben estar marcados programáticamente para evitar que se pierda la información si las hojas de estilo son sustituidas.</p>",
+      "code": "<div>\n\t<label for='mail' style='color:red'>Correo electrónico *</label>\n\t<input id='mail' type='email' placeholder='example@google.com' required/>\n</div>\n<p>* Campo obligatorio</p>"
+    }
+  ]
 }

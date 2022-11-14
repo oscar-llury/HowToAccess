@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Col, Row, Container, Accordion, useAccordionButton } from "react-bootstrap";
 
 import BreadcrumbCustom from "components/Breadcrumb";
@@ -14,6 +14,18 @@ export default function Pauta({ crumbs, slug, pages }) {
   const criteria = guidelines.criteria;
   const guidelines_index = guidelines.index.replace(/[^0-9 .]/g, "");
   const [criteriaOpen, setCriteriaOpen] = useState(document.location.hash.replace("#", ""));
+
+  useEffect(() => {
+    const setCriteriaState = () => {
+      let butAccHeader = document.querySelector(`${document.location.hash} .accordion-header button`);
+      butAccHeader.click();
+    };
+
+    window.addEventListener("hashchange", setCriteriaState);
+    return () => {
+      window.removeEventListener("hashchange", setCriteriaState);
+    };
+  }, []);
 
   return (
     <Container className="app-principle main-container">
@@ -33,12 +45,12 @@ export default function Pauta({ crumbs, slug, pages }) {
               <p className="mb-3 objective">
                 <strong>{guidelines.objective}</strong>
               </p>
-              <p className="mb-3">{guidelines.description}</p>
+              <div dangerouslySetInnerHTML={{ __html: guidelines.description }} className="mb-3"></div>
             </Col>
             {guidelines.img ? (
               <Col xl="5" lg="4" md="12">
                 <figure className="text-center">
-                  <Image src={guidelines.img} alt={guidelines.caption} className="w-100" />
+                  <Image src={guidelines.img} alt={guidelines.caption} className="mw-100" />
                   <figcaption>{guidelines.caption}</figcaption>
                 </figure>
               </Col>
@@ -56,7 +68,7 @@ export default function Pauta({ crumbs, slug, pages }) {
                       <li key={indexP}>
                         <a
                           onClick={() => {
-                            setCriteriaOpen(Data[criteria.key].slug);
+                            //setCriteriaOpen(Data[criteria.key].slug);
                             document.location.hash = Data[criteria.key].slug;
                           }}
                           className="text-decoration-none cursor-pointer"
@@ -115,7 +127,8 @@ const CriteriaBox = ({ criteria, criteriaOpen, setCriteriaOpen }) => {
     } else {
       setCriteriaOpen(0);
     }
-    document.location.hash = criteria.slug;
+
+    //document.location.hash = criteria.slug;
   });
   return (
     <article className="pt-3 mb-3" id={criteria.slug}>
