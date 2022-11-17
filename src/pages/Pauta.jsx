@@ -146,6 +146,8 @@ const CriteriaBox = ({ criteria, criteriaOpen, setCriteriaOpen }) => {
               </header>
             </Accordion.Header>
             <Accordion.Body className="p-4" id={`item-${criteria.slug}`}>
+              {criteria.comment ? <p>{criteria.comment}</p> : ""}
+
               {criteria.description ? <div dangerouslySetInnerHTML={{ __html: criteria.description }}></div> : ""}
 
               {criteria.img ? (
