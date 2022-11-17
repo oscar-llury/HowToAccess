@@ -4,7 +4,10 @@
   "slug": "identificar-proposito",
   "level": "Nivel AA",
   "comment": "(Agregado en WCAG 2.1)",
-  "description": "",
-  "imgs": "",
-  "caption": ""
+  "description": "<p><strong>En el contenido implementado mediante lenguajes de marcado, el propósito de los componentes, iconos y regiones de la interfaz de usuario se puede determinar mediante programación.</strong></p><p>La intención de este criterio es garantizar que el propósito de muchos elementos en una página se pueda determinar mediante programación, de modo que los agentes de usuario puedan extraer y presentar ese propósito a los usuarios utilizando diferentes modalidades.</p><p>Muchos usuarios con vocabularios limitados confían en términos o símbolos familiares para usar la web. Sin embargo, lo que es familiar para un usuario puede no serlo para otro. Este criterio requiere que el autor asocie mediante programación el propósito de íconos, regiones y componentes, como botones, enlaces y campos, para que los agentes de usuario puedan determinar el propósito de cada uno y adaptar indicadores o terminología para hacerlos comprensibles para el usuario.</p>",
+  "examples": [
+    {
+      "description": "<p>Los iconos en un sitio web están marcados para que los usuarios puedan sustituir sus propios conjuntos de iconos en la página.</p>"
+    }
+  ]
 }

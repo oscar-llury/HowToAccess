@@ -4,7 +4,15 @@
   "slug": "identificar-proposito-entrada",
   "level": "Nivel AAA",
   "comment": "(Agregado en WCAG 2.1)",
-  "description": "",
-  "imgs": "",
-  "caption": ""
+  "description": "<p><strong>El propósito de cada campo de entrada que recopila información sobre el usuario se puede determinar mediante programación</strong> cuando:</p><ul><li><strong>El campo de entrada tiene un propósito identificado</strong> en la sección <a href='https://www.w3.org/TR/WCAG21/#input-purposes' target='blank'>Propósitos de entrada</a> para los componentes de la interfaz de usuario.</li><li>El contenido se implementa utilizando tecnologías con soporte para identificar el significado esperado para los datos de entrada del formulario.</li></ul><p>La intención de este criterio es garantizar que el propósito de un campo de entrada de datos de un formulario pueda determinarse mediante programación, de modo que los agentes de usuario puedan extraer y presentar este propósito a los usuarios utilizando diferentes modalidades. La capacidad de declarar mediante programación el tipo específico de datos esperados en un campo en particular facilita el llenado de formularios, especialmente para las personas con discapacidades cognitivas.</p><p>Para algunos campos de entrada, el atributo <code>type</code> ya ofrece una forma de especificar ampliamente la intención del campo de entrada, por ejemplo, <code>input type='tel'</code>, <code>input type='email'</code>, o <code>input type='password'</code>. Sin embargo, estas son solo categorías muy amplias, que describen el tipo de entrada, pero no necesariamente su propósito, especialmente en lo que se refiere a los campos de entrada específicos del usuario. Como ejemplo, <code>type='email'</code> indica que el campo es para una dirección de correo electrónico, pero no aclara si el propósito es ingresar la dirección de correo electrónico del usuario o el correo electrónico de alguna otra persona.</p><p>Se puede utilizar también el atributo de autocompletado <code>autocomplete</code> que toma valores fijos y bien definidos, que permite la identificación más detallada del propósito del campo. Algunos valores son: <code>name</code>, <code>given-name</code>, <code>family-name</code>, <code>username</code>, <code>nickname</code>, <code>bday</code>, <code>tel</code>. De este modo, los navegadores y tecnologías de asistencia pueden presentar mejor el propósito, por ejemplo, mostrando un icono de teléfono o una tarta de cumpleaños junto al input correspondiente. Además, pueden sugerir y autocompletar los campos con los datos guardados por el usuario, liberando así al usuario de tener que introducir la información.</p><p>Si un mismo campo pretende introducir diferentes propósitos de datos, es válido colocar uno de ellos o dejarlo en blanco.</p>",
+  "examples": [
+    {
+      "title": "Un formulario de contacto con autocompletar.",
+      "description": "<p>Un formulario de contacto se autocompleta en los campos de nombre, calle, código postal, ciudad, número de teléfono y dirección de correo electrónico de los valores de autocompletar almacenados en el navegador del usuario.</p>"
+    },
+    {
+      "title": "Un formulario de contacto que usa íconos.",
+      "description": "<p>Un complemento de navegador inserta iconos que representan el nombre de la persona, la dirección particular, el número de teléfono y la dirección de correo electrónico para identificar visualmente el propósito de la entrada de datos de los campos de un formulario.</p>"
+    }
+  ]
 }
