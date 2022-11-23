@@ -4,7 +4,11 @@
   "slug": "uso-del-color",
   "level": "Nivel A",
   "comment": "",
-  "description": "",
-  "imgs": "",
-  "caption": ""
+  "description": "<p class='objective'><strong>El color no se usa como único medio visual para transmitir la información, indicar una acción, solicitar una respuesta o distinguir un elemento visual.</strong></p><p>La intención de este criterio es garantizar que todos los usuarios puedan acceder a la información que se transmite mediante diferencias de color, es decir, cuando cada color tiene un significado asignado, ya que es posible que ciertos usuarios no puedan distinguir bien los colores, y, por tanto, su significado.</p><p>El color es un activo importante en el diseño de contenido web, ya que mejora su atractivo estético, su facilidad de uso y su accesibilidad. Sin embargo, algunos usuarios tienen dificultad para percibir el color. Las personas con visión parcial a menudo experimentan una visión limitada de los colores y muchos usuarios mayores no ven bien los colores. Además, las personas que utilizan pantallas y navegadores de solo texto, colores limitados o monocromáticos no podrán acceder a la información que se presenta solo en color.</p><p>Unos de los casos más habituales donde se utilizan los colores para diferenciar información son los campos obligatorios están en rojo y el error se muestra en rojo. Esto no debería desalentar de ninguna manera el uso de colores en una página.</p><p>Nota: Este criterio de conformidad trata específicamente acerca de la percepción del color. En la <a href='/normas-de-accesibilidad-web/perceptible/adaptable'>Pauta 1.3</a> se recogen otras formas de percepción, incluyendo el acceso por software al color y a otros códigos de presentación visual.</p>",
+  "examples": [
+    {
+      "title": "Un formulario que utiliza color y texto para indicar los campos obligatorios.",
+      "description": "<p>Un formulario contiene campos obligatorios y opcionales. Las instrucciones en la parte superior del formulario explican que los campos obligatorios están etiquetados con texto rojo y también con un icono cuyo texto alternativo dice 'Obligatorio'. Tanto el texto rojo como el ícono están asociados mediante programación con los campos de formulario apropiados para que los usuarios de tecnología de asistencia puedan determinar los campos requeridos.</p>"
+    }
+  ]
 }

@@ -3,7 +3,7 @@
   "name": "Distinguible",
   "principle": "Principio 1: Perceptible",
   "objective": "Facilitar a los usuarios ver y oír el contenido, incluyendo la separación entre el primer plano y el fondo.",
-  "description": "Esta pauta se centra en lograr que la presentación predeterminada sea lo más fácil de percibir posible, facilitando a los usuarios la separación de la información en primer plano y del fondo, asegurando un mínimo contraste entre sí.",
+  "description": "Esta pauta se centra en lograr que la presentación predeterminada sea lo más fácil de percibir posible, facilitando a los usuarios la separación de la información en primer plano y del fondo, asegurando un mínimo contraste entre sí. Para las presentaciones de audio, esto implica asegurarse de que los sonidos de primer plano sean lo suficientemente más fuertes que los sonidos de fondo.",
   "img": "principles/perceptible/line-graph.png",
   "caption": "En una gráfica las líneas deben poder diferenciarse entre si.",
   "date": "Fecha de última actualización: 12 junio 2022",

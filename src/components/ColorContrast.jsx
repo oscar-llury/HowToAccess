@@ -112,7 +112,7 @@ export default function ColorContrast() {
         </Col>
       </Row>
       <Container className="mt-3 main-container">
-        <Container className="p-0 p-md-3">
+        <Container className="p-0 py-md-3">
           <h2 className="fw-extrabold">Cómo interpretar el contraste de color</h2>
           <p>
             El ratio de contraste de color está en el rango de 1 a 21 <span className="space-nowrap">(comúnmente escrito de 1:1 a 21:1).</span>
@@ -128,8 +128,11 @@ export default function ColorContrast() {
               <Card>
                 <Card.Body>
                   <Card.Title className="fw-bold">WCAG 2.1 Nivel AA</Card.Title>
-                  <Card.Text className="m-1">Texto normal: ratio de contraste mínimo 4,5:1</Card.Text>
-                  <Card.Text className="m-1">Texto grande: ratio de contraste mínimo 3:1</Card.Text>
+                  <Card.Text className="m-1">Texto normal: contraste mínimo 4,5:1</Card.Text>
+                  <Card.Text className="m-1">Texto grande: contraste mínimo 3:1</Card.Text>
+                  <Card.Text className="m-1 mt-3">
+                    <a href="/normas-de-accesibilidad-web/perceptible/distinguible#contraste-minimo">(*) Ver criterio de conformidad 1.4.3</a>
+                  </Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -137,13 +140,16 @@ export default function ColorContrast() {
               <Card>
                 <Card.Body>
                   <Card.Title className="fw-bold">WCAG 2.1 Nivel AAA</Card.Title>
-                  <Card.Text className="m-1">Texto normal: ratio de contraste mínimo 7:1</Card.Text>
-                  <Card.Text className="m-1">Texto grande: ratio de contraste mínimo 4,5:1</Card.Text>
+                  <Card.Text className="m-1">Texto normal: contraste mínimo 7:1</Card.Text>
+                  <Card.Text className="m-1">Texto grande: contraste mínimo 4,5:1</Card.Text>
+                  <Card.Text className="m-1 mt-3">
+                    <a href="/normas-de-accesibilidad-web/perceptible/distinguible#contraste-mejorado">(*) Ver criterio de conformidad 1.4.6</a>
+                  </Card.Text>
                 </Card.Body>
               </Card>
             </Col>
           </Row>
-          <p>El texto grande se define a partir de 14 pt (18,67 px) y negrita, o mayor de 18 pt (24 px).</p>
+          <p>El texto grande se define a partir de 14 pt (18,5 px) y negrita, o mayor de 18 pt (24 px).</p>
           <p>Tenga en cuenta que las imágenes son puramente decorativas y los logotipos o nombre de marca no tienen requisitos mínimos de contraste.</p>
         </Container>
       </Container>

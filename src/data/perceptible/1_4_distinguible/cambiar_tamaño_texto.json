@@ -4,7 +4,19 @@
   "slug": "cambiar-tamaño-del-texto",
   "level": "Nivel AA",
   "comment": "",
-  "description": "",
-  "imgs": "",
-  "caption": ""
+  "description": "<p class='objective'><strong>El texto se puede cambiar de tamaño sin tecnología de asistencia hasta en un 200 por ciento, es decir, hasta el doble de ancho y alto, sin pérdida de contenido o funcionalidad, a excepción de los subtítulos y las imágenes de texto.</strong></p><p>La intención de este criterio es garantizar que el texto representado visualmente puede ser escalado con éxito para que pueda ser leído directamente por personas con discapacidades visuales leves, sin requerir el uso de tecnología de asistencia como una lupa de pantalla.</p><p>La escala del contenido principalmente es una función del agente de usuario, o navegador, pero es responsabilidad del autor el crear contenido web que no impida ser escalado de manera efectiva. Este criterio se puede verificar comprobando que el contenido no interfiere en la ampliación de texto realizado por el navegador. Opcionalmente, también se puede proporcionar un soporte específico para esta función, por ejemplo, que permita asignar hojas de estilo diferentes. Esto se convierte en obligatorio cuando la página requiere ser representada en un agente de usuario que no dispone de soporte de zoom.</p>",
+  "examples": [
+    {
+      "title": "Aumento del tamaño de fuente.",
+      "description": "<p>Un usuario con problemas de visión aumenta el tamaño del texto en una página web en un navegador de 1 em a 1,2 em. Toda la información de la página aún se muestra cuando se usa la fuente más grande para el texto.</p>"
+    },
+    {
+      "title": "Control personalizado de la escala.",
+      "description": "<p>Una página web contiene un control para cambiar la escala de la página. La selección de diferentes configuraciones cambia el diseño de la página para usar el mejor diseño para esa escala.</p>"
+    },
+    {
+      "title": "Zoom de un agente de usuario.",
+      "description": "<p>Un usuario utiliza una función de zoom en su agente de usuario para cambiar la escala del contenido. Todo el contenido se escala de manera uniforme y el agente de usuario proporciona barras de desplazamiento, si es necesario.</p>"
+    }
+  ]
 }

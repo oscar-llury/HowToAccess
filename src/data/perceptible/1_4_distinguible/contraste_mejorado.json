@@ -4,7 +4,7 @@
   "slug": "contraste-mejorado",
   "level": "Nivel AAA",
   "comment": "",
-  "description": "",
+  "description": "<p class='objective'><strong>La presentación visual de texto e imágenes de texto tiene una relación de contraste de al menos 7:1, o de 4,5:1 en el caso de ser un texto grande (definido a partir de 14 pt y negrita, o mayor de 18 pt).</strong></p><p>Se exceptúan los siguientes casos donde no se aplica este requisito de contraste:</p><ul><li><strong>Textos secundarios</strong>: texto o imágenes de texto que forman parte de un componente de interfaz de usuario inactivo, que son pura decoración, que no son visibles para nadie o que forman parte de una imagen que contiene otro contenido visual significativo.</li><li><strong>Logotipos</strong>: El texto que forma parte de un logotipo o imagen de marca.</li></ul><p>Este criterio establece una relación de contraste más estricta que lo detallado en el <a href='#contraste-minimo'>Criterio 1.4.3 Contraste mínimo</a>.</p><p>Prueba en <a href='/simulacion-interactiva'>esta página</a> la herramienta de contraste de color.</p>",
   "imgs": "",
   "caption": ""
 }

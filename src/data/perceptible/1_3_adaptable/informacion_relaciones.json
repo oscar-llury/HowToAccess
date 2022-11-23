@@ -4,7 +4,7 @@
   "slug": "informacion-y-relaciones",
   "level": "Nivel A",
   "comment": "",
-  "description": "<p><strong>La información, estructura y relaciones comunicadas a través de la presentación pueden ser determinadas por software o están disponibles como texto.</strong></p><p>La intención de este criterio es garantizar que la información y el formato visual o auditivo se conservan cuando cambia el formato de la presentación. Por ejemplo, el formato de la presentación cambia cuando se sustituye la hoja de estilo proporcionada por el autor por una hoja de estilo del usuario.</p>",
+  "description": "<p class='objective'><strong>La información, estructura y relaciones comunicadas a través de la presentación pueden ser determinadas por software o están disponibles como texto.</strong></p><p>La intención de este criterio es garantizar que la información y el formato visual o auditivo se conservan cuando cambia el formato de la presentación. Por ejemplo, el formato de la presentación cambia cuando se sustituye la hoja de estilo proporcionada por el autor por una hoja de estilo del usuario.</p>",
   "examples": [
     {
       "title": "Un formulario con campos obligatorios",

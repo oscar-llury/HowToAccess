@@ -4,7 +4,19 @@
   "slug": "imagenes-de-texto",
   "level": "Nivel AA",
   "comment": "",
-  "description": "",
-  "imgs": "",
-  "caption": ""
+  "description": "<p class='objective'><strong>Se utiliza texto para transmitir información en lugar de imágenes de texto</strong>, siempre que las tecnologías que se utilizan pueden lograr la presentación visual deseada.</p><p>Se exceptúan los siguientes casos:</p><ul><li><strong>Personalizable</strong>: la imagen del texto se puede personalizar visualmente según los requisitos del usuario.</li><li><strong>Esencial</strong>: una presentación particular del texto es esencial para la información que se transmite. Los logotipos se consideran esenciales.</li></ul><p>La intención de este criterio es animar a los autores a permitir ajustar la presentación del texto según sea necesario para aquellas personas que requieren una presentación visual particular. Esto incluye a las personas que requieren el texto en un tamaño de fuente particular, color frontal y de fondo, familia de fuentes, interlineado o alineación.</p><p><strong>Si un autor puede usar texto para lograr el mismo efecto visual, debe presentar la información como texto en lugar de usar una imagen</strong>. Las imágenes de texto también se pueden utilizar cuando es posible que los usuarios personalicen la imagen de texto para que coincida con sus requisitos.</p><p>Esto no incluye el texto que es parte de una imagen que contiene otro contenido visual significativo. Los ejemplos de tales imágenes incluyen gráficos, capturas de pantalla y diagramas que transmiten visualmente información importante a través de algo más que texto.</p>",
+  "examples": [
+    {
+      "title": "Elementos de navegación.",
+      "description": "<p>Una página web contiene un menú de enlaces de navegación que tienen un icono y texto para describir su objetivo. CSS se utiliza para mostrar la familia de fuentes del texto, el tamaño y los colores de primer plano y de fondo; así como el espaciado entre los enlaces de navegación.</p>"
+    },
+    {
+      "title": "Elementos esenciales por su significado.",
+      "description": "<p>Un logotipo contiene texto como parte de él. La representación visual del texto es fundamental para la identidad del logotipo, por lo que no se permite su modificación. Una pagina contiene información sobre una familia de fuentes. Sustituir la fuente anularía el propósito, por lo que la representación se incluye como imagen que no permite cambiar las características del texto. En ambos casos la imagen debe tener una alternativa textual.</p>"
+    },
+    {
+      "title": "Caracteres de texto simbólicos.",
+      "description": "<p>Un formulario proporciona una serie de botones para diseñar el texto y revisar la ortografía. Los botones utilizan caracteres de texto que no forman una secuencia que exprese algo en lenguaje humano. Por ejemplo, 'B' para aumentar el peso de la fuente, 'I' para poner el texto en cursiva y 'ABC' para revisar la ortografía. Estos botones deben tener una alternativa textual.</p>"
+    }
+  ]
 }

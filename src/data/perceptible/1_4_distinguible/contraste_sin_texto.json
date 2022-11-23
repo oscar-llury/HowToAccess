@@ -4,7 +4,7 @@
   "slug": "sontraste-sin-texto",
   "level": "Nivel AA",
   "comment": "(Agregado en WCAG 2.1)",
-  "description": "",
-  "imgs": "",
-  "caption": ""
+  "description": "<p class='objective'><strong>La presentación visual tiene una relación de contraste de al menos 3:1 frente a los colores adyacentes para:</strong></p><ul><li>Componentes de la interfaz de usuario: información visual necesaria para identificar los componentes y estados de la interfaz de usuario, excepto los componentes inactivos o cuando la apariencia del componente la determine el agente de usuario y no la modifique el autor.</li><li>Objetos gráficos: partes de gráficos necesarios para comprender el contenido, excepto cuando una presentación particular de gráficos es esencial para la información que se transmite.</li></ul><p>La intención de este criterio es garantizar que las personas con visión moderadamente baja puedan distinguir los controles de la interfaz de usuario y los gráficos significativos. Los requisitos y la justificación son similares a los del texto grande en el criterio <a href='#contraste-minimo'>1.4.3 Contraste mínimo</a>.</p><p>Para los controles activos, cualquier información visual que sea necesaria para que un usuario identifique que un control está presente y cómo operarlo debe tener una relación de contraste mínima de 3:1 con los colores adyacentes. Además, cualquier información visual necesaria para indicar el estado, como si un componente está seleccionado o enfocado, también debe garantizar que la información utilizada para identificar el control en ese estado tenga una relación de contraste mínima de 3:1.</p><p>Este criterio de éxito no requiere que los controles tengan un límite visual que indique el área afectada, pero si el indicador visual del control es la única forma de identificar el control, entonces ese indicador debe tener suficiente contraste.</p>",
+  "img": "principles/perceptible/minimal-button.png",
+  "caption": "Un botón (control activo) sin límite visual y el mismo botón con un indicador de enfoque que es un límite visual definido de gris (#949494) adyacente al blanco."
 }

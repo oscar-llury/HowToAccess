@@ -17,7 +17,7 @@ export default function Pauta({ crumbs, slug, pages }) {
 
   useEffect(() => {
     const setCriteriaState = () => {
-      let butAccHeader = document.querySelector(`${document.location.hash} .accordion-header button`);
+      let butAccHeader = document.querySelector(`${decodeURIComponent(window.location.hash)} .accordion-header button`);
       butAccHeader.click();
     };
 
@@ -153,7 +153,7 @@ const CriteriaBox = ({ criteria, criteriaOpen, setCriteriaOpen }) => {
               {criteria.img ? (
                 <div className="text-center p-0">
                   <figure>
-                    <Image src={criteria.img} alt={criteria.caption} className="w-100" />
+                    <Image src={criteria.img} alt={criteria.caption} className="mw-75 w-auto" />
                     <figcaption>{criteria.caption}</figcaption>
                   </figure>
                 </div>

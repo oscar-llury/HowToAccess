@@ -1549,6 +1549,12 @@ footer {
     line-height: 1em;
     font-weight: 300;
   }
+  .objective-warning {
+    border-left: 10px solid $warning;
+    //border-image-source: linear-gradient($primary-dark, $primary-dark);
+    border-image-slice: 20;
+    padding: 1em;
+  }
   .objective {
     border-left: 10px solid $primary;
     //border-image-source: linear-gradient($primary-dark, $primary-dark);
