@@ -1,5 +1,5 @@
 {
-  "key": "Principio 4",
+  "index": "Principio 4",
   "name": "Robusto",
   "objective": "El contenido debe ser lo suficientemente sólido como para que pueda ser interpretado por una amplia variedad de agentes de usuario, incluidas las tecnologías de asistencia.",
   "description": "Esto significa que los usuarios deben poder acceder al contenido a medida que avanzan las tecnologías (a medida que evolucionan las tecnologías y los agentes de usuario, el contenido debe permanecer accesible). Principalmente se basa en marcar el contenido correctamente usando HTML semántico.",
@@ -9,26 +9,16 @@
   "date": "Fecha de última actualización: 12 junio 2022",
   "guidelines": [
     {
-      "key": "Pauta 4.1",
-      "name": "Compatible",
-      "description": "<p><strong>Maximizar la compatibilidad con las aplicaciones de usuario actuales y futuras, incluyendo las ayudas técnicas.</strong></p><p>El propósito de esta pauta es dar soporte a la compatibilidad con las aplicaciones de usuario actuales y futuras, especialmente con las ayudas técnicas. Es importante que el contenido web siga las convenciones y sea compatible con las API para que las ayudas técnicas puedan trabajar más fácilmente con las nuevas tecnologías a medida que éstas evolucionan.</p>",
-      "img": "principles/robusto/compatible.svg",
-      "caption": "El correcto funcionamiento de las tecnologías de asistencia depende del código interno de una página web.",
+      "key": "compatible",
       "criteria": [
         {
-          "name": "Procesamiento",
-          "level": "Nivel A",
-          "comment": ""
+          "key": "procesamiento"
         },
         {
-          "name": "Nombre, función, valor",
-          "level": "Nivel A",
-          "comment": ""
+          "key": "nombre_funcion_valor"
         },
         {
-          "name": "Mensajes de estado",
-          "level": "Nivel AA",
-          "comment": "(Agregado en WCAG 2.1)"
+          "key": "mensajes_de_estado"
         }
       ]
     }

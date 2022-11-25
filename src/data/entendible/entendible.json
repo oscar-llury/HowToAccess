@@ -1,5 +1,5 @@
 {
-  "key": "Principio 3",
+  "index": "Principio 3",
   "name": "Entendible",
   "objective": "El contenido que proporcionemos ha de ser claro y fácil de interpretar, sin dar lugar a confusiones o equivocaciones.",
   "description": "El principio Entendible trata de usar un lenguaje sencillo, hacer que los errores sean fáciles de detectar y corregir, y hacer que el contenido en línea sea consistente y predecible para navegar (el contenido y el funcionamiento no pueden estar más allá de la comprensión de los usuarios).",
@@ -9,113 +9,68 @@
   "date": "Fecha de última actualización: 12 junio 2022",
   "guidelines": [
     {
-      "key": "Pauta 3.1",
-      "name": "Legible",
-      "description": "<p><strong>Hacer que los contenidos textuales resulten legibles y comprensibles.</strong></p><p>La intención de esta pauta es permitir que los usuarios y las ayudas técnicas puedan leer el contenido textual y asegurar que la información necesaria para comprenderlo se encuentre disponible.</p>",
-      "img": "principles/entendible/legible.gif",
+      "key": "legible",
       "criteria": [
         {
-          "name": "Idioma de la página",
-          "level": "Nivel A",
-          "comment": ""
+          "key": "idioma_pagina"
         },
         {
-          "name": "Idioma de las partes",
-          "level": "Nivel AA",
-          "comment": ""
+          "key": "idioma_partes"
         },
         {
-          "name": "Palabras inusuales",
-          "level": "Nivel AA",
-          "comment": ""
+          "key": "palabras_inusuales"
         },
         {
-          "name": "Abreviaturas",
-          "level": "Nivel AAA",
-          "comment": ""
+          "key": "abreviaturas"
         },
         {
-          "name": "Nivel de lectura",
-          "level": "Nivel AAA",
-          "comment": ""
+          "key": "nivel_de_lectura"
         },
         {
-          "name": "Pronunciación",
-          "level": "Nivel AAA",
-          "comment": ""
+          "key": "pronunciacion"
         }
       ]
     },
     {
-      "key": "Pauta 3.2",
-      "name": "Predecible",
-      "description": "<p><strong>Hacer que las páginas web aparezcan y operen de manera predecible.</strong></p><p>La intención de este Criterio de Conformidad es ayudar a los usuarios presentando el contenido en un orden y con un comportamiento predecible, con el objetivo de establecer símiles con otras páginas webs ya existentes.</p>",
-      "img": "principles/entendible/yes-or-no.svg",
-      "caption": "Resultado del uso cotidiano, el tic y el aspa se asocian al concepto correcto e incorrecto respectivamente.",
+      "key": "predecible",
       "criteria": [
         {
-          "name": "Al recibir el foco",
-          "level": "Nivel A",
-          "comment": ""
+          "key": "recibir_el_foco"
         },
         {
-          "name": "Al recibir entradas",
-          "level": "Nivel A",
-          "comment": ""
+          "key": "recibir_entradas"
         },
         {
-          "name": "Navegación coherente",
-          "level": "Nivel AA",
-          "comment": ""
+          "key": "navegacion_coherente"
         },
         {
-          "name": "Identificación coherente",
-          "level": "Nivel AA",
-          "comment": ""
+          "key": "identificacion_coherente"
         },
         {
-          "name": "Cambios a petición",
-          "level": "Nivel AAA",
-          "comment": ""
+          "key": "cambios_a_peticion"
         }
       ]
     },
     {
-      "key": "Pauta 3.3",
-      "name": "Entrada de datos asistida",
-      "description": "<p><strong>Ayudar a los usuarios a evitar y corregir los errores.</strong></p><p>Esta pauta tiene el objetivo de reducir el número de errores que se cometen, aumentar la posibilidad de que sean identificados y ayudar a los usuarios a entender qué deben hacer para corregirlos.</p>",
-      "img": "principles/entendible/error-hommer.png",
-      "caption": "Todos cometemos errores cuando navegamos por internet.",
+      "key": "entrada_de_datos_asistida",
       "criteria": [
         {
-          "name": "Identificación de errores",
-          "level": "Nivel A",
-          "comment": ""
+          "key": "identificacion_errores"
         },
         {
-          "name": "Etiquetas o instrucciones",
-          "level": "Nivel A",
-          "comment": ""
+          "key": "etiquetas"
         },
         {
-          "name": "Sugerencias ante errores",
-          "level": "Nivel AA",
-          "comment": ""
+          "key": "sugerencias_errores"
         },
         {
-          "name": "Prevención de errores (legales, financieros, datos)",
-          "level": "Nivel AA",
-          "comment": ""
+          "key": "prevencion_errores"
         },
         {
-          "name": "Ayuda",
-          "level": "Nivel AAA",
-          "comment": ""
+          "key": "ayuda"
         },
         {
-          "name": "Prevención de errores (todos)",
-          "level": "Nivel AAA",
-          "comment": ""
+          "key": "prevencion_errores_todos"
         }
       ]
     }

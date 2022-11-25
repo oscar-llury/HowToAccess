@@ -1,0 +1,29 @@
+{
+  "index": "Pauta 3.1",
+  "name": "Legible",
+  "principle": "Principio 3: Entendible",
+  "objective": "Hacer que los contenidos textuales resulten legibles y comprensibles.",
+  "description": "<p>La intención de esta pauta es permitir que los usuarios y las ayudas técnicas puedan leer el contenido textual y asegurar que la información necesaria para comprenderlo se encuentre disponible.</p>",
+  "img": "principles/entendible/legible.gif",
+  "caption": "",
+  "criteria": [
+    {
+      "key": "idioma_pagina"
+    },
+    {
+      "key": "idioma_partes"
+    },
+    {
+      "key": "palabras_inusuales"
+    },
+    {
+      "key": "abreviaturas"
+    },
+    {
+      "key": "nivel_de_lectura"
+    },
+    {
+      "key": "pronunciacion"
+    }
+  ]
+}

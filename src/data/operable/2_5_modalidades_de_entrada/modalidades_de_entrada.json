@@ -1,0 +1,31 @@
+{
+  "index": "Pauta 2.5",
+  "name": "Modalidades de entrada",
+  "principle": "Principio 2: Operable",
+  "objective": "Facilite que los usuarios puedan operar la funcionalidad a través de diferentes entradas además del teclado.",
+  "description": "<p>Este principio es incluido en WCAG 2.1, y se centra principalmente en la visualización de páginas web en dispositivos móviles.</p>",
+  "date": "Fecha de última actualización: 12 junio 2022",
+  "img": "principles/operable/modalidades-de-entrada.svg",
+  "caption": "Distintas modalidades de entrada de datos.",
+
+  "criteria": [
+    {
+      "key": "gestos_de_puntero"
+    },
+    {
+      "key": "cancelacion_de_puntero"
+    },
+    {
+      "key": "etiqueta_en_nombre"
+    },
+    {
+      "key": "actuacion_de_movimiento"
+    },
+    {
+      "key": "tamano_objeto"
+    },
+    {
+      "key": "mecanismos_entrada_recurrentes"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "index": "Pauta 3.2",
+  "name": "Predecible",
+  "principle": "Principio 3: Entendible",
+  "objective": "Hacer que las páginas web aparezcan y operen de manera predecible.",
+  "description": "<p>La intención de este Criterio de Conformidad es ayudar a los usuarios presentando el contenido en un orden y con un comportamiento predecible, con el objetivo de establecer símiles con otras páginas webs ya existentes.</p>",
+  "img": "principles/entendible/yes-or-no.svg",
+  "caption": "Resultado del uso cotidiano, el tic y el aspa se asocian al concepto correcto e incorrecto respectivamente.",
+  "criteria": [
+    {
+      "key": "recibir_el_foco"
+    },
+    {
+      "key": "recibir_entradas"
+    },
+    {
+      "key": "navegacion_coherente"
+    },
+    {
+      "key": "identificacion_coherente"
+    },
+    {
+      "key": "cambios_a_peticion"
+    }
+  ]
+}

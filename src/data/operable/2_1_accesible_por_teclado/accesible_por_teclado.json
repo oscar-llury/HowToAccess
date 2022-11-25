@@ -1,0 +1,24 @@
+{
+  "index": "Pauta 2.1",
+  "name": "Accesible por teclado",
+  "principle": "Principio 2: Operable",
+  "objective": "Proporcionar acceso a toda la funcionalidad mediante el teclado.",
+  "description": "<p>Si se puede acceder a todas las funcionalidades mediante el uso del teclado, entonces podrán utilizarlas todos aquellos usuarios que usan entrada por voz, ratón, y otras tecnologías de asistencias que emulan la presión de las teclas. Ningún otro método de entrada de datos tiene esta flexibilidad ni resulta tan universal y operable por parte de personas con discapacidad.</p>",
+  "date": "Fecha de última actualización: 12 junio 2022",
+  "img": "principles/operable/enter_key_press.svg",
+  "caption": "Es clave que el contenido sea navegable por teclado, sin el uso de ratón.",
+  "criteria": [
+    {
+      "key": "teclado"
+    },
+    {
+      "key": "sin_trampas_foco_teclado"
+    },
+    {
+      "key": "teclado_sin_excepciones"
+    },
+    {
+      "key": "tajos_de_teclas"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "index": "Pauta 4.1",
+  "name": "Compatible",
+  "principle": "Principio 4: Robusto",
+  "objective": "Maximizar la compatibilidad con las aplicaciones de usuario actuales y futuras, incluyendo las ayudas técnicas.",
+  "description": "<p>El propósito de esta pauta es dar soporte a la compatibilidad con las aplicaciones de usuario actuales y futuras, especialmente con las ayudas técnicas. Es importante que el contenido web siga las convenciones y sea compatible con las API para que las ayudas técnicas puedan trabajar más fácilmente con las nuevas tecnologías a medida que éstas evolucionan.</p>",
+  "img": "principles/robusto/compatible.svg",
+  "caption": "El correcto funcionamiento de las tecnologías de asistencia depende del código interno de una página web.",
+  "criteria": [
+    {
+      "key": "procesamiento"
+    },
+    {
+      "key": "nombre_funcion_valor"
+    },
+    {
+      "key": "mensajes_de_estado"
+    }
+  ]
+}

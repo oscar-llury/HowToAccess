@@ -1,0 +1,22 @@
+{
+  "index": "Pauta 2.3",
+  "name": "Convulsiones",
+  "principle": "Principio 2: Operable",
+  "objective": "No diseñar contenido de un modo que se sepa que podría provocar ataques, espasmos o convulsiones.",
+  "description": "<p>Algunas personas con trastornos neurológicos pueden sufrir ataques por el contenido visual que destella. Las advertencias no son efectivas pues muchas veces son ignoradas, otras, las personas no están al tanto de que pueden tener este desorden hasta que lo sufren.</p>",
+  "date": "Fecha de última actualización: 12 junio 2022",
+  "img": "principles/operable/convulsiones.png",
+  "caption": "La mejor forma de asegurar que una página web no provocará convulsiones a sus visitantes es no diseñar contenido que sea susceptible de crearlas.",
+
+  "criteria": [
+    {
+      "key": "umbral_tres_detellos_menos"
+    },
+    {
+      "key": "umbral_tres_detellos"
+    },
+    {
+      "key": "animacion_interacciones"
+    }
+  ]
+}

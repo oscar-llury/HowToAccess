@@ -10,7 +10,6 @@
   "guidelines": [
     {
       "key": "alternativas_textuales",
-      "caption": "La información contenida en un texto electrónico puede ser presentada en la forma que mejor se adapte a las necesidades del usuario.",
       "criteria": [
         {
           "key": "contenido_no_textual"

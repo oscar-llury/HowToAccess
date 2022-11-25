@@ -14,7 +14,7 @@ export default function Principle({ crumbs, slug, pages, windowWd }) {
   let date = new Date(dateString.split(":")[1]);
   date.setHours(12);
   dateTime = date.toISOString();*/
-
+  console.log(slug);
   const pautas = principle.guidelines;
 
   return (
@@ -52,7 +52,7 @@ export default function Principle({ crumbs, slug, pages, windowWd }) {
           </Row>
         </Container>
         {pautas.map((pauta, indexP) => (
-          <article key={indexP} className="pauta" id={Data[pauta.key].slug}>
+          <article key={indexP} className="pauta" id={Data[pauta.key].index.toLowerCase().replace(".", "_").replace(" ", "_")}>
             <header>
               <h2 className="fw-extrabold">
                 <span className="index fs-4">{Data[pauta.key].index} </span>
@@ -72,7 +72,7 @@ export default function Principle({ crumbs, slug, pages, windowWd }) {
               )}
               <p className="col-auto order-first">{Data[pauta.key].objective}</p>
               <div>
-                <Button className={windowWd < 768 ? "w-100" : ""} variant="outline-primary" as="a" href={`./${slug}/${pauta.key.replace("_", "-")}`}>
+                <Button className={windowWd < 768 ? "w-100" : ""} variant="outline-primary" as="a" href={`./${slug}/${pauta.key.replaceAll("_", "-")}`}>
                   Ampliar información
                 </Button>
               </div>
@@ -83,7 +83,7 @@ export default function Principle({ crumbs, slug, pages, windowWd }) {
                     <ol>
                       {pauta.criteria.map((criteria, indexC) => (
                         <li key={indexC}>
-                          <a href={`./${slug}/${pauta.key.replace("_", "-")}#${Data[criteria.key].slug}`} className="text-decoration-none">
+                          <a href={`./${slug}/${pauta.key.replaceAll("_", "-")}#${Data[criteria.key].slug}`} className="text-decoration-none">
                             <h4 className="title">{Data[criteria.key].name}</h4> <span>({Data[criteria.key].level})</span> {Data[criteria.key].comment}
                           </a>
                         </li>

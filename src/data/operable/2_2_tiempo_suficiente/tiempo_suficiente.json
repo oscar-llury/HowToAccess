@@ -1,0 +1,31 @@
+{
+  "index": "Pauta 2.2",
+  "name": "Tiempo suficiente",
+  "principle": "Principio 2: Operable",
+  "objective": "Proporcionar a los usuarios el tiempo suficiente para leer y usar el contenido.",
+  "description": "<p>Muchos usuarios con discapacidad necesitan más tiempo para completar las tareas que la mayoría de los usuarios; pueden tardar más en responder físicamente; pueden necesitar más tiempo para leer; pueden tener visión reducida y necesitar más tiempo leerlas los textos; o bien pueden estar accediendo al contenido a través de una ayuda técnica que requiere más tiempo. Esta pauta se enfoca en asegurar que los usuarios puedan completar las tareas requeridas según sus tiempos de respuesta individuales.</p>",
+  "date": "Fecha de última actualización: 12 junio 2022",
+  "img": "principles/operable/enough-time.gif",
+  "caption": "Cada usuario tiene una velocidad de lectura e interacción con el contenido distinta.",
+
+  "criteria": [
+    {
+      "key": "tiempo_ajustable"
+    },
+    {
+      "key": "pausa_detener_ocultar"
+    },
+    {
+      "key": "sin_tiempo"
+    },
+    {
+      "key": "interrupciones"
+    },
+    {
+      "key": "re_autentificacion"
+    },
+    {
+      "key": "tiempos_de_espera"
+    }
+  ]
+}

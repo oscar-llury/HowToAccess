@@ -18,7 +18,9 @@ export default function Pauta({ crumbs, slug, pages }) {
   useEffect(() => {
     const setCriteriaState = () => {
       let butAccHeader = document.querySelector(`${decodeURIComponent(window.location.hash)} .accordion-header button`);
-      butAccHeader.click();
+      if (butAccHeader) {
+        butAccHeader.click();
+      }
     };
 
     window.addEventListener("hashchange", setCriteriaState);
