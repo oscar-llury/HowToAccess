@@ -4,5 +4,5 @@
   "slug": "sin_tiempo",
   "level": "Nivel AAA",
   "comment": "",
-  "description": ""
+  "description": "<p class='objective'><strong>El tiempo no es parte esencial del evento o actividad presentada por el contenido, exceptuando los multimedia sincronizados no interactivos y los eventos en tiempo real.</strong></p><p>La intención de este criterio es minimizar la aparición de contenido que requiera una interacción cronometrada. Esto permite que las personas con ceguera, baja visión, limitaciones cognitivas o deficiencias motoras interactúen con el contenido. Esto difiere del criterio <a href='#tiempo-ajustable'>2.2.1 Tiempo ajustable</a> de Nivel A en que la única excepción es para eventos en tiempo real.</p>"
 }

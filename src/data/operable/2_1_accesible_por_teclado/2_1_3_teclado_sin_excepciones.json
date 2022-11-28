@@ -4,5 +4,5 @@
   "slug": "teclado-sin-excepciones",
   "level": "Nivel AAA",
   "comment": "",
-  "description": ""
+  "description": "<p class='objective'><strong>Toda la funcionalidad del contenido se puede operar a través de una interfaz de teclado sin requerir una determinada velocidad en la pulsación de las teclas.</strong></p><p>La intención de este criterio es garantizar que todo el contenido se pueda operar desde el teclado. Esto es lo mismo que el <a href='#teclado'>Criterio de Conformidad 2.1.1</a>, excepto que no se permiten excepciones. Esto no significa que el contenido en el que la función subyacente requiere una entrada que depende de la ruta de movimiento del usuario y no solo de los puntos finales (excluidos de los requisitos de 2.1.1) deba ser accesible mediante teclado. Más bien, significa que el contenido que utiliza una entrada dependiente de la ruta no puede cumplir con este Criterio de Conformidad y, por lo tanto, no puede cumplir con la Pauta 2.1 en el Nivel AAA.</p>"
 }

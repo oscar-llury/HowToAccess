@@ -4,5 +4,10 @@
   "slug": "umbral_tres_detellos",
   "level": "Nivel AAA",
   "comment": "",
-  "description": ""
+  "description": "<p class='objective'><strong>Las páginas web no contienen nada que destelle más de tres veces por segundo.</strong></p><p>El propósito de este criterio es reducir aún más la posibilidad de convulsiones. Las convulsiones no se pueden eliminar por completo ya que algunas personas son muy sensibles. Sin embargo, al eliminar todos los parpadeos de 3 por segundo sobre cualquier área de la pantalla, las posibilidades de que una persona sufra un ataque se reducen.</p><p>Mientras que el criterio <a href='#umbral-tres-detellos-menos'>2.3.1 Umbral de tres destellos o menos</a> permite el parpadeo si es lo suficientemente tenue o tiene un área lo suficientemente pequeña, el criterio 2.3.2 Tres destellos no permite un parpadeo superior a 3 por segundo, independientemente del brillo o el tamaño. Como resultado, incluso un solo píxel intermitente violaría este criterio.</p>",
+  "examples": [
+    {
+      "description": "<p>Se edita una película con una escena que involucra destellos de relámpagos muy brillantes para que el relámpago solo destelle tres veces en cualquier período de un segundo.</p>"
+    }
+  ]
 }
