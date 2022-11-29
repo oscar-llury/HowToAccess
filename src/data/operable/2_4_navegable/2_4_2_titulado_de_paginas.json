@@ -4,5 +4,11 @@
   "slug": "titulado-de-paginas",
   "level": "Nivel A",
   "comment": "",
-  "description": ""
+  "description": "<p class='objective'><strong>Las páginas web tienen títulos que describen su temática o propósito.</strong></p><p>La intención de este criterio es ayudar a los usuarios a encontrar contenido y orientarse dentro de él asegurándose de que cada página web tenga un título descriptivo. Los títulos identifican la ubicación actual sin requerir que los usuarios lean o interpreten el contenido de la página. Cuando los títulos aparecen en mapas de sitios o listas de resultados de búsqueda, los usuarios pueden identificar más rápidamente el contenido que necesitan. Los agentes de usuario hacen que el título de la página esté fácilmente disponible para el usuario para identificar la página. Por ejemplo, un agente de usuario puede mostrar el título de la página en la barra de título de la ventana o como el nombre de la pestaña que contiene la página.</p>",
+  "examples": [
+    {
+      "title": "Una página web HTML.",
+      "description": "<p>El título descriptivo de una página web HTML se marca con el elemento <code>title</code> para que se muestre en la barra de título de la aplicación de usuario.</p><ul><li>El Apéndice A tiene el título 'Glosario'.</li><li>El Apéndice B tiene el título 'Agradecimientos'.</li><li>El Apéndice C tiene el título 'Referencias'.</li>"
+    }
+  ]
 }

@@ -4,5 +4,5 @@
   "slug": "proposito_enlaces_solo_enlaces",
   "level": "Nivel AAA",
   "comment": "",
-  "description": ""
+  "description": "<p class='objective'><strong>Se proporciona un mecanismo que permite identificar el propósito de cada enlace con sólo el texto del enlace</strong>, excepto cuando el propósito del enlace resultara ambiguo para los usuarios en general.</p><p>La intención de este criterio es ayudar a los usuarios a comprender el propósito de cada enlace en el contenido, para que puedan decidir si desean seguirlo. Debido a que el propósito de un enlace se puede identificar a partir de su texto de enlace, los enlaces se pueden entender cuando están fuera de contexto, como cuando el agente de usuario proporciona una lista de todos los enlaces en una página. ver también el Criterio de Conformidad <a href='#proposito-enlaces-en-contexto'>3.2.4 Propósito de los enlaces (en contexto)</a>.</p>"
 }

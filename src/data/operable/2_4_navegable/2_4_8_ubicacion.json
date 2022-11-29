@@ -4,5 +4,15 @@
   "slug": "ubicacion",
   "level": "Nivel AAA",
   "comment": "",
-  "description": ""
+  "description": "<p class='objective'><strong>Se proporciona información acerca de la ubicación del usuario dentro de un conjunto de páginas web.</strong></p><p>La intención de este criterio es proporcionar una forma para que el usuario se oriente dentro de un conjunto de páginas web, un sitio web o una aplicación web y encuentre información relacionada.</p>",
+  "examples": [
+    {
+      "title": "Enlaces para ayudar al usuario a determinar su ubicación en un sitio.",
+      "description": "<p>La página de inicio de una web de un grupo empresarial se enlaza con las páginas de inicio de cada empresa del grupo.</p>"
+    },
+    {
+      "title": "Un rastro de migas de pan.",
+      "description": "<p>Un sitio web organiza temas en categorías. A medida que el usuario navega por categorías y subcategorías, un rastro de migas de pan muestra la ubicación actual en la jerarquía de categorías. Cada página también contiene un enlace a la página de inicio.</p>"
+    }
+  ]
 }

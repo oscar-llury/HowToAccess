@@ -4,5 +4,15 @@
   "slug": "orden-del-foto",
   "level": "Nivel A",
   "comment": "",
-  "description": ""
+  "description": "<p class='objective'><strong>Si se puede navegar secuencialmente por una página web y la secuencia de navegación afecta su significado o su operación, los componentes que pueden recibir el foco lo hacen en un orden que preserva su significado y operabilidad.</strong></p><p>La intención de este criterio es garantizar que cuando los usuarios naveguen secuencialmente a través del contenido, encuentren información en un orden que sea coherente con el significado del contenido y que se pueda operar desde el teclado. Esto reduce la confusión al permitir que los usuarios formen un modelo mental consistente del contenido. Puede haber diferentes órdenes que reflejen relaciones lógicas en el contenido. Por ejemplo, moverse a través de los componentes de una tabla una fila a la vez o una columna a la vez reflejan las relaciones lógicas en el contenido. Cualquiera de las órdenes puede satisfacer este criterio.</p><p>La forma en que se determina el orden de navegación secuencial en el contenido web está definida por la tecnología del contenido. Por ejemplo, HTML simple define la navegación secuencial a través de la noción de orden de tabulación. Si no se utilizan atributos de scripting o <code>tabindex</code>, el orden de navegación es el orden en que aparecen los componentes en el flujo de contenido.</p><p>El orden de enfoque puede no ser idéntico al orden de lectura determinado mediante programación (ver el Criterio de Conformidad <a href='/normas-de-accesibilidad-web/perceptible/adaptable#secuencia-significativa'>1.3.2 Secuencia significativa</a>), siempre que el usuario aún pueda comprender y operar la página web. Dado que puede haber varios órdenes lógicos de lectura posibles para el contenido, basta con que el orden de enfoque coincida con uno de ellos. Sin embargo, cuando el orden de una presentación en particular difiere del orden de lectura determinado mediante programación, los usuarios de una de estas presentaciones pueden tener dificultades para comprender u operar la página web.</p>",
+  "examples": [
+    {
+      "title": "Orden del foco con modales.",
+      "description": "<p>Una página web implementa diálogos modales a través de secuencias de comandos. Cuando se activa el botón de activación, se abre un cuadro de diálogo y el foco se establece en el primer elemento interactivo del cuadro de diálogo. Mientras el cuadro de diálogo esté abierto, el enfoque se limita a los elementos del cuadro de diálogo. Cuando se descarta el cuadro de diálogo, el foco vuelve al botón o al elemento que sigue al botón.</p>"
+    },
+    {
+      "title": "Orden del foco en formularios.",
+      "description": "<p>El sitio web de una empresa incluye un formulario que recopila datos como el nombre, la dirección, la ciudad, el estado o la provincia y el código postal. Otro apartado del formulario incluye varias casillas de verificación. El orden de tabulación del formulario salta secuencialmente entre campos que pertenecen a la misma sección del formulario, por lo que el foco se mueve de un campo en otro en orden.</p>"
+    }
+  ]
 }

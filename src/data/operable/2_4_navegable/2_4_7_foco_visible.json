@@ -4,5 +4,13 @@
   "slug": "foco-visible",
   "level": "Nivel AA",
   "comment": "",
-  "description": ""
+  "description": "<p class='objective'><strong>Cualquier interfaz de usuario operable por teclado tiene una forma de operar en la cual el indicador del foco del teclado resulta visible.</strong></p><p>El propósito de este criterio de éxito es ayudar a una persona a saber qué elemento entre múltiples elementos tiene el foco del teclado. Si solo hay un control accionable del teclado en la pantalla, se cumpliría el criterio de éxito porque el diseño visual presenta solo un elemento accionable del teclado.</p><p>Tenga en cuenta que un indicador de enfoque del teclado puede tomar diferentes formas. Una forma común es un signo de intercalación dentro del campo de texto para indicar que el campo de texto tiene el enfoque del teclado. Otro es un cambio visual en un botón para indicar que ese botón tiene el enfoque del teclado.</p>",
+  "examples": [
+    {
+      "description": "<p>Cuando los campos de texto reciben el foco, se muestra una barra vertical en el campo, lo que indica que el usuario puede insertar texto, O se resalta todo el texto, lo que indica que el usuario puede escribir sobre el texto.</p>"
+    },
+    {
+      "description": "<p>Cuando un control de la interfaz de usuario recibe el foco, se muestra un borde visible a su alrededor.</p>"
+    }
+  ]
 }

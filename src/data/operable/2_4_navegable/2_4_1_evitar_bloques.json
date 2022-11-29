@@ -4,5 +4,10 @@
   "slug": "evitar-bloques",
   "level": "Nivel A",
   "comment": "",
-  "description": ""
+  "description": "<p class='objective'><strong>Existe un mecanismo para evitar los bloques de contenido que se repiten en múltiples páginas web.</strong></p><p>La intención de este criterio es permitir a las personas que navegan secuencialmente a través del contenido un acceso más directo al contenido principal de la página web. Las páginas web y las aplicaciones suelen tener contenido que aparece en otras páginas o pantallas. Los ejemplos de bloques repetidos de contenido incluyen, entre otros, enlaces de navegación, gráficos de encabezado y marcos publicitarios. Las pequeñas secciones repetidas, como palabras individuales, frases o enlaces únicos, no se consideran bloques a los efectos de esta disposición.</p><p>Esto contrasta con la capacidad de un usuario vidente de ignorar el material repetido, ya sea enfocándose en el centro de la pantalla (donde generalmente aparece el contenido principal) o la capacidad de un usuario de ratón para seleccionar un enlace con un solo clic del ratón en lugar de encontrar cada enlace o control de formulario que viene antes del elemento que desean.</p>",
+  "examples": [
+    {
+      "description": "<p>La página de inicio de una organización de noticias contiene una historia principal en el medio de la página, rodeada de muchos bloques y barras laterales para publicidad, búsqueda y otros servicios. Hay un enlace en la parte superior de la página que salta a la historia principal. Sin usar este enlace, un usuario del teclado necesita desplazarse por aproximadamente 40 enlaces para llegar a la historia principal; el usuario del lector de pantalla tiene que escuchar 200 palabras; y el usuario de la lupa de pantalla debe buscar la ubicación del cuerpo principal.</p>"
+    }
+  ]
 }
