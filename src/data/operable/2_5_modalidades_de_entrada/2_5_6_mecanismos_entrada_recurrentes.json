@@ -4,5 +4,16 @@
   "slug": "mecanismos-entrada-recurrentes",
   "level": "Nivel AAA",
   "comment": "(Agregado en WCAG 2.1)",
-  "description": ""
+  "description": "<p class='objective'><strong>El contenido web no restringe el uso de las modalidades de entrada disponibles en una plataforma, excepto cuando la restricción sea esencial</strong>, necesaria para garantizar la seguridad del contenido o necesaria para respetar la configuración del usuario.</p><p>La intención de este criterio es garantizar que las personas puedan usar y cambiar entre diferentes modos de entrada al interactuar con el contenido web. Los usuarios pueden emplear una variedad de mecanismos de entrada, pudiendo ser teclados o interfaces similares a un teclado, dispositivos de puntero como un ratón, un lápiz óptico o una pantalla táctil.</p><p>Los usuarios deberían poder cambiar los mecanismos de entrada en cualquier momento si el usuario determina que ciertas tareas e interacciones se realizan más fácilmente mediante el uso de otro mecanismo de entrada. El contenido no debe limitar la interacción del usuario a ningún mecanismo de entrada en particular, a menos que la restricción sea esencial o se requiera para garantizar la seguridad del contenido o para respetar la configuración del usuario.</p><p><em>Nota</em>: Una aplicación web de mecanografía táctil, que enseña a los usuarios cómo escribir en un teclado y/o mide su competencia y velocidad, sería un ejemplo de una limitación esencial para un mecanismo de entrada en particular.</p>",
+  "examples": [
+    {
+      "description": "<p>Un usuario comienza a interactuar con una página usando un teclado de escritorio y luego conecta un monitor táctil secundario. El contenido se puede operar usando este mecanismo de entrada recientemente agregado y no asume que el teclado, el primer mecanismo de entrada que detectó, es el único en uso.</p>"
+    },
+    {
+      "description": "<p>Un usuario de entrada de voz navega por el contenido usando comandos de voz que se traducen para simular comandos de ratón (y teclado). Sin embargo, cuando habla por videollamada, el usuario desactiva el reconocimiento de voz y usa el ratón en su lugar.</p>"
+    },
+    {
+      "description": "<p>Un usuario abre un menú con un ratón y luego navega entre los elementos del menú con las teclas de flecha.</p>"
+    }
+  ]
 }

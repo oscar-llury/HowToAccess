@@ -4,5 +4,13 @@
   "slug": "etiqueta-en-nombre",
   "level": "Nivel A",
   "comment": "(Agregado en WCAG 2.1)",
-  "description": ""
+  "description": "<p class='objective'><strong>Para los componentes de la interfaz de usuario con etiquetas que incluyen texto o imágenes de texto, el nombre contiene el texto que se presenta visualmente.</strong></p><p>La mayoría de los controles van acompañados de una etiqueta de texto visible. La intención de este criterio es garantizar que las palabras que etiquetan visualmente un componente también sean las palabras asociadas con el componente mediante programación. Esto ayuda a garantizar que las personas con discapacidad puedan confiar en las etiquetas visibles como un medio para interactuar con los componentes.</p><p>Tenga en cuenta que cuando no existe una etiqueta de texto visible para un componente, este Criterio de Conformidad no se aplica a ese componente. El texto no debe considerarse una etiqueta visible si se usa de manera simbólica, en lugar de expresar directamente algo en lenguaje humano.</p>",
+  "img": "principles/operable/rich-text-editor-detail.png",
+  "caption": "En la imagen 'B', 'I' y 'ABC' aparecen en iconos en un editor de texto, donde simbolizan las funciones de Negrita, Cursiva y Ortografía, respectivamente. En tal caso, el nombre accesible debe ser la función que cumple el botón, por ejemplo, 'Corrección ortográfica'.",
+  "examples": [
+    {
+      "title": "El nombre accesible comienza con la etiqueta visible.",
+      "description": "<p>El nombre accesible 'Buscar un valor' comienza con el texto de la etiqueta visible, 'Buscar'.</p>"
+    }
+  ]
 }
