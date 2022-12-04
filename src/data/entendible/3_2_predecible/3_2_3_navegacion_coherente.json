@@ -4,5 +4,19 @@
   "slug": "navegacion-coherente",
   "level": "Nivel AA",
   "comment": "",
-  "description": ""
+  "description": "<p class='objective'><strong>Los mecanismos de navegación que se repiten en múltiples páginas web</strong> dentro de un conjunto de páginas web <strong>aparecen siempre en el mismo orden relativo</strong> cada vez que se repiten, a menos que el cambio sea provocado por el propio usuario.</p><p>La intención de este criterio es fomentar el uso de una presentación y un diseño consistentes para los usuarios que interactúan con contenido repetido dentro de un conjunto de páginas web y necesitan ubicar información o funcionalidad específica más de una vez.</p><p>Las personas con baja visión que utilizan la ampliación de la pantalla para mostrar una pequeña parte de la pantalla a la vez suelen utilizar señales visuales y límites de página para localizar rápidamente el contenido repetido. Presentar contenido repetido en el mismo orden también es importante para los usuarios visuales que utilizan la memoria espacial o las señales visuales dentro del diseño para ubicar el contenido repetido.</p><p>Este criterio está destinado a ayudar a los usuarios que interactúan con contenido repetido en páginas web a poder predecir la ubicación del contenido que están buscando y encontrarlo más rápidamente.</p>",
+  "examples": [
+    {
+      "title": "Un control de búsqueda ubicado consistentemente.",
+      "description": "<p>Un campo de búsqueda es el último elemento de cada página web de un sitio. Los usuarios pueden localizar rápidamente la función de búsqueda.</p>"
+    },
+    {
+      "title": "Un menú de navegación en expansión con subelementos.",
+      "description": "<p>Un menú de navegación incluye una lista de elementos con enlaces a las secciones principales de un sitio. Cuando un usuario selecciona uno de estos elementos, se inserta una lista de elementos de subnavegación en el menú de navegación.</p>"
+    },
+    {
+      "title": "Controles de navegación de salto de contenido colocados de manera consistente.",
+      "description": "<p>Se incluye un enlace 'saltar navegación' (o 'saltar al contenido principal') como el primer enlace en cada página de un sitio web. El enlace permite a los usuarios omitir rápidamente la información de encabezado y el contenido de navegación y comenzar a interactuar con el contenido principal de una página.</p>"
+    }
+  ]
 }
