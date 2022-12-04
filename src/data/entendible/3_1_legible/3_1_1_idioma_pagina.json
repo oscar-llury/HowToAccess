@@ -4,5 +4,17 @@
   "slug": "idioma-pagina",
   "level": "Nivel A",
   "comment": "",
-  "description": ""
+  "description": "<p class='objective'><strong>El idioma predeterminado de cada página web puede ser determinado por software.</strong></p><p>La intención de este criterio es garantizar que los desarrolladores de contenido brinden información en la página web que los agentes de usuario necesitan para presentar correctamente el texto y otro contenido lingüístico. Tanto las tecnologías de asistencia como los agentes de usuario convencionales pueden representar el texto con mayor precisión cuando se identifica el idioma de la página web. Los lectores de pantalla pueden cargar las reglas de pronunciación correctas. Los navegadores visuales pueden mostrar caracteres y guiones correctamente. Los reproductores multimedia pueden mostrar subtítulos correctamente. Como resultado, los usuarios con discapacidades podrán comprender mejor el contenido. Para establecer el idioma general de una página web se utiliza en el nodo <code>html</code> el atributo <code>lang</code>, tomando valor de las siglas de los países definidas en el <a href='https://www.loc.gov/standards/iso639-2/php/code_list.php' target='blank'>estándar ISO 639-1</a>.</p><p>Cuando una página web utiliza varios idiomas, el idioma de procesamiento de texto predeterminado es el idioma que más se utiliza. Para los sitios multilingües se recomienda seguir también el Criterio de Conformidad <a href='#idioma-partes'>3.1.2 Idioma de las partes</a>.</p>",
+  "examples": [
+    {
+      "title": "Una página Web con contenido en dos idiomas.",
+      "description": "<p>Una página web producida en Alemania y escrita en HTML incluye contenido tanto en alemán como en inglés, pero la mayor parte del contenido está en alemán. El idioma humano predeterminado se identifica como alemán (de) por el atributo <code>lang</code>.</p>"
+    }
+  ],
+  "implementation": [
+    {
+      "description": "<p>Establecer el idioma de la página general mediante el uso del atributo lang en el nodo html.</p>",
+      "code": "<html lang=”fr”>\n<head>\n\t<title>document écrit en français</title>\n</head>\n<body>\t...\t</body>\n</html>"
+    }
+  ]
 }

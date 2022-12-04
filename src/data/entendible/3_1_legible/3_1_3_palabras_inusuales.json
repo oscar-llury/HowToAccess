@@ -4,5 +4,25 @@
   "slug": "palabras-inusuales",
   "level": "Nivel AA",
   "comment": "",
-  "description": ""
+  "description": "<p class='objective'><strong>Se proporciona un mecanismo para identificar las definiciones específicas de palabras o frases usadas de modo inusual o restringido, incluyendo expresiones idiomáticas y jerga.</strong></p><p>Ciertas discapacidades dificultan la comprensión del uso de palabras no literales, palabras o usos especializados o lenguaje figurado. Proporcionar tales mecanismos es vital para estas audiencias. Se recomienda que la información especializada destinada a lectores no especialistas cumpla este criterio.</p><p>Se pueden utilizar varias formas para dar una explicación más detallada de una palabra o expresión. A continuación, en los ejemplos se detallan algunos casos.</p>",
+  "examples": [
+    {
+      "title": "Incluir definiciones en el glosario.",
+      "description": "<p>WCAG 2.0 usa la palabra 'texto' de una manera específica. Por lo tanto, cuando la palabra 'texto' se usa dentro de las WCAG 2.0, está vinculada a la definición de 'texto' provista en un glosario dentro de la misma página web.</p>"
+    }
+  ],
+  "implementation": [
+    {
+      "description": "<p>Crear en el nodo head un enlace a un glosario o diccionario en otra página.</p>",
+      "code": "<link rel='glossary' href='http://www.w3.org/TR/WCAG20/#glossary'>"
+    },
+    {
+      "description": "<p>Crear una lista de descripciones de términos que se utilizan en un sitio web.</p>",
+      "code": "<dl title='Términos náuticos'>\n\t<dt>Knot</dt>\n\t<dd>\n\t\t<p>A <em>knot</em> is a unit of speed equaling 1 nautical mile per hour (1.15 miles per hour or 1.852 kilometers per hour).</p>\n\t</dd>\n\t<dt>Port</dt>\n\t<dd>\n\t\t<p><em>Port</em> is the nautical term (used on boats and ships) that refers to the left side of a ship, as perceived by a person facing towards the bow (the front of the vessel).</p>\n\t</dd>\n</dl>"
+    },
+    {
+      "description": "<p>Establecer la definición de un término cuando este es usado.</p>",
+      "code": "<p>...<a href='#definition'>Tirar la toalla</a>...</p>\n<h3>Nota：</h3>\n<dl>\n\t<dt id='definition' name='definition'> Tirar la toalla </dt>\n\t<dd>No poder hacer nada y rendirse</dd>\n</dl>"
+    }
+  ]
 }

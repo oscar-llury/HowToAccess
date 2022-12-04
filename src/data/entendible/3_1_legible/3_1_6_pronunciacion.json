@@ -4,5 +4,17 @@
   "slug": "pronunciacion",
   "level": "Nivel AAA",
   "comment": "",
-  "description": ""
+  "description": "<p class='objective'><strong>Se proporciona un mecanismo para identificar la pronunciación específica de las palabras cuando el significado de esas palabras, dentro del contexto, resulta ambiguo si no se conoce su pronunciación.</strong></p><p>La intención de este criterio es ayudar a las personas ciegas, con problemas de visión y con problemas de lectura a comprender el contenido en los casos en que el significado depende de la pronunciación. A menudo, las palabras o caracteres tienen diferentes significados, cada uno con su propia pronunciación. Cuando la oración se lee en voz alta y el lector de pantalla lee la palabra con una pronunciación incorrecta, puede ser incluso más difícil de entender que cuando se lee visualmente. Cuando se lee incorrectamente, el contenido no tendrá sentido para estos usuarios.</p><p>Para proporcionar más información a cerca del significado de una palabra o expresión puede establecerse un enlace a un diccionario o glosario de definiciones, o en caso de querer detallar la pronunciación concreta de la palabra, se puede hacer uso del elemento Ruby <code>rb</code> de html.</p><p><strong>Hay dos tipos de marcado de Ruby: simple y complejo</strong>. El marcado Ruby simple se aplica a una serie de texto, como una palabra o frase completa. Estas se conocen como el <strong>texto base</strong>, utilizando el elemento <code>rb</code>. La anotación, o <strong>texto Ruby</strong>, que indica cómo pronunciar el término, se muestra en una fuente más pequeña, utilizando el elemento <code>rt</code>. El texto Ruby generalmente se representa encima o inmediatamente antes del texto base. A veces, el japonés usa Ruby para proporcionar el significado del texto en el otro lado del texto base (visualmente) de la anotación fonética.</p>",
+  "examples": [
+    {
+      "title": "Palabras que se escriben igual y tienen significados distintos dependiendo del contexto.",
+      "description": "<p>En inglés, los heterónimos son palabras que se escriben igual, pero tienen pronunciaciones y significados diferentes. Por ejemplo, las palabras desert (postre) y desert (desierto o región árida). En algunos casos la pronunciación adecuada se puede determinar a partir del contexto de la oración, pero en otros no se podrá y se necesitará más información.</p>"
+    }
+  ],
+  "implementation": [
+    {
+      "description": "<p>Este ejemplo utiliza la anotación de Ruby para dar la pronunciación de las iniciales (acrónimo) formadas por las primeras letras de las palabras <em>Web Content Accessibility Guidelines</em>. Las letras <strong>WCAG son la base</strong> (el elemento <code>rb</code>) y la <strong>información de pronunciación se muestra en el texto Ruby</strong> (el elemento <code>rt</code>). El elemento de paréntesis de Ruby <code>rp</code> se usa para agentes de usuario que no admiten anotaciones de Ruby, para indicar que el texto del elemento <code>rt</code> proporciona la información de pronunciación. La información de pronunciación se representa entre paréntesis inmediatamente después del texto base. Los agentes de usuario que admiten Ruby no muestran los paréntesis.</p>",
+      "code": "<p>When we talk about these guidelines, we often just call them\n\t<ruby>\n\t\t<rb>WCAG</rb>\n\t\t<rp>(</rp>\n\t\t\t<rt>Wuh-KAG</rt>\n\t\t<rp>)</rp>\n\t</ruby>.\n</p>"
+    }
+  ]
 }
