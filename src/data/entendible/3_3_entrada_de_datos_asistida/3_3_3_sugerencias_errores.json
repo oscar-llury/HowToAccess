@@ -4,5 +4,15 @@
   "slug": "sugerencias-errores",
   "level": "Nivel AA",
   "comment": "",
-  "description": ""
+  "description": "<p class='objective'><strong>Si se detecta automáticamente un error en la entrada de datos y se dispone de sugerencias para hacer la corrección, entonces se presentan las sugerencias al usuario</strong>, a menos que esto ponga en riesgo la seguridad o el propósito del contenido.</p><p>La intención de este criterio es garantizar que los usuarios reciban las sugerencias adecuadas para corregir un error de entrada, si es posible, evitando así que los usuarios abandonen la página. El criterio <a href='#identificacion-errores'>3.3.1 identificación de errores</a> prevé la notificación de errores, sin embargo, a las personas con limitaciones cognitivas o con discapacidades visuales les puede resultar difícil entender cómo corregir los errores. El autor del contenido puede proporcionar la descripción del error, o el agente de usuario puede proporcionar la descripción del error en función de la información específica de la tecnología determinada mediante programación.</p>",
+  "examples": [
+    {
+      "title": "Ayuda adicional para corregir un error de entrada.",
+      "description": "<p>El resultado de un formulario que no se envió correctamente describe un error de entrada en la página junto con la entrada correcta y ofrece ayuda adicional para el campo de formulario que provocó el error de entrada.</p>"
+    },
+    {
+      "title": "Sugerencias de un conjunto limitado de valores.",
+      "description": "<p>Un campo de entrada requiere que se ingrese un nombre de mes. Si el usuario ingresa '12', las sugerencias de corrección pueden incluir:</p><ul><li>Una lista de los valores aceptables, por ejemplo, 'Elija uno de: enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre'.</li><li>Una descripción del conjunto de valores, por ejemplo, 'Proporcione el nombre del mes'.</li><li>La conversión de los datos de entrada interpretados como un formato de mes diferente, por ejemplo, '¿Quiere decir 'diciembre'?'</li></ul>"
+    }
+  ]
 }

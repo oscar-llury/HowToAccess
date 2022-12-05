@@ -4,5 +4,11 @@
   "slug": "ayuda",
   "level": "Nivel AAA",
   "comment": "",
-  "description": ""
+  "description": "<p class='objective'><strong>Se proporciona ayuda dependiente del contexto.</strong></p><p>La intención de este criterio es ayudar a los usuarios a evitar cometer errores. Algunos usuarios con discapacidades pueden tener más probabilidades de cometer errores que los usuarios sin discapacidades. Mediante la ayuda sensible al contexto, los usuarios descubren cómo realizar una operación sin perder de vista lo que están haciendo.</p><p>Solo es necesario proporcionar ayuda sensible al contexto cuando la etiqueta no es suficiente para describir toda la funcionalidad. La existencia de ayuda sensible al contexto debe ser obvia para el usuario y debe poder obtenerla siempre que la necesite.</p><p>El autor del contenido puede proporcionar el texto de ayuda, o el agente de usuario puede proporcionar el texto de ayuda en función de la información determinada mediante programación y específica de la tecnología.</p>",
+  "examples": [
+    {
+      "title": "Proporcionar instrucciones para preguntas en formularios.",
+      "description": "<p>Algunas de las preguntas pueden ser difíciles de entender para los nuevos buscadores de empleo. Un enlace de ayuda junto a cada pregunta proporciona instrucciones y explicaciones para cada pregunta.</p>"
+    }
+  ]
 }

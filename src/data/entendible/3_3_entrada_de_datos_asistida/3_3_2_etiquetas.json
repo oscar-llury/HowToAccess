@@ -4,5 +4,11 @@
   "slug": "etiquetas",
   "level": "Nivel A",
   "comment": "",
-  "description": ""
+  "description": "<p class='objective'><strong>Se proporcionan etiquetas o instrucciones cuando el contenido requiere la introducción de datos por parte del usuario.</strong></p><p>La intención de este criterio es que los autores coloquen instrucciones o etiquetas que identifiquen los controles en un formulario para que los usuarios sepan qué datos de entrada se esperan. Las instrucciones o etiquetas también pueden especificar formatos de datos para los campos, especialmente si están fuera de los formatos habituales o si existen reglas específicas para la entrada correcta. También se puede optar por proporcionar dichas instrucciones solo cuando el control individual tiene el foco, especialmente cuando las instrucciones son largas y detalladas.</p><p>La intención no es saturar la página con información innecesaria. <strong>Demasiada información o instrucción puede ser un obstáculo tanto como muy poca.</strong> El objetivo es asegurarse de que se proporcione suficiente información para que el usuario realice la tarea sin confusión o navegación indebida.</p><p><em>Nota</em>: Cuando se proporcionan etiquetas para los objetos de entrada, la relación del objeto de entrada con la etiqueta (o con el texto redundante que actúa como etiqueta) debe poder determinarse mediante programación o estar disponible en el texto según el criterio <a href='/normas-de-accesibilidad-web/perceptible/adaptable#informacion-y-relaciones'>1.3.1 Información y relaciones</a>.</p>",
+  "examples": [
+    {
+      "title": "Campos con formatos en específico.",
+      "description": "<p>Un campo para ingresar una fecha contiene un texto inicial que indica el formato correcto para la fecha.</p>"
+    }
+  ]
 }
