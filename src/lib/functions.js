@@ -1,10 +1,10 @@
 export function cifrarBA64(id) {
-  return window.btoa(id);
-}
+  return Buffer(id, "binary").toString("base64");
+} //btoa
 
 export function descifrarBA64(id) {
-  return window.atob(id);
-}
+  return Buffer.from(id, "base64");
+} //atob
 
 /**
  * Calculo de porcentajes

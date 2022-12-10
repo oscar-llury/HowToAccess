@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Container, Row, Col, Form, InputGroup } from "react-bootstrap";
 import { useNavigate, useLocation } from "react-router-dom";
-
 import { useAuth } from "../lib/auth";
+
 import logo from "../img/logo/isotipo.svg";
 import slide1 from "../img/login-bg.jpg";
+import { getCookie, setCookie } from "lib/functions";
+import { isDocument } from "@testing-library/user-event/dist/utils";
 
 export default function Login() {
   let navigate = useNavigate();
@@ -14,10 +16,22 @@ export default function Login() {
   const [errors, setErrors] = useState({});
   const [showPass, setShowPass] = useState(false);
   let from = location.state?.from?.pathname || "/";
+  const [user_cookie, setUserCookie] = useState({ username: "", password: "" });
 
   function showPassHandler(e) {
     setShowPass(!showPass);
   }
+
+  useEffect(() => {
+    let cook = getCookie("HTA_LGN", true);
+    if (cook) {
+      cook = JSON.parse(cook);
+      setUserCookie(cook);
+      document.querySelector("#username").value = cook.username;
+      document.querySelector("#password").value = cook.password;
+      document.querySelector("#remember").checked = true;
+    }
+  }, [setUserCookie]);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -27,6 +41,7 @@ export default function Login() {
     if (form.checkValidity() === true) {
       setValidated(true);
       setErrors({});
+
       let formData = new FormData(form);
 
       await auth.login(formData, (status) => {
@@ -37,6 +52,16 @@ export default function Login() {
         // won't end up back on the login page, which is also really nice for the
         // user experience.
         if (status) {
+          const remember = formData.get("remember");
+          if (remember) {
+            const username = formData.get("username");
+            const password = formData.get("password");
+            const cook = {
+              username: username,
+              password: password,
+            };
+            setCookie("HTA_LGN", JSON.stringify(cook), 7, true);
+          }
           navigate(from, { replace: true });
         } else {
           setValidated(false);
@@ -78,7 +103,7 @@ export default function Login() {
               </InputGroup>
             </Form.Group>
             <Form.Group className="mb-3" controlId="remember">
-              <Form.Check type="checkbox" label="Recordarme" />
+              <Form.Check type="checkbox" label="Recordarme" name="remember" value={1} />
             </Form.Group>
             {errors.msg && <p className="text-danger">{errors.msg}</p>}
             <Button variant="outline-primary" type="submit" className="w-100">
@@ -90,4 +115,3 @@ export default function Login() {
     </Container>
   );
 }
-//style={{ backgroundColor: "green" }}
