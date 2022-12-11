@@ -105,26 +105,7 @@ CREATE TABLE `tfg`.`acc_pauta` (
     REFERENCES `tfg`.`acc_principio` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
-/*
-CREATE TABLE `tfg`.`acc_principio_has_pauta` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `principio_id` INT(11) NOT NULL,
-  `pauta_id` INT(11) NOT NULL,
-  `fecha_created` INT(11) NULL,
-  `fecha_updated` INT(11) NULL,
-  `activo` INT NOT NULL DEFAULT 1,
-  PRIMARY KEY (`id`),
-  CONSTRAINT `acc_principio_has_pauta_principio_id`
-    FOREIGN KEY (`principio_id`)
-    REFERENCES `tfg`.`acc_principio` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `acc_principio_has_pauta_pauta_id`
-    FOREIGN KEY (`pauta_id`)
-    REFERENCES `tfg`.`acc_pauta` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
-*/
+
 CREATE TABLE `tfg`.`acc_nivel_conformidad` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `codigo` VARCHAR(20) NULL,
@@ -175,26 +156,7 @@ CONSTRAINT `acc_criterio_conformidad_version_id`
     REFERENCES `tfg`.`acc_criterio_version` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
-/*
-CREATE TABLE `tfg`.`acc_pauta_has_criterio` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `pauta_id` INT(11) NOT NULL,
-  `criterio_id` INT(11) NOT NULL,
-  `fecha_created` INT(11) NULL,
-  `fecha_updated` INT(11) NULL,
-  `activo` INT NOT NULL DEFAULT 1,
-  PRIMARY KEY (`id`),
-  CONSTRAINT `acc_pauta_has_criterio_pauta_id`
-    FOREIGN KEY (`pauta_id`)
-    REFERENCES `tfg`.`acc_pauta` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `acc_pauta_has_criterio_criterio_id`
-    FOREIGN KEY (`criterio_id`)
-    REFERENCES `tfg`.`acc_criterio_conformidad` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
-*/
+
 CREATE TABLE `tfg`.`pro_has_criterio` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `proyecto_id` INT(11) NOT NULL,
@@ -212,5 +174,58 @@ CREATE TABLE `tfg`.`pro_has_criterio` (
   CONSTRAINT `pro_has_criterio_criterio_id`
     FOREIGN KEY (`criterio_id`)
     REFERENCES `tfg`.`acc_criterio_conformidad` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+    
+CREATE TABLE `tfg`.`acc_discapacidad` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(200) NULL,
+  `fecha_created` INT(11) NULL,
+  `fecha_updated` INT(11) NULL,
+  `activo` INT NOT NULL DEFAULT 1,
+  PRIMARY KEY (`id`));
+  
+CREATE TABLE `tfg`.`acc_beneficio` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(200) NULL,
+  `discapacidad_id` INT(11) NULL,
+  `fecha_created` INT(11) NULL,
+  `fecha_updated` INT(11) NULL,
+  `activo` INT NOT NULL DEFAULT 1,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `acc_beneficio_discapacidad_id`
+    FOREIGN KEY (`discapacidad_id`)
+    REFERENCES `tfg`.`acc_discapacidad` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+CREATE TABLE `tfg`.`acc_criterio_has_beneficio` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `criterio_id` INT(11) NOT NULL,
+  `beneficio_id` INT(11) NOT NULL,
+  `pauta_id` INT(11) NOT NULL,
+  `nivel_conformidad_id` INT(11) NOT NULL,
+  `fecha_created` INT(11) NULL,
+  `fecha_updated` INT(11) NULL,
+  `activo` INT NOT NULL DEFAULT 1,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `acc_criterio_has_beneficio_criterio_id`
+    FOREIGN KEY (`criterio_id`)
+    REFERENCES `tfg`.`acc_criterio_conformidad` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `acc_criterio_has_beneficio_beneficio_id`
+    FOREIGN KEY (`beneficio_id`)
+    REFERENCES `tfg`.`acc_beneficio` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `acc_criterio_has_beneficio_pauta_id`
+    FOREIGN KEY (`pauta_id`)
+    REFERENCES `tfg`.`acc_pauta` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `acc_criterio_has_beneficio_nivel_conformidad_id`
+    FOREIGN KEY (`nivel_conformidad_id`)
+    REFERENCES `tfg`.`acc_nivel_conformidad` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
