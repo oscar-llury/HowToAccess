@@ -13,7 +13,7 @@ export default function Pauta({ crumbs, slug, pages }) {
   const guidelines = pages.reduce((o, key) => ({ ...o, [key]: Data[key] }), {})[slug.replaceAll("-", "_")];
   const criteria = guidelines.criteria;
   const guidelines_index = guidelines.index.replace(/[^0-9 .]/g, "");
-  const [criteriaOpen, setCriteriaOpen] = useState(document.location.hash.replace("#", ""));
+  const [criteriaOpen, setCriteriaOpen] = useState(decodeURIComponent(document.location.hash.replace("#", "")));
 
   useEffect(() => {
     const setCriteriaState = () => {

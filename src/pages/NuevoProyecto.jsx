@@ -4,6 +4,7 @@ import axios from "axios";
 import { Col, Container, Form, Row, Spinner, Button, Modal } from "react-bootstrap";
 
 import modalImg from "../img/complete-form.svg";
+import { getCriteriaSlugByIndex } from "lib/functions";
 
 export default function NuevoProyecto() {
   //const [validated, setValidated] = useState(false);
@@ -109,6 +110,7 @@ export default function NuevoProyecto() {
     document.getElementById("step-2-spinner").classList.remove("d-none");
     await loadCriteria((criteria) => {
       if (criteria) {
+        console.log(criteria);
         setConformanceCriteria([...criteria]);
       }
     });
@@ -270,9 +272,9 @@ export default function NuevoProyecto() {
                                   <p className="m-0">Nivel {criteria.level_name}</p>
                                 </Col>
                                 <Col xs="2" md="1" className="text-end">
-                                  <Button variant="info" href="#" size="sm" target="blank" title="Consultar criterio">
+                                  <a className="btn btn-info btn-sm" href={getCriteriaSlugByIndex(criteria.key)} target="blank" title={`Consultar criterio ${criteria.key} ${criteria.name}`}>
                                     <i className="bi bi-info-circle"></i>
-                                  </Button>
+                                  </a>
                                 </Col>
                               </Row>
                             </li>

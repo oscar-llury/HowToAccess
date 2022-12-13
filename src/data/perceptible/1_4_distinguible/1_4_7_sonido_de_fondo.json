@@ -1,7 +1,7 @@
 {
   "key": "Criterio de Conformidad 1.4.7",
   "name": "Sonido de fondo bajo o ausente",
-  "slug": "sonido de fondo",
+  "slug": "sonido-de-fondo",
   "level": "Nivel AAA",
   "comment": "",
   "description": "<div class='objective'><p><strong>Para contenido pregrabado de solo audio</strong> que (1) contiene principalmente voz en primer plano, (2) no es un CAPTCHA de audio ni un logotipo de audio, y (3) no es una vocalización destinada a ser principalmente una expresión musical, como cantar o rapear, <strong>al menos uno de los siguientes es verdadero</strong>:</p><ul><li><strong>Sin fondo</strong>: el audio no contiene sonidos de fondo.</li><li><strong>Apagar</strong>: los sonidos de fondo se pueden apagar.</li><li><strong>20 dB</strong>: los sonidos de fondo son al menos 20 decibelios más bajos que el contenido del habla de primer plano, con la excepción de sonidos ocasionales que duran solo uno o dos segundos. Según la definición de 'decibelio', el sonido de fondo que cumple con este requisito será aproximadamente cuatro veces más bajo que el contenido de voz de primer plano.</li></ul></div><p>La intención de este criterio es garantizar que cualquier sonido que no sea el del habla sea lo suficientemente bajo como para que un usuario con problemas de audición pueda separar los sonidos de fondo u otro ruido del contenido del habla en primer plano.</p>"

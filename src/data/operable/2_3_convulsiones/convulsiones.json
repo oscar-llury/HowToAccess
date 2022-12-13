@@ -10,10 +10,10 @@
 
   "criteria": [
     {
-      "key": "umbral_tres_detellos_menos"
+      "key": "umbral_tres_destellos_menos"
     },
     {
-      "key": "umbral_tres_detellos"
+      "key": "umbral_tres_destellos"
     },
     {
       "key": "animacion_interacciones"

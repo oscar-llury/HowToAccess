@@ -156,6 +156,9 @@ body::-webkit-scrollbar-thumb {
       text-decoration: none;
     }
   }
+  a.link {
+    text-decoration: none;
+  }
   .link:hover a,
   .link:hover {
     text-decoration: underline;

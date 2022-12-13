@@ -31,28 +31,22 @@ export default function Proyectos() {
     navigate("/nuevo-proyecto");
   }
 
-  useEffect(() => {
+  useEffect(async () => {
     //run when page loaded
     const headers = {
       headers: {},
     };
-    return axios
-      .post(`${process.env.REACT_APP_BACK_URL}/API/proyectos/listar.php`, "token=" + token, headers)
-      .then((data) => {
-        const dataR = data.data;
-        if (dataR.status) {
-          console.dir(dataR);
-          setProyectos(dataR.data);
-        } else {
-          console.dir(dataR);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally((e) => {
-        //console.log("always");
-      });
+    try {
+      const data = await axios.post(`${process.env.REACT_APP_BACK_URL}/API/proyectos/listar.php`, "token=" + token, headers);
+      const dataR = data.data;
+      if (dataR.status) {
+        setProyectos(dataR.data);
+      } else {
+        console.dir(dataR);
+      }
+    } catch (err) {
+      console.log(err);
+    }
     // es lint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -232,15 +226,11 @@ const TableRowProyectos = ({ proyecto, navigate, setShow, setLevel }) => {
   };
 
   return (
-    <tr id={"proyecto_" + proyecto.id} data-id={proyecto.id} className="proyecto-row">
-      <td
-        className="text-start link"
-        title="Ver datos del proyecto"
-        onClick={(e) => {
-          navigate(e.target.parentNode.dataset.id);
-        }}
-      >
-        {proyecto.nombre}
+    <tr id={"proyecto_" + proyecto.id} className="proyecto-row">
+      <td className="text-start">
+        <a href={`/proyectos/${proyecto.id}`} title="Ver datos del proyecto" className="link">
+          {proyecto.nombre}
+        </a>
       </td>
       <td className="estado">
         {proyecto.estado ? (

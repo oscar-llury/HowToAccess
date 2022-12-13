@@ -3,14 +3,13 @@ import ConformanceBox from "components/ConformanceBox";
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, ProgressBar, Table, Button } from "react-bootstrap";
 import { useParams } from "react-router";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { VictoryPie, VictoryAnimation, VictoryLabel } from "victory";
-import { percentage } from "../lib/functions";
+import { getCriteriaSlugByIndex, percentage } from "../lib/functions";
 import { useSelector } from "react-redux";
 
 export default function Proyecto() {
   const params = useParams();
-  const navigate = useNavigate();
   const id_pjt = params.proyectoId;
   const tokenRedux = useSelector((state) => state.token);
   const [info, setInfo] = useState({});
@@ -177,13 +176,10 @@ export default function Proyecto() {
                   <ConformanceBox className="m-auto" idConformance={criteria.conformidad} />
                 </td>
                 <td>{criteria.principio === 1 ? <>Perceptible</> : criteria.principio === 2 ? <>Operable</> : criteria.principio === 3 ? <>Comprensible</> : criteria.principio === 4 ? <>Robusto</> : <></>}</td>
-                <td
-                  className="link"
-                  onClick={() => {
-                    navigate(criteria.id);
-                  }}
-                >
-                  <a href="#c">{criteria.nombre}</a>
+                <td>
+                  <a href={getCriteriaSlugByIndex(criteria.indice)} className="link" title={`${criteria.indice} ${criteria.nombre}`}>
+                    {criteria.nombre}
+                  </a>
                 </td>
                 <td className="text-center">
                   {criteria.completado ? (

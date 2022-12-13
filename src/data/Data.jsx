@@ -62,8 +62,8 @@ Data["re_autentificacion"] = require("./operable/2_2_tiempo_suficiente/2_2_5_re-
 Data["tiempos_de_espera"] = require("./operable/2_2_tiempo_suficiente/2_2_6_tiempos_de_espera.json");
 //pauta 3
 Data["convulsiones"] = require("./operable/2_3_convulsiones/convulsiones.json");
-Data["umbral_tres_detellos_menos"] = require("./operable/2_3_convulsiones/2_3_1_umbral_tres_detellos_menos.json");
-Data["umbral_tres_detellos"] = require("./operable/2_3_convulsiones/2_3_2_umbral_tres_detellos.json");
+Data["umbral_tres_destellos_menos"] = require("./operable/2_3_convulsiones/2_3_1_umbral_tres_detellos_menos.json");
+Data["umbral_tres_destellos"] = require("./operable/2_3_convulsiones/2_3_2_umbral_tres_detellos.json");
 Data["animacion_interacciones"] = require("./operable/2_3_convulsiones/2_3_3_animacion_interacciones.json");
 //pauta 4
 Data["navegable"] = require("./operable/2_4_navegable/navegable.json");
