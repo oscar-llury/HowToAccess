@@ -51,7 +51,7 @@ CREATE TABLE `tfg`.`pro_tipo_proyecto` (
 
 CREATE TABLE `tfg`.`pro_proyecto` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(45) NOT NULL,
+  `nombre` VARCHAR(500) NOT NULL,
   `tipo_proyecto` INT(11) NOT NULL,
   `fecha_created` INT(11) NULL,
   `fecha_updated` INT(11) NULL,
