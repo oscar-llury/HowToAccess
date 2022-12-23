@@ -1,0 +1,8 @@
+{
+  "key": "Criterio de Conformidad 2.1.1",
+  "name": "Teclado",
+  "slug": "teclado",
+  "level": "Nivel A",
+  "comment": "",
+  "description": "<p class='objective'><strong>Toda la funcionalidad del contenido es operable a través de una interfaz de teclado sin que se requiera una determinada velocidad para cada pulsación individual de las teclas</strong>, excepto cuando la función interna requiere de una entrada que depende del trayecto de los movimientos del usuario y no sólo de los puntos inicial y final.</p><p>La intención de este criterio es garantizar que, siempre que sea posible, el contenido se pueda operar a través de un teclado o una interfaz de teclado. Cuando el contenido se puede operar a través de un teclado o teclado alternativo, es operable por personas sin visión (que no pueden usar dispositivos como ratones que requieren coordinación ojo-mano) así como por personas que deben usar teclados alternativos o dispositivos de entrada que actúan como emuladores de teclado. Las personas con baja visión también pueden tener problemas para seguir un puntero y encontrar el uso del software mucho más fácil (o solo posible) si pueden controlarlo desde el teclado.</p><p><em>Nota 1</em>: Esta excepción se refiere a la función subyacente, no a la técnica de entrada de datos. Por ejemplo, si la entrada de texto se hace por medio de escritura a mano, la técnica de entrada (escritura a mano) depende del trazo (ruta trazada) pero la función interna (introducir texto) no.</p><p><em>Nota 2</em>: Esto no prohíbe ni debería desanimar a los autores a proporcionar entrada de ratón u otros métodos de entrada de datos adicionales a la operabilidad a través del teclado.</p>"
+}

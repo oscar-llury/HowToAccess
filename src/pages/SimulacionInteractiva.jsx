@@ -1,226 +1,116 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import {
-  Container,
-  Row,
-  Col,
-  InputGroup,
-  Tooltip,
-  OverlayTrigger,
-  Form,
-} from "react-bootstrap";
-import {
-  checkContrast,
-  formatRatio,
-  meetsMinimumRequirements,
-  resultOfRatio,
-} from "lib/contrastColor";
+import React, { useState, useEffect } from "react";
+import { Row, Col, Container } from "react-bootstrap";
+
+import ColorContrast from "../components/ColorContrast";
+
+import imgB_pc from "../img/simulations/background-letters-pc.png";
+import imgA_pc from "../img/simulations/foreground-letters-pc.png";
+import imgB_mb from "../img/simulations/background-letters-mb.png";
+import imgA_mb from "../img/simulations/foreground-letters-mb.png";
+import bpq_letters from "../img/simulations/bpq-letters.svg";
+import dyslexis_letters from "../img/simulations/dyslexis-letters.svg";
+import letters_mural from "../img/simulations/letters-dyslexia-mural.svg";
+
+import zip from "../styles/static/OpenDyslexic.zip";
 
 export default function SimulacionInteractiva() {
-  const [textColor, setTextColor] = useState("#000000");
-  const [bgColor, setBgColor] = useState("#ffffff");
-  const [resultRatio, setResultRatio] = useState("");
-  const [ratio, setRatio] = useState();
-  const [level, setlevel] = useState({});
+  const [pos, setPos] = useState(50);
+  const [imageDyslexia, setImageDyslexia] = useState({ with: 648, height: 328 });
+  const [src_imgB, setImgB] = useState(imgB_pc);
+  const [src_imgA, setImgA] = useState(imgA_pc);
+
+  function onImgLoad({ target: img }) {
+    setImageDyslexia({ with: img.offsetWidth, height: img.offsetHeight });
+  }
 
   useEffect(() => {
-    let newRatio = checkContrast(textColor, bgColor);
-    let result = meetsMinimumRequirements(newRatio);
-    setResultRatio(resultOfRatio(newRatio));
-    setlevel(result);
-    setRatio(formatRatio(newRatio, false));
-  }, [textColor, bgColor]);
-
-  const handleTextColorChange = (e) => {
-    if (e.target.value.match("^#[0-9a-f]{0,6}$") != null) {
-      setTextColor(e.target.value);
+    function handleResizeImageAccHeight() {
+      if (window.innerWidth < 576 && src_imgA !== imgA_mb) {
+        setImgB(imgB_mb);
+        setImgA(imgA_mb);
+      } else if (window.innerWidth >= 576 && src_imgA !== imgA_pc) {
+        setImgB(imgB_pc);
+        setImgA(imgA_pc);
+      }
+      const img = document.querySelector("#imgSliderBg");
+      setImageDyslexia({ with: img.offsetWidth + 10, height: img.offsetHeight });
     }
-  };
+    window.addEventListener("resize", handleResizeImageAccHeight);
+    return () => window.removeEventListener("resize", handleResizeImageAccHeight);
+  }, [imageDyslexia, src_imgA]);
 
-  const handleBgColorChange = (e) => {
-    if (e.target.value.match("^#[0-9a-f]{0,6}$") != null) {
-      setBgColor(e.target.value);
+  useEffect(() => {
+    if (window.innerWidth < 576) {
+      setImgB(imgB_mb);
+      setImgA(imgA_mb);
+    } else if (window.innerWidth >= 576) {
+      setImgB(imgB_pc);
+      setImgA(imgA_pc);
     }
-  };
-
-  const handleSwapColors = () => {
-    setBgColor(textColor);
-    setTextColor(bgColor);
-  };
+  }, []);
 
   return (
-    <Container fluid="sm" className="app-simulacion main-container">
-      <Container>
-        <h1>Herramienta de contraste de color</h1>
-        <Row className="mt-3">
-          <Col lg="6">
-            <Row className="color-picker">
-              <Col md="5" className="p-0">
-                <Form.Label htmlFor="textColorPicker">
-                  Color de texto
-                </Form.Label>
-                <InputGroup size="lg">
-                  <Form.Control
-                    type="color"
-                    id="textColorPicker"
-                    title="Elige un color de texto"
-                    onChange={handleTextColorChange}
-                    size="lg"
-                    value={textColor}
-                  />
-                  <Form.Control
-                    id="textColorPicker"
-                    aria-label="color de texto"
-                    onChange={handleTextColorChange}
-                    value={textColor}
-                    className="w-50"
-                  />
-                </InputGroup>
-              </Col>
-              <Col md="2" className="text-center p-0">
-                <button className="change" onClick={handleSwapColors}>
-                  <i className="bi bi-arrow-left-right"></i>
-                </button>
-              </Col>
-              <Col md="5" className="p-0">
-                <Form.Label htmlFor="bgColorPicker">Color de fondo</Form.Label>
-                <InputGroup size="lg">
-                  <Form.Control
-                    type="color"
-                    id="bgColorPicker"
-                    title="Elige un color de fondo"
-                    onChange={handleBgColorChange}
-                    size="lg"
-                    value={bgColor}
-                  />
-                  <Form.Control
-                    id="bgColorPicker"
-                    aria-label="color de fondo"
-                    onChange={handleBgColorChange}
-                    value={bgColor}
-                    className="w-50"
-                  />
-                </InputGroup>
-              </Col>
-            </Row>
+    <>
+      <Container fluid="md" className="dyslexic-slider main-container">
+        <Row className="align-items-center justify-content-around mb-4">
+          <Col xs="12" lg="6" xl="7">
+            <h1 className="fw-extrabold">Tipografía para disléxicos</h1>
+            <p>OpenDyslexic es un proyecto de código abierto que se creó para ayudar a la lectura de textos a personas con síntomas de dislexia. Las letras tienen bordes inferiores más pesados para indicar la dirección y poder distinguir rápidamente qué parte de la letra está abajo. Esto ayuda a reconocer la letra correcta y, a veces, ayuda a evitar que el cerebro las gire. Las formas únicas de cada letra también ayudan a evitar confusiones al voltear e intercambiar letras.</p>
           </Col>
-          <Col lg="6">
-            <div className="c-ratio">
-              <h2>Ratio de contraste</h2>
-              <div>
-                <span>
-                  {ratio}
-                  <span className="unit">: 1</span>
-                </span>
-                <span className={`total ${ratio ? "bg-success" : "bg-danger"}`}>
-                  {resultRatio === 1
-                    ? "Malo"
-                    : resultRatio === 2
-                    ? "Suficiente"
-                    : resultRatio === 3
-                    ? "Bueno"
-                    : "Perfecto"}
-                </span>
-              </div>
-            </div>
+          <Col xs="8" sm="6" lg="5" xl="4" className="overflow-hidden text-center">
+            <img src={dyslexis_letters} alt="" className="scale-1-2 w-100 my-3" />
           </Col>
         </Row>
-        <Row>
-          <Col
-            md={{ order: "first", span: 6 }}
-            xs={{ order: "last", span: 12 }}
-          >
-            <Container className="p-3">
-              <p>
-                El ratio de contraste de color está en el rango de 1 a 21{" "}
-                <span className="space-nowrap">
-                  (comúnmente escrito de 1:1 a 21:1).
-                </span>
-              </p>
-              <ul>
-                <li>
-                  Si ambos son el mismo color, el ratio de contraste será 1.
-                </li>
-                <li>El mayor contraste es entre el blanco y el negro.</li>
-                <li>
-                  Colores opuestos en el círculo cromático (colores
-                  complementarios) también tendrán valores altos.
-                </li>
-              </ul>
-            </Container>
-          </Col>
-          <Col
-            md={{ order: "last", span: 6 }}
-            xs={{ order: "first", span: 12 }}
-          >
-            <Row className="results">
-              <Col lg="3" md="6" sm="3" xs="6">
-                <LevelBox
-                  result={level.AAsmall}
-                  level="AA"
-                  info="texto pequeño"
-                  tooltip="<18pt , >=14pt bold"
-                />
-              </Col>
-              <Col lg="3" md="6" sm="3" xs="6">
-                <LevelBox
-                  result={level.AAAsmall}
-                  level="AAA"
-                  info="texto pequeño"
-                  tooltip="<18pt , >=14pt bold"
-                />
-              </Col>
-
-              <Col lg="3" md="6" sm="3" xs="6">
-                <LevelBox
-                  result={level.AAlarge}
-                  level="AA"
-                  info="texto grande"
-                  tooltip=">=18pt"
-                />
-              </Col>
-              <Col lg="3" md="6" sm="3" xs="6">
-                <LevelBox
-                  result={level.AAAlarge}
-                  level="AAA"
-                  info="texto grande"
-                  tooltip=">=18pt"
-                />
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-        <Container>
-          <Row>
-            <Col></Col>
-            <Col></Col>
-          </Row>
+        <div className="slider-container m-auto w-100" style={{ height: `${imageDyslexia.height}px`, maxWidth: `${imageDyslexia.with < 644 ? imageDyslexia.with : 644}px`, width: `${imageDyslexia.with}px` }}>
+          <div className="background-img text-end">
+            <span className="box position-absolute end-0">OpenDyslexic</span>
+            <img src={src_imgB} alt="" className="container-text w-100" onLoad={onImgLoad} id="imgSliderBg" />
+          </div>
+          <div className="foreground-img overflow-hidden" style={{ width: `${pos}%` }}>
+            <span className="box position-absolute">Helvetica</span>
+            <img src={src_imgA} alt="" className="container-text" style={{ height: `${imageDyslexia.height}px`, width: `${imageDyslexia.with - 10}px` }} />
+          </div>
+          <input
+            type="range"
+            min="1"
+            max="100"
+            value={pos}
+            className="slider"
+            name="slider"
+            id="slider"
+            onChange={(e) => {
+              setPos(e.target.value);
+            }}
+          />
+          <div className="slider-button cursor-pointer" style={{ left: `calc(${pos}% - 17px)` }}></div>
+        </div>
+        <p className="mt-1 mb-4 text-center">Comparativa de texto entre la tipografía Helvetica y OpenDyslexic.</p>
+        <Container fluid="md" className="my-3">
+          <p className="mb-3">
+            También con Helvetica las letras B, P, Q son todas el mismo carácter simplemente volteado o girado. Esto significa que las personas con dislexia pueden experimentar un volteado letras y como resultado una mayor dificultad para determinar qué carácter deben ver. En comparación con OpenDyslexic, cada caracter está mucho más definido, como la Q con una cola más resaltada a diferencia de P, lo que facilita la distincion de ellas y queda claro para el usuario lo que está leyendo.
+          </p>
+          <figure className="text-center mb-4">
+            <img src={bpq_letters} alt="" className="bpq_letters" />
+            <figcaption>Comparativa de caracteres B, P, Q entre la tipografía Helvetica y OpenDyslexic.</figcaption>
+          </figure>
+          <p>Las fuentes para disléxicos no son efectivas para todas las personas. A algunas simplemente no les gustan, mientras que otras pueden encontrarlo inútil. A menudo se presentan como una solución para todas las dificultades de lectura, lo que no es el caso. Las personas tienen diferentes preferencias y esto es importante. Deje que el usuario elija, y no asuma que lo que funciona para uno funcionará para todos.</p>
+          <p>
+            Puedes descargar la tipografía de OpenDyslexic desde{" "}
+            <a href={zip} download="OpenDyslexic.zip" rel="nofollow">
+              aquí
+            </a>{" "}
+            y consultar toda la información en la documentación oficial en este{" "}
+            <a href="https://opendyslexic.org/" target="_blank" rel="noreferrer">
+              enlace
+            </a>
+            .
+          </p>
         </Container>
+        <img src={letters_mural} alt="" className="mural position-absolute opacity-75" />
       </Container>
-    </Container>
+      <div>
+        <ColorContrast />
+      </div>
+    </>
   );
 }
-
-const LevelBox = ({ result, level, info, tooltip }) => {
-  return (
-    <OverlayTrigger
-      placement="bottom"
-      delay={{ show: 200, hide: 400 }}
-      overlay={<Tooltip>{tooltip}</Tooltip>}
-    >
-      <div className="box">
-        <div className={result ? "bg-success" : "bg-danger"}>
-          {result ? (
-            <i className="bi bi-check-lg"></i>
-          ) : (
-            <i className="bi bi-x-lg"></i>
-          )}
-          <div className="info">
-            <p>{level}</p>
-            <span>{info}</span>
-          </div>
-        </div>
-      </div>
-    </OverlayTrigger>
-  );
-};

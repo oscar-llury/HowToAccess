@@ -1,0 +1,22 @@
+{
+  "key": "Criterio de Conformidad 2.4.4",
+  "name": "Propósito de los enlaces (en contexto)",
+  "slug": "proposito-enlaces-en-contexto",
+  "level": "Nivel A",
+  "comment": "",
+  "description": "<p class='objective'><strong>El propósito de cada enlace puede ser determinado con sólo el texto del enlace o a través del texto del enlace sumado al contexto del enlace determinado por programación</strong>, excepto cuando el propósito del enlace resultara ambiguo para los usuarios en general.</p><p>La intención de este criterio es ayudar a los usuarios a comprender el propósito de cada enlace para que puedan decidir si desean seguir el enlace. Siempre que sea posible, proporcione un texto de enlace que identifique el propósito del enlace sin necesidad de contexto adicional. La tecnología de asistencia tiene la capacidad de proporcionar a los usuarios una lista de enlaces que se encuentran en la página web. El texto del enlace que sea lo más significativo posible ayudará a los usuarios que deseen elegir de esta lista de enlaces. El texto de enlace significativo también ayuda a aquellos que desean pasar de un enlace a otro. Los enlaces significativos ayudan a los usuarios a elegir qué enlaces seguir sin necesidad de estrategias complicadas para comprender la página.</p><p>El Criterio de Conformidad <a href='#titulado-de-paginas'>2.4.2 Titulado de páginas</a> se ocupa de los títulos de las páginas. Aquí también, el nombre de un documento o aplicación web que se presenta en la página sería suficiente para describir el propósito de la página. Hacer que el enlace y el título coincidan, o que sean muy similares, es una buena práctica y proporciona continuidad entre el enlace en el que se hace clic y la página web a la que llega el usuario. En los casos en que el enlace lo lleva a un documento o aplicación web, el nombre del documento o aplicación web sería suficiente para describir el propósito del enlace (que es llevarlo al documento o aplicación web), aunque no es obligatorio ya que otras cosas también pueden describir bien el propósito del enlace.</p><p>En algunas situaciones, los autores pueden querer proporcionar parte de la descripción del enlace. Se puede hacer uso del atributo <code>title</code> u optar por utilizar una técnica ARIA para asociar texto adicional. Consulte también Comprensión del Criterio de Conformidad <a href='#proposito_enlaces_solo_enlaces'>2.4.9 Propósito del enlace (solo enlace)</a>.</p>",
+  "examples": [
+    {
+      "title": "Un enlace contiene texto que da una descripción del propósito.",
+      "description": "<p>Una página contiene la oración 'Hubo mucho derramamiento de sangre durante el período medieval de la historia'. Donde 'período medieval de la historia' es un enlace.</p><p>Una página contiene la oración 'Obtenga más información sobre la Comisión de Voto Electrónico del Gobierno' donde el texto '¡Ve a votar!' es un enlace.</p>"
+    },
+    {
+      "title": "Tanto un icono como un texto están incluidos en el mismo enlace.",
+      "description": "<p>El icono de una máquina de votación y el texto 'Comisión de Voto Electrónico del Gobierno de Irlanda' se combinan para formar un solo enlace. El texto alternativo del ícono es nulo, ya que el propósito del vínculo ya se describe en el texto del vínculo junto al ícono.</p>"
+    },
+    {
+      "title": "Resúmenes de artículos de noticias.",
+      "description": "<p>Una página web contiene una colección de artículos de noticias. La página principal enumera las primeras oraciones de cada artículo, seguidas de un enlace 'Leer más'. Un comando de lector de pantalla para leer el párrafo actual para proporcionar el contexto e interpretar el propósito del enlace.</p>"
+    }
+  ]
+}

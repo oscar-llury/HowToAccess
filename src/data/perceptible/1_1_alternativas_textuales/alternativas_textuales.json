@@ -1,0 +1,27 @@
+{
+  "index": "Pauta 1.1",
+  "name": "Alternativas textuales",
+  "principle": "Principio 1: Perceptible",
+  "objective": "Proporcionar alternativas textuales para todo contenido no textual de modo que se pueda convertir a otros formatos que las personas necesiten, tales como textos ampliados, braille, voz, símbolos o en un lenguaje más simple.",
+  "description": "El propósito de esta pauta es asegurar que todo el contenido no textual, como imágenes y vídeos, se encuentren también disponibles en forma de texto. 'Texto' se refiere a texto electrónico, no a una imagen de texto. El texto electrónico tiene la particular ventaja de que se puede representar visual, auditiva o táctilmente, pudiendo ser representado en la forma que mejor se adapte a las necesidades del usuario. También puede ser fácilmente interpretado por tecnologías de asistencia al usuario. Además, el texto permite que el usuario pueda recibir toda la información presentada cuando las condiciones no lo permitan, como, por ejemplo, en situaciones de mucho ruido o entornos silenciosos.",
+  "img": "principles/perceptible/texto-alternativo.png",
+  "caption": "La información contenida en un texto electrónico puede ser presentada en la forma que mejor se adapte a las necesidades del usuario.",
+  "examples": [
+    {
+      "title": "Una fotografía de un evento histórico en el contenido que trata sobre las relaciones diplomáticas.",
+      "description": "<p>La imagen del presidente estrechando la mano del primer ministro aparece en un sitio web en el que se discuten las intrincadas relaciones diplomáticas. La primera alternativa de texto dice: 'El presidente X del país X le da la mano al primer ministro Y del país Y el 2 de enero de 2009'. Una alternativa de texto adicional describe la sala donde se encuentran los líderes, así como las expresiones en los rostros de los líderes, e identifica a las demás personas en la sala. La descripción adicional puede incluirse en la misma página que la fotografía o en un archivo separado asociado con la imagen a través de un enlace u otro mecanismo programático estándar.</p>"
+    }
+  ],
+  "implementation": [
+    {
+      "description": "<p>El atributo <code>alt</code> está específicamente pensado para asociar la alternativa textual a la imagen. Este atributo puede contener la descripción de la imagen caso de que transmita información relevante o su funcionalidad cuando la imagen se utiliza como enlace. Cuando la imagen es más compleja, por ejemplo: gráficas, diagramas, esquemas…, se necesita una descripción más elaborada de lo que el atributo alt es capaz de contener. En este caso se puede utilizar el atributo <code>longdesc</code> (descripción larga), que permite introducir un enlace a otro documento con la descripción detallada del gráfico o colocar la descripción en el propio texto de la página. Este atributo no está soportado por los navegades, por lo que su uso dependería de la herramienta de ayuda al usuario utilizada. En el caso de que el contenido sea de audio, vídeo, o ambas a la vez, estas alternativas textuales suelen incluirse en el interior de los objetos a los que describen, de modo que, si el objeto no se carga, se carga la alternativa. En HTML, para incrustar objetos se usa el elemento contenedor <code>object</code>, por lo que la alternativa se colocaría en su interior. Las alternativas pueden ser transcripciones o descripciones.</p>",
+      "code": "<img src='imágenes/gráfico.gif'\nalt='Gráfico de población de Gales'\nlongdesc='población-de-gales.html' />"
+    }
+  ],
+  "date": "Fecha de última actualización: 12 junio 2022",
+  "criteria": [
+    {
+      "key": "contenido_no_textual"
+    }
+  ]
+}

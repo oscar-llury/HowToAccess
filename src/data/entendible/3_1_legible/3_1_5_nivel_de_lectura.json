@@ -1,0 +1,16 @@
+{
+  "key": "Criterio de Conformidad 3.1.5",
+  "name": "Nivel de lectura",
+  "slug": "nivel-de-lectura",
+  "level": "Nivel AAA",
+  "comment": "",
+  "description": "<p class='objective'><strong>Cuando un texto requiere un nivel de lectura más avanzado que el nivel mínimo de educación secundaria una vez que se han eliminado nombres propios y títulos, se proporciona un contenido suplementario o una versión que no requiere un nivel de lectura mayor a ese nivel educativo.</strong></p><p><strong>El contenido debe redactarse de la forma más clara y sencilla posible</strong>. La intención de este criterio es garantizar que haya contenido adicional disponible para ayudar a la comprensión de textos difíciles o complejos. Este criterio ayuda a las personas con discapacidades de lectura al mismo tiempo que permite a los autores publicar contenido web difícil o complejo.</p><p><strong>La dificultad del texto se describe en términos del nivel de educación requerido para leer el texto</strong>, según los niveles educativos de acuerdo con la UNESCO.</p><p>El texto difícil o complejo puede ser apropiado para la mayoría de los miembros de la audiencia prevista, pero hay personas con discapacidades entre usuarios altamente educados con conocimientos especializados. Si el texto no se puede hacer más legible, entonces se necesita contenido complementario. Se requiere contenido complementario cuando el texto exige una capacidad de lectura más avanzada que el nivel de educación secundaria inferior, es decir, más de nueve años de escuela. Dicho texto presenta severos obstáculos para las personas con discapacidades de lectura y se considera difícil incluso para las personas sin discapacidades que han completado la educación secundaria superior.</p><p><strong>Los títulos de documentos y libros, así como los nombres propios de personas o ciudades, están exentos de este criterio.</strong></p>",
+  "img": "principles/entendible/CINE-UNESCO.png",
+  "caption": "Adaptación de la Clasificación Internacional Normalizada de la Educación (CINE) de la UNESCO.",
+  "examples": [
+    {
+      "title": "Una revista científica que incluye resúmenes legibles de artículos de investigación complejos.",
+      "description": "<p>Una revista científica incluye artículos escritos en un lenguaje muy técnico dirigido a especialistas en la materia. La página de índice de la revista incluye un resumen en lenguaje sencillo de cada artículo. Los resúmenes están destinados a un público general con escolarización secundaria.</p>"
+    }
+  ]
+}

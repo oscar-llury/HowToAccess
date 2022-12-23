@@ -1,0 +1,26 @@
+{
+  "index": "Principio 4",
+  "name": "Robusto",
+  "objective": "El contenido debe ser lo suficientemente sólido como para que pueda ser interpretado por una amplia variedad de agentes de usuario, incluidas las tecnologías de asistencia.",
+  "description": "Esto significa que los usuarios deben poder acceder al contenido a medida que avanzan las tecnologías (a medida que evolucionan las tecnologías y los agentes de usuario, el contenido debe permanecer accesible). Principalmente se basa en marcar el contenido correctamente usando HTML semántico.",
+  "text": "<p class='mb-2'> Recomendamos: </p> <ul> <li> Asegurar la compatibilidad con las aplicaciones de usuarios actuales y futuras. </li> </ul> <p class='mb-2'> El principio Robusto está compuesto por la pauta: </p> <ol> <li> <a href='#pauta_4_1'>Compatibilidad</a> con herramientas de usuario. </li> </ul>",
+  "img": "principles/robusto/contenido-robusto.png",
+  "caption": "Proporcionar compatibilidad con tecnologías de asistencia está cubierto por el principio Robusto.",
+  "date": "Fecha de última actualización: 12 junio 2022",
+  "guidelines": [
+    {
+      "key": "compatible",
+      "criteria": [
+        {
+          "key": "procesamiento"
+        },
+        {
+          "key": "nombre_funcion_valor"
+        },
+        {
+          "key": "mensajes_de_estado"
+        }
+      ]
+    }
+  ]
+}

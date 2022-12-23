@@ -1,0 +1,14 @@
+{
+  "key": "Criterio de Conformidad 3.2.1",
+  "name": "Al recibir el foco",
+  "slug": "recibir-el-foco",
+  "level": "Nivel A",
+  "comment": "",
+  "description": "<p class='objective'><strong>Cuando cualquier componente recibe el foco no inicia ningún cambio en el contexto.</strong></p><p>La intención de este criterio es garantizar que la funcionalidad sea predecible a medida que los visitantes navegan por un documento. Cualquier componente, que pueda desencadenar un evento, cuando recibe el foco no debe cambiar el contexto. Un cambio de contexto, aunque no están limitado a estos, incluye:</p><ul><li>formularios enviados automáticamente cuando un componente recibe el foco;</li><li>se lanzan nuevas ventanas cuando un componente recibe el foco;</li><li>el foco se cambia a otro componente cuando ese componente recibe el foco;</li></ul><p>El foco se puede mover a un control a través del teclado, por ejemplo, tabulando a un control, o el ratón, por ejemplo, haciendo clic en un campo de texto. Mover el ratón sobre un control no mueve el foco a menos que las secuencias de comandos implementen este comportamiento. Tenga en cuenta que, para algunos tipos de controles, hacer clic en un control también puede activar el control, por ejemplo, un botón, lo que, a su vez, puede iniciar un cambio de contexto.</p>",
+  "examples": [
+    {
+      "title": "Navegación por un menú desplegable.",
+      "description": "<p>Un menú desplegable en una página permite a los usuarios elegir entre destinos de salto. Si la persona usa el teclado para bajar a una opción y la activa (con una barra espaciadora o la tecla Intro), saltará a una nueva página. Sin embargo, si la persona se mueve hacia abajo a una opción y presiona la tecla de escape o la tecla de tabulación para salir del menú desplegable, no salta a una nueva pantalla a medida que el enfoque se desplaza fuera del menú desplegable.</p>"
+    }
+  ]
+}

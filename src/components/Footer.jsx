@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="pt-4 mt-4 footer-container">
+    <footer className="footer-container">
       {/*
       <Container fluid className="text-center text-md-left">
         <Row>

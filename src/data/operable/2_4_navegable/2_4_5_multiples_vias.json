@@ -1,0 +1,14 @@
+{
+  "key": "Criterio de Conformidad 2.4.5",
+  "name": "Múltiples vías",
+  "slug": "multiples-vias",
+  "level": "Nivel AA",
+  "comment": "",
+  "description": "<p class='objective'><strong>Se proporciona más de un camino para localizar una página web dentro de un conjunto de páginas web</strong>, excepto cuando la página es el resultado, o un paso intermedio, de un proceso.</p><p>La intención de este criterio es hacer posible que los usuarios ubiquen el contenido de la manera que mejor se adapte a sus necesidades. Los usuarios pueden encontrar una técnica más fácil o comprensible de usar que otra.</p><p>Incluso los sitios pequeños deberían proporcionar a los usuarios algún medio de orientación. Para un sitio de tres o cuatro páginas, con todas las páginas enlazadas desde la página de inicio, puede ser suficiente simplemente proporcionar enlaces desde y hacia la página de inicio donde los enlaces en la página de inicio también pueden servir como un mapa del sitio.</p>",
+  "examples": [
+    {
+      "title": "Mecanismos de búsqueda.",
+      "description": "<p>Una gran empresa de procesamiento de alimentos ofrece un sitio que contiene recetas creadas con sus productos. El sitio proporciona un mecanismo de búsqueda para buscar recetas que utilicen un ingrediente en particular. Además, proporciona un cuadro de lista que enumera varias categorías de alimentos. Un usuario puede escribir 'sopa' en el motor de búsqueda o puede seleccionar 'sopa' en el cuadro de lista para ir a una página con una lista de recetas elaboradas con los productos de sopa de la empresa.</p>"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "key": "Criterio de Conformidad 3.1.4",
+  "name": "Abreviaturas",
+  "slug": "abreviaturas",
+  "level": "Nivel AAA",
+  "comment": "",
+  "description": "<p class='objective'><strong>Se proporciona un mecanismo para identificar la forma expandida o el significado de las abreviaturas.</strong></p><p>La intención de este criterio es garantizar que los usuarios puedan acceder a la forma ampliada de abreviaturas.</p><p>Además, este criterio puede ayudar a personas con dificultad de lectura de palabras y personas con memoria limitada o con dificultades para comprender el contexto.</p><p>Por otro lado, este criterio también ayuda a poder comprender el significado de una abrevistura que puede significar distintas cosas dependiendo de su uso. Por ejemplo, ‘El Dr. Johnson vive en Boswell Dr.’ el primer 'Dr.' es una abreviatura de 'Doctor' y la segunda instancia es una abreviatura de la palabra 'Drive' (una palabra que significa 'calle' en inglés).</p>",
+  "examples": [
+    {
+      "title": "Una abreviatura cuya expansión se proporciona la primera vez que aparece la abreviatura en el contenido.",
+      "description": "<p>El nombre, 'World Wide Web Consortium', aparece como el primer encabezado en la página de inicio de la organización. La abreviatura, 'W3C', se encuentra entre paréntesis en el mismo encabezado.</p>"
+    },
+    {
+      "title": "Formas extendidas de abreviaturas.",
+      "description": "<p>La forma expandida de cada abreviatura está disponible de manera programáticamente determinable. Los agentes de usuario que hablan el texto pueden usar la forma expandida para anunciar la abreviatura. Otros agentes de usuario pueden hacer que el formulario expandido esté disponible como información sobre herramientas o como ayuda contextual para la abreviatura.</p>"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "key": "Criterio de Conformidad 2.4.6",
+  "name": "Encabezados y etiquetas",
+  "slug": "encabezados-etiquetas",
+  "level": "Nivel AA",
+  "comment": "",
+  "description": "<p class='objective'><strong>Los encabezados y etiquetas describen el tema o propósito.</strong></p><p>La intención de este criterio es ayudar a los usuarios a comprender qué información contienen las páginas web y cómo se organiza esa información. Cuando los encabezados son claros y descriptivos, los usuarios pueden encontrar la información que buscan más fácilmente y pueden comprender las relaciones entre las diferentes partes del contenido más fácilmente. Las etiquetas descriptivas ayudan a los usuarios a identificar componentes específicos dentro del contenido.</p><p>Las etiquetas y los encabezados no necesitan ser extensos. Una palabra, o incluso un solo carácter, puede ser suficiente si proporciona una pista adecuada para encontrar y navegar por el contenido.</p><p><em>Nota</em>: este criterio de éxito no requiere encabezados ni etiquetas. Este criterio de éxito requiere que, si se proporcionan encabezados o etiquetas, sean descriptivos. También tenga en cuenta que, si se proporcionan encabezados o etiquetas, deben cumplir con el Criterio de Conformidad <a href='/normas-de-accesibilidad-web/perceptible/adaptable#informacion-y-relaciones'>1.3.1 Información y relaciones</a>.</p>",
+  "examples": [
+    {
+      "title": "Resumen de un artículo.",
+      "description": "<p>La página de inicio de un sitio de noticias enumera los titulares de las principales noticias del momento. Debajo de cada título se encuentran las primeras 35 palabras de la historia y un enlace al artículo completo. Cada titular da una idea clara del tema del artículo.</p>"
+    },
+    {
+      "title": "Campos de un formulario.",
+      "description": "<p>Un formulario pregunta el nombre del usuario. Consta de dos campos de entrada para pedir el nombre y apellido. El primer campo está etiquetado como 'Nombre', el segundo está etiquetado como 'Apellido'.</p>"
+    }
+  ]
+}

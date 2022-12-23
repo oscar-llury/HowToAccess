@@ -1,0 +1,14 @@
+{
+  "key": "Criterio de Conformidad 3.2.2",
+  "name": "Al recibir entradas",
+  "slug": "recibir-entradas",
+  "level": "Nivel A",
+  "comment": "",
+  "description": "<p class='objective'><strong>El cambio de estado en cualquier componente de la interfaz de usuario no provoca automáticamente un cambio en el contexto a menos que el usuario haya sido advertido de ese comportamiento antes de usar el componente.</strong></p><p>La intención de este criterio es garantizar que ingresar datos o seleccionar un control de formulario tenga efectos predecibles. <strong>Cambiar la configuración de cualquier componente de la interfaz de usuario es cambiar algún aspecto en el control que persistirá cuando el usuario ya no esté interactuando con él</strong>. Por lo tanto, marcar una casilla de verificación, ingresar texto en un campo de texto o cambiar la opción seleccionada en un control de lista, cambia su configuración; pero la activación de un enlace o un botón no.</p><p>Los cambios en el contexto pueden confundir a los usuarios que no perciben fácilmente el cambio o se distraen fácilmente con los cambios. Los cambios de contexto son apropiados solo cuando está claro que tal cambio ocurrirá en respuesta a la acción del usuario.</p>",
+  "examples": [
+    {
+      "title": "Campos variables en función de otros campos en un formulario.",
+      "description": "<p>Se proporciona un formulario para crear entradas de calendario en una aplicación de calendario y programación basada en Web. Junto con los campos estándar para el tema, la hora y la ubicación, hay un conjunto de botones de opción para seleccionar el tipo de entrada de calendario que se va a crear. El tipo de entrada de calendario puede ser reunión, cita o recordatorio. Si el usuario selecciona la radio para la reunión, se muestran campos adicionales en la página para ingresar a los participantes de la reunión. Aparecen diferentes campos si se elige el botón de recordatorio. Debido a que solo cambian partes de la entrada y la estructura general sigue siendo la misma, el contexto básico permanece para el usuario.</p>"
+    }
+  ]
+}

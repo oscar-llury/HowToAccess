@@ -1,0 +1,124 @@
+{
+  "index": "Principio 2",
+  "name": "Operable",
+  "objective": "La navegación ha de ser manejable, es decir, se debe poder acceder al contenido desde cualquier dispositivo de apoyo.",
+  "description": "El principio Operable se centra en que los usuarios deben poder operar la interfaz (la interfaz no puede requerir una interacción que un usuario no pueda realizar). El principio Operable trata de eliminar las barreras entre el usuario y su contenido.",
+  "text": "<p class='mb-2'> Recomendamos: </p> <ul> <li> Que todas las funcionalidades sean accesibles mediante un teclado. </li> <li> Proporcionar tiempo suficiente a los usuarios para que puedan leer y entender el contenido. </li> <li> No presentar contenidos que puedan provocar trastornos en los usuarios. </li> <li> Facilitar ayudas a los usuarios en la navegación, es decir, para encontrar contenido o saber en qué lugar se encuentran. </li> </ul> <p class='mb-2'> El principio Operable está compuesto por las pautas: </p> <ol> <li> <a href='#pauta_2_1'>Accesible por teclado</a>. </li> <li> <a href='#pauta_2_2'>Tiempo suficiente</a>. </li> <li> <a href='#pauta_2_3'>No crear convulsiones</a>. </li> <li> <a href='#pauta_2_4'>Ayuda en la navegabilidad</a>. </li> </li> <li> <a href='#pauta_2_5'>Modalidades de entrada</a>. </li> </ul>",
+  "img": "principles/operable/operable-principle.png",
+  "caption": "Garantizar que el contenido web se pueda navegar usando solo un teclado está cubierto por el principio Operable.",
+  "date": "Fecha de última actualización: 12 junio 2022",
+  "guidelines": [
+    {
+      "key": "accesible_por_teclado",
+      "criteria": [
+        {
+          "key": "teclado"
+        },
+        {
+          "key": "sin_trampas_foco_teclado"
+        },
+        {
+          "key": "teclado_sin_excepciones"
+        },
+        {
+          "key": "tajos_de_teclas"
+        }
+      ]
+    },
+    {
+      "key": "tiempo_suficiente",
+      "criteria": [
+        {
+          "key": "tiempo_ajustable"
+        },
+        {
+          "key": "pausa_detener_ocultar"
+        },
+        {
+          "key": "sin_tiempo"
+        },
+        {
+          "key": "interrupciones"
+        },
+        {
+          "key": "re_autentificacion"
+        },
+        {
+          "key": "tiempos_de_espera"
+        }
+      ]
+    },
+    {
+      "key": "convulsiones",
+      "criteria": [
+        {
+          "key": "umbral_tres_destellos_menos"
+        },
+        {
+          "key": "umbral_tres_destellos"
+        },
+        {
+          "key": "animacion_interacciones"
+        }
+      ]
+    },
+    {
+      "key": "navegable",
+      "criteria": [
+        {
+          "key": "evitar_bloques"
+        },
+        {
+          "key": "titulado_de_paginas"
+        },
+        {
+          "key": "orden_del_foto"
+        },
+        {
+          "key": "proposito_enlaces_en_contexto"
+        },
+        {
+          "key": "multiples_vias"
+        },
+        {
+          "key": "encabezados_etiquetas"
+        },
+        {
+          "key": "foco_visible"
+        },
+        {
+          "key": "ubicacion"
+        },
+        {
+          "key": "proposito_enlaces_solo_enlaces"
+        },
+        {
+          "key": "encabezados_de_seccion"
+        }
+      ]
+    },
+    {
+      "key": "modalidades_de_entrada",
+      "criteria": [
+        {
+          "key": "gestos_de_puntero"
+        },
+        {
+          "key": "cancelacion_de_puntero"
+        },
+        {
+          "key": "etiqueta_en_nombre"
+        },
+        {
+          "key": "actuacion_de_movimiento"
+        },
+        {
+          "key": "tamano_objeto"
+        },
+        {
+          "key": "mecanismos_entrada_recurrentes"
+        }
+      ]
+    }
+  ]
+}

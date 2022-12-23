@@ -1,0 +1,13 @@
+{
+  "key": "Criterio de Conformidad 2.3.1",
+  "name": "Umbral de tres destellos o menos",
+  "slug": "umbral-tres-destellos-menos",
+  "level": "Nivel A",
+  "comment": "*Cumplimiento obligatorio",
+  "description": "<p class='objective'><strong>Las páginas web no contienen nada que destelle o parpadee más de tres veces en un segundo, o el parpadeo está por debajo del umbral de parpadeo general y de parpadeo rojo.</strong></p><p class='objective-warning'>Dado que cualquier contenido que no cumpla con este criterio de éxito puede interferir con la capacidad de un usuario para usar la página completa, todo el contenido de la página web (tanto si satisface o no otros criterios de conformidad) debe cumplir con este criterio.</p><p>La intención de este criterio es permitir que los usuarios accedan al contenido completo de un sitio sin inducir convulsiones debido a la fotosensibilidad.</p><p>Las personas que tienen trastornos convulsivos fotosensibles pueden tener un ataque desencadenado por contenido que parpadea a ciertas frecuencias durante más de unos pocos destellos. Las personas son incluso más sensibles a los destellos rojos que a otros colores, por lo que se proporciona una prueba especial para los destellos rojos saturados.</p><p>El parpadeo puede ser causado por la pantalla, la computadora que muestra la imagen o el contenido que se muestra. La intención de este criterio es garantizar que el parpadeo que viola los umbrales de flash no sea causado por el contenido en sí. Por ejemplo, el contenido podría contener un videoclip o una imagen animada de una serie de destellos estroboscópicos o primeros planos de explosiones de fuego rápido.</p>",
+  "examples": [
+    {
+      "description": "<p>Un sitio web tiene un video del fogonazo de un disparo de ametralladora, pero limita el tamaño de la imagen parpadeante a una pequeña parte de la pantalla por debajo del tamaño del umbral del destello.</p>"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "key": "Criterio de Conformidad 1.2.1",
+  "name": "Sólo audio y sólo vídeo (grabado)",
+  "slug": "solo-audio-solo-video",
+  "level": "Nivel A",
+  "comment": "",
+  "description": "<div class='objective'><p>Para contenido de sólo audio grabado y contenido de sólo vídeo grabado, se cumple lo siguiente, excepto cuando el audio o el vídeo es un contenido multimedia alternativo al texto y está claramente identificado como tal:</p><ul><li><strong>Sólo audio grabado: Se proporciona una alternativa para los medios tempodependientes que presenta información equivalente para el contenido sólo audio grabado.</strong></li><li><strong>Sólo vídeo grabado: Se proporciona una alternativa para los medios tempodependientes o se proporciona una pista sonora que presenta información equivalente al contenido del medio de sólo vídeo grabado.</strong></li></ul></div><p>Las alternativas para los medios basados en el tiempo que se basan en texto hacen que la información sea accesible porque el texto se puede representar a través de cualquier modalidad sensorial. En el futuro, el texto también podría traducirse a símbolos o lenguaje de señas.</p>",
+  "examples": [
+    {
+      "title": "Una película muda es un ejemplo de video pregrabado sin información de audio o interacción del usuario.",
+      "description": "<p>El propósito de la transcripción es proporcionar un equivalente a lo que se presenta visualmente. Para el contenido de video pregrabado, los autores tienen la opción de proporcionar una pista de audio. El propósito de la alternativa de audio es ser un equivalente al video. Esto hace posible que los usuarios con y sin discapacidad visual revisen el contenido simultáneamente. El enfoque también puede facilitar que las personas con discapacidades cognitivas, de lenguaje y de aprendizaje comprendan el contenido porque proporcionaría una presentación paralela.</p>"
+    }
+  ],
+  "implementation": [
+    {
+      "description": "<p>Un elemento <code>video</code> para un video en el idioma inglés. Las descripciones de audio se proporcionan en formato WebVTT. El objetivo de esta técnica es utilizar el elemento <code>track</code> HTML5 para especificar una pista de texto cronometrada de descripciones para un elemento <code>video</code>. Las pistas de texto cronometradas de descripción de audio contienen descripciones textuales del componente de video del recurso multimedia, destinadas a la síntesis de audio cuando el componente visual está oculto, no está disponible o no se puede utilizar. Desde 2019 no hay soporte nativo en los navegadores para esta técnica, pero pueden utilizarse polyfills de JavaScript.</p>",
+      "code": "<video poster='myvideo.png' controls>\n\t<source src='myvideo.mp4' srclang='en' type='video/mp4'>\n\t<track src='myvideo_en.vtt' kind='descriptions' srclang='en' label='English'>\n</video>"
+    }
+  ]
+}

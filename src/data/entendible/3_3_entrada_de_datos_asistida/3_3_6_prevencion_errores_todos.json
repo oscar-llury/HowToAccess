@@ -1,0 +1,8 @@
+{
+  "key": "Criterio de Conformidad 3.3.6",
+  "name": "Prevención de errores (todos)",
+  "slug": "prevencion-errores-todos",
+  "level": "Nivel AAA",
+  "comment": "",
+  "description": "<div class='objective'><p><strong>Para las páginas web que requieren al usuario el envío de información</strong>, se cumple al menos uno de los siguientes casos.</p><ul><li><strong>Reversible</strong>: El envío es reversible.</li><li><s<trong>Revisado</strong>: Se verifica la información para detectar errores en la entrada de datos y se proporciona al usuario una oportunidad de corregirlos.</li><li><strong>Confirmado</strong>: Se proporciona un mecanismo para revisar, confirmar y corregir la información antes de finalizar el envío de los datos.</li></ul></div><p>La intención de este criterio es ayudar a los usuarios con discapacidades a evitar las consecuencias que pueden derivarse de cometer un error al enviar los datos del formulario. Este criterio se basa en el criterio <a href='#prevencion-errores'>3.3.4 Prevención de errores (legales, financieros, datos)</a> extendiéndolo a todos los formularios que requieren que los usuarios envíen información.</p><p>Los usuarios con discapacidades pueden tener más probabilidades de cometer errores y pueden tener más dificultades para detectar o recuperarse de errores. Las personas con problemas de lectura pueden transponer números y letras, y las personas con problemas de motricidad pueden pulsar las teclas por error. Proporcionar la capacidad de revertir acciones permite a los usuarios corregir un error. Brindar la capacidad de revisar y corregir la información brinda al usuario la oportunidad de detectar un error antes de tomar una acción.</p>"
+}

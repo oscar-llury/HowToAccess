@@ -1,0 +1,18 @@
+{
+  "key": "Criterio de Conformidad 2.2.5",
+  "name": "Re-autentificación",
+  "slug": "re-autentificacion",
+  "level": "Nivel AAA",
+  "comment": "",
+  "description": "<p class='objective'><strong>Cuando expira una sesión autentificada, el usuario puede continuar la actividad sin pérdida de datos tras volver a identificarse.</strong></p><p>La intención de este criterio es permitir que todos los usuarios completen transacciones autenticadas que tienen límites de tiempo de inactividad u otras circunstancias que harían que un usuario cerrara sesión mientras completaba la transacción.</p><p>Por razones de seguridad, muchos sitios implementan un límite de tiempo de autenticación después de un cierto período de inactividad. Estos límites de tiempo pueden causar problemas a las personas con discapacidad porque les puede llevar más tiempo completar la actividad.</p><p>Otros sitios desconectarán a una persona de una sesión si una persona inicia sesión en el sitio web desde otra computadora o si surgen otras actividades que hacen que el sitio sospeche de si la persona sigue siendo la misma persona legítima que inició sesión originalmente. Cuando los usuarios cierran sesión mientras aún están en medio de una transacción, es importante que tengan la capacidad de volver a autenticarse y continuar con la transacción sin perder ningún dato ya ingresado.</p>",
+  "examples": [
+    {
+      "title": "Un pago en un sitio de compras.",
+      "description": "<p>Un usuario con un uso extremadamente limitado de las manos inicia sesión en un sitio de compras. Se tarda tanto en introducir la información de la tarjeta de crédito en la aplicación que se produce un límite de tiempo mientras el usuario realiza el proceso de pago. Cuando el usuario regresa al proceso de pago y envía el formulario, el sitio muestra una pantalla de inicio de sesión para volver a autenticarse. Después de que el usuario inicia sesión, el proceso de pago se restaura con la misma información y en la misma etapa. El usuario no perdió ningún dato porque el servidor había aceptado y almacenado temporalmente el envío a pesar de que se había agotado el tiempo de espera de la sesión y restauró al usuario al mismo estado después de que se completó la reautenticación.</p>"
+    },
+    {
+      "title": "Un cuestionario con límite de tiempo.",
+      "description": "<p>Un cuestionario largo proporcionado dentro de una sola página web tiene información al principio que indica que la sesión finalizará después de 15 minutos. También se informa al usuario que el cuestionario puede guardarse en cualquier momento y completarse en un momento posterior. Dentro de la página web se proporcionan varios botones para guardar el formulario parcialmente completado. Además, con JavaScript en la lista de tecnologías de contenido compatibles con la accesibilidad en las que se confía, el usuario puede optar por recibir una alerta a través de una ventana emergente si la sesión está a punto de agotarse.</p>"
+    }
+  ]
+}

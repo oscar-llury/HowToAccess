@@ -1,0 +1,14 @@
+{
+  "key": "Criterio de Conformidad 2.2.4",
+  "name": "Interrupciones",
+  "slug": "interrupciones",
+  "level": "Nivel AAA",
+  "comment": "",
+  "description": "<p class='objective'><strong>El usuario puede postponer o suprimir las interrupciones, excepto cuando las interrupciones implican una emergencia.</strong></p><p>La intención de este criterio es permitir que los usuarios desactiven las actualizaciones del autor/servidor, excepto en casos de emergencia. Las emergencias incluirían mensajes de alerta de emergencia civil o cualquier otro mensaje que advierta sobre el peligro para la salud, la seguridad o la propiedad, incluida la pérdida de datos, la pérdida de conexión, etcétera.</p><p>Esto permite el acceso de personas con limitaciones cognitivas o trastornos de atención al permitirles concentrarse en el contenido. También permite a los usuarios ciegos o con baja visión mantener su enfoque de 'visualización' en el contenido que están leyendo actualmente.</p>",
+  "examples": [
+    {
+      "title": "Configuración de las preferencias del usuario.",
+      "description": "<p>La página de preferencias de un portal web incluye una opción para posponer todas las actualizaciones y alertas hasta el final de la sesión actual, excepto las alertas relacionadas con emergencias.</p>"
+    }
+  ]
+}

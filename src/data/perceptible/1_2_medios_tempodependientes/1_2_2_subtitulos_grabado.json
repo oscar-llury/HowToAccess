@@ -1,0 +1,14 @@
+{
+  "key": "Criterio de Conformidad 1.2.2",
+  "name": "Subtítulos (grabados)",
+  "slug": "subtitulos-grabados",
+  "level": "Nivel A",
+  "comment": "",
+  "description": "<p class='objective'><strong>Se proporcionan subtítulos para el contenido de audio grabado dentro de contenido multimedia sincronizado</strong>, excepto cuando la presentación es un contenido multimedia alternativo al texto y está claramente identificado como tal.</p><p>La intención de este criterio es permitir que las personas sordas o con dificultades auditivas vean presentaciones multimedia sincronizadas. Los subtítulos proporcionan la parte del contenido disponible a través de la pista de audio. Los subtítulos no solo incluyen diálogo, sino que también identifican quién está hablando e incluyen información no verbal transmitida a través del sonido, incluidos efectos de sonido significativos.</p><p>Los subtítulos no son necesarios cuando los medios sincronizados son, en sí mismos, una presentación alternativa de información que también se presenta mediante texto en la página web.</p>",
+  "examples": [
+    {
+      "title": "Manual de instrucciones",
+      "description": "<p>Un manual de instrucciones que contiene una descripción de una pieza y su orientación necesaria va acompañado de un clip multimedia sincronizado que muestra la pieza en su orientación correcta. No se proporcionan subtítulos para el clip multimedia sincronizado.</p>"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "index": "Pauta 2.4",
+  "name": "Navegable",
+  "principle": "Principio 2: Operable",
+  "objective": "Proporcionar medios para ayudar a los usuarios a navegar, encontrar contenido y determinar dónde se encuentran.",
+  "description": "<p>La intención de esta pauta es ayudar a los usuarios a encontrar el contenido que necesitan y permitirles determinar su ubicación. Estas tareas resultan a menudo más complicadas para las personas con discapacidad. Para encontrar, navegar y orientarse es importante que el usuario pueda saber cuál es su actual ubicación. Para navegar debe haber información disponible acerca de los destinos posibles.</p>",
+  "date": "Fecha de última actualización: 12 junio 2022",
+  "img": "principles/operable/navegabilidad_web.png",
+  "caption": "",
+
+  "criteria": [
+    {
+      "key": "evitar_bloques"
+    },
+    {
+      "key": "titulado_de_paginas"
+    },
+    {
+      "key": "orden_del_foto"
+    },
+    {
+      "key": "proposito_enlaces_en_contexto"
+    },
+    {
+      "key": "multiples_vias"
+    },
+    {
+      "key": "encabezados_etiquetas"
+    },
+    {
+      "key": "foco_visible"
+    },
+    {
+      "key": "ubicacion"
+    },
+    {
+      "key": "proposito_enlaces_solo_enlaces"
+    },
+    {
+      "key": "encabezados_de_seccion"
+    }
+  ]
+}

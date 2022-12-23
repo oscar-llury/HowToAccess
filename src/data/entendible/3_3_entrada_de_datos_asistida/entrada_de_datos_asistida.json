@@ -1,0 +1,29 @@
+{
+  "index": "Pauta 3.3",
+  "name": "Entrada de datos asistida",
+  "principle": "Principio 3: Entendible",
+  "objective": "Ayudar a los usuarios a evitar y corregir los errores.",
+  "description": "<p>Esta pauta tiene el objetivo de reducir el número de errores que se cometen, aumentar la posibilidad de que sean identificados y ayudar a los usuarios a entender qué deben hacer para corregirlos.</p>",
+  "img": "principles/entendible/error-hommer.png",
+  "caption": "Todos cometemos errores cuando navegamos por internet.",
+  "criteria": [
+    {
+      "key": "identificacion_errores"
+    },
+    {
+      "key": "etiquetas"
+    },
+    {
+      "key": "sugerencias_errores"
+    },
+    {
+      "key": "prevencion_errores"
+    },
+    {
+      "key": "ayuda"
+    },
+    {
+      "key": "prevencion_errores_todos"
+    }
+  ]
+}

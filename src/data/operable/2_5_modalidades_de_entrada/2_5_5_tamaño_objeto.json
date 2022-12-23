@@ -1,0 +1,22 @@
+{
+  "key": "Criterio de Conformidad 2.5.5",
+  "name": "Tamaño objetivo",
+  "slug": "tamano-objeto",
+  "level": "Nivel AAA",
+  "comment": "(Agregado en WCAG 2.1)",
+  "description": "<div class='objective'><p><strong>El tamaño del objetivo para las entradas del puntero es de al menos 44 por 44 píxeles CSS</strong>, excepto cuando:</p><ul><li><strong>Equivalente</strong>: el objetivo está disponible a través de un enlace o control equivalente en la misma página que tiene al menos 44 por 44 píxeles CSS;</li><li><strong>En línea</strong>: el objetivo está en una oración o bloque de texto;</li><li><strong>Control del agente de usuario</strong>: el tamaño del objetivo lo determina el agente de usuario y el autor no lo modifica;</li><li><strong>Esencial</strong>: una presentación particular del objetivo es esencial para la información que se transmite.</li></ul></div><p>La intención de este criterio es garantizar que los tamaños de los objetivos sean lo suficientemente grandes para que los usuarios los activen fácilmente, incluso si el usuario está accediendo al contenido en un pequeño dispositivo portátil con pantalla táctil, tiene destreza limitada o tiene problemas para activar objetivos pequeños por otras razones. Por ejemplo, los ratones y dispositivos señaladores similares pueden ser difíciles de usar para estos usuarios, y un objetivo más grande les ayudará a activar el objetivo.</p><p>El tacto es particularmente problemático ya que es un mecanismo de entrada con una precisión aproximada. Los usuarios carecen del mismo nivel de control fino cuando usan entradas como un mouse o un lápiz óptico. Un dedo es más grande que el puntero de un ratón y generalmente obstruye la vista del usuario de la ubicación precisa en la pantalla que se está tocando/activando.</p><p>Si bien este criterio define un tamaño objetivo mínimo, como mejor práctica se recomienda que se utilicen tamaños más grandes para reducir la posibilidad de activaciones no intencionales. Esto es particularmente relevante si cualquiera de los siguientes es cierto:</p><ul><li>Un control se usa con frecuencia;</li><li>Los resultados de la interacción no se pueden deshacer fácilmente;</li><li>El control se coloca donde será difícil alcanzarlo, por ejemplo, cerca del borde de la pantalla;</li><li>El control es parte de una tarea secuencial.</li></ul><p>Los objetivos en una pantalla pueden tener diferentes propósitos y usos, y este Criterio de Conformidad especifica cómo se manejará cada uno.</p><p><strong>Objetivos equivalentes</strong>: si hay más de un objetivo en una pantalla que realiza la misma acción, solo uno de los objetivos debe cumplir con el tamaño objetivo de 44 por 44 píxeles CSS.</p><p><strong>En una misma línea</strong>: los objetivos que están contenidos en párrafos están excluidos de los requisitos de tamaño, ya que variar su tamaño podría superponer elementos. Los objetivos pueden aparecer en cualquier lugar de una línea con un diseño receptivo, o responsive, y pueden cambiar de posición según el ancho de la pantalla disponible. Una nota al pie o un ícono dentro o al final de una oración se considera parte de una oración.</p><p><strong>Control de agente de usuario</strong>: cuando el autor no modifica el tamaño del objetivo a través de CSS u otras propiedades de tamaño.</p><p><strong>Esencial</strong>: si se requiere que el objetivo tenga un tamaño de objetivo particular y no se puede proporcionar de otra manera, mientras que cambiarlo cambiaría esencialmente la información o la funcionalidad del contenido.</p>",
+  "examples": [
+    {
+      "title": "Botones.",
+      "description": "<p>Hay tres botones en la pantalla y el área de destino táctil de cada botón es de 44 por 44 píxeles CSS.</p>"
+    },
+    {
+      "title": "Destinos equivalentes.",
+      "description": "<p>Se proporcionan varios destinos en la página que realizan la misma función. Uno de los objetivos es 44 por 44 píxeles CSS. Los otros objetivos no tienen un objetivo táctil mínimo de 44 por 44 píxeles CSS.</p>"
+    },
+    {
+      "title": "Enlace de texto en un párrafo.",
+      "description": "<p>Los enlaces dentro de un párrafo de texto tienen diferentes dimensiones de destino táctil. Los enlaces dentro de los párrafos de texto no necesitan cumplir con los requisitos de 44 por 44 píxeles CSS.</p>"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "index": "Principio 3",
+  "name": "Entendible",
+  "objective": "El contenido que proporcionemos ha de ser claro y fácil de interpretar, sin dar lugar a confusiones o equivocaciones.",
+  "description": "El principio Entendible trata de usar un lenguaje sencillo, hacer que los errores sean fáciles de detectar y corregir, y hacer que el contenido en línea sea consistente y predecible para navegar (el contenido y el funcionamiento no pueden estar más allá de la comprensión de los usuarios).",
+  "text": "<p class='mb-2'> Recomendamos: </p> <ul> <li> Crear contenido legible y comprensible </li> <li> Que la navegación de las páginas web sea predecible.  </li> <li> Ayudar a los usuarios a prevenir y corregir los errores.  </li> </ul> <p class='mb-2'> El principio Entendible está compuesto por las pautas: </p> <ol> <li> <a href='#pauta_3_1'>Texto legible y comprensible</a>. </li> <li> <a href='#pauta_3_2'>Contenido predecible</a>. </li> <li> <a href='#pauta_3_3'>Entrada de datos asistida</a>. </li> </ul>",
+  "img": "principles/entendible/error-forms.png",
+  "caption": "Ayudar a los usuarios a evitar y corregir errores está cubierto por el principio Entendible.",
+  "date": "Fecha de última actualización: 12 junio 2022",
+  "guidelines": [
+    {
+      "key": "legible",
+      "criteria": [
+        {
+          "key": "idioma_pagina"
+        },
+        {
+          "key": "idioma_partes"
+        },
+        {
+          "key": "palabras_inusuales"
+        },
+        {
+          "key": "abreviaturas"
+        },
+        {
+          "key": "nivel_de_lectura"
+        },
+        {
+          "key": "pronunciacion"
+        }
+      ]
+    },
+    {
+      "key": "predecible",
+      "criteria": [
+        {
+          "key": "recibir_el_foco"
+        },
+        {
+          "key": "recibir_entradas"
+        },
+        {
+          "key": "navegacion_coherente"
+        },
+        {
+          "key": "identificacion_coherente"
+        },
+        {
+          "key": "cambios_a_peticion"
+        }
+      ]
+    },
+    {
+      "key": "entrada_de_datos_asistida",
+      "criteria": [
+        {
+          "key": "identificacion_errores"
+        },
+        {
+          "key": "etiquetas"
+        },
+        {
+          "key": "sugerencias_errores"
+        },
+        {
+          "key": "prevencion_errores"
+        },
+        {
+          "key": "ayuda"
+        },
+        {
+          "key": "prevencion_errores_todos"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "key": "Criterio de Conformidad 1.4.9",
+  "name": "Imágenes de texto (sin excepción)",
+  "slug": "imagenes-de-texto-sin-excepcion",
+  "level": "Nivel AAA",
+  "comment": "",
+  "description": "<p class='objective'><strong>Las imágenes de texto sólo se utilizan como simple decoración o cuando una forma de presentación particular del texto resulta esencial para la información que transmite.</strong></p><p>Este criterio amplía el criterio <a href='#imagenes-de-texto'>1.4.5 Imágenes de texto</a>.</p><p>El uso de imágenes de texto es un ejemplo de una implementación que no permite a los usuarios alterar la presentación del texto que contiene. Por ello, siempre que se pueda, se recomienda el uso de texto escrito en lugar de imágenes de texto.</p><p>En algunas situaciones, una presentación visual particular del texto es esencial para la información que se transmite. Esto significa que la información se perdería sin esa presentación visual en particular. En este caso, no se requiere implementar el texto de manera que permita cambiar su presentación. Esto incluye texto que demuestra un aspecto visual particular del texto, como una familia de fuentes en particular, o texto que transmite una identidad, como el texto dentro del logotipo de una empresa.</p>"
+}

@@ -1,0 +1,18 @@
+{
+  "key": "Criterio de Conformidad 3.1.2",
+  "name": "Idioma de las partes",
+  "slug": "idioma-partes",
+  "level": "Nivel AA",
+  "comment": "",
+  "description": "<p class='objective'><strong>El idioma de cada pasaje o frase en el contenido puede ser determinado por software</strong>, excepto los nombres propios, términos técnicos, palabras en un idioma indeterminado y palabras o frases que se hayan convertido en parte natural del texto que las rodea.</p><p>La intención de este criterio es garantizar que los agentes de usuario puedan presentar correctamente el contenido escrito <strong>en varios idiomas</strong>. Cuando no se ha especificado ningún idioma para una frase o pasaje de texto, su idioma es el idioma predeterminado de la página web, ver Criterio de Conformidad <a href='#idioma-pagina'>3.1.1: Idioma de la página</a>.</p>",
+  "examples": [
+    {
+      "title": "Una frase alemana en una oración en inglés.",
+      "description": "<p>En la oración, “Él sostuvo que la DDR (República Democrática Alemana) era solo un ‘ Treppenwitz der Weltgeschichte ‘”, la frase alemana ‘ Treppenwitz der Weltgeschichte ' está marcada como alemana. Según el lenguaje de marcado, el inglés puede marcarse como el idioma de todo el documento, excepto donde se especifique, o marcarse a nivel de párrafo. Cuando un lector de pantalla encuentra la frase en alemán, cambia las reglas de pronunciación de inglés a alemán para pronunciar la palabra correctamente.</p>"
+    },
+    {
+      "title": "Enlaces de idiomas alternativos.",
+      "description": "<p>Una página web HTML incluye enlaces a versiones de la página en otros idiomas (por ejemplo, Deutsch, Français, Nederlands, Castellano, etc.). El texto de cada enlace es el nombre del idioma, en ese idioma. El idioma de cada enlace se indica a través de un atributo <code>lang</code>.</p>"
+    }
+  ]
+}

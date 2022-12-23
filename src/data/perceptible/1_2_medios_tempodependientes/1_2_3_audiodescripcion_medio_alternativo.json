@@ -1,0 +1,14 @@
+{
+  "key": "Criterio de Conformidad 1.2.3",
+  "name": "Audiodescripción o Medio Alternativo (grabado)",
+  "slug": "audiodescripcion-alternativa",
+  "level": "Nivel A",
+  "comment": "",
+  "description": "<p class='objective'><strong>Se proporciona una alternativa para los medios tempodependientes o una audiodescripción para el contenido de vídeo grabado en los multimedia sincronizados</strong>, excepto cuando ese contenido es un contenido multimedia alternativo al texto y está claramente identificado como tal.</p><p>La intención de este criterio es proporcionar a las personas ciegas o con discapacidad visual acceso a la información visual en una presentación multimedia sincronizada. Este Criterio de Conformidad describe dos enfoques, cualquiera de los cuales puede utilizarse.</p><ol><li><strong>Un enfoque es proporcionar una descripción de audio del contenido del video.</strong> El audio avanza con el vídeo proporcionando información detallada sobre lo representado en el vídeo. Durante las pausas existentes en el diálogo, la descripción de audio proporciona información sobre acciones, personajes, cambios de escena y texto en pantalla que son importantes y no se describen ni hablan en la pista de sonido principal.</li><li><strong>El segundo enfoque implica proporcionar toda la información en los medios sincronizados (tanto visuales como auditivos) en forma de texto,</strong> algo así como un guión o un libro. Se proporcionan descripciones completas de toda la información visual, incluido el contexto visual, las acciones y expresiones de los actores y cualquier otro material visual. Además, se describen los sonidos que no son del habla (risas, voces fuera de la pantalla, etc.) y se incluyen transcripciones de todos los diálogos.</li></ol><p>Si hay alguna interacción como parte de la presentación multimedia sincronizada (p. ej., 'presione ahora para responder la pregunta'), la alternativa para los medios basados en el tiempo proporcionaría hipervínculos o lo que sea necesario para proporcionar la misma funcionalidad.</p>",
+  "examples": [
+    {
+      "title": "Una película con audio descripción.",
+      "description": "<p><strong>Descriptor</strong>: Un título, 'Estudios de casos de enseñanza de la evolución. Bonnie Chen'. Un maestro muestra fotografías de pájaros con picos largos y delgados.<br /><strong>Bonnie Chen</strong>: 'Todas estas fotos fueron tomadas en los Everglades'.<br /><strong>Descriptor</strong>: El maestro entrega a cada estudiante dos palos de madera planos y delgados.<br /><strong>Bonnie Chen</strong>: 'Hoy pretenderás ser una especie de ave zancuda que tiene un pico como este'.<br /><strong>Descriptor</strong>: La maestra sostiene dos de los palos en su boca formando un pico.</p>"
+    }
+  ]
+}

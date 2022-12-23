@@ -1,0 +1,18 @@
+{
+  "key": "Criterio de Conformidad 3.2.4",
+  "name": "Identificación coherente",
+  "slug": "identificacion-coherente",
+  "level": "Nivel AA",
+  "comment": "",
+  "description": "<p class='objective'><strong>Los componentes que tienen la misma funcionalidad dentro de un conjunto de páginas web son identificados de manera coherente.</strong></p><p>La intención de este criterio es asegurar la identificación consistente de los componentes funcionales que aparecen repetidamente dentro de un conjunto de páginas web.</p><p>Una estrategia que usan las personas que usan lectores de pantalla cuando operan un sitio web es depender en gran medida de su familiaridad con las funciones que pueden aparecer en diferentes páginas web. Si funciones idénticas tienen diferentes etiquetas en diferentes páginas web, el sitio será considerablemente más difícil de usar.</p><p>También puede resultar confuso y aumentar la carga cognitiva para las personas con limitaciones cognitivas. Por lo tanto, el etiquetado consistente ayudará. Esta coherencia se extiende a las alternativas de texto. Si los íconos u otros elementos que no son de texto tienen la misma funcionalidad, entonces sus alternativas de texto también deben ser consistentes.</p><p>Si hay dos componentes en una página web que tienen la misma funcionalidad que un componente en otra página en un conjunto de páginas web, entonces los 3 deben ser consistentes. Si bien es deseable y <strong>la mejor práctica siempre ser consistente dentro de una sola página web</strong>, <strong>este criterio solo aborda la coherencia dentro de un conjunto de páginas web</strong> donde algo se repite en más de una página en el conjunto.</p>",
+  "examples": [
+    {
+      "title": "El uso del icono de documento implica el termino descarga.",
+      "description": "<p>Se utiliza un icono de documento para indicar la descarga de documentos en un sitio. La alternativa de texto para el ícono siempre comienza con la palabra 'Descargar', seguida de una forma abreviada del título del documento. Usar diferentes alternativas de texto para identificar nombres de documentos para diferentes documentos es un uso consistente de alternativas de texto.</p>"
+    },
+    {
+      "title": "Mismos iconos para la función de imprimir distintos documentos.",
+      "description": "<p>Una aplicación de comercio electrónico utiliza un icono de impresora que permite al usuario imprimir recibos y facturas. En una parte de la aplicación, el ícono de la impresora tiene la etiqueta 'Imprimir recibo' y se usa para imprimir recibos, mientras que en otra parte tiene la etiqueta 'Imprimir factura' y se usa para imprimir facturas. El etiquetado es coherente ('Imprimir x'), pero las etiquetas son diferentes para reflejar las distintas funciones de los iconos. Por lo tanto, este ejemplo no falla el Criterio de Conformidad.</p>"
+    }
+  ]
+}

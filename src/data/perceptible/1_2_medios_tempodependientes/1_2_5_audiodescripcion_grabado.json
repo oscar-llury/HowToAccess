@@ -1,0 +1,8 @@
+{
+  "key": "Criterio de Conformidad 1.2.5",
+  "name": "Audiodescripción (grabado)",
+  "slug": "audiodescripcion",
+  "level": "Nivel AA",
+  "comment": "",
+  "description": "<p class='objective'><strong>Se proporciona una audio descripción sincronizada para todo el contenido de vídeo grabado.</strong></p><p>La intención de este criterio es proporcionar a las personas ciegas o con discapacidad visual acceso a la información visual en una presentación multimedia sincronizada. Durante las pausas existentes en el diálogo, la descripción de audio proporciona información sobre acciones, personajes, cambios de escena y texto en pantalla que son importantes y no se describen ni hablan en la pista de sonido principal.</p>"
+}

@@ -1,0 +1,19 @@
+{
+  "key": "Criterio de Conformidad 4.1.3",
+  "name": "Mensajes de estado",
+  "slug": "mensajes-de-estado",
+  "level": "Nivel AA",
+  "comment": "(Agregado en WCAG 2.1)",
+  "description": "<p class='objective'><strong>En el contenido implementado mediante lenguajes de marcado los mensajes de estado se pueden determinar mediante programación a través de roles o propiedades, de modo que se puedan presentar al usuario mediante tecnologías de asistencia sin recibir atención.</strong></p><p>La intención de este criterio es hacer que los usuarios sean conscientes de los cambios importantes en el contenido a los que no se les presta atención, y hacerlo de una manera que no interrumpa innecesariamente su trabajo.</p><p>El alcance de este criterio es específico para los cambios en el contenido que implican mensajes de estado. Hay dos criterios principales que determinan si algo cumple con la definición de un <strong>mensaje de estado</strong>:<ol><li>El mensaje proporciona información al usuario sobre el éxito o resultados de una acción, sobre el estado de espera de una aplicación, sobre el progreso de un proceso, o sobre la existencia de errores.</li><li>El mensaje no se entrega a través de un cambio en el contexto.</li></ol><p>Se puede agregar información a las páginas que no cumple con la definición de un mensaje de estado. Por ejemplo, la lista de resultados obtenidos de una búsqueda no se considera una actualización de estado y, por lo tanto, no está cubierta por este criterio. Sin embargo, los breves mensajes de texto que se muestran sobre la finalización o el estado de la búsqueda, como 'Buscando...', 'Se devolvieron 18 resultados' o 'No se devolvieron resultados', serían actualizaciones de estado si no tienen el foco.</p>",
+  "examples": [
+    {
+      "description": "<p>Después de que un usuario presiona el botón Agregar al carrito de compras, una sección de contenido cerca del ícono del carrito de compras agrega el texto '5 artículos'. Un lector de pantalla anuncia 'Cinco artículos' o 'Carrito de compras, cinco artículos'.</p>"
+    },
+    {
+      "description": "<p>Después de que un usuario ingresa un texto incorrecto en una entrada denominada Código postal, aparece un mensaje sobre la entrada que dice 'Entrada no válida'. El lector de pantalla anuncia 'Entrada no válida' o 'Código postal, entrada no válida'.</p>"
+    },
+    {
+      "description": "<p>Después de que un usuario activa un proceso, aparece un icono que simboliza 'ocupado' en la pantalla. El lector de pantalla anuncia 'aplicación ocupada'.</p>"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "key": "Criterio de Conformidad 2.5.4",
+  "name": "Actuación de movimiento",
+  "slug": "actuacion-de-movimiento",
+  "level": "Nivel A",
+  "comment": "(Agregado en WCAG 2.1)",
+  "description": "<div class='objective'><p><strong>La funcionalidad que puede ser operada por el movimiento del dispositivo o el movimiento del usuario también puede ser operada por los componentes de la interfaz de usuario y la respuesta al movimiento puede desactivarse para evitar la activación accidental</strong>, excepto cuando:</p><ul><li><strong>Interfaz compatible</strong>: el movimiento se utiliza para operar la funcionalidad a través de una interfaz compatible con accesibilidad.</li><li><strong>Esencial</strong>: El movimiento es esencial para la función y hacerlo invalidaría la actividad.</li></ul></div><p>La intención de este criterio es garantizar que las funciones activadas al mover un dispositivo (por ejemplo, sacudirlo o inclinarlo) o al hacer gestos hacia el dispositivo (para que los sensores como una cámara), también puedan operarse por componentes de interfaz de usuario más convencionales.</p><p><em>Nota</em>: No cubre el movimiento de los usuarios a través del espacio registrado por sensores o balizas de geolocalización, o eventos observados por el dispositivo que no sean gestos intencionales por parte del usuario. Tampoco cubre el movimiento incidental asociado con la operación de un teclado, puntero o tecnología de asistencia.</p><p>Los dispositivos a menudo tienen sensores que pueden actuar como entradas, como sensores de acelerómetro y giroscopio en un teléfono o tableta. Estos sensores pueden permitir que el usuario controle algo simplemente cambiando la orientación o moviendo el dispositivo de formas particulares. Por ejemplo, agitar el dispositivo puede generar un comando 'Deshacer', o puede usarse un suave movimiento de la mano para avanzar o retroceder en una secuencia de páginas. Algunos usuarios con discapacidades no pueden operar los sensores de estos dispositivos, o no con la suficiente precisión, porque el dispositivo está en un soporte fijo (tal vez una silla de ruedas) o debido a deficiencias motoras. También pueden ser activados accidentalmente.</p><p>El usuario debe tener la capacidad de desactivar la activación de movimiento para evitar la activación accidental de funciones. Las aplicaciones pueden cumplir con este requisito al admitir la configuración del sistema operativo que permite al usuario deshabilitar la detección de movimiento a nivel del sistema. Existe una excepción para aquellas aplicaciones que se focalizan en extraer datos de estos sensores, como aplicaciones de contar pasos.</p>",
+  "examples": [
+    {
+      "description": "<p>Un usuario puede elegir una configuración de aplicación que desactive Agitar para deshacer y otras funciones activadas por movimiento.</p>"
+    },
+    {
+      "description": "<p>Un usuario puede hacer un gesto hacia el dispositivo para navegar por el contenido. Los controles también están disponibles para navegar.</p>"
+    }
+  ]
+}

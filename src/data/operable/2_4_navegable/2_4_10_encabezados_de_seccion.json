@@ -1,0 +1,14 @@
+{
+  "key": "Criterio de Conformidad 2.4.10",
+  "name": "Encabezados de sección",
+  "slug": "encabezados_de_seccion",
+  "level": "Nivel AAA",
+  "comment": "",
+  "description": "<div class='objective'><p><strong>Se usan encabezados de sección para organizar el contenido.</strong></p><p><em>Nota 1</em>: 'Encabezados' se usa en sentido general e incluye los títulos y otras formas de agregar encabezados a los distintos tipos de contenido.</p><em>Nota 2</em>: Este criterio se refiere al contenido propiamente dicho, no a los componentes de la interfaz de usuario. Los componentes de la interfaz de usuario se tratan en el Criterio de Conformidad <a href='/normas-de-accesibilidad-web/robusto/compatible#nombre-funcion-valor'>4.1.2 Nombre, función, valor</a>.</p></div><p>La intención de este criterio es proporcionar encabezados para las secciones de una página web, cuando la página está organizada en secciones. Por ejemplo, los documentos largos a menudo se dividen en una variedad de capítulos, los capítulos tienen subtemas y los subtemas se dividen en varias secciones, las secciones en párrafos, etc. Cuando existen tales secciones, deben tener títulos que las presenten. Esto indica claramente la organización del contenido, facilita la navegación dentro del contenido y proporciona 'manejadores' mentales que ayudan en la comprensión del contenido. Otros elementos de la página pueden complementar los encabezados para mejorar la presentación (p. ej., recuadros y reglas horizontales), pero la presentación visual no es suficiente para identificar las secciones del documento.</p><p>Esta disposición se incluye en el Nivel AAA porque no se puede aplicar a todos los tipos de contenido y no siempre es posible insertar encabezados. Por ejemplo, al publicar un documento preexistente en la Web, no se pueden insertar encabezados que un autor no haya incluido en el documento original. O bien, una carta larga a menudo cubriría diferentes temas, pero poner títulos en una carta sería muy extraño. Sin embargo, si un documento se puede dividir en secciones con encabezados, facilita tanto la comprensión como la navegación.</p>",
+  "examples": [
+    {
+      "title": "Secciones de un menú de un restaurante.",
+      "description": "<p>Un menú contiene diferentes secciones para diferentes cursos. Cada sección tiene un título: Aperitivos, Ensalada, Sopa, Plato principal, Postre.</p>"
+    }
+  ]
+}

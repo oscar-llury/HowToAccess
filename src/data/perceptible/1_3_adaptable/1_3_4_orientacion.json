@@ -1,0 +1,18 @@
+{
+  "key": "Criterio de Conformidad 1.3.4",
+  "name": "Orientación",
+  "slug": "orientacion",
+  "level": "Nivel AA",
+  "comment": "(Agregado en WCAG 2.1)",
+  "description": "<p class='objective'><strong>El contenido no restringe su visualización y funcionamiento a una única orientación de visualización, como vertical u horizontal, a menos que sea esencial una orientación de visualización específica.</strong></p><p>La intención de este criterio es garantizar que el contenido se muestre en la orientación (vertical u horizontal) preferida por el usuario. Algunos sitios web y aplicaciones configuran y restringen automáticamente la pantalla a una orientación de visualización en particular y esperan que los usuarios respondan girando su dispositivo para que coincida. Esto puede crear problemas, ya que algunos usuarios tienen sus dispositivos montados en una orientación fija, por ejemplo, en el brazo de una silla de ruedas eléctrica. Por lo tanto, se deben permitir ambas orientaciones y no restringir la orientación. Los cambios en el contenido o la funcionalidad debido al tamaño de la pantalla no están cubiertos por este criterio.</p><p>Cuando un dispositivo no tenga activado el bloqueo de orientación el contenido debe ajustarse a la orientación del dispositivo, ya sea su orientación predeterminada o la orientación actual determinada por cualquier sensor del dispositivo.</p><p>A este criterio se exceptúan las situaciones en las que el propio contenido solo pueda representarse en una única orientación, por ejemplo, una reproducción en unas gafas de realidad virtual, que no pueden cambiar la orientación en relación con los ojos del usuario.</p>",
+  "examples": [
+    {
+      "title": "Un sitio de videos en línea.",
+      "description": "<p>Un video se muestra en posición vertical u horizontal según la orientación elegida por el usuario.</p>"
+    },
+    {
+      "title": "Una aplicación de piano.",
+      "description": "<p>Un ejemplo en el que la orientación es esencial podría ser una aplicación de piano que requiere que el dispositivo esté en modo horizontal para dejar espacio suficiente para que las teclas del piano sean funcionalmente utilizables.</p>"
+    }
+  ]
+}

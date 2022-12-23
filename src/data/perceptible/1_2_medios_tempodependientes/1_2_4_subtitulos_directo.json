@@ -1,0 +1,8 @@
+{
+  "key": "Criterio de Conformidad 1.2.4",
+  "name": "Subtítulos (en directo)",
+  "slug": "subtitulos-en-directo",
+  "level": "Nivel AA",
+  "comment": "",
+  "description": "<p class='objective'><strong>Se proporcionan subtítulos sincronizados para todo el contenido de audio en directo.</strong></p><p>La intención de este criterio es permitir que las personas sordas o con dificultades auditivas vean presentaciones <strong>en tiempo real</strong>. Los subtítulos proporcionan la parte del contenido disponible a través de la pista de audio. Los subtítulos no solo incluyen diálogos, sino que también identifican quién está hablando y anotan efectos de sonido y otros audios significativos.</p><p>Este criterio de éxito estaba destinado a aplicarse a la transmisión de medios sincronizados y no pretende exigir que las llamadas multimedia bidireccionales entre dos o más personas a través de aplicaciones web deban subtitularse.</p>"
+}

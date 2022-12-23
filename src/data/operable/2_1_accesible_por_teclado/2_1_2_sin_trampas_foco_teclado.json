@@ -1,0 +1,14 @@
+{
+  "key": "Criterio de Conformidad 2.1.2",
+  "name": "Sin trampas para el foco del teclado",
+  "slug": "sin-trampas-foco-teclado",
+  "level": "Nivel A",
+  "comment": "*Cumplimiento obligatorio",
+  "description": "<p class='objective'><strong>Si es posible mover el foco a un componente de la página usando una interfaz de teclado, entonces el foco se puede quitar de ese componente usando sólo la interfaz de teclado y, si se requiere algo más que las teclas de dirección o de tabulación, se informa al usuario el método apropiado para mover el foco.</strong></p><p class='objective-warning'>Dado que cualquier contenido que no satisfaga este criterio puede interferir con la capacidad del usuario para emplear la página por completo, todo contenido de la página web (tanto si satisface o no otros criterios de conformidad) debe satisfacer este criterio.</p><p>La intención de este criterio es garantizar que el contenido no 'atrape' el enfoque del teclado dentro de las subsecciones del contenido de una página web. Este es un problema común cuando se combinan múltiples formatos dentro de una página y se procesan mediante complementos o aplicaciones incrustadas.</p><p>Puede haber ocasiones en las que la funcionalidad de la página web restrinja el foco a una subsección del contenido, siempre que el usuario sepa cómo salir de ese estado y 'desatrapar' el foco.</p>",
+  "examples": [
+    {
+      "title": "Un cuadro de diálogo modal.",
+      "description": "<p>Una aplicación web muestra un cuadro de diálogo. En la parte inferior del cuadro de diálogo hay dos botones, Cancelar y Aceptar. Cuando se ha abierto el cuadro de diálogo, el foco queda atrapado dentro del cuadro de diálogo; tabular desde el último control en el cuadro de diálogo lleva el foco al primer control en el cuadro de diálogo. El cuadro de diálogo se cierra activando el botón Cancelar o el botón Aceptar.</p>"
+    }
+  ]
+}

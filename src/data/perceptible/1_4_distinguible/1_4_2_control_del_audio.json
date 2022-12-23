@@ -1,0 +1,13 @@
+{
+  "key": "Criterio de Conformidad 1.4.2",
+  "name": "Control del audio",
+  "slug": "control-del-audio",
+  "level": "Nivel A",
+  "comment": "*Cumplimiento obligatorio",
+  "description": "<p class='objective'><strong>Si el audio de una página web suena automáticamente durante más de 3 segundos, se proporciona ya sea un mecanismo para pausar o detener el audio, o un mecanismo para controlar el volumen del sonido que es independiente del nivel de volumen global del sistema.</strong></p><p class='objective-warning'>Dado que cualquier contenido que no cumpla con este criterio de éxito puede interferir con la capacidad de un usuario para usar la página completa, todo el contenido de la página web (tanto si satisface o no otros criterios de conformidad) debe cumplir con este criterio.</p><p>Las personas que usan un software de lectura de pantalla pueden tener dificultades si otro audio se está reproduciendo al mismo tiempo, pudiendo confundir la fuente de cada uno de ellos, agravado aún más cuando ambos se controlan a través del mismo control de volumen. Por esto, los audios o vídeos con audios incluidos en una página web deben proporcionar su propio mecanismo de control de audio, independiente del control de audio general del dispositivo.</p><p>Reproducir audio automáticamente al aterrizar en una página puede afectar la capacidad del usuario y del lector de pantalla para encontrar el mecanismo para detenerlo, porque navega escuchando, y los sonidos iniciados automáticamente pueden interferir con esa navegación. Se desaconseja la práctica de iniciar automáticamente los sonidos (especialmente si duran más de 3 segundos) y se aconseja que el sonido sea iniciado por una acción del usuario después de llegar a la página, en lugar de requerir que el sonido sea detenido después de aterrizar en la página.</p>",
+  "examples": [
+    {
+      "description": "<p>Un archivo de audio comienza a reproducirse automáticamente cuando se abre una página. Sin embargo, el usuario puede detener el audio seleccionando un enlace 'silencioso' en la parte superior de la página.</p>"
+    }
+  ]
+}

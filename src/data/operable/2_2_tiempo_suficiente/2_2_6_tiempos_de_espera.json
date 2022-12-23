@@ -1,0 +1,19 @@
+{
+  "key": "Criterio de Conformidad 2.2.6",
+  "name": "Tiempos de espera",
+  "slug": "tiempos-de-espera",
+  "level": "Nivel AAA",
+  "comment": "(Agregado en WCAG 2.1)",
+  "description": "<p class='objective'><strong>Se advierte a los usuarios sobre la duración de cualquier inactividad del usuario que pueda causar la pérdida de datos, a menos que los datos se conserven durante más de 20 horas cuando el usuario no realiza ninguna acción.</strong></p><p><em>Nota</em>: Las regulaciones de privacidad pueden requerir el consentimiento explícito del usuario antes de que se haya autenticado la identificación del usuario y antes de que se conserven los datos del usuario.</p><p>La intención de este criterio es garantizar que cuando se usa un tiempo de espera, los usuarios saben qué duración de inactividad hará que la página se agote y resulte en la pérdida de datos. El uso de eventos cronometrados puede presentar barreras significativas para los usuarios y pueden requerir más tiempo para leer contenido o realizar funciones, como completar un formulario en línea. Este criterio se enfoca específicamente en la notificación de tiempos de espera relacionados con la inactividad del usuario.</p><p>La mejor manera de cumplir con este criterio de éxito es mantener los datos del usuario durante al menos 20 horas. Esto permite que el usuario con discapacidades y la comunidad de personas mayores comiencen y terminen una tarea, tomando descansos según sea necesario. Sin embargo, cuando no sea práctico guardar los datos del usuario, el autor debe advertir al usuario sobre la duración de la inactividad, lo que resultará en un tiempo de espera. Los tiempos de espera deben mostrarse al usuario una vez al comienzo de la tarea o proceso relacionado y no en cada paso.</p><p>Este criterio de éxito solo se aplica a los tiempos de espera que están dentro del conocimiento o control del proveedor de contenido. Por ejemplo, si el usuario cierra un navegador web o un dispositivo y pierde contenido en una página abierta que aún no se ha enviado, no se ha violado el criterio de éxito.</p>",
+  "examples": [
+    {
+      "description": "<p>Al realizar una compra en un sitio web de comercio electrónico, la información ingresada por el usuario se almacena durante más de 20 horas. Esto ayuda a garantizar que, si necesitan dejar de trabajar por un tiempo, es más probable que puedan continuar con la compra cuando regresen.</p>"
+    },
+    {
+      "description": "<p>Una aplicación web que permite a las personas presentar declaraciones de impuestos proporciona un aviso de que la aplicación expirará por motivos de seguridad. El aviso indica que la falta de actividad por un período de tiempo continuo mayor a una hora activará el inicio del proceso de tiempo de espera.</p>"
+    },
+    {
+      "description": "<p>Un formulario de contacto en línea no implementa ningún tipo de proceso de tiempo de espera. La información ingresada en el formulario de contacto se puede enviar en cualquier momento y solo se perdería si el usuario cierra la ventana del navegador.</p>"
+    }
+  ]
+}
