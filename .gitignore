@@ -24,4 +24,3 @@ yarn-error.log*
 back/vendor/composer
 back/vendor
 back/logs
-back/db/database.ini
