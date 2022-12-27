@@ -20,6 +20,7 @@ jobs:
           DBPass: ${{ secrets.DBPassDev }}
         run: |
           touch back/db/database.ini
+          echo [conexion] >> back/db/database.ini
           echo DBServ	= $DBServ >> back/db/database.ini
           echo DBConn	= $DBConn >> back/db/database.ini
           echo DBName	= $DBName >> back/db/database.ini
