@@ -1,0 +1,57 @@
+# ----------------------------------------------------------------------
+# Allow loading of external fonts
+# ----------------------------------------------------------------------
+<FilesMatch "\.(php)$">
+    <IfModule mod_headers.c>
+        SetEnvIf Origin "http(s)?://(www\.)?(localhost|howtoaccess.es|dev.howtoaccess.es)$" AccessControlAllowOrigin=$0
+        Header add Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
+        Header merge Vary Origin
+    </IfModule>
+</FilesMatch>
+
+# BEGIN cPanel-generated php ini directives, do not edit
+# Manual editing of this file may result in unexpected behavior.
+# To make changes to this file, use the cPanel MultiPHP INI Editor (Home >> Software >> MultiPHP INI Editor)
+# For more information, read our documentation (https://go.cpanel.net/EA4ModifyINI)
+<IfModule php7_module>
+   php_flag display_errors Off
+   php_value max_execution_time 30
+   php_value max_input_time 60
+   php_value max_input_vars 1000
+   php_value memory_limit 128M
+   php_value post_max_size 16M
+   php_value session.gc_maxlifetime 1440
+   php_value session.save_path "/var/cpanel/php/sessions/ea-php74"
+   php_value upload_max_filesize 8M
+   php_flag zlib.output_compression Off
+   php_value error_log "/home/casaloca/howtoaccess.es/dev.php.error.log"
+</IfModule>
+<IfModule lsapi_module>
+   php_flag display_errors Off
+   php_value max_execution_time 30
+   php_value max_input_time 60
+   php_value max_input_vars 1000
+   php_value memory_limit 128M
+   php_value post_max_size 16M
+   php_value session.gc_maxlifetime 1440
+   php_value session.save_path "/var/cpanel/php/sessions/ea-php74"
+   php_value upload_max_filesize 8M
+   php_flag zlib.output_compression Off
+   php_value error_log "/home/casaloca/howtoaccess.es/dev.php.error.log"
+</IfModule>
+# END cPanel-generated php ini directives, do not edit
+
+#RewriteEngine On
+#RewriteBase /
+# .htaccess files:        http://httpd.apache.org/docs/current/howto/htaccess.html
+# mod_rewrite directives: http://httpd.apache.org/docs/current/mod/mod_rewrite.html
+# regexp introduction:    http://httpd.apache.org/docs/current/rewrite/intro.html
+# map internal functions: http://httpd.apache.org/docs/current/rewrite/rewritemap.html
+# flags available:        http://httpd.apache.org/docs/current/rewrite/flags.html
+# implementation details: http://httpd.apache.org/docs/current/rewrite/tech.html
+
+#RewriteCond %{REQUEST_URI} API/
+# Replace up to 10 "-a" with "A" (https://code.i-harness.com/en/q/58d2c0)
+#RewriteRule "^([^-]*)(?:-)(.)(.*)$" "$1${uc:$2}$3" [N=10,DPI]
+#RewriteCond %{REQUEST_URI} API/
+#RewriteRule "^API/(.+)" "/tfg/back/API/$1.php" [L]
