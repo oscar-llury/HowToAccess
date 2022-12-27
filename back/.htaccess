@@ -1,0 +1,26 @@
+# ----------------------------------------------------------------------
+# Allow loading of external fonts
+# ----------------------------------------------------------------------
+<FilesMatch "\.(php)$">
+    <IfModule mod_headers.c>
+        SetEnvIf Origin "http(s)?://(www\.)?(localhost|howtoaccess.es|dev.howtoaccess.es)$" AccessControlAllowOrigin=$0
+        Header add Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
+        Header merge Vary Origin
+    </IfModule>
+</FilesMatch>
+
+#RewriteEngine On
+#RewriteBase /
+# .htaccess files:        http://httpd.apache.org/docs/current/howto/htaccess.html
+# mod_rewrite directives: http://httpd.apache.org/docs/current/mod/mod_rewrite.html
+# regexp introduction:    http://httpd.apache.org/docs/current/rewrite/intro.html
+# map internal functions: http://httpd.apache.org/docs/current/rewrite/rewritemap.html
+# flags available:        http://httpd.apache.org/docs/current/rewrite/flags.html
+# implementation details: http://httpd.apache.org/docs/current/rewrite/tech.html
+
+#RewriteCond %{REQUEST_URI} API/
+# Replace up to 10 "-a" with "A" (https://code.i-harness.com/en/q/58d2c0)
+#RewriteRule "^([^-]*)(?:-)(.)(.*)$" "$1${uc:$2}$3" [N=10,DPI]
+#RewriteCond %{REQUEST_URI} API/
+#RewriteRule "^API/(.+)" "/tfg/back/API/$1.php" [L]
+

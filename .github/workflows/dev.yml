@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Create database.ini file
+      - name: Create back/db/database.ini file
         env:
           DBServ: localhost
           DBConn: mysql
@@ -19,20 +19,32 @@ jobs:
           DBUser: ${{ secrets.DBUserDev }}
           DBPass: ${{ secrets.DBPassDev }}
         run: |
-          touch database.ini
-          echo DBServ	= $DBServ >> database.ini
-          echo DBConn	= $DBConn >> database.ini
-          echo DBName	= $DBName >> database.ini
-          echo DBUser	= $DBUser >> database.ini
-          echo DBPass	= $DBPass >> database.ini
+          touch back/db/database.ini
+          echo [conexion] >> back/db/database.ini
+          echo DBServ	= $DBServ >> back/db/database.ini
+          echo DBConn	= $DBConn >> back/db/database.ini
+          echo DBName	= $DBName >> back/db/database.ini
+          echo DBUser	= $DBUser >> back/db/database.ini
+          echo DBPass	= $DBPass >> back/db/database.ini
 
-          echo "cat database.ini"
-          cat database.ini
+          echo "cat back/db/database.ini"
+          cat back/db/database.ini
 
-          echo "ls -a ."
-          ls -a .
+      - name: Edit php config files
+        run: |
+          var1=cat
+          echo dev.php.error.log >> back/php.ini
+          echo dev.php.error.log >> back/.user.ini
+          log=dev.php.error.log
+          hta1=$(<back/htaccess/htaccess1)
+          hta1+="${log}"
+          hta2=$(<back/htaccess/htaccess2)
+          hta2+="${log}"
+          hta3=$(<back/htaccess/htaccess3)
+          echo "${hta1}${hta2}${hta3}" >> back/.htaccess
 
-      - run: ls -l
+      - run: ls -l back
+      - run: ls -l back/db/
 
       - name: 🎉 Deploy
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
@@ -47,3 +59,4 @@ jobs:
             **/.git*/**
             **/node_modules/**
             **/vendor/**
+            **/htaccess/**
