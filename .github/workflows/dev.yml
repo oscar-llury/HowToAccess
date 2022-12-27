@@ -38,7 +38,7 @@ jobs:
           server: ftp.casaloca.es
           username: ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}
-          local-dir: ./back/db/
+          local-dir: ./back/
           server-dir: /tfg_dev/
           exclude: |
             **/.git*
