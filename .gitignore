@@ -25,3 +25,5 @@ back/vendor/composer
 back/vendor
 back/logs
 back/db/database.ini
+#to track sync files FTP-Deploy-Action
+.ftp-deploy-sync-state.json

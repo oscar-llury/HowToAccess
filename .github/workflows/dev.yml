@@ -30,6 +30,19 @@ jobs:
           echo "cat back/db/database.ini"
           cat back/db/database.ini
 
+      - name: Edit php config files
+        run: |
+          var1=cat
+          echo dev.php.error.log >> php.ini
+          echo dev.php.error.log >> .user.ini
+          log=dev.php.error.log
+          hta1=$(<back/htaccess/htaccess1)
+          hta1+="${log}"
+          hta2=$(<back/htaccess/htaccess2)
+          hta2+="${log}"
+          hta3=$(<back/htaccess/htaccess3)
+          echo "${hta1} ${hta2} ${hta3}" >> back/yo
+
       - run: ls -l back
       - run: ls -l back/db/
 
