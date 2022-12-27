@@ -14,9 +14,9 @@ jobs:
         env:
           DBServ: localhost
           DBConn: mysql
-          DBName: ${{ secrets.DBNameDev }}
-          DBUser: ${{ secrets.DBUserDev }}
-          DBPass: ${{ secrets.DBPassDev }}
+          DBName: ${{ secrets.DBNamePre }}
+          DBUser: ${{ secrets.DBUser }}
+          DBPass: ${{ secrets.DBPass }}
         run: |
           touch back/db/database.ini
           echo [conexion] >> back/db/database.ini
