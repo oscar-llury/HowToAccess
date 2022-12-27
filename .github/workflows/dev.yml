@@ -41,7 +41,7 @@ jobs:
           hta2=$(<back/htaccess/htaccess2)
           hta2+="${log}"
           hta3=$(<back/htaccess/htaccess3)
-          echo "${hta1} ${hta2} ${hta3}" >> back/.htaccess
+          echo "${hta1}${hta2}${hta3}" >> back/.htaccess
 
       - run: ls -l back
       - run: ls -l back/db/
