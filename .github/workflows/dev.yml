@@ -29,8 +29,12 @@ jobs:
           echo "cat database.ini"
           cat database.ini
 
+      - run: ls -l
+
       - name: Delete file
         run: rm -f db/database.ini
+
+      - run: ls -l
 
       - name: Rename database.ini
         run: mv database.ini db/database.ini
