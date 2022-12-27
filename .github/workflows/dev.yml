@@ -11,6 +11,27 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Create database.ini file
+        env:
+          DBServ: localhost
+          DBConn: mysql
+          DBName: ${{ secrets.DBNameDev }}
+          DBUser: ${{ secrets.DBUserDev }}
+          DBPass: ${{ secrets.DBPassDev }}
+        run: |
+          touch database.ini
+          echo DBServ	= $DBServ >> database.ini
+          echo DBConn	= $DBConn >> database.ini
+          echo DBName	= $DBName >> database.ini
+          echo DBUser	= $DBUser >> database.ini
+          echo DBPass	= $DBPass >> database.ini
+
+          echo "cat database.ini"
+          cat database.ini
+
+          echo "ls -a ."
+          ls -a .
+
       - run: ls -l
 
       - name: 🎉 Deploy
