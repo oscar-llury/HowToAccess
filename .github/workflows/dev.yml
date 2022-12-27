@@ -30,7 +30,7 @@ jobs:
           echo "cat back/db/database.ini"
           cat back/db/database.ini
 
-      - run: ls -l
+      - run: ls -l back
       - run: ls -l back/db/
 
       - name: 🎉 Deploy
