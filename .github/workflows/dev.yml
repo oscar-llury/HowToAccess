@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Create database.ini file
+      - name: Create back/database.ini file
         env:
           DBServ: localhost
           DBConn: mysql
@@ -19,27 +19,27 @@ jobs:
           DBUser: ${{ secrets.DBUserDev }}
           DBPass: ${{ secrets.DBPassDev }}
         run: |
-          touch database.ini
-          echo DBServ	= $DBServ >> database.ini
-          echo DBConn	= $DBConn >> database.ini
-          echo DBName	= $DBName >> database.ini
-          echo DBUser	= $DBUser >> database.ini
-          echo DBPass	= $DBPass >> database.ini
+          touch back/database.ini
+          echo DBServ	= $DBServ >> back/database.ini
+          echo DBConn	= $DBConn >> back/database.ini
+          echo DBName	= $DBName >> back/database.ini
+          echo DBUser	= $DBUser >> back/database.ini
+          echo DBPass	= $DBPass >> back/database.ini
 
-          echo "cat database.ini"
-          cat database.ini
+          echo "cat back/database.ini"
+          cat back/database.ini
 
       - run: ls -l
+      - run: ls -l back
 
       - name: Delete file
-        run: rm -f db/database.ini
+        run: rm -f back/db/database.ini
 
       - run: ls -l
-
-      - name: Rename database.ini
-        run: mv database.ini db/database.ini
+      - run: ls -l back
 
       - run: ls -l
+      - run: ls -l back
 
       - name: 🎉 Deploy
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
