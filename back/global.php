@@ -6,6 +6,7 @@
 
 if ($_SERVER['SERVER_NAME'] == 'localhost') {
     $_SERVER['DOCUMENT_ROOT'] = $_SERVER['DOCUMENT_ROOT'] . '/tfg/back';
+    header('Access-Control-Allow-Origin: *');
 }
 
 require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
