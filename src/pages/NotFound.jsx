@@ -10,8 +10,8 @@ export default function NotFound() {
           <i className="bi bi-circle-fill"></i>
           <i className="bi bi-circle-fill"></i>
         </div>
-        <div className="e-404">
-          <h1>
+        <div className="e-404 px-sm-5">
+          <h1 className="title mx-2">
             <span>404</span>
             <br /> página no encontrada
           </h1>
