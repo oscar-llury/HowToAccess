@@ -21,6 +21,7 @@ import Pauta from "pages/Pauta";
 //functions
 import { AuthProvider, RequireAuth } from "./lib/auth";
 import SimulacionInteractiva from "pages/SimulacionInteractiva";
+import TipsWeb from "pages/TipsWeb";
 
 export default function App() {
   const location = useLocation();
@@ -89,6 +90,7 @@ export default function App() {
           {pagesGuideleness.map((path) => (
             <Route key={path} path={path} element={<Pauta crumbs={crumbs} slug={location.pathname.split("/").pop()} pages={pagesGuidelenessNames} />} />
           ))}
+          <Route path="/tips-web" element={<TipsWeb />} />
           <Route path="/iniciar-sesion" element={<Login />} />
           <Route
             path="/simulacion-interactiva"

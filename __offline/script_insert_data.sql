@@ -34,7 +34,7 @@ ALTER TABLE `usr_usuario` AUTO_INCREMENT=1;
 INSERT INTO `usr_usuario` (`nombre`, `apellidos`, `email`, `contrasena`) VALUES ('admin', 'web', 'oscar.rivas.99@gmail.com', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918');
 
 -- tipo suscripcion
-INSERT INTO `usr_suscripcion` (`nombre`, `max_proyectos`) VALUES ('Básica', '5');
+-- INSERT INTO `usr_suscripcion` (`nombre`, `max_proyectos`) VALUES ('Básica', '5');
 
 -- tipo proyecto
 INSERT INTO `pro_tipo_proyecto` (`nombre`) VALUES ('Nivel de conformidad objetivo A');
