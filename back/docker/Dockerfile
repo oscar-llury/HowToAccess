@@ -3,7 +3,7 @@ MAINTAINER oscar_rivas <o.rivas.2017@alumnos.urjc.es>
 ARG DEBIAN_FRONTEND=noninteractive
 
 # install core packages
-RUN apt-get -y update && apt-get -y upgrade
+RUN apt-get update && apt-get install -y apt-transport-https
 RUN apt-get -y install software-properties-common
 RUN apt-get -y install fontconfig
 
@@ -88,6 +88,7 @@ RUN echo "error_reporting = E_ALL\n" \
 # create folders (/home/usuario and upload folders)
 RUN useradd -ms /bin/bash usuario
 RUN mkdir -p /mnt/efs/back/ && \
+	chgrp -R www-data /mnt/efs/back && \
 	chmod -R g+w /mnt/efs/back/
 
 #chgrp -R www-data /mnt/efs/filigrane && \
