@@ -13,7 +13,7 @@ export default function NuevoProyecto() {
   const [nombre, setNombre] = useState("");
   const [tipoCriterios, setTipoCriterios] = useState(0);
   const [conformanceLevel, setConformanceLevel] = useState(0);
-  const [foo, setFoo] = useState(<p>Selecciona primero un método de selección de criterios de conformidad</p>);
+  const [proyectSelection, setProyectSelection] = useState(<p>Selecciona primero un método de selección de criterios de conformidad</p>);
   const ids = [1, 2, 3];
   const [totalComplete, setTotalComplete] = useState(0);
   const [conformanceCriteria, setConformanceCriteria] = useState([]);
@@ -75,7 +75,7 @@ export default function NuevoProyecto() {
   }, [totalComplete]);
 
   useEffect(() => {
-    Number(tipoCriterios) === 1 ? setFoo(<ProyectTypeConformance changeConformanceLevel={changeConformanceLevel} />) : Number(tipoCriterios) === 2 ? setFoo(<ProyectTypePublic />) : <div></div>;
+    Number(tipoCriterios) === 1 ? setProyectSelection(<ProyectTypeConformance changeConformanceLevel={changeConformanceLevel} />) : Number(tipoCriterios) === 2 ? setProyectSelection(<ProyectTypePublic />) : <div></div>;
   }, [tipoCriterios]);
 
   async function loadCriteria(form, callback) {
@@ -242,7 +242,7 @@ export default function NuevoProyecto() {
             </ul>
           </Col>
           <Col md="6" xs="12">
-            {foo}
+            {proyectSelection}
           </Col>
           <Col xs="12" className="d-flex justify-content-end">
             <Button variant="outline-primary" type="submit" onSubmit={handleSubmitSt1}>
@@ -337,33 +337,33 @@ export default function NuevoProyecto() {
               <p className="field">Discapacidades seleccionadas:</p>
               <div className="value">
                 {discSeleccionadas.proyect_obj_1 && (
-                  <p>
-                    Discapacidades visuales:
+                  <div>
+                    <p>Discapacidades visuales:</p>
                     <ul>
-                      <li>{discSeleccionadas.proyect_obj_1_1 && "Color"}</li>
-                      <li>{discSeleccionadas.proyect_obj_1_2 && "Visión reducida"}</li>
-                      <li>{discSeleccionadas.proyect_obj_1_3 && "Ceguera"}</li>
+                      {discSeleccionadas.proyect_obj_1_1 && <li>Color</li>}
+                      {discSeleccionadas.proyect_obj_1_2 && <li>Visión reducida</li>}
+                      {discSeleccionadas.proyect_obj_1_3 && <li>Ceguera</li>}
                     </ul>
-                  </p>
+                  </div>
                 )}
                 {discSeleccionadas.proyect_obj_2 && (
-                  <p>
-                    Discapacidades auditivas:
+                  <div>
+                    <p>Discapacidades auditivas:</p>
                     <ul>
-                      <li>{discSeleccionadas.proyect_obj_2_1 && "Audición reducida"}</li>
-                      <li>{discSeleccionadas.proyect_obj_2_2 && "Sordera"}</li>
+                      {discSeleccionadas.proyect_obj_2_1 && <li>Audición reducida</li>}
+                      {discSeleccionadas.proyect_obj_2_2 && <li>Sordera</li>}
                     </ul>
-                  </p>
+                  </div>
                 )}
                 {discSeleccionadas.proyect_obj_4 && (
-                  <p>
-                    Discapacidades cognitivas:
+                  <div>
+                    <p>Discapacidades cognitivas:</p>
                     <ul>
-                      <li>{discSeleccionadas.proyect_obj_4_1 && "TDH / dificultad comprension"}</li>
-                      <li>{discSeleccionadas.proyect_obj_4_2 && "Dislexia"}</li>
-                      <li>{discSeleccionadas.proyect_obj_4_3 && "Perdida memoria a corto plazo / memoria limitada"}</li>
+                      {discSeleccionadas.proyect_obj_4_1 && <li>TDH / dificultad comprension</li>}
+                      {discSeleccionadas.proyect_obj_4_2 && <li>Dislexia</li>}
+                      {discSeleccionadas.proyect_obj_4_3 && <li>Perdida memoria a corto plazo / memoria limitada</li>}
                     </ul>
-                  </p>
+                  </div>
                 )}
                 {discSeleccionadas.proyect_obj_3 && <p>Discapacidades motoras y Movilidad reducida</p>}
                 <p>¿El público objetivo son personas mayores? {discSeleccionadas.proyect_obj_5 === "true" ? "Sí" : "No"}</p>

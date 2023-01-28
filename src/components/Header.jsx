@@ -62,7 +62,7 @@ export default function Header() {
               <Link to="/normas-de-accesibilidad-web" className={`nav-item ${locationUrl === "/normas-de-accesibilidad-web" ? "active" : ""}`} title="Normas de accesibilidad">
                 Normas de accesibilidad
               </Link>
-              <Link to="#" className={`nav-item ${locationUrl === "" ? "active" : ""}`} title="Tips web">
+              <Link to="/tips-web" className={`nav-item ${locationUrl === "/tips-web" ? "active" : ""}`} title="Tips web">
                 Tips web
               </Link>
             </Nav>

@@ -16,7 +16,7 @@ NAME=tfg
 WIN_ROOT=$(echo $ROOT | sed 's,/\(.\)/,\1:/,' | sed 's,/,\\,g')
 cd ..
 
-docker build --tag "$NAME" -f "$DIR"/Dockerfile .
+docker build --tag tag:"$NAME" -f "$DIR"/Dockerfile .
 docker run \
     --name "$NAME" \
     --detach \
@@ -24,7 +24,7 @@ docker run \
     --interactive \
     --publish 80:80 \
     --volume "$WIN_ROOT":/home/usuario \
-    "$NAME"
+    tag:"$NAME"
 
 #conectarse a docker desde cmd
 #docker exec -it rtci bash

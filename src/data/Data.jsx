@@ -1,4 +1,4 @@
-let Data = {};
+let Data = [];
 
 Data["perceptible"] = require("./perceptible/perceptible.json");
 Data["operable"] = require("./operable/operable.json");

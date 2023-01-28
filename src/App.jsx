@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useLocation } from "react-router";
+import { inject } from "@vercel/analytics";
+
 //components
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -19,6 +21,7 @@ import Pauta from "pages/Pauta";
 //functions
 import { AuthProvider, RequireAuth } from "./lib/auth";
 import SimulacionInteractiva from "pages/SimulacionInteractiva";
+import TipsWeb from "pages/TipsWeb";
 
 export default function App() {
   const location = useLocation();
@@ -71,6 +74,8 @@ export default function App() {
   const pagesPrinciplesNames = pagesPrinciples.reduce((o, key) => [...o, key.split("/").pop().replaceAll("-", "_")], []);
   const pagesGuidelenessNames = pagesGuideleness.reduce((o, key) => [...o, key.split("/").pop().replaceAll("-", "_")], []);
 
+  inject();
+
   return (
     <div className="App">
       <AuthProvider>
@@ -85,6 +90,7 @@ export default function App() {
           {pagesGuideleness.map((path) => (
             <Route key={path} path={path} element={<Pauta crumbs={crumbs} slug={location.pathname.split("/").pop()} pages={pagesGuidelenessNames} />} />
           ))}
+          <Route path="/tips-web" element={<TipsWeb />} />
           <Route path="/iniciar-sesion" element={<Login />} />
           <Route
             path="/simulacion-interactiva"
