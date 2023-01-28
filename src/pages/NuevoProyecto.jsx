@@ -292,7 +292,7 @@ export default function NuevoProyecto() {
                                   <p className="m-0">Nivel {criteria.level_name}</p>
                                 </Col>
                                 <Col xs="2" md="1" className="text-end">
-                                  <a className="btn btn-info btn-sm" href={getCriteriaSlugByIndex(criteria.key)} target="blank" title={`Consultar criterio ${criteria.key} ${criteria.name}`}>
+                                  <a className="btn btn-info btn-sm" href={getCriteriaSlugByIndex(criteria.key)} target="_blank" title={`Consultar criterio ${criteria.key} ${criteria.name}`}>
                                     <i className="bi bi-info-circle"></i>
                                   </a>
                                 </Col>
