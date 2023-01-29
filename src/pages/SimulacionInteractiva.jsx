@@ -63,11 +63,11 @@ export default function SimulacionInteractiva() {
         </Row>
         <div className="slider-container m-auto w-100" style={{ height: `${imageDyslexia.height}px`, maxWidth: `${imageDyslexia.with < 644 ? imageDyslexia.with : 644}px`, width: `${imageDyslexia.with}px` }}>
           <div className="background-img text-end">
-            <span className="box position-absolute end-0">OpenDyslexic</span>
+            <span className="box position-absolute end-0">Helvetica</span>
             <img src={src_imgB} alt="" className="container-text w-100" onLoad={onImgLoad} id="imgSliderBg" />
           </div>
           <div className="foreground-img overflow-hidden" style={{ width: `${pos}%` }}>
-            <span className="box position-absolute">Helvetica</span>
+            <span className="box position-absolute">OpenDyslexic</span>
             <img src={src_imgA} alt="" className="container-text" style={{ height: `${imageDyslexia.height}px`, width: `${imageDyslexia.with - 10}px` }} />
           </div>
           <input
@@ -87,7 +87,7 @@ export default function SimulacionInteractiva() {
         <p className="mt-1 mb-4 text-center">Comparativa de texto entre la tipografía Helvetica y OpenDyslexic.</p>
         <Container fluid="md" className="my-3">
           <p className="mb-3">
-            También con Helvetica las letras B, P, Q son todas el mismo carácter simplemente volteado o girado. Esto significa que las personas con dislexia pueden experimentar un volteado letras y como resultado una mayor dificultad para determinar qué carácter deben ver. En comparación con OpenDyslexic, cada caracter está mucho más definido, como la Q con una cola más resaltada a diferencia de P, lo que facilita la distincion de ellas y queda claro para el usuario lo que está leyendo.
+            En la tipografía Helvetica las letras B, P, Q son todas el mismo carácter simplemente volteado o girado. Esto significa que las personas con dislexia pueden experimentar un volteado letras y como resultado una mayor dificultad para determinar qué carácter deben ver. En comparación con OpenDyslexic, cada caracter está mucho más definido, como la Q con una cola más resaltada a diferencia de P, lo que facilita la distincion de ellas y queda claro para el usuario lo que está leyendo.
           </p>
           <figure className="text-center mb-4">
             <img src={bpq_letters} alt="" className="bpq_letters" />
