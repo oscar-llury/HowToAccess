@@ -102,7 +102,7 @@ const Home = () => {
                     Páginas Web
                   </h2>
 
-                  <p className="my-4">En un mundo rebosante de información digital se ha convertido en un factor imprescindible retener a los visitantes de nuestro web. Se estima que Google procesa 63.000 búsquedas por segundo.</p>
+                  <p className="my-4">En un mundo rebosante de información digital se ha convertido en un factor imprescindible retener a los visitantes de nuestra web. Se estima que Google procesa 63.000 búsquedas por segundo.</p>
                   <p className="m-0">Personas que no comprendan o no puedan interactuar con la información o el funcionamiento de una página web la abandonarán rápidamente.</p>
                 </Container>
               </Col>
